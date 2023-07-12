@@ -1,0 +1,43 @@
+@import "../variables.scss";
+
+.portfolio {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("../../assets/images/portfolitoVector.png");
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 6rem);
+
+  .portfolio-text {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    span {
+      text-align: center;
+      line-height: $line-height-large;
+      font-family: $font-family-base;
+    }
+
+    .text {
+      font-family: $font-family-bold;
+      font-weight: $font-weight-bold;
+      font-size: $font-size-large;
+    }
+
+  }
+
+  .wrap-img {
+    max-width: 656px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  h2.title {
+    font-weight: 800;
+  }
+}
+

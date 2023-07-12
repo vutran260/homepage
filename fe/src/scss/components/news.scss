@@ -1,0 +1,39 @@
+@import "../variables";
+
+.news {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("../../assets/images/backgroundNews.png");
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 6rem);
+
+  .wrap-text {
+    span {
+      font-weight: 400;
+      line-height: 24px;
+    }
+
+    .ourNews {
+      font-size: $font-size-large;
+      font-weight: $font-size-large;
+      font-family: $font-family-bold;
+      line-height: $line-height-large;
+    }
+  }
+
+  .wap-item {
+    padding-right: 100px;
+
+  }
+
+  .button-custom {
+    left: 30px;
+    display: flex;
+    bottom: 30px;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+
+}

@@ -1,0 +1,64 @@
+@import "../variables.scss";
+
+.slider-home {
+  height: calc(100vh - 6rem);
+  padding-right: 100px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('../../assets/images/portback.png');
+
+  .text {
+    color: aliceblue;
+  }
+
+  .slick-list {
+    margin-bottom: 2rem;
+  }
+
+  .slick-slide-home {
+    display: flex !important;
+    justify-content: center;
+    width: 100%;
+
+    li {
+      position: relative;
+      border-bottom: 1px solid $gray-600;
+      color: $gray-600;
+      cursor: pointer;
+      background-color: transparent;
+      width: 100px;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: center;
+
+      &:after {
+        box-sizing: border-box;
+        width: 100%;
+        content: "";
+        position: absolute;
+        left: 0px;
+        bottom: 0%;
+        height: 10px;
+        border-left: 1px solid $gray-600;
+        color: #fff;
+      }
+
+      &.slick-active {
+        color: $orange;
+        border-color: $orange;
+
+        &:after {
+          border-color: $orange;
+          border-right: 1px solid $orange;
+        }
+      }
+
+      span {
+        padding: 5px 10px;
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
+
+}

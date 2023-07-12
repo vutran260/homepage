@@ -1,0 +1,27 @@
+@import "../variables";
+
+.homeComponent {
+  .textHome {
+    left: 5%;
+    top: 68px;
+
+    span {
+      font-size: 3rem;
+      line-height: $line-height-large;
+      font-weight: $font-weight-base;
+    }
+
+    span:nth-child(2) {
+      font-weight: 900;
+      font-family: $font-family-bold;
+    }
+  }
+
+  .banner {
+  }
+
+}
+
+
+
+

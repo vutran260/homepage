@@ -1,0 +1,15 @@
+@import "../variables";
+
+.wrap-teams {
+  background-image: url("../../assets/images/bg3.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 6rem);
+  padding-right: 100px;
+  
+  .wrap-slider-common {
+    height: calc(100% - 83px);
+  }
+}

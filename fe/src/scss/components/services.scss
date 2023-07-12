@@ -1,0 +1,33 @@
+@import "../variables";
+
+.wrap-services {
+  padding-right: 100px;
+  width: 100%;
+  height: calc(100vh - 6rem);
+  padding-right: 100px;
+  
+  .fontText {
+    font-family: $font-family-bold;
+    font-weight: 700;
+  }
+
+  .text-font {
+    font-size: 0.8rem;
+  }
+
+  .backgroundLiner {
+    background-image: url("../../assets/images/linear.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 1;
+  }
+
+  .backgroundLinearBottom {
+    background-image: url("../../assets/images/linearBottom.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 1;
+  }
+}

@@ -1,0 +1,64 @@
+@import "../variables";
+
+.side-bar {
+  width: $width-sideBar;
+
+  .section-items {
+    left: 30px;
+
+    .wrap-item-sideBar {
+      .border-left {
+        height: 26px;
+        border-left: 1px solid #535559;
+        margin: 2px 0 2px 3px;
+      }
+
+      .section-item {
+        gap: 15px;
+
+        .dot {
+          opacity: 0.4;
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background: #fff;
+          border: 3px solid #fff;
+          border-style: double;
+          background-clip: content-box;
+        }
+
+        .fs-11 {
+          color: #ffffff;
+          text-transform: uppercase;
+          opacity: 0.4;
+          font-size: 13px;
+          caret-color: transparent;
+        }
+
+        &.active {
+          .fs-11 {
+            opacity: 1;
+          }
+
+          .dot {
+            color: #fff;
+          }
+        }
+      }
+    }
+
+    .wrap-item-sideBar:first-child {
+      .border-left {
+        border-left: none;
+      }
+    }
+  }
+
+  .active {
+    .fs-11 {
+      opacity: unset !important;
+    }
+
+    color: white;
+  }
+}

@@ -1,0 +1,21 @@
+@import "../variables";
+
+.wrap-value {
+  background-image: url("../../assets/images/bg2.png");
+  background-position: right;
+  background-repeat: no-repeat;
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 6rem);
+  padding-right: 100px;
+  
+  .wrap-text {
+    top: 24%;
+    right: 0;
+    left: 49%;
+    padding: 2rem;
+    bottom: 0;
+    max-width: 31rem;
+    height: fit-content;
+  }
+}

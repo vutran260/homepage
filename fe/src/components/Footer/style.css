@@ -1,0 +1,20 @@
+.footer {
+  background-image: url(../../assets/images/backgroundFooter.png);
+  background-position: -115px -144px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  padding: 147px 0 200px;
+  height: calc(100vh - 6rem);
+}
+
+.footer p, span {
+  font-size: 0.875rem;
+}
+
+@media screen and (max-width: 1024px) {
+  .footer {
+    padding: 30px 0;
+  }
+}

@@ -1,0 +1,37 @@
+@import "../variables";
+
+.aboutUS {
+  background-position: left;
+  background-repeat: no-repeat;
+  background-image: url("../../assets/images/backgroundAbout.png");
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 6rem);
+  padding-right: 100px;
+
+  .aboutUS-wrap-text {
+    width: 55%;
+    padding-left: 60px;
+    padding-top: 20px;
+
+    .text-large {
+      font-family: $font-family-bold;
+      font-size: $font-size-large;
+      line-height: $line-height-large;
+      font-weight: 800;
+    }
+
+    .text-medium {
+      font-weight: $font-weight-bold;
+      text-transform: uppercase;
+      line-height: 30px;
+      font-size: $font-size-medium;
+      color: $orange;
+    }
+  }
+
+  .wrap-img {
+    width: 45%;
+  }
+
+}

@@ -1,0 +1,34 @@
+@import "./variables";
+
+* {
+  font-family: $font-family-base;
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+html {
+  height: 100%;
+  line-height: 1.2;
+}
+
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 12px;
+  }
+}
+
+body {
+  background-color: $gray-900;
+}
+
+.custom-paging {
+  position: relative;
+  padding: 5px 10px;
+  border-bottom: $gray-600;
+  color: $gray-600;
+  cursor: pointer;
+  background-color: transparent;
+  width: 100px;
+  box-sizing: border-box;
+}

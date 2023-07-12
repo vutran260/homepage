@@ -1,0 +1,42 @@
+@import "../variables";
+
+.ourSkill {
+  background-position: 66% 97%;
+  background-repeat: no-repeat;
+  background-image: url("../../assets/images/backgroupSkill.png");
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 6rem);
+  padding-right: 100px;
+
+  .ourSkill-wrap-text {
+    width: 55%;
+    padding-right: 130px;
+
+    .text-large {
+      font-family: $font-family-bold;
+      font-size: $font-size-large;
+      line-height: $line-height-large;
+      font-weight: 800;
+
+    }
+
+    .text-medium {
+      font-weight: $font-weight-bold;
+      text-transform: uppercase;
+      line-height: 30px;
+      font-size: $font-size-medium;
+      color: $orange;
+    }
+  }
+
+  .wrap-img {
+    width: 45%;
+  }
+
+  .button-custom {
+
+  }
+
+
+}

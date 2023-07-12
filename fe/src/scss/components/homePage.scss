@@ -1,0 +1,15 @@
+@import "../variables";
+
+.placeSideBar {
+  width: $width-sideBar;
+}
+
+.mainHomeContent {
+  width: calc(100% - $width-sideBar);
+}
+
+.textLarge {
+  font-size: $font-size-large;
+  font-family: $font-family-bold;
+  line-height: $line-height-large
+}
