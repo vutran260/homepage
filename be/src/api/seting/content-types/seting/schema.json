@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "setings",
+  "info": {
+    "singularName": "seting",
+    "pluralName": "setings",
+    "displayName": "Seting"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "logo": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}
