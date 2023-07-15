@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import Logo from '../../assets/images/logo.png'
+import Logo from '../../assets/images/Logo.png'
 export default function LogoFixed() {
   return (
     <div className='top-0 w-full bg-transparent py-4 pl-4'>
