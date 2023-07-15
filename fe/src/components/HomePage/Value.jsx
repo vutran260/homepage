@@ -4,7 +4,7 @@ import background from "src/assets/images/Rectangle35.png"
 
 export function Value() {
   return (
-    <div className="wrap-value relative">
+    <div className="wrap-value relative heightSection">
       <div className="w-4/5">
         <img src={background} alt=""/>
       </div>
@@ -23,7 +23,7 @@ export function Value() {
         </div>
       </div>
       <div className="ButtonGoDown">
-        <ButtonGoDown/>
+        <ButtonGoDown target="Team"/>
       </div>
     </div>
   )

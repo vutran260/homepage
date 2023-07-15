@@ -7,6 +7,7 @@ import HomePage from './pages/HomePage'
 import { motion } from 'framer-motion'
 import Contact from './pages/Contact'
 import TestScroll from './pages/TestScroll'
+import Portfolio from './pages/Portfolio'
 
 const AnimationWrap = ({ children }) => (
   <motion.div initial={{ opacity: 0, scale: 0.5 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5 }}>
@@ -40,6 +41,7 @@ function App() {
         <Route path='/posts/:id' element={<PostDetail />} />
         <Route path='/contact' element={<Contact />} />
         <Route path='/test' element={<TestScroll />} />
+        <Route path='/portfolio' element={<Portfolio />} />
       </Routes>
       <ToastContainer />
     </>

@@ -1,15 +1,41 @@
 @import "../variables";
+
 .text-custom {
-  font-size: $font-size-medium;
-  line-height: 30px;
+  font-size: 16px;
   display: block;
   display: -webkit-box;
-  height: 16px*1.3*3;
-  font-size: 16px;
+  height: 16px*1.3*4;
   line-height: 1.3;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  margin-top:10px;
+  margin-top: 10px;
+}
+
+.wrap-buttonCardNew {
+  left: 0;
+  bottom: 30px;
+  position: absolute;
+}
+
+@include screen("mobile") {
+  .newCard-mobile {
+    flex-direction: row !important;
+  }
+  .newCard-mobile-image {
+    margin-right: 15px;
+  }
+  .wrap-buttonCardNew {
+    display: flex;
+    position: unset;
+    margin-top: 40px;
+    width: 100%;
+    justify-content: center;
+  }
+  .wrap-text-right {
+    width: 100%;
+    margin-top: 0 !important;
+  }
+
 }

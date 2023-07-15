@@ -1,0 +1,81 @@
+@import "../variables";
+
+.sideBarMobile {
+  left: 0;
+  background-image: url("../../assets/images/bgsidebarMobile.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: fixed;
+  top: 0;
+  z-index: 60;
+  width: 50%;
+  height: 100%;
+  display: none;
+
+  .wrap-item-sideBar {
+    padding-left: 45px;
+
+    .section-item {
+      gap: 15px;
+      padding: 1.2rem;
+
+      .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #fff;
+        border: 3px solid #fff;
+        border-style: double;
+        background-clip: content-box;
+      }
+
+      .fs-text {
+        color: #ffffff;
+        text-transform: uppercase;
+        font-size: 16px;
+        font-weight: 400;
+      }
+    }
+  }
+
+  .wrap-item-sideBar:first-child {
+    .border-left {
+      border-left: none;
+    }
+  }
+
+  .active {
+    .fs-text {
+      color: $orange !important;
+      font-weight: 600 !important;
+
+    }
+
+    .dot {
+      color: $orange;
+    }
+
+    color: $orange;
+  }
+}
+
+@include screen(768) {
+  .sideBarMobile {
+    display: block;
+    transition: transform 0.5s ease-in-out;
+  }
+}
+
+@include screen("mobile") {
+  .sideBarMobile {
+    width: 100%;
+    overflow-y: auto;
+  }
+}
+
+
+
+
+
+

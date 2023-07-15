@@ -6,7 +6,6 @@
   background-image: url("../../assets/images/backgroundAbout.png");
   position: relative;
   width: 100%;
-  height: calc(100vh - 6rem);
   padding-right: 100px;
 
   .aboutUS-wrap-text {
@@ -32,6 +31,65 @@
 
   .wrap-img {
     width: 45%;
+    height: fit-content;
+
+    .pc {
+      display: block;
+    }
+
+    .mobile {
+      display: none;
+    }
   }
+
+}
+
+@include screen(991) {
+  .aboutUS {
+    padding-right: 20px;
+  }
+}
+
+@include screen("mobile") {
+  .aboutUS {
+    padding-right: 0 !important;
+    background-position: 55% 192px;
+    background-size: cover;
+
+    .aboutUs-text {
+      font-size: 30px !important;
+      line-height: 40px !important;
+      margin-bottom: 10px !important;
+    }
+
+    .years-text {
+      font-size: 16px !important;
+      margin-bottom: 10px !important;
+    }
+
+    .wrap-img {
+      width: 100% !important;
+      height: fit-content;
+      margin-top: 20px;
+
+      .pc {
+        display: none !important;
+      }
+
+      .mobile {
+        display: block !important;
+      }
+    }
+  }
+  .wrap-aboutContent {
+    flex-direction: column-reverse !important;
+
+    .aboutUS-wrap-text {
+      width: 100% !important;
+      padding-left: 15px !important;
+      padding-right: 15px !important;
+    }
+  }
+
 
 }

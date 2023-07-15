@@ -4,7 +4,7 @@ import ButtonGoDown from "src/components/Button/index.js";
 
 export const Teams = () => {
   return (
-    <div className="wrap-teams w-full pt-6 flex flex-col">
+    <div className="wrap-teams w-full pt-6 flex flex-col heightSection">
       <div className="flex justify-center pb-4">
         <div className="flex flex-col justify-center">
           <span className="text-white mb-2 flex justify-center">Our staff</span>
@@ -15,7 +15,7 @@ export const Teams = () => {
         <SliderCommon/>
       </div>
       <div className='ButtonGoDown'>
-        <ButtonGoDown/>
+        <ButtonGoDown target="Feedback"/>
       </div>
 
     </div>

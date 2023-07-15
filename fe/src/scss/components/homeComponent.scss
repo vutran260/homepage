@@ -1,6 +1,9 @@
 @import "../variables";
 
 .homeComponent {
+  position: relative;
+  width: 100%;
+
   .textHome {
     left: 5%;
     top: 68px;
@@ -18,6 +21,22 @@
   }
 
   .banner {
+    height: 100%;
+    object-fit: cover;
+    object-position: bottom;
+  }
+
+}
+
+@media screen and (max-width: 768px) {
+  .homeComponent {
+    .textHome {
+      top: 30px;
+
+      span {
+        font-size: 30px;
+      }
+    }
   }
 
 }

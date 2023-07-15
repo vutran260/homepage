@@ -7,6 +7,7 @@ import './style.css'
 import convertDateFormat from '../../utils/convertDateTime'
 import { AnimationWrap } from '../../components/Animation'
 import LogoFixed from '../../components/LogoFixed'
+import Vector14 from '../../assets/images/Vector14.png'
 
 export default function PostsList() {
   const [post, setPost] = useState({})
@@ -22,14 +23,20 @@ export default function PostsList() {
   const mainBackgroundClasses = `bg-mainBackground bg-[url("/images/Vector14.png")] bg-contain bg-left-top bg-no-repeat py-[110px] min-h-screen post-detail max-sm:px-5`
 
   return (
-    <div className={mainBackgroundClasses}>
+    <div style={{ backgroundImage: `url(${Vector14})` }} className={mainBackgroundClasses}>
       <LogoFixed />
       <AnimationWrap>
         <div className='mx-auto max-w-[754px]'>
           <h3 className='mb-10 text-left text-5xl text-white'>{post.title}</h3>
           <div className='text-sm text-white text-opacity-50'>{convertDateFormat(post.createdAt)}</div>
           <div className='description mt-10 text-white'>
-            <ReactMarkdown>{post.description}</ReactMarkdown>
+            <ReactMarkdown
+              transformImageUri={(uri) =>
+                uri.startsWith('http') ? uri : `${import.meta.env.VITE_REACT_IMAGE_BASE_URL}${uri}`
+              }
+            >
+              {post.description}
+            </ReactMarkdown>
           </div>
         </div>
       </AnimationWrap>

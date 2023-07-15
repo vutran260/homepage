@@ -19,3 +19,12 @@
   transform: translateY(-20px);
   transition: opacity 300ms, transform 300ms;
 }
+
+.our-news .active {
+  border-bottom: 1px solid #36aafa;
+  font-weight: bold;
+}
+
+.our-news {
+  background-image: unset !important;
+}

@@ -6,6 +6,9 @@ import ArrowIcon from '../../components/Icon/ArrowIcon'
 import MapIcon from '../../components/Icon/MapIcon'
 import InputContact from '../../components/InputContact'
 import LogoFixed from '../../components/LogoFixed'
+import Vector6 from '../../assets/images/Vector6.png'
+import Frame29 from '../../assets/images/Frame29.png'
+import { toast } from 'react-toastify'
 
 export default function Contact() {
   const [input, setInput] = useState({
@@ -21,7 +24,7 @@ export default function Contact() {
 
     console.log('value is:', input)
   }
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault()
 
     const errors = {}
@@ -56,12 +59,19 @@ export default function Contact() {
     // submit form if no errors
     if (Object.keys(errors).length === 0) {
       // handle form submission
-      contactApi.createContact(input)
+      const res = await contactApi.createContact(input)
+      console.log(res.status)
+      if (res.status === 200) {
+        toast.success('Send Contact Successful')
+      } else {
+        toast.success('Has a error creating contact')
+      }
     }
   }
-  const mainBackgroundClasses = `bg-mainBackground min-h-screen bg-[url("/images/Vector6.png")] bg-contain bg-top bg-no-repeat`
+  console.log(Vector6)
+  const mainBackgroundClasses = `bg-mainBackground min-h-screen bg-contain bg-top bg-no-repeat`
   return (
-    <div className={mainBackgroundClasses} style={{ backgroundSize: '800px' }}>
+    <div className={mainBackgroundClasses} style={{ backgroundSize: '800px', backgroundImage: `url(${Vector6})` }}>
       <LogoFixed />
       <div className='mx-auto flex max-w-[1600px]'>
         <div className='w-[110px] border-r-2 border-[#0B0A0A] max-[768px]:hidden' style={{ height: '50vh' }}></div>
@@ -97,7 +107,7 @@ export default function Contact() {
           </div>
           <div className='mt-24 flex flex-wrap max-md:mt-6 max-md:px-4 max-[768px]:flex-col-reverse'>
             <div className='w-1/3 max-[768px]:w-full'>
-              <img src='/images/Frame292.png' className='w-full' alt='' />
+              <img src={Frame29} className='w-full' alt='' />
             </div>
             <div className='w-2/3 max-[768px]:w-full'>
               <h3 className='mb-8 text-xl font-extrabold text-[#36AAFA]'>CONTACT FORM</h3>

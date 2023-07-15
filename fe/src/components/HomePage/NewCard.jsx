@@ -1,14 +1,15 @@
-import { Link } from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import '../../scss/components/newCard.scss'
 import Rectangle from '../../assets/images/Rectangle26.png'
+
 export function NewCard() {
   return (
     <>
-      <div className='flex w-full flex-col'>
-        <div className='overflow-hidden rounded-md'>
-          <img src={Rectangle} alt='' className='w-full object-cover' />
+      <div className='flex w-full flex-col newCard-mobile'>
+        <div className='overflow-hidden rounded-md newCard-mobile-image'>
+          <img src={Rectangle} alt='' className='w-full object-cover'/>
         </div>
-        <div className='mt-5'>
+        <div className='mt-5 wrap-text-right'>
           <Link to='/' className='text-textBlueCustom-900'>
             アプリ開発
           </Link>

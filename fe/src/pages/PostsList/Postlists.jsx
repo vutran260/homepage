@@ -9,10 +9,12 @@ import { motion } from 'framer-motion'
 import LogoFixed from '../../components/LogoFixed'
 import './index.css'
 import Footer from '../../components/Footer'
+import Vector14 from '../../assets/images/Vector14.png'
+import http from '../../utils/http'
 
 const AnimationWrap = ({ children }) => (
   <motion.div
-    className='border-white-50 hover:scale-102 transform border-2 hover:-translate-y-1'
+    className='hover:scale-102 transform hover:-translate-y-1'
     style={{ x: 100 }}
     animate={{ x: 0 }}
     transition={{ duration: 2 }}
@@ -23,10 +25,10 @@ const AnimationWrap = ({ children }) => (
 
 export default function PostsList() {
   const [data, setData] = useState([])
+  const [categories, setCategories] = useState([])
   const [page, setPage] = useState(1)
   const [disabled, setDisabled] = useState(false)
   const [selectedCategory, setSelectedCategory] = useState(null)
-  const queryConfig = useQueryConfig()
   const navigate = useNavigate()
 
   const queryParams = useQueryParams()
@@ -41,7 +43,6 @@ export default function PostsList() {
       }
     })
     const newData = response.data.data
-    console.log(response.data.meta)
     setDisabled(false)
     if (
       response.data.meta.pagination.page === response.data.meta.pagination.pageCount ||
@@ -51,20 +52,19 @@ export default function PostsList() {
     }
     setData([...data, ...newData])
   }
+  const fetchCategories = async () => {
+    const response = await http.get(`/categories`)
+    setCategories(response.data.data)
+  }
 
   useEffect(() => {
-    console.log('useEffect')
     fetchData()
   }, [page, queryParams.category])
+  useEffect(() => {
+    fetchCategories()
+  }, [])
 
-  const categories = [
-    { id: 1, name: 'category 1' },
-    { id: 2, name: 'category 2' },
-    { id: 3, name: 'category 3' },
-    { id: 4, name: 'category 4' }
-  ]
   const handleSortCategory = (id) => {
-    console.log('sort')
     setPage(1)
     setSelectedCategory(id)
     setData([])
@@ -82,11 +82,12 @@ export default function PostsList() {
       pathname: '/posts'
     })
   }
+  console.log(data[0]?.attributes.thumpnail.data.attributes.url)
 
   const handleLoadMore = () => {
     setPage((prevPage) => prevPage + 1)
   }
-  const mainBackgroundClasses = `text-wite bg-mainBackground bg-[url("/images/Vector14.png")] bg-contain bg-left-top bg-no-repeat min-h-screen`
+  const mainBackgroundClasses = `our-news text-wite bg-mainBackground  bg-contain bg-left-top bg-no-repeat min-h-screen`
 
   const location = useLocation()
 
@@ -100,11 +101,14 @@ export default function PostsList() {
   }
 
   return (
-    <div className={mainBackgroundClasses}>
+    <div style={{ backgroundImage: `url(${Vector14})` }} className={mainBackgroundClasses}>
       <LogoFixed />
-      <div className='max-w-[1600px] text-white mx-auto pt-[110px] px-[147px] max-lg:px-4'>
+      <div className='mx-auto max-w-[1600px] px-5 pt-[40px] text-white max-lg:px-4 min-[1200px]:px-[147px]'>
         <h3 className='mb-10 text-center text-5xl'>Our News</h3>
-        <div className='flex justify-center gap-10 pb-10 max-sm:justify-start' style={{ overflowX: 'auto' }}>
+        <div
+          className='flex justify-center gap-10 pb-10 max-md:gap-4 max-sm:justify-start'
+          style={{ overflowX: 'auto' }}
+        >
           <button
             className={classNames({ 'text-blue': isCategoryActive(null), active: selectedCategory === null })}
             onClick={handleSearchAll}
@@ -120,7 +124,7 @@ export default function PostsList() {
               onClick={() => handleSortCategory(category.id)}
               key={category.id}
             >
-              {category.name}
+              {category.attributes.name}
             </button>
           ))}
         </div>
@@ -128,15 +132,21 @@ export default function PostsList() {
           <div className='grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3'>
             {data.map((post) => (
               <motion.div
-                className='border-white-50 hover:scale-102 transform border-2 hover:-translate-y-1'
-                style={{ x: 100 }}
+                className='hover:scale-102 transform hover:-translate-y-1'
+                style={{ x: 50 }}
                 animate={{ x: 0 }}
-                transition={{ duration: 2 }}
+                transition={{ duration: 0.5 }}
                 key={post.id}
               >
                 <Link to={post.id.toString()} key={post.id}>
                   <div className='mb-2'>
-                    <img className='h-72 w-full object-cover' src={post.thumbnail} alt='Thumbnail' />
+                    <img
+                      className='h-72 w-full object-cover'
+                      src={`${import.meta.env.VITE_REACT_IMAGE_BASE_URL}${
+                        post?.attributes.thumpnail.data.attributes.url
+                      }`}
+                      alt='Thumbnail'
+                    />
                   </div>
                   <div className='mt-3 mb-2 text-blue'>アプリ開発</div>
                   <h3 className='text-xl font-bold'>{post.attributes.title}</h3>
@@ -159,8 +169,8 @@ export default function PostsList() {
             </button>
           )}
         </div>
-        <Footer />
       </div>
+      <Footer />
     </div>
   )
 }

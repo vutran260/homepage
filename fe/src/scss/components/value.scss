@@ -6,9 +6,8 @@
   background-repeat: no-repeat;
   position: relative;
   width: 100%;
-  height: calc(100vh - 6rem);
   padding-right: 100px;
-  
+
   .wrap-text {
     top: 24%;
     right: 0;
@@ -17,5 +16,15 @@
     bottom: 0;
     max-width: 31rem;
     height: fit-content;
+  }
+}
+
+@include screen("mobile") {
+  .wrap-value {
+    padding-right: 0 !important;
+
+    div:first-child {
+      width: 100% !important;
+    }
   }
 }

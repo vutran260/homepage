@@ -1,7 +1,6 @@
 @import "../variables.scss";
 
 .slider-home {
-  height: calc(100vh - 6rem);
   padding-right: 100px;
   background-repeat: no-repeat;
   background-position: center;
@@ -30,6 +29,18 @@
       box-sizing: border-box;
       display: flex;
       justify-content: center;
+
+      &:last-child::after {
+        box-sizing: border-box;
+        width: 100%;
+        content: "";
+        position: absolute;
+        left: 0px;
+        bottom: 0%;
+        height: 10px;
+        border-right: 1px solid $gray-600;
+        color: #fff;
+      }
 
       &:after {
         box-sizing: border-box;
@@ -60,5 +71,55 @@
       }
     }
   }
+}
 
+@include screen(991) {
+  .slider-home {
+    padding-right: 0;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  #Portfolio {
+    .slider-item {
+      height: auto;
+    }
+
+    .slider-image {
+      width: 100%;
+    }
+
+    .slider-text-left {
+      width: 100%;
+    }
+
+    .slider-item {
+      flex-direction: row-reverse;
+    }
+  }
+}
+
+
+@media screen and (max-width: 500px) {
+
+  .slider-home {
+    padding: 0 10px;
+    background-size: cover;
+    background-position: -200px -200px;
+
+    .slick-slide-home {
+      margin: 0 auto;
+      width: 80%;
+    }
+  }
+}
+
+@media screen and (min-width: 1100px) {
+  .slider-home {
+    .slider-text-right {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
 }

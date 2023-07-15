@@ -5,16 +5,18 @@
   background-repeat: no-repeat;
   display: flex;
   align-items: center;
-  padding: 147px 0 200px;
-  height: calc(100vh - 6rem);
+  padding: 6rem 0 200px;
+  height: auto !important;
+  min-height: 100vh;
 }
 
-.footer p, span {
+.footer p,
+.footer span {
   font-size: 0.875rem;
 }
 
 @media screen and (max-width: 1024px) {
   .footer {
-    padding: 30px 0;
+    padding: 6rem 10px 20px 10px;
   }
 }

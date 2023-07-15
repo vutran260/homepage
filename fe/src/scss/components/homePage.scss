@@ -13,3 +13,48 @@
   font-family: $font-family-bold;
   line-height: $line-height-large
 }
+
+.menuIcon-mobile {
+  display: none;
+}
+
+.menuIcon-mobile {
+  display: none;
+}
+
+@include screen(768) {
+  .mainHomeContent {
+    width: 100%;
+    padding: 0 1rem;
+  }
+  .placeSideBar {
+    display: none;
+  }
+  .Header {
+    padding: 0 3px 0 15px !important;
+    height: $height-header-mobile;
+
+    .menuIcon-mobile {
+      display: flex;
+    }
+
+    .Contact-pc {
+      display: none !important;
+    }
+  }
+
+}
+
+@include screen("mobile") {
+  .mainContainerHome {
+    padding-top: $height-header-mobile !important;
+  }
+  .mainHomeContent {
+    padding: 0;
+  }
+  .Header {
+    height: $height-header-mobile !important;
+  }
+
+}
+

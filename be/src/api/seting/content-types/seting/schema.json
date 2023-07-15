@@ -1,10 +1,11 @@
 {
-  "kind": "collectionType",
+  "kind": "singleType",
   "collectionName": "setings",
   "info": {
     "singularName": "seting",
     "pluralName": "setings",
-    "displayName": "Seting"
+    "displayName": "Seting",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -12,14 +13,27 @@
   "pluginOptions": {},
   "attributes": {
     "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
+    },
+    "phone": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
     }
   }
 }

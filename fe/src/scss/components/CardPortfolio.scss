@@ -4,7 +4,7 @@
   height: calc(100vh - 6rem - 100px);
 
   .slider-text-left {
-    width: 25%;
+    width: 35%;
   }
 
   .slider-image {
@@ -28,10 +28,59 @@
   }
 
   .text-small {
-    opacity: 0.4;
+    opacity: 0.7;
   }
 
   .slider-text-right {
     width: 25%;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  #Portfolio1 {
+    .slider-text-left {
+      width: 50%;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  #Portfolio1 {
+    .slider-item {
+      height: auto;
+
+      .text-large {
+        font-size: 26px;
+      }
+    }
+
+    .slider-image {
+      width: 100%;
+      order: 1;
+    }
+
+    .slider-text-left {
+      width: 100%;
+      order: 2;
+    }
+
+    .slider-text-right {
+      margin-top: 20px;
+    }
+
+    .slider-text-right>div {
+      width: 100%;
+      justify-content: center;
+      gap: 10px;
+      align-items: center;
+
+      >div {
+        width: auto;
+      }
+    }
+
+    .slider-item {
+      flex-direction: row-reverse;
+    }
   }
 }

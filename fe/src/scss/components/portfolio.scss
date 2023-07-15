@@ -6,13 +6,11 @@
   background-image: url("../../assets/images/portfolitoVector.png");
   position: relative;
   width: 100%;
-  height: calc(100vh - 6rem);
 
   .portfolio-text {
-    position: absolute;
-    top: 10%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    width: 100%;
 
     span {
       text-align: center;
@@ -24,20 +22,27 @@
       font-family: $font-family-bold;
       font-weight: $font-weight-bold;
       font-size: $font-size-large;
+      margin-top: -0.0875rem;
     }
 
   }
 
   .wrap-img {
-    max-width: 656px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   h2.title {
     font-weight: 800;
+  }
+}
+
+@media screen and (max-width: 500px) {
+
+  .slider-home {
+    padding: 10px 0;
   }
 }
 
