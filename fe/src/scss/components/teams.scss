@@ -7,15 +7,33 @@
   position: relative;
   width: 100%;
   padding-right: 100px;
-
-  .wrap-slider-common {
-    height: calc(100% - 83px);
-  }
+  
 }
 
 @include screen(768) {
   .wrap-teams {
     padding-right: 20px;
+    background-position: -121px 59px;
+  }
+
+}
+
+@include screen("mobile") {
+  .wrap-teams {
+    padding-right: 0;
+
+    .wrap-slider-common {
+      height: auto;
+    }
+
+    .textLarge {
+      font-size: 30px !important;
+      line-height: 40px !important;
+    }
+
+    .text-OurStaff {
+      margin-bottom: 4px !important;
+    }
   }
 
 }

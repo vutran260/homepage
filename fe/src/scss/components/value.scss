@@ -26,5 +26,21 @@
     div:first-child {
       width: 100% !important;
     }
+
+    .wrap-text {
+      width: calc(100% - 60px) !important;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -28%);
+
+      .textLarge {
+        margin-bottom: 10px !important;
+      }
+
+      span:first-child {
+        font-size: 30px !important;
+        line-height: 30px !important;
+      }
+    }
   }
 }

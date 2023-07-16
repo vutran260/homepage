@@ -6,19 +6,24 @@ import Slider from 'react-slick'
 import ButtonGoDown from "src/components/Button";
 
 export function Services() {
-
-  const ref = useRef();
-
   const myRef = useRef(null);
-
-  const handleTouchStart = (event) => {
-    event.preventDefault();
-    event.stopPropagation();
-    return false;
-  };
   const [active, setActive] = useState(false);
+  const preventDefault = (e) => {
+    e.preventDefault();
+    return false;
+  }
 
 
+  useEffect(() => {
+      const element = myRef.current
+      element.addEventListener('touchmove', preventDefault, {passive: false})
+      return () => {
+
+        element.removeEventListener('touchmove', preventDefault, {passive: false});
+
+      }
+    }
+    , []);
   const settings = {
     customPaging: function (i) {
       return <></>
@@ -33,13 +38,10 @@ export function Services() {
     slidesToScroll: 1,
     verticalSwiping: true,
     swipeToSlide: true,
-    infinite: false,
-    afterChange: (index) => handleCssSlider(index), // Update current slide index
+    infinite: true,
+    touchThreshold: 3,
   }
 
-  const handleCssSlider = (index) => {
-    console.log('index', index)
-  }
   return (
 
     <div className="wrap-services relative heightSection">
@@ -55,9 +57,9 @@ export function Services() {
         <div className="w-1/2 flex items-center justify-center wrap-imgHand">
           <img src={hand} alt=""/>
         </div>
-        <div className="w-1/2 wrap-sliderServices" onTouchStart={handleTouchStart}>
-          <Slider {...settings} ref={ref}>
-            <div className="relative h-fit">
+        <div className="w-1/2 wrap-sliderServices" ref={myRef}>
+          <Slider {...settings}>
+            <div className="relative h-fit ease-linear">
               <div className="backgroundLinear w-full"></div>
               <div className="flex flex-col mb-8">
                 <span className="text-orange font-bold opacity-40 fontText mb-4">リサーチ・プランニング</span>
@@ -66,7 +68,7 @@ export function Services() {
                   分析結果をもとに過去のアプリの実績からユーザ体験をまとめ、アプリの方針や必要な機能を策定し、要件をプロジェクトチームに共有します。</p>
               </div>
             </div>
-            <div className="relative h-fit">
+            <div className="relative h-fit ease-linear">
               <div className="backgroundLinear w-full"></div>
               <div className="flex flex-col mb-8">
                 <span className="text-orange opacity-40 font-bold fontText mb-4">UI/UX設計</span>
@@ -75,7 +77,7 @@ export function Services() {
                   プロジェクトメンバー間のイメージ共有を進めるとともに、スクラップ＆ビルド方式で理想のUIを形にしていきます。</p>
               </div>
             </div>
-            <div className="relative h-fit">
+            <div className="relative h-fit ease-linear">
               <div className="backgroundLinear absolute w-full"></div>
               <div className="flex flex-col mb-8">
                 <span className="font-bold text-orange opacity-40 fontText mb-4">デザイン</span>
@@ -84,7 +86,7 @@ export function Services() {
                   またアプリのUI開発に精通したスタッフが、効果的なインタラクションの実装もごサポート致します。</p>
               </div>
             </div>
-            <div className="relative h-fit">
+            <div className="relative h-fit ease-linear">
               <div className="backgroundLinear absolute w-full"></div>
               <div className="flex flex-col mb-8">
                 <span className="text-orange font-bold opacity-40 fontText mb-4">デザイン</span>

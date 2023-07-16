@@ -26,7 +26,7 @@ export const OurSkill = () => {
                 のWebアプリケーションを組み込んだハイブリッド方式のアプリケーション、flutterを用いたネイティブアプリまで、お客様のご予算や特性に合わせて最適な開発プラットフォームを提案します。{' '}
               </p>
               <div className='flex justify-center absolute button-link left-0 bottom-10'>
-                <Link to='/' className=''>
+                <Link to='/contact' className=''>
                   <img src={iconRow} alt=''/>
                 </Link>
                 <span

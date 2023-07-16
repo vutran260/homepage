@@ -6,8 +6,10 @@ import PostDetail from './pages/PostDetail'
 import HomePage from './pages/HomePage'
 import { motion } from 'framer-motion'
 import Contact from './pages/Contact'
-import TestScroll from './pages/TestScroll'
 import Portfolio from './pages/Portfolio'
+import { AppContext } from './contexts/app.context'
+import { useContext, useEffect } from 'react'
+import http from './utils/http'
 
 const AnimationWrap = ({ children }) => (
   <motion.div initial={{ opacity: 0, scale: 0.5 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5 }}>
@@ -16,6 +18,14 @@ const AnimationWrap = ({ children }) => (
 )
 
 function App() {
+  const { setSetting } = useContext(AppContext)
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await http.get('setting?populate=*')
+      setSetting(res.data.data.attributes)
+    }
+    fetchData()
+  }, [])
   return (
     <>
       <Routes>
@@ -23,9 +33,9 @@ function App() {
         <Route
           path='/posts'
           element={
-            <AnimationWrap>
+            // <AnimationWrap>
               <PostsList />
-            </AnimationWrap>
+            // </AnimationWrap>
           }
         />
         <Route
@@ -36,11 +46,7 @@ function App() {
             </AnimationWrap>
           }
         />
-        <Route path='/' element={<>Home</>} />
-        <Route path='/posts' element={<PostsList />} />
-        <Route path='/posts/:id' element={<PostDetail />} />
         <Route path='/contact' element={<Contact />} />
-        <Route path='/test' element={<TestScroll />} />
         <Route path='/portfolio' element={<Portfolio />} />
       </Routes>
       <ToastContainer />

@@ -43,5 +43,19 @@
       border-style: double;
       background-clip: content-box;
     }
+
   }
+}
+
+@include screen("mobile") {
+  .slider-common {
+    .slick-slide {
+      padding: 13px 10px !important;
+    }
+
+    .slick-slide-common {
+      padding-top: 1rem !important;
+    }
+  }
+
 }

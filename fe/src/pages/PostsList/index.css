@@ -25,6 +25,26 @@
   font-weight: bold;
 }
 
-.our-news {
-  background-image: unset !important;
+.our-news .footer {
+  padding-left: 147px;
+  padding-right: 147px;
 }
+
+@media not all and (min-width: 1024px) {
+  .our-news .footer {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .our-news {
+    background-image: unset !important;
+  }
+} 
+
+@media screen and (min-width: 1600px) {
+  .our-news .footer{
+      max-width: 1600px;
+      margin: 0 auto;
+  }
+} 

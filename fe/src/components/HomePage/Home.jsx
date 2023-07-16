@@ -12,9 +12,9 @@ export function Home() {
             <span className='max-md:text-3xl'>アプリ開発</span>
             <span className='max-md:text-3xl'>といえばCET</span>
           </div>
-          <img src={Banner} alt='' className='banner desktop top-0  left-0 w-full object-cover max-[500px]:hidden'/>
+          <img src={Banner} alt='' className='banner desktop top-0  left-0 w-full object-cover max-[600px]:hidden'/>
           <img src={BannerMobile} alt=''
-               className='banner desktop top-0  left-0 w-full object-cover min-[500px]:hidden'/>
+               className='banner desktop top-0  left-0 w-full object-cover min-[600px]:hidden'/>
           <div className='ButtonGoDown'>
             <ButtonGoDown target="Portfolio"/>
           </div>

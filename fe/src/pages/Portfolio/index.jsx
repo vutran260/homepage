@@ -6,19 +6,21 @@ import iconRow from '../../assets/images/iconRow.png'
 import '../../scss/components/sliderCommon.scss'
 import './style.scss'
 import CloseIcon from '../../components/Icon/CloseIcon'
-const CardPortfolio = () => {
+import { useEffect, useState } from 'react'
+import http from '../../utils/http'
+const CardPortfolio = (props) => {
   return (
     <>
       <div className='slider-item flex items-center justify-items-center max-[768px]:flex-wrap'>
         <div className='slider-image'>
-          <img src={portImage} alt='port' />
+          <img src={props.thumpnail} alt='port' />
         </div>
         <div className='slider-text-left flex h-full items-center'>
           <div className='flex flex-col text-white'>
-            <span className='text-large mb-7 text-white'>投げ銭型ライブ 配信アプリ</span>
+            <span className='text-large mb-7 text-white'>{props.title}</span>
             <div className='mb-5 flex max-md:mb-4'>
               <span className='min-w-[75px] text-blue'>期間 : </span>
-              <span className='ml-6'>期間：10ヶ月（要件定義～納品）</span>
+              <span className='ml-6'>{props.release_time}</span>
             </div>
             <div className='mb-5 flex'>
               <span className='min-w-[75px] text-blue'>媒体 : </span>
@@ -26,14 +28,15 @@ const CardPortfolio = () => {
             </div>
             <div className='mb-5 flex'>
               <span className='min-w-[75px] text-blue'>主な技術 : </span>
-              <span className='ml-6 text-blue'>期間 ：10ヶ月（要件定義～納品）</span>
+              <span className='ml-6 text-blue'>{props.technologies}</span>
+            </div>
+            <div className='mb-5 flex'>
+              <span className='min-w-[75px] text-blue'>Website : </span>
+              <span className='ml-6'>{props.website}</span>
             </div>
             <div className='mb-5 flex'>
               <span className='min-w-[75px] text-blue'>導入 : </span>
-              <span className='ml-6'>
-                配信中に多人数でのゲームが可能。 多人数配信も可能且つ、多彩な機能を搭載しております。
-                VCバトル、多人数配信、ゲーム配信、 大手ライブ配信アプリに備わっている約8割の機能を備えております。
-              </span>
+              <span className='ml-6'>{props.description}</span>
             </div>
           </div>
         </div>
@@ -90,6 +93,17 @@ function ArrowCustomRight(props) {
 }
 
 function Portfolio() {
+  const [data, setData] = useState([])
+  const fetchPortfolios = async () => {
+    const res = await http.get(`portfolios?populate=*`)
+    console.log(res.data.data)
+    setData(res.data.data)
+  } 
+
+  useEffect(() => {
+    fetchPortfolios()
+  },[])
+
   const settings = {
     customPaging: function (i) {
       return <span className='w-full'>0{i + 1}</span>
@@ -116,11 +130,21 @@ function Portfolio() {
       <div className='slider-home slider-portfolio relative'>
         <CloseIcon />
         <Slider {...settings} className='slider-common'>
-          <CardPortfolio />
-          <CardPortfolio />
-          <CardPortfolio />
-          <CardPortfolio />
-          <CardPortfolio />
+          {data.map(function(portfolio, index) {
+            return (
+              <CardPortfolio
+                key={portfolio.id}
+                title={portfolio.attributes.title}
+                release_time={portfolio.attributes.release_time}
+                technologies={portfolio.attributes.technologies}
+                website={portfolio.attributes.website}
+                description={portfolio.attributes.description}
+                thumpnail={`${import.meta.env.VITE_REACT_IMAGE_BASE_URL}${
+                  portfolio.attributes.image.data.attributes.url
+                }`}
+              />
+            )
+          })}
         </Slider>
       </div>
     </>

@@ -41,8 +41,6 @@ body {
 @include screen("mobile") {
   .heightSection {
     min-height: calc(100vh - $height-header-mobile) !important;
-    height: auto !important;
+    height: fit-content !important;
   }
 }
-
-

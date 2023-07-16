@@ -4,23 +4,22 @@ const initialAppContext = {
   isAuthenticated: true,
   setIsAuthenticated: () => null,
   profile: '',
-  setProfile: () => null
+  setProfile: () => null,
+  setting: {},
+  setSeting: () => null
 }
 
 export const AppContext = createContext(initialAppContext)
 
 // eslint-disable-next-line react/prop-types
 export const AppProvider = ({ children }) => {
-  const [isAuthenticated, setIsAuthenticated] = useState(initialAppContext.isAuthenticated)
-  const [profile, setProfile] = useState(initialAppContext.profile)
+  const [setting, setSetting] = useState(initialAppContext.setting)
 
   return (
     <AppContext.Provider
       value={{
-        isAuthenticated,
-        setIsAuthenticated,
-        profile,
-        setProfile
+        setting,
+        setSetting
       }}
     >
       {children}

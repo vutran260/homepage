@@ -6,7 +6,12 @@
   background-image: url("../../assets/images/backgroundNews.png");
   position: relative;
   width: 100%;
-
+  .newCard-mobile>div {
+    height: 288px;
+    img {
+        border-radius: 10px;
+      }
+  }
   .wrap-text {
     span {
       font-weight: 400;
@@ -41,8 +46,26 @@
   }
 }
 
+@media screen and (max-width: 1200px) {
+  .news {
+    .newCard-mobile>div{
+      height: 200px;
+    }
+  }
+}
+@media screen and (max-width: 900px) {
+  .news {
+    .newCard-mobile>div {
+      height: 150px;
+    }
+  }
+}
+
 @include screen("mobile") {
   .news {
+    .newCard-mobile>div {
+      width: 50%;
+    }
     .wap-item {
       grid-template-columns: 1fr !important;
       padding: 25px 15px 0 15px !important;

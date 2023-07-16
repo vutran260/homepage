@@ -1,16 +1,15 @@
+import classNames from 'classnames'
+import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router'
 import { createSearchParams, Link } from 'react-router-dom'
-import useQueryConfig from 'src/hooks/useQueryConfig'
 import postApi from '../../apis/post.api'
-import useQueryParams from '../../hooks/useQueryParams'
-import classNames from 'classnames'
-import { motion } from 'framer-motion'
-import LogoFixed from '../../components/LogoFixed'
-import './index.css'
-import Footer from '../../components/Footer'
 import Vector14 from '../../assets/images/Vector14.png'
+import Footer from '../../components/Footer'
+import LogoFixed from '../../components/LogoFixed'
+import useQueryParams from '../../hooks/useQueryParams'
 import http from '../../utils/http'
+import './index.css'
 
 const AnimationWrap = ({ children }) => (
   <motion.div
@@ -39,7 +38,7 @@ export default function PostsList() {
         pageSize: queryParams.pageSize || '3'
       },
       filters: {
-        categories: queryParams.category
+        category: queryParams.category
       }
     })
     const newData = response.data.data
@@ -61,6 +60,7 @@ export default function PostsList() {
     fetchData()
   }, [page, queryParams.category])
   useEffect(() => {
+    window.scrollTo(0, 0)
     fetchCategories()
   }, [])
 
@@ -82,12 +82,11 @@ export default function PostsList() {
       pathname: '/posts'
     })
   }
-  console.log(data[0]?.attributes.thumpnail.data.attributes.url)
 
   const handleLoadMore = () => {
     setPage((prevPage) => prevPage + 1)
   }
-  const mainBackgroundClasses = `our-news text-wite bg-mainBackground  bg-contain bg-left-top bg-no-repeat min-h-screen`
+  const mainBackgroundClasses = `our-news text-wite bg-mainBackground  bg-contain bg-left-top bg-no-repeat min-h-screen h-[100vh]`
 
   const location = useLocation()
 
@@ -103,14 +102,14 @@ export default function PostsList() {
   return (
     <div style={{ backgroundImage: `url(${Vector14})` }} className={mainBackgroundClasses}>
       <LogoFixed />
-      <div className='mx-auto max-w-[1600px] px-5 pt-[40px] text-white max-lg:px-4 min-[1200px]:px-[147px]'>
+      <div className='mx-auto max-w-[1600px] px-5 pt-[40px] text-white max-lg:px-4 min-[1200px]:px-[147px] pb-4'>
         <h3 className='mb-10 text-center text-5xl'>Our News</h3>
         <div
           className='flex justify-center gap-10 pb-10 max-md:gap-4 max-sm:justify-start'
           style={{ overflowX: 'auto' }}
         >
           <button
-            className={classNames({ 'text-blue': isCategoryActive(null), active: selectedCategory === null })}
+            className={classNames({ 'active text-blue': isCategoryActive(null) })}
             onClick={handleSearchAll}
           >
             All
@@ -143,7 +142,7 @@ export default function PostsList() {
                     <img
                       className='h-72 w-full object-cover'
                       src={`${import.meta.env.VITE_REACT_IMAGE_BASE_URL}${
-                        post?.attributes.thumpnail.data.attributes.url
+                        post?.attributes.thumpnail?.data?.attributes.url
                       }`}
                       alt='Thumbnail'
                     />

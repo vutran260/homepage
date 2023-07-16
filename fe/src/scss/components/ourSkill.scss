@@ -69,6 +69,7 @@
   }
   .wrap-skillContent {
     flex-direction: column !important;
+    height: fit-content;
 
     .ourSkill-wrap-text {
       width: 100% !important;
@@ -83,7 +84,7 @@
     .wrap-img {
       width: 100%;
       height: fit-content;
-
+      
       .pc {
         display: none !important;
       }

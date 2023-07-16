@@ -3,7 +3,6 @@ import {Link} from 'react-router-dom'
 import {Link as LinkSroll} from "react-scroll"
 import Logo from '../../assets/images/Logomobile.png'
 import close from '../../assets/images/close.png'
-import {useState} from "react";
 
 export const SideBarMobile = ({position, handleCloseSideBar}) => {
   const arrItemSideBar = [
@@ -38,10 +37,13 @@ export const SideBarMobile = ({position, handleCloseSideBar}) => {
           {arrItemSideBar.map((item, index) => (
             <div key={index} className='wrap-item-sideBar  flex justify-start'>
               <div className='border-left'></div>
-              <div className='section-item scroll-sec2 flex cursor-pointer items-center leading-none'>
+              <div className='section-item scroll-sec2 flex cursor-pointer items-center leading-none'
+              >
                 <div className='dot'></div>
-                <LinkSroll to={item} activeClass="active" isDynamic={true} spy={true} smooth={true} offset={-96}
-                           duration={500}
+                <LinkSroll onSetActive={handleCloseSideBar} to={item} activeClass="active" isDynamic={true}
+                           spy={true}
+                           smooth={true} offset={-96}
+                           duration={100}
                 >
                   <div className='fs-text'>{item}</div>
                 </LinkSroll>

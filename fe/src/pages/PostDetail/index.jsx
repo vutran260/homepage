@@ -20,7 +20,7 @@ export default function PostsList() {
     fetchPostDetail()
   }, [])
 
-  const mainBackgroundClasses = `bg-mainBackground bg-[url("/images/Vector14.png")] bg-contain bg-left-top bg-no-repeat py-[110px] min-h-screen post-detail max-sm:px-5`
+  const mainBackgroundClasses = `bg-mainBackground bg-[url("/images/Vector14.png")] bg-contain bg-left-top bg-no-repeat pb-[80px] min-h-screen post-detail max-sm:px-5`
 
   return (
     <div style={{ backgroundImage: `url(${Vector14})` }} className={mainBackgroundClasses}>

@@ -24,7 +24,6 @@
     flex-direction: row !important;
   }
   .newCard-mobile-image {
-    margin-right: 15px;
   }
   .wrap-buttonCardNew {
     display: flex;
@@ -36,6 +35,7 @@
   .wrap-text-right {
     width: 100%;
     margin-top: 0 !important;
+    margin-left: 15px;
   }
 
 }

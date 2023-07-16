@@ -9,6 +9,7 @@
       color: #ec6b33;
       opacity: 1;
       font-weight: 700;
+
     }
 
     p.text-white {
@@ -43,7 +44,6 @@
       height: 100%;
     }
   }
-
 
   .fontText {
     font-family: $font-family-bold;
@@ -105,10 +105,6 @@
     .textIpad {
       margin-top: 10px !important;
     }
-  }
-  .slick-slider {
-    touch-action: auto !important;
-    -ms-touch-action: auto !important;
   }
 
 }

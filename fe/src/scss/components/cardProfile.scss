@@ -1,0 +1,41 @@
+@import "../variables";
+
+.wrapCard-profile {
+  .textName {
+    font-size: 24px;
+  }
+}
+
+@include screen("mobile") {
+  .wrapCard-profile {
+    display: flex;
+    flex-direction: row !important;
+
+    div:first-child {
+      width: 53%;
+    }
+
+    div:last-child {
+      align-items: baseline !important;
+      justify-content: flex-start !important;
+      padding-left: 10px;
+    }
+
+    .textName {
+      font-size: 20px;
+    }
+
+    .text-custom {
+      font-size: 16px;
+      display: block;
+      display: -webkit-box;
+      height: 16px*1.3*2;
+      line-height: 1.3;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-top: 10px;
+    }
+  }
+}
