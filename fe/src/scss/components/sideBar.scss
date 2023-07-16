@@ -65,7 +65,7 @@
 }
 
 
-@include screen(768) {
+@media screen and (max-width: 1000px) {
   .section-items {
     display: none;
   }

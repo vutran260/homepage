@@ -19,6 +19,7 @@ export function SliderCommon({data}) {
     slidesToShow: 3,
     slidesToScroll: 1,
     swipeToSlide: true,
+    infinity: true,
 
     responsive: [
       {

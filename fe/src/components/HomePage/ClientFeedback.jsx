@@ -67,9 +67,10 @@ const ClientFeedback = () => {
               <div className='person' key={fb.id}>
                 <img className='overlay h-full' src={Rec37} alt='' />
                 <p className='fs-14 '>{fb.attributes.description}</p>
-                <div className='avatar flex gap-4 items-center mt-5'>
+                <div className='avatar mt-5 flex items-center gap-4'>
                   <div className='left'>
                     <img
+                      className='max-h-[48px] max-w-[48px] rounded-full'
                       src={`${import.meta.env.VITE_REACT_IMAGE_BASE_URL}${fb.attributes.avatar.data?.attributes.url}`}
                       alt=''
                     />
