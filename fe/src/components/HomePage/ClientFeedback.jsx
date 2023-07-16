@@ -30,7 +30,7 @@ const ClientFeedback = () => {
     prevArrow: <></>,
     nextArrow: <></>,
     dotsClass: 'slick-slide-feedback',
-    infinite: true,
+    infinite: false,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
@@ -46,10 +46,9 @@ const ClientFeedback = () => {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          initialSlide: 2,
+          initialSlide: 1,
           centerMode: true,
           centerPadding: '65px',
-          infinite: false,
         }
       }
     ]
@@ -61,29 +60,31 @@ const ClientFeedback = () => {
         <h2 className='title textLarge flex justify-center text-white'>Client Voices</h2>
       </div>
       <div className='wrap-person text-white'>
-        <Slider {...settings}>
-          {data?.map((fb) => {
-            return (
-              <div className='person' key={fb.id}>
-                <img className='overlay h-full' src={Rec37} alt='' />
-                <p className='fs-14 '>{fb.attributes.description}</p>
-                <div className='avatar mt-5 flex items-center gap-4'>
-                  <div className='left'>
-                    <img
-                      className='max-h-[48px] max-w-[48px] rounded-full'
-                      src={`${import.meta.env.VITE_REACT_IMAGE_BASE_URL}${fb.attributes.avatar.data?.attributes.url}`}
-                      alt=''
-                    />
-                  </div>
-                  <div className='right'>
-                    <div className='text-orange'>{fb.attributes.nameFeedback}</div>
-                    <p className='fs-14'>{fb.attributes.company}</p>
+        {data.length && (
+          <Slider {...settings}>
+            {data?.map((fb) => {
+              return (
+                <div className='person' key={fb.id}>
+                  <img className='overlay h-full' src={Rec37} alt='' />
+                  <p className='fs-14 '>{fb.attributes.description}</p>
+                  <div className='avatar mt-5 flex items-center gap-4'>
+                    <div className='left'>
+                      <img
+                        className='max-h-[48px] max-w-[48px] rounded-full'
+                        src={`${import.meta.env.VITE_REACT_IMAGE_BASE_URL}${fb.attributes.avatar.data?.attributes.url}`}
+                        alt=''
+                      />
+                    </div>
+                    <div className='right'>
+                      <div className='text-orange'>{fb.attributes.nameFeedback}</div>
+                      <p className='fs-14'>{fb.attributes.company}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            )
-          })}
-        </Slider>
+              )
+            })}
+          </Slider>
+        )}
       </div>
       <div className='ButtonGoDown'>
         <ButtonGoDown target='Contact Us' />
