@@ -1,7 +1,6 @@
 import classNames from 'classnames'
 import { useContext } from 'react'
 import { Link } from 'react-router-dom'
-import Logo from '../../assets/images/logo.png'
 import { AppContext } from '../../contexts/app.context'
 export default function LogoFixed({ fixed }) {
   const {setting} = useContext(AppContext)
