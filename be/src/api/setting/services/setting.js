@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * seting service
+ * setting service
  */
 
 const { createCoreService } = require('@strapi/strapi').factories;
 
-module.exports = createCoreService('api::seting.seting');
+module.exports = createCoreService('api::setting.setting');

@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * seting router
+ * setting router
  */
 
 const { createCoreRouter } = require('@strapi/strapi').factories;
 
-module.exports = createCoreRouter('api::seting.seting');
+module.exports = createCoreRouter('api::setting.setting');
