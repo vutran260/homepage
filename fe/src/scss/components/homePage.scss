@@ -6,6 +6,13 @@
 
 .mainHomeContent {
   width: calc(100% - $width-sideBar);
+  > div {
+    margin-bottom: 5px;
+    scroll-snap-align: start;
+  }
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    // height: 100vh;
 }
 
 .textLarge {
@@ -57,4 +64,3 @@
   }
 
 }
-
