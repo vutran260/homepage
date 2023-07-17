@@ -10,51 +10,68 @@ import {Services} from '../../components/HomePage/Services'
 import {Value} from '../../components/HomePage/Value'
 import {Teams} from '../../components/HomePage/Teams'
 import '../../scss/components/homePage.scss'
-import {useEffect, useState} from 'react'
-import {useAnimation, motion} from 'framer-motion'
-import {useInView} from 'react-intersection-observer'
+import {useEffect, useRef, useState} from 'react'
+import {useAnimation, motion, useInView} from 'framer-motion'
+// import {useInView} from 'react-intersection-observer'
 import Footer from '../../components/Footer'
 import ClientFeedback from '../../components/HomePage/ClientFeedback'
 import {Element} from 'react-scroll'
 import {SideBarMobile} from "src/components/HomePage/SideBarMobile.jsx";
 
 const boxVariant = {
-  visible: {opacity: 1, scale: 1, transition: {duration: 0.5}},
-  hidden: {opacity: 0.5, scale: 0.5}
+  visible: {opacity: 1, right: 0, transition: {duration: 0.75}},
+  hidden: {opacity: 0.5, right: 110}
 }
 
-const AnimationHome = ({num, scrollToNextSection, isActive, children}) => {
-  const control = useAnimation()
-  const [ref, inView] = useInView({threshold: 0.5})
-
-  useEffect(() => {
-    if (inView) {
-      control.start('visible')
-    } else {
-      control.start('hidden')
-    }
-  }, [control, inView])
-
+function Section({ children }) {
+  const ref = useRef(null);
+  // const {inView} = useInView({
+  //   threshold: 0
+  // });
+  const isInView = useInView(ref, { once: false });
   return (
-    <motion.div
-      className={`box ${isActive ? 'active' : ''}`}
-      ref={ref}
-      variants={boxVariant}
-      initial='hidden'
-      animate={control}
-    >
-      {children}
-    </motion.div>
-  )
+    <section ref={ref}>
+      <div
+        style={{
+          transform: isInView ? "none" : "translateX(-200px)",
+          opacity: isInView ? 1 : 0,
+          transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
+        }}
+      >
+        {children}
+      </div>
+    </section>
+  );
 }
+
+// const AnimationHome = ({isActive, children}) => {
+//   const control = useAnimation()
+//   const [ref, inView] = useInView({threshold: 0.2})
+//   useEffect(() => {
+//     console.log(control);
+//     if (inView) {
+//       control.start('visible')
+//     } else {
+//       control.start('hidden')
+//     }
+//   }, [control, inView])
+//   console.log('23');
+//   return (
+//     <motion.div
+//       className={`box ${isActive ? 'active' : ''}`}
+//       ref={ref}
+//       variants={boxVariant}
+//       initial='hidden'
+//       animate={control}
+//       transition={{ duration: 0.5, type: 'tween', ease: 'linear' }}
+//     >
+//       {children}
+//     </motion.div>
+   
+//   )
+// }
 
 export default function HomePage() {
-  const scrollToNextSection = () => {
-    setActiveSection((prevSection) => prevSection + 1);
-    const nextSectionOffset = (activeSection + 1) * window.innerHeight;
-    window.scrollTo({top: nextSectionOffset, behavior: 'smooth'});
-  };
-
   const [position, setPosition] = useState("-100%");
   const HandleOpenSideBar = () => {
     setPosition("0")
@@ -70,63 +87,63 @@ export default function HomePage() {
         <Header HandleOpenSideBar={HandleOpenSideBar}/>
         <SideBar/>
         <SideBarMobile position={position} handleCloseSideBar={handleCloseSideBar}/>
-        <div className='mainContainerHome flex h-full w-full justify-between pt-24 min-[1600px]:max-w-[1600px]'>
+        <div className='mainContainerHome flex h-full w-full justify-between pt-24 mx-auto'>
           <div className='placeSideBar bg-darkGray-900'></div>
           <div className='mainHomeContent'>
             <Element id="Home">
-              <AnimationHome>
+              <Section>
                 <Home/>
-              </AnimationHome>
+              </Section>
             </Element>
             <Element id="Portfolio">
-              <AnimationHome>
+              <Section>
                 <Portfolio/>
-              </AnimationHome>
+              </Section>
             </Element>
             <Element id="Portfolio1">
-              <AnimationHome>
+              <Section>
                 <SliderPortfolio/>
-              </AnimationHome>
+              </Section>
             </Element>
             <Element id="News">
-              <AnimationHome>
+              <Section>
                 <News/>
-              </AnimationHome>
+              </Section>
             </Element>
             <Element id="About Us">
-              <AnimationHome>
+              <Section>
                 <AboutUs/>
-              </AnimationHome>
+              </Section>
             </Element>
             <Element id="Our Skill">
-              <AnimationHome>
+              <Section>
                 <OurSkill/>
-              </AnimationHome>
+              </Section>
             </Element>
             <Element id="Services">
-              <AnimationHome>
+              <Section>
                 <Services/>
-              </AnimationHome>
+              </Section>
             </Element>
             <Element id="Value">
-              <AnimationHome>
+              <Section>
                 <Value/>
-              </AnimationHome>
+              </Section>
             </Element>
             <Element id="Team">
-              <AnimationHome>
+              <Section>
                 <Teams/>
-              </AnimationHome>
+              </Section>
             </Element>
             <Element id="Feedback">
-              <AnimationHome>
+              <Section>
                 <ClientFeedback/>
-              </AnimationHome>
+              </Section>
             </Element>
             <Element id="Contact Us">
-              <AnimationHome>
+              <Section>
                 <Footer/>
-              </AnimationHome>
+              </Section>
             </Element>
           </div>
         </div>

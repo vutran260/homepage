@@ -1,5 +1,5 @@
 import React, {useEffect, useRef, useState} from 'react'
-import hand from "../../assets/images/hand.png"
+import hand from "../../assets/images/hand.svg"
 import "../../scss/components/services.scss"
 import Slider from 'react-slick'
 
@@ -14,16 +14,16 @@ export function Services() {
   }
 
 
-  useEffect(() => {
-      const element = myRef.current
-      element.addEventListener('touchmove', preventDefault, {passive: false})
-      return () => {
+  // useEffect(() => {
+  //     const element = myRef.current
+  //     element.addEventListener('touchmove', preventDefault, {passive: false})
+  //     return () => {
 
-        element.removeEventListener('touchmove', preventDefault, {passive: false});
+  //       element.removeEventListener('touchmove', preventDefault, {passive: false});
 
-      }
-    }
-    , []);
+  //     }
+  //   }
+  //   , []);
   const settings = {
     customPaging: function (i) {
       return <></>
