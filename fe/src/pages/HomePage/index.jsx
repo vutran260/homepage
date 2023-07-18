@@ -1,5 +1,5 @@
 // import { useInView } from 'framer-motion'
-import  React, { useEffect, useRef, useState } from 'react'
+import  React, { useContext, useEffect, useRef, useState } from 'react'
 import PageScroll from 'react-page-scroll'
 import Header from '../../components/Header'
 import { AboutUs } from '../../components/HomePage/AboutUs'
@@ -20,15 +20,19 @@ import Footer from '../../components/Footer'
 import ClientFeedback from '../../components/HomePage/ClientFeedback'
 
 import { Element, scroller } from 'react-scroll'
+import { AppContext } from '../../contexts/app.context'
 
-function Section({ children }) {
+function Section({ children, id }) {
   // const ref = useRef(null)
   // const ref = useRef(null);
   const { inView, ref } = useInView({
     /* Optional options */
     threshold: 0.5
   })
-  // console.log(inView)
+  const {setMenuActive} = useContext(AppContext)
+  if(inView) {
+    setMenuActive(id)
+  }
   return (
     <section ref={ref}>
       <div
@@ -53,72 +57,71 @@ export default function HomePage() {
   const handleCloseSideBar = () => {
     setPosition("-100%")
   }
+  
   return (
     <>
       <div className='min-h-screen bg-darkGray-900'>
         <Header HandleOpenSideBar={HandleOpenSideBar} />
         <SideBar />
         <SideBarMobile position={position} handleCloseSideBar={handleCloseSideBar} />
-        <div className='mainContainerHome mx-auto flex h-full w-full justify-between pt-24'>
+        <div className='mainContainerHome mx-auto flex h-full w-full justify-between'>
           <div className='placeSideBar bg-darkGray-900'></div>
           <div className='mainHomeContent'>
-            {/* <PageScroll height='calc(100vh)' width='auto'> */}
               <Element id='Home'>
-                <Section>
+                <Section id='Home'>
                   <Home />
                 </Section>
               </Element>
               <Element id='Portfolio'>
-                <Section>
+                <Section id='Portfolio'>
                   <Portfolio />
                 </Section>
               </Element>
               <Element id='Portfolio1'>
-                <Section>
+                <Section id='Portfolio1'>
                   <SliderPortfolio />
                 </Section>
               </Element>
               <Element id='News'>
-                <Section>
+                <Section id='News'>
                   <News />
                 </Section>
               </Element>
-              <Element id='About Us'>
-                <Section>
+              <Element id='About_Us'>
+                <Section id='About_Us'>
                   <AboutUs />
                 </Section>
               </Element>
-              <Element id='Our Skill'>
-                <Section>
+              <Element id='Our_Skill'>
+                <Section id='Our_Skill'>
                   <OurSkill />
                 </Section>
               </Element>
               <Element id='Services'>
-                <Section>
+                <Section id='Services'>
                   <Services />
                 </Section>
               </Element>
               <Element id='Value'>
-                <Section>
+                <Section id='Value'>
                   <Value />
                 </Section>
               </Element>
               <Element id='Team'>
-                <Section>
+                <Section id='Team'>
                   <Teams />
                 </Section>
               </Element>
               <Element id='Feedback'>
-                <Section>
+                <Section id='Feedback'>
                   <ClientFeedback />
                 </Section>
               </Element>
-              <Element id='Contact Us'>
-                <Section>
+              <Element id='Contact_Us'>
+                <Section id='Contact_Us'>
                   <Footer />
                 </Section>
               </Element>
-            {/* </PageScroll> */}
           </div>
         </div>
       </div>

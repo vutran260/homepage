@@ -11,6 +11,10 @@ export default function ButtonGoDown({target}) {
     height: ' 50px',
     width: '50px'
   }
-  return <Link style={style} to={target} className='cursor h-full w-full cursor-pointer block' isDynamic={true}
-               spy={true} smooth={true} offset={-96} duration={500}></Link>
+  
+  const handleScroll = () => {
+    const section = document.querySelector( `#${target}` );
+    section?.scrollIntoView( { behavior: 'smooth' } );
+  }
+  return <a onClick={handleScroll} style={style} className='cursor h-full w-full cursor-pointer block'></a>
 }

@@ -43,7 +43,7 @@ export function News() {
           </div>
         </div>
         <div className='ButtonGoDown'>
-          <ButtonGoDown target='About Us'/>
+          <ButtonGoDown target='About_Us'/>
         </div>
       </div>
     </>

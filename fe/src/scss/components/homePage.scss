@@ -6,13 +6,16 @@
 
 .mainHomeContent {
   width: calc(100% - $width-sideBar);
+  &::-webkit-scrollbar {
+    display: none;
+  }
   > div {
     margin-bottom: 5px;
     scroll-snap-align: start;
   }
     overflow-y: scroll;
     scroll-snap-type: y mandatory;
-    // height: 100vh;
+    height: 100vh;
 }
 
 .textLarge {

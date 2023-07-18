@@ -96,7 +96,6 @@ function Portfolio() {
   const [data, setData] = useState([])
   const fetchPortfolios = async () => {
     const res = await http.get(`portfolios?populate=*`)
-    console.log(res.data.data)
     setData(res.data.data)
   } 
 

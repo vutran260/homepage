@@ -10,7 +10,6 @@ export const Teams = () => {
     const res = await http.get(`teams?populate=*`)
     setData(res.data.data)
   }
-  console.log('team', data)
 
   useEffect(() => {
     fetchPortfolios()

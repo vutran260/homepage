@@ -1,7 +1,6 @@
 @import "./variables";
 
 * {
-  font-family: $font-family-base;
   padding: 0;
   margin: 0;
   font-size: 16px;
@@ -38,12 +37,14 @@ body {
 }
 
 .heightSection {
-  height: calc(100vh - $height-header) !important;
+  height: calc(100vh) !important;
+  padding-top: $height-header;
 }
 
 @include screen("mobile") {
   .heightSection {
-    min-height: calc(100vh - $height-header-mobile) !important;
+    min-height: calc(100vh) !important;
+    padding-top: 0px;
     height: fit-content !important;
   }
 }

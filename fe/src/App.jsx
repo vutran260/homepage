@@ -41,9 +41,9 @@ function App() {
         <Route
           path='/posts/:id'
           element={
-            <AnimationWrap>
+            // <AnimationWrap>
               <PostDetail />
-            </AnimationWrap>
+            // </AnimationWrap>
           }
         />
         <Route path='/contact' element={<Contact />} />

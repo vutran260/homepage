@@ -8,7 +8,7 @@ export const AboutUs = () => {
     <>
       <div className='aboutUS flex flex-col bg-darkGray-900 heightSection'>
         <div className='ButtonGoDown absolute'>
-          <ButtonGoDown target="Our Skill"/>
+          <ButtonGoDown target="Our_Skill"/>
         </div>
         <div className='flex h-full wrap-aboutContent'>
           <div className='wrap-img h-5/6 w-full'>

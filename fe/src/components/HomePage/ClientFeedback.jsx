@@ -21,7 +21,6 @@ const ClientFeedback = () => {
   useEffect(() => {
     fetchPortfolios()
   }, [])
-  console.log('datafb',data)
   const settings = {
     customPaging: function (i) {
       return <span className='dot'></span>
@@ -87,7 +86,7 @@ const ClientFeedback = () => {
         )}
       </div>
       <div className='ButtonGoDown'>
-        <ButtonGoDown target='Contact Us' />
+        <ButtonGoDown target='Contact_Us' />
       </div>
     </div>
   )

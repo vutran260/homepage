@@ -32,7 +32,6 @@ export default function Contact() {
   const handleChange = (event) => {
     setInput({ ...input, [event.target.name]: event.target.value })
 
-    console.log('value is:', input)
   }
   const handleSubmit = async (event) => {
     event.preventDefault()
@@ -70,7 +69,6 @@ export default function Contact() {
     if (Object.keys(errors).length === 0) {
       // handle form submission
       const res = await contactApi.createContact(input)
-      console.log(res.status)
       if (res.status === 200) {
         toast.success('Send Contact Successful')
       } else {
@@ -78,7 +76,6 @@ export default function Contact() {
       }
     }
   }
-  console.log(Vector6)
   const mainBackgroundClasses = `bg-mainBackground min-h-screen bg-contain bg-top bg-no-repeat`
   return (
     <div className={mainBackgroundClasses} style={{ backgroundSize: '800px', backgroundImage: `url(${Vector6})` }}>
