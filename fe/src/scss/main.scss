@@ -43,8 +43,8 @@ body {
 
 @include screen("mobile") {
   .heightSection {
-    min-height: calc(100vh) !important;
-    padding-top: 0px;
-    height: fit-content !important;
+    height: calc(100vh) !important;
+    padding-top: 70px;
+    // transform: translateY(70px);
   }
 }

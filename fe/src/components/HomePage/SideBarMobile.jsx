@@ -3,8 +3,11 @@ import {Link} from 'react-router-dom'
 import {Link as LinkSroll} from "react-scroll"
 import Logo from '../../assets/images/Logomobile.png'
 import close from '../../assets/images/close.png'
+import { useContext } from 'react'
+import { AppContext } from '../../contexts/app.context'
 
 export const SideBarMobile = ({position, handleCloseSideBar}) => {
+  const { menuActive } = useContext(AppContext)
   const arrItemSideBar = [
     'Home',
     'Portfolio',
@@ -17,6 +20,24 @@ export const SideBarMobile = ({position, handleCloseSideBar}) => {
     'Feedback',
     'Contact Us'
   ]
+  const arrItemName = [
+    'Home',
+    'Portfolio',
+    'News',
+    'About_Us',
+    'Our_Skill',
+    'Services',
+    'Value',
+    'Team',
+    'Feedback',
+    'Contact_Us'
+  ]
+
+  const handleScrollToElement = (e) => {
+    const section = document.querySelector( `#${e.currentTarget.name}` );
+    section.scrollIntoView({block: "start"});
+    handleCloseSideBar()
+  }
 
   return (
 
@@ -40,13 +61,10 @@ export const SideBarMobile = ({position, handleCloseSideBar}) => {
               <div className='section-item scroll-sec2 flex cursor-pointer items-center leading-none'
               >
                 <div className='dot'></div>
-                <LinkSroll onSetActive={handleCloseSideBar} to={item} activeClass="active" isDynamic={true}
-                           spy={true}
-                           smooth={true} offset={-96}
-                           duration={100}
+                <a name={arrItemName[index]} onClick={handleScrollToElement} className={menuActive === item ? 'active' : ''} 
                 >
                   <div className='fs-text'>{item}</div>
-                </LinkSroll>
+                </a>
 
               </div>
             </div>

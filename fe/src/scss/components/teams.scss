@@ -24,6 +24,18 @@
 
     .wrap-slider-common {
       height: auto;
+
+      .slider-common {
+        height: 70vh;
+
+        .slick-slider {
+          height: 100% !important;
+        }
+
+        .slick-list {
+          height: 100% !important;
+        }
+      }
     }
 
     .textLarge {

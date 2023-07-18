@@ -82,7 +82,15 @@
   }
 }
 
+@media screen and (max-width: 900px) {
+  .slider-home .slick-list {
+    height: 76vh;
+  }
+}
+
+
 @media screen and (max-width: 500px) {
+
   #Portfolio {
     .slider-item {
       height: auto;
@@ -90,21 +98,18 @@
 
     .slider-image {
       width: 100%;
+      height: 30vh;
     }
 
     .slider-text-left {
       width: 100%;
+      height: 35vh;
     }
 
     .slider-item {
       flex-direction: row-reverse;
     }
   }
-}
-
-
-@media screen and (max-width: 500px) {
-
   .slider-home {
     padding: 0 10px;
     background-size: cover;
@@ -113,6 +118,10 @@
     .slick-slide-home {
       margin: 0 auto;
       width: 80%;
+    }
+
+    .slick-list {
+      margin-bottom: 0;
     }
   }
 }

@@ -10,7 +10,7 @@ export const AboutUs = () => {
         <div className='ButtonGoDown absolute'>
           <ButtonGoDown target="Our_Skill"/>
         </div>
-        <div className='flex h-full wrap-aboutContent'>
+        <div className='flex h-full wrap-aboutContent max-[500px]:justify-end'>
           <div className='wrap-img h-5/6 w-full'>
             <img src={Rectangle30} alt='' className='h-full w-full pc'/>
             <img src={Rectangle1Mobile} className="mobile w-full h-full" alt=""/>

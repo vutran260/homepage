@@ -57,11 +57,16 @@
     .slider-image {
       width: 100%;
       order: 1;
+      height: 30vh;
+      img {
+        height: 100%;
+      }
     }
 
     .slider-text-left {
       width: 100%;
       order: 2;
+      height: 32vh;
     }
 
     .slider-text-right {

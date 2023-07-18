@@ -57,10 +57,11 @@
 
 @include screen("mobile") {
   .mainContainerHome {
-    padding-top: $height-header-mobile !important;
+    // padding-top: $height-header-mobile !important;
   }
   .mainHomeContent {
     padding: 0;
+    padding-top: 70px;
   }
   .Header {
     height: $height-header-mobile !important;
