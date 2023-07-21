@@ -1,6 +1,5 @@
 // import { useInView } from 'framer-motion'
 import  React, { useContext, useEffect, useRef, useState } from 'react'
-import PageScroll from 'react-page-scroll'
 import Header from '../../components/Header'
 import { AboutUs } from '../../components/HomePage/AboutUs'
 import { Home } from '../../components/HomePage/Home'
@@ -77,8 +76,8 @@ export default function HomePage() {
                   <Portfolio />
                 </Section>
               </Element>
-              <Element id='Portfolio1'>
-                <Section id='Portfolio1'>
+              <Element id='Portfolio'>
+                <Section id='Portfolio'>
                   <SliderPortfolio />
                 </Section>
               </Element>

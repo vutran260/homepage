@@ -1,6 +1,5 @@
 import {ButtonHTMLAttributes} from 'react'
 import buttonGoDown from '../../assets/images/buttonGoDown.png'
-import {Link} from "react-scroll";
 
 export default function ButtonGoDown({target}) {
   const style = {

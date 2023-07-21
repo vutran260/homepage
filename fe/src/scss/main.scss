@@ -39,6 +39,7 @@ body {
 .heightSection {
   height: calc(100vh) !important;
   padding-top: $height-header;
+  transform: translateZ(0);
 }
 
 @include screen("mobile") {

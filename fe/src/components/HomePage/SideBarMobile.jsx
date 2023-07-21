@@ -1,6 +1,5 @@
 import '../../scss/components/sidebarMobile.scss'
 import {Link} from 'react-router-dom'
-import {Link as LinkSroll} from "react-scroll"
 import Logo from '../../assets/images/Logomobile.png'
 import close from '../../assets/images/close.png'
 import { useContext } from 'react'
@@ -61,7 +60,7 @@ export const SideBarMobile = ({position, handleCloseSideBar}) => {
               <div className='section-item scroll-sec2 flex cursor-pointer items-center leading-none'
               >
                 <div className='dot'></div>
-                <a name={arrItemName[index]} onClick={handleScrollToElement} className={menuActive === item ? 'active' : ''} 
+                <a name={arrItemName[index]} onClick={handleScrollToElement} className={menuActive === arrItemName[index] ? 'active' : ''} 
                 >
                   <div className='fs-text'>{item}</div>
                 </a>
