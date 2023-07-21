@@ -14,9 +14,9 @@ import './index.css'
 const AnimationWrap = ({ children }) => (
   <motion.div
     className='hover:scale-102 transform hover:-translate-y-1'
-    style={{ x: 100 }}
-    animate={{ x: 0 }}
-    transition={{ duration: 2 }}
+    style={{ y: 100 }}
+    animate={{ y: 0 }}
+    transition={{ duration: 1 }}
   >
     {children}
   </motion.div>
@@ -132,9 +132,9 @@ export default function PostsList() {
             {data.map((post) => (
               <motion.div
                 className='hover:scale-102 transform hover:-translate-y-1'
-                style={{ x: 50 }}
-                animate={{ x: 0 }}
-                transition={{ duration: 0.5 }}
+                style={{ y: 50, opacity: 0.5 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 1 }}
                 key={post.id}
               >
                 <Link to={post.id.toString()} key={post.id}>
