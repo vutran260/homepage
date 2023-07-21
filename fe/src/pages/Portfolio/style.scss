@@ -4,10 +4,14 @@
     margin: 0 auto;
     max-width: 1600px;
     height: calc(100vh);
-    padding: 40px 40px;
+    padding: 80px 40px 40px;
 
     li .w-full {
         opacity: 0;
+    }
+
+    .slick-list {
+        height: 100%;
     }
 
     .slider-common .slick-slide-common {
@@ -48,6 +52,7 @@
     .slider-portfolio.slider-home {
         background-position: center -50px;
         background-size: 500px;
+        padding: 80px 15px 40px;
 
         .slider-item .text-large {
             font-size: 30px;
