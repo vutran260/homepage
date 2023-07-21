@@ -76,7 +76,7 @@ export default function HomePage() {
                   <Portfolio />
                 </Section>
               </Element>
-              <Element id='Portfolio'>
+              <Element id='Portfolio1'>
                 <Section id='Portfolio'>
                   <SliderPortfolio />
                 </Section>
