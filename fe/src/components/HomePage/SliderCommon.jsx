@@ -15,7 +15,7 @@ export function SliderCommon({data}) {
     dots: true,
     prevArrow: <></>,
     nextArrow: <></>,
-    dotsClass: 'slick-slide-common  h-full',
+    dotsClass: 'slick-slide-common',
     slidesToShow: 3,
     slidesToScroll: 1,
     swipeToSlide: true,

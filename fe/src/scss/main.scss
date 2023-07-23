@@ -49,3 +49,9 @@ body {
     // transform: translateY(70px);
   }
 }
+
+@media screen and (max-height: 700px) {
+  .heightSection {
+    overflow-y: scroll;
+  }
+}

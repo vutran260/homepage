@@ -34,7 +34,7 @@ export default function PostsList() {
     const response = await postApi.getPosts({
       pagination: {
         page: page || '1',
-        pageSize: queryParams.pageSize || '3'
+        pageSize: queryParams.pageSize || '9'
       },
       filters: {
         category: queryParams.category

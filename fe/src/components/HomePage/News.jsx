@@ -10,7 +10,7 @@ import http from "src/utils/http.js";
 export function News() {
   const [data, setData] = useState([])
   const fetchNews = async () => {
-    const res = await http.get(`posts?populate=*&pagination[page]=1&pagination[pageSize]=3&sort[0]&sort[1]=createdAt`)
+    const res = await http.get(`posts?populate=*&pagination[page]=1&pagination[pageSize]=3&sort=createdAt:desc`)
 
     setData(res.data.data)
   }
@@ -25,7 +25,7 @@ export function News() {
           <span className='LastPost-text mb-2 flex justify-center text-white'>Last post</span>
           <span className='ourNews flex justify-center text-white'>Our News</span>
         </div>
-        <div>
+        <div className='relative'>
           <div className='wap-item grid w-full grid-cols-3 gap-12 pt-8 '>
             {
               data.map((datum) => (

@@ -60,7 +60,7 @@
   }
 }
 
-@include screen(768) {
+@media screen and (max-width: 1000px) {
   .sideBarMobile {
     display: block;
     transition: transform 0.5s ease-in-out;

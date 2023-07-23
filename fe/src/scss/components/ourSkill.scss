@@ -102,3 +102,11 @@
     }
   }
 }
+
+@media screen and (max-height: 700px) {
+  .ourSkill  {
+    .ourSkill-wrap-text .button-link {
+      bottom: 10px;
+    }
+  }
+}
