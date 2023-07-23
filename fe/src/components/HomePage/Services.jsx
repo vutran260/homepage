@@ -49,6 +49,8 @@ export function Services() {
     verticalSwiping: true,
     swipeToSlide: true,
     infinite: true,
+    // draggable: false
+    // touchThreshold: 3,
   }
 
   return (
