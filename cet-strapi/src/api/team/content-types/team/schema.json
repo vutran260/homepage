@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "teams",
+  "info": {
+    "singularName": "team",
+    "pluralName": "teams",
+    "displayName": "Team",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "avatar": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "jobDescription": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "technologies": {
+      "type": "string"
+    },
+    "experience": {
+      "type": "string"
+    }
+  }
+}
