@@ -46,6 +46,7 @@ body {
   .heightSection {
     height: calc(100vh) !important;
     padding-top: 70px;
+    overflow-y: scroll;
     // transform: translateY(70px);
   }
 }

@@ -100,4 +100,15 @@ div.section-ten .slick-current + .slick-slide .overlay {
   }
 }
 
+@media screen and (max-width: 768px) {
+  #Feedback {
+    .slick-slider {
+      position: unset;
+    }
+    .slick-slide-feedback {
+      position: absolute;
+      bottom: 32px;
+    }
+  }
+}
 
