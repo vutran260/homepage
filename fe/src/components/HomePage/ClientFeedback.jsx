@@ -65,7 +65,7 @@ const ClientFeedback = () => {
               return (
                 <div className='person' key={fb.id}>
                   <img className='overlay h-full' src={Rec37} alt='' />
-                  <p className='fs-14 '>{fb.attributes.description}</p>
+                  <p className='fs-14 whitespace-pre-line'>{fb.attributes.description}</p>
                   <div className='avatar mt-5 flex items-center gap-4'>
                     <div className='left'>
                       <img

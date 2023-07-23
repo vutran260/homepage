@@ -9,7 +9,7 @@ function Footer() {
   const { setting } = useContext(AppContext)
   return (
     <div className='footer heightSection'>
-      <div className=' text-white'>
+      <div className=' text-white h-full'>
         <h4 className='text-white'>お気軽にお問い合わせください</h4>
         <h3 className='mt-2 mb-[94px] text-5xl font-extrabold text-white max-lg:mb-[30px]'>Contact Us</h3>
         <div className='flex flex-wrap items-center'>
@@ -58,7 +58,7 @@ function Footer() {
               <p className='mt-10 max-w-[250px] opacity-70 min-[768px]:hidden'>{setting?.description}</p>
             </div>
           </div>
-          <div className='basis-1/3 max-md:w-full max-md:basis-full'>
+          <div className='basis-1/3 max-md:w-full max-md:basis-full max-md:mb-5'>
             <img className='max-lg:w-2/3' src={Frame29} />
           </div>
         </div>

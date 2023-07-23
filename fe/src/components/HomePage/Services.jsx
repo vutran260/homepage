@@ -47,9 +47,10 @@ export function Services() {
     // speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
-    verticalSwiping: true,
+    // verticalSwiping: true,
     swipeToSlide: true,
     infinite: true,
+    // draggable: false
     // touchThreshold: 3,
   }
 
