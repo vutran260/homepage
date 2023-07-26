@@ -146,7 +146,7 @@ export default function PostsList() {
                       alt='Thumbnail'
                     />
                   </div>
-                  <div className='mt-3 mb-2 text-blue'>{post.attributes.category.data.attributes
+                  <div className='mt-3 mb-2 text-blue'>{post.attributes.category.data?.attributes
 .name}</div>
                   <h3 className='text-xl font-bold'>{post.attributes.title}</h3>
                   <div className='text-sm text-white text-opacity-50'>2023.01.23</div>

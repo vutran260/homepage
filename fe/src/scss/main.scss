@@ -42,6 +42,20 @@ body {
   transform: translateZ(0);
 }
 
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #131212;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #141414;
+}
+
 @include screen("mobile") {
   .heightSection {
     height: calc(100vh) !important;
