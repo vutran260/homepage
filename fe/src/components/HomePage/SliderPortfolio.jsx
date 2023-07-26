@@ -42,7 +42,7 @@ export function SliderPortfolio() {
                 release_time={portfolio.attributes.release_time}
                 description={portfolio.attributes.description}
                 technologies={portfolio.attributes.technologies}
-                thumpnail={portfolio.attributes.image.data.attributes.url}
+                thumpnail={portfolio.attributes.image.data?.attributes.url}
               />
             )
           })}

@@ -139,7 +139,7 @@ function Portfolio() {
                 website={portfolio.attributes.website}
                 description={portfolio.attributes.description}
                 thumpnail={`${import.meta.env.VITE_REACT_IMAGE_BASE_URL}${
-                  portfolio.attributes.image.data.attributes.url
+                  portfolio.attributes.image.data?.attributes.url
                 }`}
               />
             )
