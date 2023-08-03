@@ -24,7 +24,7 @@ export function SliderPortfolio() {
     dots: true,
     prevArrow: <></>,
     nextArrow: <></>,
-    dotsClass: 'slick-slide-home',
+    dotsClass: 'slick-slide-home absolute bottom-0',
     infinite: false,
     speed: 500,
     slidesToShow: 1,

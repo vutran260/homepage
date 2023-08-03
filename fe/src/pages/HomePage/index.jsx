@@ -36,8 +36,8 @@ function Section({ children, id }) {
     <section ref={ref}>
       <div
         style={{
-          transform: inView ? 'none' : 'translateY(200px)',
-          opacity: inView ? 1 : 0,
+          // transform: inView ? 'none' : 'translateY(200px)',
+          // opacity: inView ? 1 : 0,
           transition: 'all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s'
         }}
       >

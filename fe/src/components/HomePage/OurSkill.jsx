@@ -36,7 +36,7 @@ export const OurSkill = () => {
 
 
           </div>
-          <div className='wrap-img h-5/6 w-full'>
+          <div className='wrap-img h-5/6 w-full grayscale-image'>
             <img src={Rectangle31Mobile} className="w-full mobile" alt=""/>
             <img src={Rectangle31} alt='' className='h-full w-full pc'/>
           </div>

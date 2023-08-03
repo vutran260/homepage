@@ -15,6 +15,17 @@ html {
 span {
   word-break: break-all;
 }
+
+.grayscale-image {
+  filter: grayscale(100%);
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.grayscale-image:hover {
+  filter: grayscale(0%);
+  transform: scale(1.1);
+  /* Bỏ hiệu ứng trắng đen khi hover vào */
+}
 @media screen and (max-width: 768px) {
   .ButtonGoDown {
     display: none;
@@ -37,8 +48,8 @@ body {
 }
 
 .heightSection {
-  height: calc(100vh) !important;
-  padding-top: $height-header;
+  min-height: calc(100vh) !important;
+  // padding-top: $height-header;
   transform: translateZ(0);
 }
 
@@ -58,7 +69,7 @@ body {
 
 @include screen("mobile") {
   .heightSection {
-    height: calc(100vh) !important;
+    min-height: calc(100vh) !important;
     padding-top: 70px;
     overflow-y: scroll;
     // transform: translateY(70px);
