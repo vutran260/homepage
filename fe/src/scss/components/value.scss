@@ -19,7 +19,7 @@
   }
 }
 
-@include screen("mobile") {
+@media screen and (max-width: 768px) {
   .wrap-value {
     padding-right: 0 !important;
 

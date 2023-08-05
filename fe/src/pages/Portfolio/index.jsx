@@ -15,7 +15,7 @@ const CardPortfolio = (props) => {
         <div className='slider-image'>
           <img src={props.thumpnail} alt='port' />
         </div>
-        <div className='slider-text-left flex h-full items-center'>
+        <div className='slider-text-left flex items-center'>
           <div className='flex flex-col text-white'>
             <span className='text-large mb-7 text-white'>{props.title}</span>
             <div className='mb-5 flex max-md:mb-4'>

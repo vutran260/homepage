@@ -91,11 +91,6 @@ export default function HomePage() {
                   <AboutUs />
                 </Section>
               </Element>
-              <Element id='Our_Skill'>
-                <Section id='Our_Skill'>
-                  <OurSkill />
-                </Section>
-              </Element>
               <Element id='Services'>
                 <Section id='Services'>
                   <Services />

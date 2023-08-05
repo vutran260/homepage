@@ -6,8 +6,8 @@ import iconRow from '../../assets/images/iconRow.png'
 export const CardPortfolio = (props) => {
   return (
     <>
-      <div className='slider-item flex items-center justify-items-center gap-5 max-[500px]:flex-wrap'>
-        <div className='slider-text-left flex h-full items-center'>
+      <div className='slider-item flex items-center justify-items-center gap-5 max-[500px]:flex-wrap h-screen max-md:h-[70vh]'>
+        <div className='slider-text-left flex items-center'>
           <div className='flex  flex-col'>
             <Link to='/' className='linkText'>
               ショッピングアプリ

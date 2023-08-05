@@ -115,8 +115,8 @@
     background-position: -200px -200px;
 
     .slick-slide-home {
-      margin: 0 auto;
-      width: 80%;
+      padding: 0 25px;
+      width: 100%;
     }
 
     .slick-list {
@@ -128,7 +128,6 @@
 @media screen and (min-width: 1100px) {
   .slider-home {
     .slider-text-right {
-      position: absolute;
       top: 0;
       right: 0;
     }

@@ -10,7 +10,7 @@ import React, {useEffect, useRef, useState} from "react";
 export function SliderCommon({data}) {
   const settings = {
     customPaging: function (i) {
-      return <span className="dot w-full"></span>
+      return <span className='dot w-full'></span>
     },
     dots: true,
     prevArrow: <></>,
@@ -23,11 +23,17 @@ export function SliderCommon({data}) {
 
     responsive: [
       {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2
+        }
+      },
+      {
         breakpoint: 576,
         settings: {
           verticalSwiping: true,
-          swipeToSlide: true,
-          vertical: true,
+          // swipeToSlide: true,
+          vertical: true
         }
       }
     ]
@@ -35,18 +41,21 @@ export function SliderCommon({data}) {
   return (
     <>
       <div className='slider-common h-full'>
-        <Slider {...settings}>
-          {data.map((team) => {
-            return (
-              <CardProfile key={team.id}
-               name={team.attributes.name} 
-               jobDescription={team.attributes.jobDescription} 
-               avatar={team.attributes.avatar.data.attributes.url} 
-               experience={team.attributes.experience}
-               />
-            )
-          })}
-        </Slider>
+        {data?.length && (
+          <Slider {...settings}>
+            {data.map((team) => {
+              return (
+                <CardProfile
+                  key={team.id}
+                  name={team.attributes.name}
+                  jobDescription={team.attributes.jobDescription}
+                  avatar={team.attributes.avatar.data.attributes.url}
+                  experience={team.attributes.experience}
+                />
+              )
+            })}
+          </Slider>
+        )}
       </div>
     </>
   )

@@ -1,7 +1,7 @@
 @import "../variables";
 
 .aboutUS {
-  background-position: left;
+  background-position: left top;
   background-repeat: no-repeat;
   background-image: url("../../assets/images/backgroundAbout.svg");
   position: relative;
@@ -9,8 +9,7 @@
   padding-right: 100px;
 
   .aboutUS-wrap-text {
-    width: 55%;
-    padding-left: 60px;
+    width: 50%;
     padding-top: 20px;
 
     .text-large {
@@ -30,7 +29,7 @@
   }
 
   .wrap-img {
-    width: 45%;
+    width: 50%;
     height: fit-content;
 
     .pc {
@@ -53,8 +52,8 @@
 @include screen("mobile") {
   .aboutUS {
     padding-right: 0 !important;
-    background-position: 55% 192px;
-    background-size: cover;
+    background-position: center;
+    background-size: contain;
 
     .aboutUs-text {
       font-size: 30px !important;
@@ -82,12 +81,11 @@
     }
   }
   .wrap-aboutContent {
-    flex-direction: column-reverse !important;
+    flex-direction: column-reverse;
+    padding: 15px 15px;
 
     .aboutUS-wrap-text {
       width: 100% !important;
-      padding-left: 15px !important;
-      padding-right: 15px !important;
     }
   }
 

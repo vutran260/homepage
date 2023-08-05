@@ -2,6 +2,7 @@
 
 .wrap-clientFeedback {
   width: 100%;
+  padding-right: 100px;
 
   .slick-slide {
     padding: 0 2rem;
@@ -108,6 +109,10 @@ div.section-ten .slick-current + .slick-slide .overlay {
     .slick-slide-feedback {
       position: absolute;
       bottom: 32px;
+    }
+
+    .wrap-clientFeedback {
+      padding-right: 0;
     }
   }
 }
