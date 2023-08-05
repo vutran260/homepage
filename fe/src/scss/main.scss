@@ -74,3 +74,52 @@ body {
     // transform: translateY(70px);
   }
 }
+
+.App {
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+}
+
+.App.loading {
+  opacity: 0;
+}
+
+// .loading-spinner {
+//   width: 100vw;
+//   height: 100vh;
+//   background-color: aliceblue;
+// }
+
+.loading-spinner {
+  width: 100vw;
+  height: 100vh;
+  font-size: 24px;
+  position: relative;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+.loading-spinner:before {
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  width: 60px;
+  height: 60px;
+  border: 6px solid #ccc;
+  border-top-color: #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
