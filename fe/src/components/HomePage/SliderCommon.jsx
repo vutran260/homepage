@@ -5,6 +5,7 @@ import '../../scss/components/sliderCommon.scss'
 import persion from '../../assets/images/persion.png'
 import {CardProfile} from "src/components/HomePage/CardProfile.jsx";
 import React, {useEffect, useRef, useState} from "react";
+import { AnimationInViewToTop } from '../Animation'
 
 
 export function SliderCommon({data}) {
@@ -45,13 +46,14 @@ export function SliderCommon({data}) {
           <Slider {...settings}>
             {data.map((team) => {
               return (
-                <CardProfile
-                  key={team.id}
-                  name={team.attributes.name}
-                  jobDescription={team.attributes.jobDescription}
-                  avatar={team.attributes.avatar.data.attributes.url}
-                  experience={team.attributes.experience}
-                />
+                <AnimationInViewToTop key={team.id}>
+                  <CardProfile
+                    name={team.attributes.name}
+                    jobDescription={team.attributes.jobDescription}
+                    avatar={team.attributes.avatar.data.attributes.url}
+                    experience={team.attributes.experience}
+                  />
+                </AnimationInViewToTop>
               )
             })}
           </Slider>

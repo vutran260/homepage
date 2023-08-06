@@ -1,6 +1,7 @@
 import '../../scss/components/portfolio.scss'
 import portfolio from '../../assets/images/portfolio.png'
 import ButtonGoDown from '../Button'
+import { AnimationInViewToTop } from '../Animation'
 
 export function Portfolio() {
   return (
@@ -8,15 +9,18 @@ export function Portfolio() {
       <div className='portfolio heightSection bg-darkGray-900'>
         <div className='flex flex-col justify-center pt-4'>
           <div className='portfolio-text flex flex-col text-white'>
-            <span>What We’ve Done</span>
-            <span className='text'>Portfolio</span>
+            <AnimationInViewToTop className={`text-center`}>
+              <span>What We’ve Done</span>
+            </AnimationInViewToTop>
+            <AnimationInViewToTop className={`text-center`}>
+              <span className='text'>Portfolio</span>
+            </AnimationInViewToTop>
           </div>
-          <div className='wrap-img grayscale-image'>
-            <img src={portfolio} alt='' />
-          </div>
-        </div>
-        <div className='ButtonGoDown'>
-          <ButtonGoDown target='Portfolio1' />
+          <AnimationInViewToTop>
+            <div className='wrap-img grayscale-image'>
+              <img src={portfolio} alt='' />
+            </div>
+          </AnimationInViewToTop>
         </div>
       </div>
     </>

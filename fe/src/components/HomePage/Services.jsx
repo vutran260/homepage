@@ -3,8 +3,8 @@ import graphicDesign1 from '../../assets/images/graphic-design1.png'
 import "../../scss/components/services.scss"
 import Slider from 'react-slick'
 
-import ButtonGoDown from "src/components/Button";
 import http from '../../utils/http';
+import { AnimationInViewToTop } from '../Animation';
 
 export function Services() {
   const myRef = useRef(null);
@@ -72,20 +72,21 @@ export function Services() {
     <div className='wrap-services heightSection relative'>
       <div className='wrapTitle pb-8 pl-2 text-center'>
         <div className='wap-textLan-space w-full'>
-          <span className='mb-3 flex flex-col text-white'>What we do</span>
-          <span className='textLarge text-white'>Our services</span>
+          <AnimationInViewToTop>
+            <span className='mb-3 flex flex-col text-white'>What we do</span>
+          </AnimationInViewToTop>
+          <AnimationInViewToTop>
+            <span className='textLarge text-white'>Our services</span>
+          </AnimationInViewToTop>
         </div>
-        <div className='textIpad mx-auto mt-[10px] w-[70%] text-center'>
+        <AnimationInViewToTop className='textIpad mx-auto mt-[10px] w-[70%] text-center'>
           <p className='text-white'>
             クリエイティブ × プランニング ×
             エンジニアリング企画戦略・デザイン・開発・保守まで、ITに関するあらゆる課題に対応
           </p>
-        </div>
+        </AnimationInViewToTop>
       </div>
-      <div className='flex'>
-        {/* <div className="w-1/2 flex items-center justify-center wrap-imgHand">
-          <img src={hand} alt=""/>
-        </div> */}
+      <AnimationInViewToTop className='flex'>
         <div className='wrap-sliderServices w-full' ref={myRef}>
           {data.length && (
             <Slider {...settings}>
@@ -104,10 +105,7 @@ export function Services() {
             </Slider>
           )}
         </div>
-      </div>
-      <div className='ButtonGoDown'>
-        <ButtonGoDown target='Value' />
-      </div>
+      </AnimationInViewToTop>
     </div>
   )
 }

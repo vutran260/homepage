@@ -1,16 +1,16 @@
-import "../../scss/components/value.scss"
-import ButtonGoDown from "src/components/Button";
-import background from "src/assets/images/Rectangle35.png"
+import background from "src/assets/images/Rectangle35.png";
+import "../../scss/components/value.scss";
+import { AnimationInViewToTop } from "../Animation";
 
 export function Value() {
   return (
     <div className='wrap-value heightSection relative'>
-      <div className='grayscale-image w-4/5'>
+      <AnimationInViewToTop duration={1.2} className='grayscale-image w-4/5'>
         <img src={background} alt='' />
-      </div>
+      </AnimationInViewToTop>
       <div className='wrap-text absolute flex flex-col rounded-md bg-darkGray-900'>
-        <span className='textLarge mb-4 text-white'>Our Value</span>
-        <div className='text-white'>
+        <AnimationInViewToTop className='textLarge mb-4 text-white'>Our Value</AnimationInViewToTop>
+        <AnimationInViewToTop className='text-white'>
           私たちは最先端のIT技術を駆使し、トレンドに合わせたアプリ開発に特化しております。
           豊富な実績から、ライブ配信アプリ開発には特に強みを持っており、
           多方面からアプローチ可能な企画提案や、よく使われている機能などを速やかに実装可能です。
@@ -23,10 +23,7 @@ export function Value() {
           <br />
           また、近年流行しているアプリの特性を一早く理解し、テストとして似たような
           アプリを制作するよう心掛けておりますので、 その実績上、質の高い提案が出来る自負があります。
-        </div>
-      </div>
-      <div className='ButtonGoDown'>
-        <ButtonGoDown target='Team' />
+        </AnimationInViewToTop>
       </div>
     </div>
   )

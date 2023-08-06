@@ -9,6 +9,7 @@ import Rec39 from '../../assets/images/Rectangle39.png'
 
 import ButtonGoDown from "src/components/Button";
 import http from '../../utils/http'
+import { AnimationInViewToTop } from '../Animation'
 
 
 const ClientFeedback = () => {
@@ -55,10 +56,14 @@ const ClientFeedback = () => {
   return (
     <div className='section-nine section-ten section wrap-clientFeedback heightSection relative flex flex-col'>
       <div className='wrap-textFeedback pb-20'>
-        <div className='text-Feedback flex justify-center text-white'>Feedback</div>
-        <h2 className='title textLarge flex justify-center text-white'>Client Voices</h2>
+        <AnimationInViewToTop>
+          <div className='text-Feedback flex justify-center text-white'>Feedback</div>
+        </AnimationInViewToTop>
+        <AnimationInViewToTop>
+          <h2 className='title textLarge flex justify-center text-white'>Client Voices</h2>
+        </AnimationInViewToTop>
       </div>
-      <div className='wrap-person text-white'>
+      <AnimationInViewToTop className='wrap-person text-white'>
         {data.length && (
           <Slider {...settings}>
             {data?.map((fb) => {
@@ -84,10 +89,7 @@ const ClientFeedback = () => {
             })}
           </Slider>
         )}
-      </div>
-      <div className='ButtonGoDown'>
-        <ButtonGoDown target='Contact_Us' />
-      </div>
+      </AnimationInViewToTop>
     </div>
   )
 }

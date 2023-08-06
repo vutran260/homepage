@@ -1,5 +1,6 @@
-import {ButtonHTMLAttributes} from 'react'
+import {useContext} from 'react'
 import buttonGoDown from '../../assets/images/buttonGoDown.png'
+import { AppContext } from '../../contexts/app.context'
 
 export default function ButtonGoDown({target}) {
   const style = {
@@ -11,9 +12,18 @@ export default function ButtonGoDown({target}) {
     width: '50px'
   }
   
+  const {menuActive} = useContext(AppContext)
+  console.log(menuActive)
   const handleScroll = () => {
-    const section = document.querySelector( `#${target}` );
-    section?.scrollIntoView( { behavior: 'smooth' } );
+    const section = document.querySelector(`#${menuActive}`)
+    // section?.scrollIntoView( { behavior: 'smooth' } );
+    let sectionNext;
+    
+    sectionNext = section.nextSibling
+    
+    if (sectionNext) {
+      sectionNext.scrollIntoView({ behavior: 'smooth' })
+    }
   }
   return <a onClick={handleScroll} style={style} className='cursor h-full w-full cursor-pointer block'></a>
 }

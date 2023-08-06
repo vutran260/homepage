@@ -4,12 +4,13 @@ import logoMobile from '../../assets/images/Logomobile.png'
 import MenuIcon from '../../assets/images/menuIcon.png'
 import {useContext, useEffect, useState} from "react";
 import { AppContext } from '../../contexts/app.context';
+import { AnimationInViewToTop } from '../Animation';
 
 export default function Header({HandleOpenSideBar}) {
     const { setting } = useContext(AppContext)
 
   return (
-    <div className='Header fixed top-0 left-0 z-50 flex h-24 w-full justify-between bg-darkGray-900 px-8'>
+    <AnimationInViewToTop className='Header fixed top-0 left-0 z-50 flex h-24 w-full justify-between bg-darkGray-900 px-8'>
       <div className='w-1/2'>
         <div className='flex h-full items-center'>
           <Link to='/' className=''>
@@ -33,6 +34,6 @@ export default function Header({HandleOpenSideBar}) {
           </button>
         </div>
       </div>
-    </div>
+    </AnimationInViewToTop>
   )
 }

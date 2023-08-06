@@ -1,6 +1,7 @@
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import '../../scss/components/newCard.scss'
 import Rectangle from '../../assets/images/Rectangle26.png'
+import { AnimationInViewToTop } from '../Animation'
 
 export function NewCard(datum) {
   const obj = {

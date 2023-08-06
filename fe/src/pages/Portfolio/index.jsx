@@ -1,13 +1,9 @@
-import Slider from 'react-slick'
-import ButtonGoDown from '../../components/Button'
-import { Link } from 'react-router-dom'
-import portImage from '../../assets/images/portapp.png'
-import iconRow from '../../assets/images/iconRow.png'
-import '../../scss/components/sliderCommon.scss'
-import './style.scss'
-import CloseIcon from '../../components/Icon/CloseIcon'
 import { useEffect, useState } from 'react'
+import Slider from 'react-slick'
+import CloseIcon from '../../components/Icon/CloseIcon'
+import '../../scss/components/sliderCommon.scss'
 import http from '../../utils/http'
+import './style.scss'
 const CardPortfolio = (props) => {
   return (
     <>

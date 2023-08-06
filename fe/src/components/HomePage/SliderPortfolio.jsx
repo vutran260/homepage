@@ -24,7 +24,7 @@ export function SliderPortfolio() {
     dots: true,
     prevArrow: <></>,
     nextArrow: <></>,
-    dotsClass: 'slick-slide-home absolute bottom-0',
+    dotsClass: 'slick-slide-home md:absolute bottom-0 max-[500px]:mt-5',
     infinite: false,
     speed: 500,
     slidesToShow: 1,
@@ -32,7 +32,7 @@ export function SliderPortfolio() {
   }
   return (
     <>
-      <div className='slider-home heightSection relative'>
+      <div className='slider-home heightSection relative md:pt-9'>
         <Slider {...settings}>
           {data?.map((portfolio) => {
             return (
@@ -46,15 +46,7 @@ export function SliderPortfolio() {
               />
             )
           })}
-          {/* <CardPortfolio />
-          <CardPortfolio />
-          <CardPortfolio />
-          <CardPortfolio />
-          <CardPortfolio /> */}
         </Slider>
-        <div className='ButtonGoDown'>
-          <ButtonGoDown target='News' />
-        </div>
       </div>
     </>
   )

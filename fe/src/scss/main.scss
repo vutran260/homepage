@@ -16,11 +16,6 @@ span {
   word-break: break-all;
 }
 
-.grayscale-image {
-  filter: grayscale(100%);
-  transition: filter 0.3s ease, transform 0.3s ease;
-}
-
 .grayscale-image:hover {
   filter: grayscale(0%);
   transform: scale(1.1);
@@ -84,12 +79,6 @@ body {
   opacity: 0;
 }
 
-// .loading-spinner {
-//   width: 100vw;
-//   height: 100vh;
-//   background-color: aliceblue;
-// }
-
 .loading-spinner {
   width: 100vw;
   height: 100vh;
@@ -122,4 +111,12 @@ body {
   100% {
     transform: rotate(360deg);
   }
+}
+
+@media screen and (min-width: 768px) {
+  .grayscale-image {
+      filter: grayscale(100%);
+      transition: filter 0.3s ease, transform 0.3s ease;
+    }
+  
 }
