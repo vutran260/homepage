@@ -40,8 +40,8 @@ export function Services() {
       return <span className='dot w-full'></span>
     },
     dots: true,
-    prevArrow: <></>,
-    nextArrow: <></>,
+    // prevArrow: <></>,
+    // nextArrow: <></>,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,

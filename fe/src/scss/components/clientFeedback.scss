@@ -8,6 +8,14 @@
     padding: 0 2rem;
   }
 
+  .slick-arrow.slick-next,
+  .slick-arrow.slick-prev {
+    opacity: 0;
+    height: 100%;
+    width: 30%;
+    z-index: 1000;
+  }
+
   .slick-slide-feedback {
     display: flex !important;
     justify-content: center;

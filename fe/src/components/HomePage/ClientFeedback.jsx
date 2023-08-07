@@ -27,8 +27,8 @@ const ClientFeedback = () => {
       return <span className='dot'></span>
     },
     dots: true,
-    prevArrow: <></>,
-    nextArrow: <></>,
+    // prevArrow: <></>,
+    // nextArrow: <></>,
     dotsClass: 'slick-slide-feedback',
     infinite: true,
     speed: 500,
