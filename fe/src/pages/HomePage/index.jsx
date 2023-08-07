@@ -23,16 +23,17 @@ import ButtonGoDown from '../../components/Button'
 import { useLocation } from 'react-router-dom'
 
 function Section({ children, id }) {
-  // const ref = useRef(null)
-  // const ref = useRef(null);
   const { inView, ref } = useInView({
     /* Optional options */
     threshold: 0.5
   })
   const {setMenuActive} = useContext(AppContext)
-  if(inView) {
-    setMenuActive(id)
-  }
+  useEffect(() => {
+    if (inView) {
+      setMenuActive(id)
+    }
+  }, [inView])
+  
   return (
     <section ref={ref}>
       <div
@@ -62,8 +63,6 @@ export default function HomePage() {
   useEffect(() => {
     if (state?.redirect) {
       const section = document.querySelector(`#Portfolio1`)
-      const scrollPosition = section.getBoundingClientRect().top + window.pageYOffset - 100
-      // window.scrollTo({ top: scrollPosition, behavior: 'smooth' })
       section.scrollIntoView({ behavior: 'smooth', block: 'end' })
     }
   }, [])

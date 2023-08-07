@@ -1,15 +1,15 @@
-import { Link, Route, Routes } from 'react-router-dom'
-import { ToastContainer } from 'react-toastify'
-import { useSpring, animated } from 'react-spring'
-import 'react-toastify/dist/ReactToastify.css'
-import PostsList from './pages/PostsList/Postlists'
-import PostDetail from './pages/PostDetail'
-import HomePage from './pages/HomePage'
-import { motion } from 'framer-motion'
-import Contact from './pages/Contact'
-import Portfolio from './pages/Portfolio'
-import { AppContext } from './contexts/app.context'
 import { useContext, useEffect, useState } from 'react'
+import { Route, Routes } from 'react-router-dom'
+import { animated, useSpring } from 'react-spring'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import Typist from 'react-typist'
+import { AppContext } from './contexts/app.context'
+import Contact from './pages/Contact'
+import HomePage from './pages/HomePage'
+import Portfolio from './pages/Portfolio'
+import PostDetail from './pages/PostDetail'
+import PostsList from './pages/PostsList/Postlists'
 import http from './utils/http'
 
 const AnimationWrap = ({ children }) =>
@@ -21,11 +21,12 @@ function App() {
   const { setSetting } = useContext(AppContext)
   const [loading, setLoading] = useState(true)
 
-  useEffect(() => {
-    setTimeout(() => {
-      setLoading(false)
-    }, 2000)
-  }, [])
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setLoading(false)
+  //   }, 3000)
+  // }, [])
+
   useEffect(() => {
     const fetchData = async () => {
       const res = await http.get('setting?populate=*')
@@ -36,38 +37,29 @@ function App() {
 
   const fadeAndScaleIn = useSpring({
     opacity: loading ? 0 : 1,
-    transform: loading ? 'scale(0.8)' : 'scale(1)'
+    // transform: loading ? 'scale(0.8)' : 'scale(1)'
   })
 
   return (
     <div className='App'>
-      {loading ? (
-        <div className='loading-spinner'></div>
-      ) : (
-        <animated.h1 style={fadeAndScaleIn}>
+      {/* {loading ? (
+        <div className='loading-spinner justify-center text-center text-black'>
+          <Typist avgTypingDelay={100} startDelay={0} className='text-4xl italic'>
+            WELCOME...
+          </Typist>
+        </div>
+      ) :  */}
+      (
+        {/* <animated.h1 style={fadeAndScaleIn}> */}
           <Routes>
             <Route path='/' element={<HomePage />} />
-            <Route
-              path='/posts'
-              element={
-                // <AnimationWrap>
-                <PostsList />
-                // </AnimationWrap>
-              }
-            />
-            <Route
-              path='/posts/:id'
-              element={
-                // <AnimationWrap>
-                <PostDetail />
-                // </AnimationWrap>
-              }
-            />
+            <Route path='/posts' element={<PostsList />} />
+            <Route path='/posts/:id' element={<PostDetail />} />
             <Route path='/contact' element={<Contact />} />
             <Route path='/portfolio' element={<Portfolio />} />
           </Routes>
-        </animated.h1>
-      )}
+        {/* </animated.h1> */}
+      )
 
       <ToastContainer />
     </div>
