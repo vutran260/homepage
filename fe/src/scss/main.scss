@@ -19,7 +19,6 @@ span {
 .grayscale-image:hover {
   filter: grayscale(0%);
   transform: scale(1.1);
-  /* Bỏ hiệu ứng trắng đen khi hover vào */
 }
 @media screen and (max-width: 768px) {
   .ButtonGoDown {

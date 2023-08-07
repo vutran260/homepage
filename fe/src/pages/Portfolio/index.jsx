@@ -1,17 +1,17 @@
-import { useEffect, useState } from 'react'
 import Slider from 'react-slick'
-import CloseIcon from '../../components/Icon/CloseIcon'
 import '../../scss/components/sliderCommon.scss'
-import http from '../../utils/http'
 import './style.scss'
+import CloseIcon from '../../components/Icon/CloseIcon'
+import { useEffect, useState } from 'react'
+import http from '../../utils/http'
 const CardPortfolio = (props) => {
   return (
     <>
       <div className='slider-item flex items-center justify-items-center max-[768px]:flex-wrap'>
-        <div className='slider-image'>
+        <div className='slider-image grayscale-image'>
           <img src={props.thumpnail} alt='port' />
         </div>
-        <div className='slider-text-left flex items-center'>
+        <div className='slider-text-left flex h-full items-center'>
           <div className='flex flex-col text-white'>
             <span className='text-large mb-7 text-white'>{props.title}</span>
             <div className='mb-5 flex max-md:mb-4'>
@@ -28,7 +28,9 @@ const CardPortfolio = (props) => {
             </div>
             <div className='mb-5 flex'>
               <span className='min-w-[75px] text-blue'>Website : </span>
-              <span className='ml-6 text-blue'>{props.website}</span>
+              <a href={props.website} target='_blank' className='ml-6 text-blue'>
+                {props.website}
+              </a>
             </div>
             <div className='mb-5 flex'>
               <span className='min-w-[75px] text-blue'>導入 : </span>
@@ -60,12 +62,13 @@ const ArrowRight = () => (
 )
 
 function ArrowCustomLeft(props) {
-  const { className, style, onClick } = props
+  const { className, style, onClick, disable } = props
   const styles = {
     position: 'absolute',
     left: '2rem',
     bottom: 0,
-    cursor: 'pointer'
+    cursor: disable ? 'not-allowed' : 'pointer',
+    opacity: disable ? 0.5 : 1
   }
   return (
     <div style={{ ...style, display: 'block', ...styles }} onClick={onClick}>
@@ -74,12 +77,13 @@ function ArrowCustomLeft(props) {
   )
 }
 function ArrowCustomRight(props) {
-  const { className, style, onClick } = props
+  const { className, style, onClick, disable } = props
   const styles = {
     position: 'absolute',
     right: '50%',
     bottom: 0,
-    cursor: 'pointer'
+    cursor: disable ? 'not-allowed' : 'pointer',
+    opacity: disable ? 0.5 : 1
   }
   return (
     <div style={{ ...style, display: 'block', ...styles }} onClick={onClick}>
@@ -93,11 +97,13 @@ function Portfolio() {
   const fetchPortfolios = async () => {
     const res = await http.get(`portfolios?populate=*`)
     setData(res.data.data)
-  } 
+  }
 
   useEffect(() => {
     fetchPortfolios()
-  },[])
+  }, [])
+
+  const [currentSlideIndex, setCurrentSlideIndex] = useState(0)
 
   const settings = {
     customPaging: function (i) {
@@ -105,12 +111,12 @@ function Portfolio() {
     },
     dots: true,
     prevArrow: (
-      <ArrowCustomLeft className='arrowLeft'>
+      <ArrowCustomLeft disable={currentSlideIndex === 0 ? true : false}>
         <ArrowLeft />
       </ArrowCustomLeft>
     ),
     nextArrow: (
-      <ArrowCustomRight className='arrowRight'>
+      <ArrowCustomRight disable={currentSlideIndex === data?.length - 1 ? true : false} className='arrowRight'>
         <ArrowRight />
       </ArrowCustomRight>
     ),
@@ -118,14 +124,15 @@ function Portfolio() {
     infinite: false,
     speed: 500,
     slidesToShow: 1,
-    slidesToScroll: 1
+    slidesToScroll: 1,
+    afterChange: (current) => setCurrentSlideIndex(current)
   }
   return (
     <>
       <div className='slider-home slider-portfolio relative'>
         <CloseIcon redirect={`Portfolio1`} />
         <Slider {...settings} className='slider-common'>
-          {data.map(function(portfolio, index) {
+          {data.map(function (portfolio, index) {
             return (
               <CardPortfolio
                 key={portfolio.id}

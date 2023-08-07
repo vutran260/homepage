@@ -101,16 +101,13 @@ export default function PostsList() {
   return (
     <div style={{ backgroundImage: `url(${Vector14})` }} className={mainBackgroundClasses}>
       <LogoFixed />
-      <div className='mx-auto max-w-[1600px] px-5 pt-[40px] text-white max-lg:px-4 min-[1200px]:px-[147px] pb-4'>
+      <div className='mx-auto max-w-[1600px] px-5 pt-[40px] pb-4 text-white max-lg:px-4 min-[1200px]:px-[147px]'>
         <h3 className='mb-10 text-center text-5xl'>Our News</h3>
         <div
           className='flex justify-center gap-10 pb-10 max-md:gap-4 max-sm:justify-start'
           style={{ overflowX: 'auto' }}
         >
-          <button
-            className={classNames({ 'active text-blue': isCategoryActive(null) })}
-            onClick={handleSearchAll}
-          >
+          <button className={classNames({ 'active text-blue': isCategoryActive(null) })} onClick={handleSearchAll}>
             All
           </button>
           {categories.map((category) => (
@@ -139,15 +136,14 @@ export default function PostsList() {
                 <Link to={post.id.toString()} key={post.id}>
                   <div className='mb-2'>
                     <img
-                      className='h-72 w-full object-cover'
+                      className='grayscale-image h-72 w-full object-cover'
                       src={`${import.meta.env.VITE_REACT_IMAGE_BASE_URL}${
                         post?.attributes.thumpnail?.data?.attributes.url
                       }`}
                       alt='Thumbnail'
                     />
                   </div>
-                  <div className='mt-3 mb-2 text-blue'>{post.attributes.category.data?.attributes
-.name}</div>
+                  <div className='mt-3 mb-2 text-blue'>{post.attributes.category.data?.attributes.name}</div>
                   <h3 className='text-xl font-bold'>{post.attributes.title}</h3>
                   <div className='text-sm text-white text-opacity-50'>2023.01.23</div>
                 </Link>
