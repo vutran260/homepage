@@ -36,7 +36,7 @@ function Footer() {
                 </div>
                 <div className='mb-2 flex items-center gap-5'>
                   <span className='text-orange'>T</span>
-                  <span className='opacity-60'>03-5322-2953</span>
+                  <span className='opacity-60'>{setting?.tel}</span>
                 </div>
                 <div className='mb-2 flex items-center gap-5'>
                   <span className='text-orange'>E</span>
