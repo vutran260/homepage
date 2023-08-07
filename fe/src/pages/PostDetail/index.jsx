@@ -8,6 +8,7 @@ import convertDateFormat from '../../utils/convertDateTime'
 import { AnimationWrap } from '../../components/Animation'
 import LogoFixed from '../../components/LogoFixed'
 import Vector14 from '../../assets/images/Vector14.png'
+import CloseIcon from '../../components/Icon/CloseIcon'
 
 export default function PostsList() {
   const [post, setPost] = useState({})
@@ -25,6 +26,7 @@ export default function PostsList() {
   return (
     <div style={{ backgroundImage: `url(${Vector14})` }} className={mainBackgroundClasses}>
       <LogoFixed />
+      <CloseIcon pathName={`/posts`} />
       <AnimationWrap>
         <div className='mx-auto max-w-[754px]'>
           <h3 className='mb-10 text-left text-5xl text-white'>{post.title}</h3>

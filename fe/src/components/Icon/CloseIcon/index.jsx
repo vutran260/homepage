@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom'
 import './styles.scss'
-export default function CloseIcon() {
+export default function CloseIcon({redirect, pathName}) {
   return (
     <Link
       to={{
-        pathname: '/'
+        pathname: pathName ? pathName : '/'
       }}
-      state={{ redirect: true }}
+      state={{ redirect: redirect }}
       className='icon-close'
     >
       <svg width='50' height='50' viewBox='0 0 50 50' fill='none' xmlns='http://www.w3.org/2000/svg'>

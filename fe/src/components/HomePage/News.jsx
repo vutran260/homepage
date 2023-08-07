@@ -37,7 +37,7 @@ export function News() {
               <Link to='/posts' className='mr-3'>
                 <img src={iconRow} alt='' />
               </Link>
-              <span className='top-2 text-xs text-white opacity-40'>ニュース一覧</span>
+              <span className='top-2 text-xs text-white opacity-40'>もっと見る</span>
             </div>
           </div>
         </div>

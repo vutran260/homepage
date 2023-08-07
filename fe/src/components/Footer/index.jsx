@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import Frame29 from '../../assets/images/Frame29.png'
-import iconRow from '../../assets/images/iconRow.png'
+import iconContact from '../../assets/images/iconContact.svg'
 import { AppContext } from '../../contexts/app.context'
 import { AnimationInViewToTop } from '../Animation'
 import './style.css'
@@ -45,9 +45,9 @@ function Footer() {
               </AnimationInViewToTop>
               <AnimationInViewToTop className='mt-[80px] flex basis-1/2 items-center gap-3 max-lg:mt-[30px] max-md:hidden max-md:basis-full'>
                 <Link to='/contact' className='h-10 w-10'>
-                  <img className='max-[500px]:h-10 max-[500px]:w-10' src={iconRow} alt='' />
+                  <img className='max-[500px]:h-10 max-[500px]:w-10' src={iconContact} alt='' />
                 </Link>
-                <span className='opacity-60'>CONTACT NOW</span>
+                <span className='opacity-60'>お問い合わせ</span>
               </AnimationInViewToTop>
               <AnimationInViewToTop className='basis-1/2 max-md:basis-full'>
                 <h4 className='mb-2 text-2xl'>Address</h4>
@@ -56,11 +56,13 @@ function Footer() {
 
               <AnimationInViewToTop className='mt-[80px] flex basis-1/2 items-center gap-3 max-lg:mt-[30px] max-md:basis-full min-[768px]:hidden'>
                 <Link to='/contact' className='h-10 w-10'>
-                  <img className='max-[500px]:h-10 max-[500px]:w-10' src={iconRow} alt='' />
+                  <img className='max-[500px]:h-10 max-[500px]:w-10' src={iconContact} alt='' />
                 </Link>
-                <span className='opacity-60'>CONTACT NOW</span>
+                <span className='opacity-60'>お問い合わせ</span>
               </AnimationInViewToTop>
-              <AnimationInViewToTop className='mt-10 max-w-[250px] opacity-70 min-[768px]:hidden'>{setting?.description}</AnimationInViewToTop>
+              <AnimationInViewToTop className='mt-10 max-w-[250px] opacity-70 min-[768px]:hidden'>
+                {setting?.description}
+              </AnimationInViewToTop>
             </div>
           </div>
           <AnimationInViewToTop className='basis-1/3 max-md:mb-5 max-md:w-full max-md:basis-full'>

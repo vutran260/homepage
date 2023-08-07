@@ -60,9 +60,10 @@ export default function HomePage() {
   }
 
   let { state } = useLocation()
+  console.log(state)
   useEffect(() => {
     if (state?.redirect) {
-      const section = document.querySelector(`#Portfolio1`)
+      const section = document.querySelector(`#${state?.redirect}`)
       section.scrollIntoView({ behavior: 'smooth', block: 'end' })
     }
   }, [])

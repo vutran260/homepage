@@ -95,7 +95,13 @@ export function Services() {
                   <div key={service.id} className='relative h-fit ease-linear'>
                     <div className='backgroundLinear w-full'></div>
                     <div className='mb-8 flex flex-col'>
-                      <img className='icon mb-5 h-9 w-9 opacity-40' src={graphicDesign1} alt='' />
+                      <img
+                        className='icon mb-5 h-9 w-9 opacity-40'
+                        src={`${import.meta.env.VITE_REACT_IMAGE_BASE_URL}${
+                          service.attributes.icon?.data?.attributes.url
+                        }`}
+                        alt=''
+                      />
                       <span className='fontText mb-4 font-bold text-orange opacity-40'>{service.attributes.title}</span>
                       <p className='text-font font-normal text-white opacity-40'>{service.attributes.description}</p>
                     </div>

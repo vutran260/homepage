@@ -20,15 +20,15 @@ const CardPortfolio = (props) => {
             </div>
             <div className='mb-5 flex'>
               <span className='min-w-[75px] text-blue'>媒体 : </span>
-              <span className='ml-6'>ios, android</span>
+              <span className='ml-6'>{props.media}</span>
             </div>
             <div className='mb-5 flex'>
               <span className='min-w-[75px] text-blue'>主な技術 : </span>
-              <span className='ml-6 text-blue'>{props.technologies}</span>
+              <span className='ml-6 '>{props.technologies}</span>
             </div>
             <div className='mb-5 flex'>
               <span className='min-w-[75px] text-blue'>Website : </span>
-              <span className='ml-6'>{props.website}</span>
+              <span className='ml-6 text-blue'>{props.website}</span>
             </div>
             <div className='mb-5 flex'>
               <span className='min-w-[75px] text-blue'>導入 : </span>
@@ -123,7 +123,7 @@ function Portfolio() {
   return (
     <>
       <div className='slider-home slider-portfolio relative'>
-        <CloseIcon />
+        <CloseIcon redirect={`Portfolio1`} />
         <Slider {...settings} className='slider-common'>
           {data.map(function(portfolio, index) {
             return (
@@ -131,6 +131,7 @@ function Portfolio() {
                 key={portfolio.id}
                 title={portfolio.attributes.title}
                 release_time={portfolio.attributes.release_time}
+                media={portfolio.attributes.media}
                 technologies={portfolio.attributes.technologies}
                 website={portfolio.attributes.website}
                 description={portfolio.attributes.description}
