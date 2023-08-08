@@ -6,6 +6,7 @@ import { createSearchParams, Link } from 'react-router-dom'
 import postApi from '../../apis/post.api'
 import Vector14 from '../../assets/images/Vector14.png'
 import Footer from '../../components/Footer'
+import CloseIcon from '../../components/Icon/CloseIcon'
 import LogoFixed from '../../components/LogoFixed'
 import useQueryParams from '../../hooks/useQueryParams'
 import http from '../../utils/http'
@@ -101,6 +102,7 @@ export default function PostsList() {
   return (
     <div style={{ backgroundImage: `url(${Vector14})` }} className={mainBackgroundClasses}>
       <LogoFixed />
+      <CloseIcon redirect={`News`}  />
       <div className='mx-auto max-w-[1600px] px-5 pt-[40px] pb-4 text-white max-lg:px-4 min-[1200px]:px-[147px]'>
         <h3 className='mb-10 text-center text-5xl'>Our News</h3>
         <div
