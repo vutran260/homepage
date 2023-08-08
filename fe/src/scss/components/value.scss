@@ -16,6 +16,7 @@
     bottom: 0;
     max-width: 31rem;
     height: fit-content;
+    opacity: 0.8;
   }
 }
 
@@ -29,7 +30,7 @@
 
     .wrap-text {
       width: calc(100% - 60px) !important;
-      top: 50%;
+      top: 65%;
       left: 50%;
       transform: translate(-50%, -35%);
 

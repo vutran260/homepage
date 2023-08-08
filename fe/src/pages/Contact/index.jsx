@@ -38,28 +38,28 @@ export default function Contact() {
 
     const errors = {}
     // validate company_name
-    if (!input.company_name) {
-      errors.company_name = '会社名を入力してください。'
+    if (!input.company_name.trim() ) {
+      errors.company_name = '会社名を入力してください'
     }
     // validate name
-    if (!input.name) {
-      errors.name = 'ご担当者名を入力してください。'
+    if (!input.name.trim()) {
+      errors.name = '担当者名を入力してください'
     }
     // validate email
-    if (!input.mail) {
+    if (!input.mail.trim()) {
       errors.mail = 'メールアドレスを入力してください。'
     } else if (!/\S+@\S+\.\S+/.test(input.mail)) {
       errors.mail = 'メールアドレスの形式が正しくありません。'
     }
     // validate phone
-    if (!input.phone) {
+    if (!input.phone.trim()) {
       errors.phone = '電話番号を入力してください。'
     } else if (!/^[0-9]{10,11}$/.test(input.phone)) {
       errors.phone = '電話番号の形式が正しくありません。'
     }
     // validate description
-    if (!input.description) {
-      errors.description = 'お問い合わせ内容を入力してください。'
+    if (!input.description.trim()) {
+      errors.description = 'お問い合わせ内容を入力してください'
     }
 
     // update errors state
@@ -71,8 +71,15 @@ export default function Contact() {
       const res = await contactApi.createContact(input)
       if (res.status === 200) {
         toast.success('Send Contact Successful')
+        setInput({
+          company_name: '',
+          name: '',
+          mail: '',
+          phone: '',
+          description: ''
+        })
       } else {
-        toast.success('Has a error creating contact')
+        toast.error('Has a error creating contact')
       }
     }
   }
@@ -111,39 +118,44 @@ export default function Contact() {
                 <InputContact
                   handleChange={handleChange}
                   label='会社名'
-                  placeholder='輸入'
+                  placeholder='会社名を入力'
                   id='company_name'
                   error={errors.company_name}
+                  input={input}
                 />
                 <InputContact
                   handleChange={handleChange}
                   label='ご担当者名'
-                  placeholder='輸入'
+                  placeholder='担当者名を入力'
                   id='name'
                   error={errors.name}
+                  input={input}
                 />
                 <InputContact
                   type='email'
                   handleChange={handleChange}
                   label='メールアドレス'
-                  placeholder='輸入'
+                  placeholder='メールアドレスを入力'
                   id='mail'
                   error={errors.mail}
+                  input={input}
                 />
                 <InputContact
                   handleChange={handleChange}
                   label='電話番号'
-                  placeholder='輸入'
+                  placeholder='電話番号を入力'
                   id='phone'
                   error={errors.phone}
+                  input={input}
                 />
                 <InputContact
                   handleChange={handleChange}
                   label='お問い合わせ内容'
-                  placeholder='輸入'
+                  placeholder='お問い合わせ内容を入力'
                   id='description'
                   error={errors.description}
                   full={true}
+                  input={input}
                 />
               </div>
               <button
