@@ -16,6 +16,18 @@
     position: relative;
   }
 
+  .slick-next {
+    right: 31px;
+    top: 70%;
+    z-index: 1000;
+  }
+
+  .slick-prev {
+    left: 31px;
+    top: 70%;
+    z-index: 1000;
+  }
+
   .slick-slide-home {
     display: flex !important;
     justify-content: center;

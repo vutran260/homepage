@@ -9,7 +9,7 @@
   padding-right: 100px;
 
   .wrap-text {
-    top: 31%;
+    top: 38%;
     right: 0;
     left: 49%;
     padding: 2rem;
@@ -30,7 +30,7 @@
 
     .wrap-text {
       width: calc(100% - 60px) !important;
-      top: 65%;
+      top: 46%;
       left: 50%;
       transform: translate(-50%, -35%);
 
@@ -49,7 +49,7 @@
 @media screen and (min-width: 1800px){
   .wrap-value {
     .wrap-text {
-      left: 36%;
+      top: 46%;
     }
   }
 }

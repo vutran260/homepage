@@ -22,8 +22,8 @@ export function SliderPortfolio() {
       return <span className='w-full'>0{i + 1}</span>
     },
     dots: true,
-    prevArrow: <></>,
-    nextArrow: <></>,
+    // prevArrow: <></>,
+    // nextArrow: <></>,
     dotsClass: 'slick-slide-home md:absolute bottom-0 max-[500px]:mt-5',
     infinite: false,
     speed: 500,
