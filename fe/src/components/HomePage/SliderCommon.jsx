@@ -14,13 +14,13 @@ export function SliderCommon({data}) {
       return <span className='dot w-full'></span>
     },
     dots: true,
-    prevArrow: <></>,
-    nextArrow: <></>,
+    // prevArrow: <></>,
+    // nextArrow: <></>,
     dotsClass: 'slick-slide-common',
     slidesToShow: 3,
     slidesToScroll: 1,
     swipeToSlide: true,
-    infinity: true,
+    infinity: false,
 
     responsive: [
       {
@@ -46,14 +46,12 @@ export function SliderCommon({data}) {
           <Slider {...settings}>
             {data.map((team) => {
               return (
-                <AnimationInViewToTop key={team.id}>
                   <CardProfile
                     name={team.attributes.name}
                     jobDescription={team.attributes.jobDescription}
                     avatar={team.attributes.avatar.data.attributes.url}
                     experience={team.attributes.experience}
                   />
-                </AnimationInViewToTop>
               )
             })}
           </Slider>

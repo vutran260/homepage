@@ -9,6 +9,17 @@
     padding: 0 2rem;
   }
 
+  .slick-prev, .slick-next {
+    top: 29%;
+  }
+  .slick-next {
+    right: 0;
+  }
+
+  .slick-prev {
+    left: 0;
+  }
+
 
   .slick-slide-common {
     display: flex !important;
