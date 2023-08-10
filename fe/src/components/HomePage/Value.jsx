@@ -5,7 +5,7 @@ import { AnimationInViewToTop } from "../Animation";
 export function Value() {
   return (
     <div className='wrap-value heightSection relative'>
-      <AnimationInViewToTop duration={1.2} className='grayscale-image w-4/5'>
+      <AnimationInViewToTop className='grayscale-image w-4/5'>
         <img src={background} alt='' />
       </AnimationInViewToTop>
       <div className='wrap-text absolute flex flex-col rounded-md bg-darkGray-900'>

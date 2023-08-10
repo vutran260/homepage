@@ -9,7 +9,7 @@ export const AnimationWrap = ({ children }) => (
   </motion.div>
 )
 
-export const AnimationInViewToLeft = ({ children, delay = 1, duration = 1.5, className, id }) => {
+export const AnimationInViewToLeft = ({ children, delay = 0.5, duration = 0.5, className, id }) => {
   const { inView, ref } = useInView({
     threshold: 0.5
   })
@@ -28,7 +28,7 @@ export const AnimationInViewToLeft = ({ children, delay = 1, duration = 1.5, cla
   )
 }
 
-export const AnimationInViewToTop = ({ children, delay = 0.5, duration = 1.5, className }) => {
+export const AnimationInViewToTop = ({ children, delay = 0.5, duration = 1, className }) => {
   const { inView, ref } = useInView({
     threshold: 0.5
   })
