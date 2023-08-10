@@ -67,6 +67,19 @@
     .slick-slide-common {
       padding-top: 1rem !important;
     }
+
+    .slick-next {
+      right: 0;
+      display: none !important;
+    }
+  
+    .slick-prev {
+      display: none !important;
+      left: 50%;
+      // transform: translateX(-50%);
+      transform: rotate(90deg);
+      top: 0;
+    }
   }
 
 }

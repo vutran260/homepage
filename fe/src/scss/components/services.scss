@@ -12,13 +12,6 @@
     bottom: -60%;
   }
 
-  .slick-arrow.slick-next, .slick-arrow.slick-prev {
-    opacity: 0;
-    height: 100%;
-    width: 30%;
-    z-index: 1000;
-  }
-
   .slick-dots li {
     opacity: 0.4;
     width: 0.875rem;
@@ -83,6 +76,15 @@
   .wrap-services {
     padding-right: 0 !important;
 
+    .slick-arrow.slick-next {
+      right: 10px;
+      top: 105%;
+      z-index: 100;
+    }
+    .slick-arrow.slick-prev {
+      left: 10px;
+      top: 105%;
+    }
     .wrap-imgHand {
       width: 30% !important;
     }

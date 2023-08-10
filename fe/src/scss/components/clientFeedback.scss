@@ -8,14 +8,6 @@
     padding: 0 2rem;
   }
 
-  .slick-arrow.slick-next,
-  .slick-arrow.slick-prev {
-    opacity: 0;
-    height: 100%;
-    width: 30%;
-    z-index: 1000;
-  }
-
   .slick-slide-feedback {
     display: flex !important;
     justify-content: center;
@@ -71,6 +63,16 @@ div.section-ten .slick-current + .slick-slide .overlay {
       .overlay {
         display: none !important;
       }
+    }
+    .slick-arrow.slick-next {
+      right: 10px;
+      top: 90%;
+      z-index: 100;
+    }
+    .slick-arrow.slick-prev {
+      left: 10px;
+      top: 90%;
+      z-index: 100;
     }
 
     .slick-slide {
