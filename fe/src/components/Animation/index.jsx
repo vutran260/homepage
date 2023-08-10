@@ -46,9 +46,13 @@ export const AnimationInViewToTop = ({ children, delay = 0.5, duration = 1, clas
   )
 }
 
-export const AnimationOpacity = ({ children, delay = 1.5, duration = 2, className, inView }) => {
+export const AnimationOpacity = ({ children, delay = 0.5, duration = 1, className }) => {
+  const { inView, ref } = useInView({
+    threshold: 0.5
+  })
   return (
     <motion.div
+      ref={ref}
       initial={{ opacity: 0 }}
       animate={{ opacity: inView ? 1 : 0 }}
       transition={{ duration: duration, ease: [0, 0, 0.58, 1], delay: delay }}

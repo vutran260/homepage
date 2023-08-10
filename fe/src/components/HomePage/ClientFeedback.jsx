@@ -9,7 +9,7 @@ import Rec39 from '../../assets/images/Rectangle39.png'
 
 import ButtonGoDown from "src/components/Button";
 import http from '../../utils/http'
-import { AnimationInViewToTop } from '../Animation'
+import { AnimationInViewToLeft, AnimationInViewToTop, AnimationOpacity } from '../Animation'
 
 
 const ClientFeedback = () => {
@@ -63,33 +63,35 @@ const ClientFeedback = () => {
           <h2 className='title textLarge flex justify-center text-white'>Client Voices</h2>
         </AnimationInViewToTop>
       </div>
-      <AnimationInViewToTop className='wrap-person text-white'>
-        {data.length && (
-          <Slider {...settings}>
-            {data?.map((fb) => {
-              return (
-                <div className='person' key={fb.id}>
-                  <img className='overlay h-full' src={Rec37} alt='' />
-                  <p className='fs-14 whitespace-pre-line'>{fb.attributes.description}</p>
-                  <div className='avatar mt-5 flex items-center gap-4'>
-                    <div className='left'>
-                      <img
-                        className='max-h-[48px] max-w-[48px] rounded-full'
-                        src={`${import.meta.env.VITE_REACT_IMAGE_BASE_URL}${fb.attributes.avatar.data?.attributes.url}`}
-                        alt=''
-                      />
-                    </div>
-                    <div className='right'>
-                      <div className='text-orange'>{fb.attributes.nameFeedback}</div>
-                      <p className='fs-14'>{fb.attributes.company}</p>
+        <AnimationOpacity className='wrap-person text-white'>
+          {data.length && (
+            <Slider {...settings}>
+              {data?.map((fb) => {
+                return (
+                  <div className='person' key={fb.id}>
+                    <img className='overlay h-full' src={Rec37} alt='' />
+                    <p className='fs-14 whitespace-pre-line'>{fb.attributes.description}</p>
+                    <div className='avatar mt-5 flex items-center gap-4'>
+                      <div className='left'>
+                        <img
+                          className='max-h-[48px] max-w-[48px] rounded-full'
+                          src={`${import.meta.env.VITE_REACT_IMAGE_BASE_URL}${
+                            fb.attributes.avatar.data?.attributes.url
+                          }`}
+                          alt=''
+                        />
+                      </div>
+                      <div className='right'>
+                        <div className='text-orange'>{fb.attributes.nameFeedback}</div>
+                        <p className='fs-14'>{fb.attributes.company}</p>
+                      </div>
                     </div>
                   </div>
-                </div>
-              )
-            })}
-          </Slider>
-        )}
-      </AnimationInViewToTop>
+                )
+              })}
+            </Slider>
+          )}
+        </AnimationOpacity>
     </div>
   )
 }

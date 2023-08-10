@@ -24,7 +24,7 @@ export function SliderPortfolio() {
     dots: true,
     // prevArrow: <></>,
     // nextArrow: <></>,
-    dotsClass: 'slick-slide-home md:absolute bottom-0 max-[500px]:mt-5',
+    dotsClass: 'slick-slide-home md:absolute bottom-0 max-[500px]:mt-20',
     infinite: false,
     speed: 500,
     slidesToShow: 1,
