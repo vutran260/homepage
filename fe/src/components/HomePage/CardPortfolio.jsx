@@ -29,8 +29,8 @@ export const CardPortfolio = (props) => {
           </div>
         </AnimationInViewToTop>
       </div>
-      <div delay={0.2} className='slider-text-right bottom-0 flex h-full w-full items-center justify-start'>
-        <AnimationInViewToLeft className='absolute bottom-0 flex items-center gap-4 max-[500px]:flex-row'>
+      <div className='slider-text-right bottom-0 flex h-full w-full items-center justify-start'>
+        <AnimationInViewToLeft delay={0.2} className='absolute bottom-0 flex items-center gap-4 max-[500px]:flex-row'>
           <div className='flex w-full justify-center max-[500px]:mb-0'>
             <Link to='/portfolio' className=''>
               <img className='max-[500px]:h-10 max-[500px]:w-10' src={iconRow} alt='' />

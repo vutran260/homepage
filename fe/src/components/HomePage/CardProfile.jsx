@@ -19,11 +19,11 @@ export const CardProfile = (props) => {
   return (
     <>
       <div className='wrapCard-profile'>
-        <div className='grayscale-image h-fit overflow-hidden rounded-xl' ref={ref}>
+        <div className='grayscale-image square-container h-fit overflow-hidden rounded-xl' ref={ref}>
           <img
             src={`${import.meta.env.VITE_REACT_IMAGE_BASE_URL}${props.avatar}`}
             alt=''
-            className='w-full object-cover'
+            className='square-content w-full object-cover'
           />
         </div>
         <div className='flex flex-col justify-center'>

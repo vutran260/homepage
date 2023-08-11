@@ -28,7 +28,7 @@ export const AnimationInViewToLeft = ({ children, delay = 0.5, duration = 0.5, c
   )
 }
 
-export const AnimationInViewToTop = ({ children, delay = 0.5, duration = 1, className }) => {
+export const AnimationInViewToTop = ({ children, delay = 0, duration = 1, className }) => {
   const { inView, ref } = useInView({
     threshold: 0.5
   })
@@ -46,7 +46,7 @@ export const AnimationInViewToTop = ({ children, delay = 0.5, duration = 1, clas
   )
 }
 
-export const AnimationOpacity = ({ children, delay = 0.5, duration = 1, className }) => {
+export const AnimationOpacity = ({ children, delay = 0, duration = 1, className }) => {
   const { inView, ref } = useInView({
     threshold: 0.5
   })
