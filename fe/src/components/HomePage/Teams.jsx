@@ -27,9 +27,9 @@ export const Teams = () => {
           </AnimationInViewToTop>
         </div>
       </div>
-      <div className='wrap-slider-common'>
+      <AnimationInViewToTop className='wrap-slider-common'>
         <SliderCommon data={data} />
-      </div>
+      </AnimationInViewToTop>
     </div>
   )
 }
