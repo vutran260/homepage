@@ -1,6 +1,6 @@
 import ButtonGoDown from '../Button'
 import '../../scss/components/aboutUs.scss'
-import Rectangle30 from '../../assets/images/Rectangle30.svg'
+import Rectangle30 from '../../assets/images/Rectangle30.png'
 import Rectangle1Mobile from '../../assets/images/Rectangle1Mobile.png'
 import Rectangle31Mb from '../../assets/images/Rectangle31Mobile.png'
 import { AnimationInViewToTop } from '../Animation'

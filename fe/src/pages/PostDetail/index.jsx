@@ -7,7 +7,7 @@ import  './style.css'
 import convertDateFormat from '../../utils/convertDateTime'
 import { AnimationWrap } from '../../components/Animation'
 import LogoFixed from '../../components/LogoFixed'
-import Vector14 from '../../assets/images/Vector14.png'
+import Vector14 from '../../assets/images/Vector14.svg'
 import CloseIcon from '../../components/Icon/CloseIcon'
 
 export default function PostsList() {
@@ -21,7 +21,7 @@ export default function PostsList() {
     fetchPostDetail()
   }, [])
 
-  const mainBackgroundClasses = `bg-mainBackground bg-[url("/images/Vector14.png")] bg-contain bg-left-top bg-no-repeat pb-[80px] min-h-screen post-detail max-sm:px-5`
+  const mainBackgroundClasses = `bg-mainBackground bg-[url("/images/Vector14.svg")] bg-contain bg-left-top bg-no-repeat pb-[80px] min-h-screen post-detail max-sm:px-5`
 
   return (
     <div style={{ backgroundImage: `url(${Vector14})` }} className={mainBackgroundClasses}>
