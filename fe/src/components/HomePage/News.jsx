@@ -21,13 +21,13 @@ export function News() {
     <>
       <div className='news b heightSection flex flex-col bg-darkGray-900'>
         <div className='wrap-text flex flex-col'>
-          <span className='LastPost-text mb-2 flex justify-center text-white'>Last post</span>
-          <span className='ourNews flex justify-center text-white'>Our News</span>
+          <AnimationInViewToTop className='LastPost-text mb-2 flex justify-center text-white'>Last post</AnimationInViewToTop>
+          <AnimationInViewToTop className='ourNews flex justify-center text-white'>Our News</AnimationInViewToTop>
         </div>
         <div className='relative'>
           <div className='wap-item grid w-full grid-cols-3 gap-12 pt-8 '>
             {data.map((datum) => (
-              <AnimationInViewToTop delay={0.5} key={datum.id}>
+              <AnimationInViewToTop delay={0} key={datum.id}>
                 <NewCard {...datum} />
               </AnimationInViewToTop>
             ))}
