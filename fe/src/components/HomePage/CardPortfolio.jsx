@@ -3,6 +3,7 @@ import '../../scss/components/CardPortfolio.scss'
 import { Link } from 'react-router-dom'
 import iconRow from '../../assets/images/iconRow.png'
 import { AnimationInViewToLeft, AnimationInViewToTop } from '../Animation'
+import ReactMarkdown from 'react-markdown'
 
 export const CardPortfolio = (props) => {
   return (
@@ -19,7 +20,7 @@ export const CardPortfolio = (props) => {
               <br />
               {props.technologies} <br />
               <br />
-              {props.description}
+              <ReactMarkdown>{props.description}</ReactMarkdown>
             </span>
           </div>
         </AnimationInViewToTop>
