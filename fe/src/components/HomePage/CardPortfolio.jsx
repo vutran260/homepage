@@ -27,7 +27,7 @@ export const CardPortfolio = (props) => {
         <AnimationInViewToTop className={`slider-image`} delay={0.5}>
           <div className='grayscale-image'>
             <img
-              className='w-full'
+              className='w-full max-h-[700px]'
               src={`${import.meta.env.VITE_REACT_IMAGE_BASE_URL}${props.thumpnail.data[0].attributes.url}`}
               alt='port'
             />
@@ -37,7 +37,7 @@ export const CardPortfolio = (props) => {
       <div className='slider-text-right bottom-0 flex h-full w-full items-center justify-start'>
         <AnimationInViewToLeft delay={0.2} className='absolute bottom-0 flex items-center gap-4 max-[500px]:flex-row'>
           <div className='flex w-full justify-center max-[500px]:mb-0'>
-            <Link to='/portfolio' className=''>
+            <Link to={`/portfolio/${props.id}`} className=''>
               <img className='max-[500px]:h-10 max-[500px]:w-10' src={iconRow} alt='' />
             </Link>
           </div>

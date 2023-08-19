@@ -4,12 +4,51 @@ import './style.scss'
 import CloseIcon from '../../components/Icon/CloseIcon'
 import { useEffect, useState } from 'react'
 import http from '../../utils/http'
+import { useParams } from 'react-router-dom'
+import ReactMarkdown from 'react-markdown'
 const CardPortfolio = (props) => {
+  const [currentSlideIndex, setCurrentSlideIndex] = useState(0)
+  const settings = {
+    customPaging: function (i) {
+      return <span className='w-full'>0{i + 1}</span>
+    },
+    dots: true,
+    prevArrow: (
+      <ArrowCustomLeft disable={currentSlideIndex === 0 ? true : false}>
+        <ArrowLeft />
+      </ArrowCustomLeft>
+    ),
+    nextArrow: (
+      <ArrowCustomRight
+        disable={currentSlideIndex === props.thumpnail?.length - 1 ? true : false}
+        className='arrowRight'
+      >
+        <ArrowRight />
+      </ArrowCustomRight>
+    ),
+    dotsClass: 'slick-slide-common w-50 max-lg:w-full',
+    infinite: false,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    afterChange: (current) => setCurrentSlideIndex(current)
+  }
   return (
     <>
       <div className='slider-item flex items-center justify-items-center max-[768px]:flex-wrap'>
-        <div className='slider-image grayscale-image'>
-          <img src={props.thumpnail} alt='port' />
+        <div className='w-[45%]'>
+          <Slider {...settings} className='slider-common'>
+            {props.thumpnail.map(function (img) {
+              return (
+                <img
+                  key={img.id}
+                  src={`${import.meta.env.VITE_REACT_IMAGE_BASE_URL}${img.attributes.url}`}
+                  alt='port'
+                />
+              )
+            })}
+            {/* <img src={props.thumpnail} alt='port' /> */}
+          </Slider>
         </div>
         <div className='slider-text-left flex h-full items-center'>
           <div className='flex flex-col text-white'>
@@ -34,7 +73,7 @@ const CardPortfolio = (props) => {
             </div>
             <div className='mb-5 flex'>
               <span className='min-w-[75px] text-blue'>導入 : </span>
-              <span className='ml-6'>{props.description}</span>
+              <ReactMarkdown className='ml-6'>{props.description}</ReactMarkdown>
             </div>
           </div>
         </div>
@@ -80,7 +119,7 @@ function ArrowCustomRight(props) {
   const { className, style, onClick, disable } = props
   const styles = {
     position: 'absolute',
-    right: '50%',
+    right: '0%',
     bottom: 0,
     cursor: disable ? 'not-allowed' : 'pointer',
     opacity: disable ? 0.5 : 1
@@ -93,62 +132,42 @@ function ArrowCustomRight(props) {
 }
 
 function Portfolio() {
-  const [data, setData] = useState([])
-  const fetchPortfolios = async () => {
-    const res = await http.get(`portfolios?populate=*`)
+  let { id } = useParams()
+  const [data, setData] = useState()
+  const fetchPortfolio = async () => {
+    console.log('fetching portfolio')
+    const res = await http.get(`portfolios/${id}?populate=*`)
     setData(res.data.data)
   }
-
+  console.log('data',data)
   useEffect(() => {
-    fetchPortfolios()
+    fetchPortfolio()
   }, [])
 
-  const [currentSlideIndex, setCurrentSlideIndex] = useState(0)
-
-  const settings = {
-    customPaging: function (i) {
-      return <span className='w-full'>0{i + 1}</span>
-    },
-    dots: true,
-    prevArrow: (
-      <ArrowCustomLeft disable={currentSlideIndex === 0 ? true : false}>
-        <ArrowLeft />
-      </ArrowCustomLeft>
-    ),
-    nextArrow: (
-      <ArrowCustomRight disable={currentSlideIndex === data?.length - 1 ? true : false} className='arrowRight'>
-        <ArrowRight />
-      </ArrowCustomRight>
-    ),
-    dotsClass: 'slick-slide-common w-50 max-lg:w-full',
-    infinite: false,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    afterChange: (current) => setCurrentSlideIndex(current)
-  }
+  
   return (
     <>
       <div className='slider-home slider-portfolio relative'>
         <CloseIcon redirect={`Portfolio1`} />
-        <Slider {...settings} className='slider-common'>
+        abc
+        {/* <Slider {...settings} className='slider-common'>
           {data.map(function (portfolio, index) {
-            return (
-              <CardPortfolio
-                key={portfolio.id}
-                title={portfolio.attributes.title}
-                release_time={portfolio.attributes.release_time}
-                media={portfolio.attributes.media}
-                technologies={portfolio.attributes.technologies}
-                website={portfolio.attributes.website}
-                description={portfolio.attributes.description}
-                thumpnail={`${import.meta.env.VITE_REACT_IMAGE_BASE_URL}${
-                  portfolio.attributes.image.data?.attributes.url
-                }`}
-              />
-            )
+            return ( */}
+        {data && (
+          <CardPortfolio
+            key={data.id}
+            title={data.attributes.title}
+            release_time={data.attributes.release_time}
+            media={data.attributes.media}
+            technologies={data.attributes.technologies}
+            website={data.attributes.website}
+            description={data.attributes.description}
+            thumpnail={data.attributes.image.data}
+          />
+        )}
+        {/* )
           })}
-        </Slider>
+        </Slider> */}
       </div>
     </>
   )

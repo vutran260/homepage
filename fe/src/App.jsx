@@ -31,7 +31,7 @@ function App() {
             <Route path='/posts' element={<PostsList />} />
             <Route path='/posts/:id' element={<PostDetail />} />
             <Route path='/contact' element={<Contact />} />
-            <Route path='/portfolio' element={<Portfolio />} />
+            <Route path='/portfolio/:id' element={<Portfolio />} />
           </Routes>
       <ToastContainer />
     </div>

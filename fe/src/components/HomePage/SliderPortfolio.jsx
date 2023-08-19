@@ -43,6 +43,7 @@ export function SliderPortfolio() {
                 description={portfolio.attributes.description}
                 technologies={portfolio.attributes.technologies}
                 thumpnail={portfolio.attributes.image}
+                id={portfolio.id}
               />
             )
           })}
