@@ -27,7 +27,7 @@ export const CardPortfolio = (props) => {
         <AnimationInViewToTop className={`slider-image`} delay={0.5}>
           <div className='grayscale-image'>
             <img
-              className='w-full max-h-[700px]'
+              className='w-full max-h-[500px]'
               src={`${import.meta.env.VITE_REACT_IMAGE_BASE_URL}${props.thumpnail.data[0].attributes.url}`}
               alt='port'
             />
