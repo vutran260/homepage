@@ -7,7 +7,7 @@ export function NewCard(datum) {
   const obj = {
     id: datum?.id,
     title: datum?.attributes?.title,
-    image: datum.attributes.thumpnail.data.attributes.url,
+    image: datum.attributes.thumpnail.data?.attributes.url,
     nameCategory: datum?.attributes?.category?.data?.attributes?.name
   }
   return (
