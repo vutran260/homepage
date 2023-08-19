@@ -24,24 +24,24 @@
     "website": {
       "type": "string"
     },
+    "media": {
+      "type": "string",
+      "required": true,
+      "maxLength": 200
+    },
     "description": {
-      "type": "string"
+      "type": "richtext",
+      "required": true
     },
     "image": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ]
-    },
-    "media": {
-      "type": "string",
-      "required": true,
-      "maxLength": 200
+      ],
+      "type": "media",
+      "multiple": true
     }
   }
 }
