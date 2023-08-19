@@ -20,7 +20,7 @@ export const CardPortfolio = (props) => {
               <br />
               {props.technologies} <br />
               <br />
-              <ReactMarkdown>{props.description}</ReactMarkdown>
+              <ReactMarkdown className='text-container overflow-hidden line-clamp-3'>{props.description}</ReactMarkdown>
             </span>
           </div>
         </AnimationInViewToTop>
