@@ -61,7 +61,7 @@
 
         .slider-common .slick-slide-common {
             position: absolute;
-            top: 377px;
+            // top: 377px;
             width: 100%;
         }
 
@@ -88,7 +88,7 @@
 
         .slick-slider>div:first-child,
         .slick-slider>div:nth-child(3) {
-            top: 372px !important;
+            bottom: -20px !important;
             z-index: 100;
         }
 

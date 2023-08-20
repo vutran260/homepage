@@ -36,7 +36,7 @@ const CardPortfolio = (props) => {
   return (
     <>
       <div className='slider-item flex items-center justify-items-center max-[768px]:flex-wrap'>
-        <div className='w-[45%]'>
+        <div className='w-[45%] max-md:w-full'>
           <Slider {...settings} className='slider-common'>
             {props.thumpnail.map(function (img) {
               return (
