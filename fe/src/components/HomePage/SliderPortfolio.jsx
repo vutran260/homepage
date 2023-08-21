@@ -6,10 +6,25 @@ import {CardPortfolio} from './CardPortfolio.jsx'
 import ButtonGoDown from '../Button'
 import { useEffect, useState } from 'react'
 import http from '../../utils/http'
+import btnNext from '../../assets/images/buttonGoDown.png'
 
 function SamplePrevArrow(props) {
   const { className, style, onClick } = props
-  return <div className={className} style={{ ...style, display: 'block', background: 'green' }} onClick={onClick} />
+  return (
+    <div
+      className={className}
+      style={{
+        ...style,
+        display: 'block',
+        backgroundImage: `url(${btnNext})`,
+        backgroundSize: 'contain',
+        width: '40px',
+        height: '40px',
+        transform: props.transform
+      }}
+      onClick={onClick}
+    />
+  )
 }
 
 export function SliderPortfolio() {
@@ -34,8 +49,8 @@ export function SliderPortfolio() {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    // nextArrow: <SamplePrevArrow />,
-    // prevArrow: <SamplePrevArrow />
+    nextArrow: <SamplePrevArrow transform='rotate(-90deg)' />,
+    prevArrow: <SamplePrevArrow transform='rotate(90deg)' />
   }
   return (
     <>
