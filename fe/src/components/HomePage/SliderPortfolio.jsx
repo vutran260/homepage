@@ -7,6 +7,11 @@ import ButtonGoDown from '../Button'
 import { useEffect, useState } from 'react'
 import http from '../../utils/http'
 
+function SamplePrevArrow(props) {
+  const { className, style, onClick } = props
+  return <div className={className} style={{ ...style, display: 'block', background: 'green' }} onClick={onClick} />
+}
+
 export function SliderPortfolio() {
   const [data, setData] = useState([])
   const fetchPortfolios = async () => {
@@ -19,7 +24,7 @@ export function SliderPortfolio() {
   }, [])
   const settings = {
     customPaging: function (i) {
-      return <span className='w-full'>0{i + 1}</span>
+      return <button className='w-full'>0{i + 1}</button>
     },
     dots: true,
     // prevArrow: <></>,
@@ -28,7 +33,9 @@ export function SliderPortfolio() {
     infinite: false,
     speed: 500,
     slidesToShow: 1,
-    slidesToScroll: 1
+    slidesToScroll: 1,
+    // nextArrow: <SamplePrevArrow />,
+    // prevArrow: <SamplePrevArrow />
   }
   return (
     <>
