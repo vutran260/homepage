@@ -2,6 +2,10 @@
   margin: 30px 0;
 }
 
+.description p {
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
 @media screen and (min-width: 768px) {
   .description img {
       filter: grayscale(100%);

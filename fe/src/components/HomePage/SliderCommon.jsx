@@ -46,12 +46,13 @@ export function SliderCommon({data}) {
           <Slider {...settings}>
             {data.map((team) => {
               return (
-                  <CardProfile
-                    name={team.attributes.name}
-                    jobDescription={team.attributes.jobDescription}
-                    avatar={team.attributes.avatar.data.attributes.url}
-                    experience={team.attributes.experience}
-                  />
+                <CardProfile
+                  name={team.attributes.name}
+                  jobDescription={team.attributes.jobDescription}
+                  avatar={team.attributes.avatar.data.attributes.url}
+                  experience={team.attributes.experience}
+                  technologies={team.attributes.technologies}
+                />
               )
             })}
           </Slider>

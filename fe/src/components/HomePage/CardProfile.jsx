@@ -34,9 +34,7 @@ export const CardProfile = (props) => {
             {props.name}
           </span>
           <span className='flex justify-center truncate text-sm text-white'>{props.experience}</span>
-          <span className='text-custom  mb-2 flex justify-center text-sm text-white'>
-            Nodejs, PHP, Reactjs, Vuejs...
-          </span>
+          <span className='text-custom  mb-2 flex justify-center text-sm text-white'>{props.technologies}</span>
         </div>
       </div>
     </>

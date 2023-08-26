@@ -8,7 +8,7 @@ const postApi = {
     })
   },
   getPostDetail(id) {
-    return http.get(`${URL}/${id}`)
+    return http.get(`${URL}/${id}?populate=*`)
   }
 }
 
