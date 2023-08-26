@@ -8,6 +8,11 @@
     padding: 0 2rem;
   }
 
+    .slick-prev {
+      left: 0;
+      z-index: 1000;
+    }
+
   .slick-slide-feedback {
     display: flex !important;
     justify-content: center;

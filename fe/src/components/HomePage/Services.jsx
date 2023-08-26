@@ -5,6 +5,7 @@ import Slider from 'react-slick'
 
 import http from '../../utils/http';
 import { AnimationInViewToTop } from '../Animation';
+import CustomArrow from '../CustomArrow';
 
 export function Services() {
   const myRef = useRef(null);
@@ -40,8 +41,8 @@ export function Services() {
       return <span className='dot w-full'></span>
     },
     dots: true,
-    // prevArrow: <></>,
-    // nextArrow: <></>,
+    nextArrow: <CustomArrow transform='rotate(-90deg)' />,
+    prevArrow: <CustomArrow transform='rotate(90deg)' />,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,

@@ -10,6 +10,7 @@ import Rec39 from '../../assets/images/Rectangle39.png'
 import ButtonGoDown from "src/components/Button";
 import http from '../../utils/http'
 import { AnimationInViewToLeft, AnimationInViewToTop, AnimationOpacity } from '../Animation'
+import CustomArrow from '../CustomArrow'
 
 
 const ClientFeedback = () => {
@@ -27,8 +28,8 @@ const ClientFeedback = () => {
       return <span className='dot'></span>
     },
     dots: true,
-    // prevArrow: <></>,
-    // nextArrow: <></>,
+    nextArrow: <CustomArrow transform='rotate(-90deg)' />,
+    prevArrow: <CustomArrow transform='rotate(90deg)' />,
     dotsClass: 'slick-slide-feedback',
     infinite: true,
     speed: 500,

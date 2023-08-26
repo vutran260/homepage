@@ -6,6 +6,7 @@ import persion from '../../assets/images/persion.png'
 import {CardProfile} from "src/components/HomePage/CardProfile.jsx";
 import React, {useEffect, useRef, useState} from "react";
 import { AnimationInViewToTop } from '../Animation'
+import CustomArrow from '../CustomArrow'
 
 
 export function SliderCommon({data}) {
@@ -14,8 +15,8 @@ export function SliderCommon({data}) {
       return <span className='dot w-full'></span>
     },
     dots: true,
-    // prevArrow: <></>,
-    // nextArrow: <></>,
+    nextArrow: <CustomArrow transform='rotate(-90deg)' />,
+    prevArrow: <CustomArrow transform='rotate(90deg)' />,
     dotsClass: 'slick-slide-common',
     slidesToShow: 3,
     slidesToScroll: 1,
