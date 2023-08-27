@@ -12,7 +12,7 @@ export const CardPortfolio = (props) => {
         <AnimationInViewToTop delay={0} className='slider-text-left flex items-center'>
           <div className='flex  flex-col'>
             <Link to='/' className='linkText'>
-              ショッピングアプリ
+              {props.domain}
             </Link>
             <span className='text-large text-white'>{props.title}</span>
             <span className='text-small break-words text-white'>
@@ -20,14 +20,15 @@ export const CardPortfolio = (props) => {
               <br />
               {props.technologies} <br />
               <br />
-              <ReactMarkdown className='text-container overflow-hidden line-clamp-3'>{props.description}</ReactMarkdown>
+              <div className='leading-normal' dangerouslySetInnerHTML={{ __html: props.description }} />
+              {/* <ReactMarkdown className='text-container overflow-hidden line-clamp-3'>{props.description}</ReactMarkdown> */}
             </span>
           </div>
         </AnimationInViewToTop>
         <AnimationInViewToTop className={`slider-image`} delay={0.5}>
           <div className='grayscale-image'>
             <img
-              className='w-full max-h-[500px]'
+              className='max-h-[500px] w-full'
               src={`${import.meta.env.VITE_REACT_IMAGE_BASE_URL}${props.thumpnail.data[0].attributes.url}`}
               alt='port'
             />

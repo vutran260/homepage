@@ -35,7 +35,7 @@ const CardPortfolio = (props) => {
   }
   return (
     <>
-      <div className='slider-item flex items-center justify-items-center max-[768px]:flex-wrap'>
+      <div className='slider-item flex items-start justify-items-center max-[768px]:flex-wrap'>
         <div className='w-[45%] max-md:w-full'>
           <Slider {...settings} className='slider-common'>
             {props.thumpnail.map(function (img) {
@@ -73,7 +73,8 @@ const CardPortfolio = (props) => {
             </div>
             <div className='mb-5 flex'>
               <span className='min-w-[75px] text-blue'>導入 : </span>
-              <ReactMarkdown className='ml-6'>{props.description}</ReactMarkdown>
+              <div className='leading-normal' dangerouslySetInnerHTML={{ __html: props.description }} />
+              {/* <ReactMarkdown className='ml-6'>{props.description}</ReactMarkdown> */}
             </div>
           </div>
         </div>
@@ -135,11 +136,9 @@ function Portfolio() {
   let { id } = useParams()
   const [data, setData] = useState()
   const fetchPortfolio = async () => {
-    console.log('fetching portfolio')
     const res = await http.get(`portfolios/${id}?populate=*`)
     setData(res.data.data)
   }
-  console.log('data',data)
   useEffect(() => {
     fetchPortfolio()
   }, [])
@@ -149,7 +148,6 @@ function Portfolio() {
     <>
       <div className='slider-home slider-portfolio relative'>
         <CloseIcon redirect={`Portfolio1`} />
-        abc
         {/* <Slider {...settings} className='slider-common'>
           {data.map(function (portfolio, index) {
             return ( */}

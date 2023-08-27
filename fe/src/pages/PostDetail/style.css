@@ -6,6 +6,15 @@
   line-height: 1.5;
   margin-bottom: 15px;
 }
+
+.description img {
+  width: 100%;
+}
+
+.description a {
+  color: #2977ff;
+  text-decoration: underline;
+}
 @media screen and (min-width: 768px) {
   .description img {
       filter: grayscale(100%);

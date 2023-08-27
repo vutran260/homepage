@@ -13,7 +13,6 @@ export default function ButtonGoDown({target}) {
   }
   
   const {menuActive} = useContext(AppContext)
-  console.log(menuActive)
   const handleScroll = () => {
     const section = document.querySelector(`#${menuActive}`)
     // section?.scrollIntoView( { behavior: 'smooth' } );

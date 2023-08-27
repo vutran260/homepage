@@ -19,7 +19,6 @@ export function Services() {
     const res = await http.get(`services?populate=*`)
     setData(res.data.data)
   }
-  console.log(data);
 
   useEffect(() => {
     fetchPortfolios()

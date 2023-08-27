@@ -34,17 +34,33 @@ export default function PostsList() {
             <div className='text-sm text-white text-opacity-50'>{convertDateFormat(post.createdAt)}</div>
             <div className='description mt-10 whitespace-pre-line text-white'>
               <img src={`${import.meta.env.VITE_REACT_IMAGE_BASE_URL}${post?.thumpnail?.data.attributes.url}`} alt='' />
-              <ReactMarkdown
+              {/* <ReactMarkdown
                 transformImageUri={(uri) =>
                   uri.startsWith('http') ? uri : `${import.meta.env.VITE_REACT_IMAGE_BASE_URL}${uri}`
                 }
               >
                 {post.description}
-              </ReactMarkdown>
+              </ReactMarkdown> */}
+              <div
+                className='leading-normal'
+                dangerouslySetInnerHTML={{
+                  __html: processImagesInDescription(post.description, import.meta.env.VITE_REACT_IMAGE_BASE_URL)
+                }}
+              />
             </div>
           </div>
         </AnimationWrap>
       )}
     </div>
   )
+}
+
+function processImagesInDescription(description, imageBaseUrl) {
+  // Chuyển đổi các đường dẫn hình ảnh tương đối thành đường dẫn đầy đủ
+  const processedDescription = description.replace(/<img src="([^"]+)"([^>]*)>/g, (match, src, rest) => {
+    const fullImageUrl = `${imageBaseUrl}${src}`
+    return `<img src="${fullImageUrl}"${rest}>`
+  })
+
+  return processedDescription
 }

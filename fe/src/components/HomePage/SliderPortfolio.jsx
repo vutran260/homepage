@@ -48,6 +48,7 @@ export function SliderPortfolio() {
                 technologies={portfolio.attributes.technologies}
                 thumpnail={portfolio.attributes.image}
                 id={portfolio.id}
+                domain={portfolio.attributes.domain}
               />
             )
           })}
