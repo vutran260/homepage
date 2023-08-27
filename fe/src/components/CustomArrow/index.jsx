@@ -11,7 +11,8 @@ export default function CustomArrow(props) {
         backgroundSize: 'contain',
         width: '40px',
         height: '40px',
-        transform: props.transform
+        transform: props.transform,
+        zIndex: 1000
       }}
       onClick={onClick}
     />
