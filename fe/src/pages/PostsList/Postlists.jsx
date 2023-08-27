@@ -98,11 +98,23 @@ export default function PostsList() {
     }
     return categoryParam === categoryId?.toString()
   }
+  
+  const formatDate = (date) => {
+    const dateObject = new Date(date)
+
+    // Lấy các thành phần ngày, tháng và năm từ đối tượng Date
+    const year = dateObject.getFullYear()
+    const month = String(dateObject.getMonth() + 1).padStart(2, '0')
+    const day = String(dateObject.getDate()).padStart(2, '0')
+
+    // Tạo chuỗi mới trong định dạng mong muốn
+    return `${year}.${month}.${day}`
+  }
 
   return (
     <div style={{ backgroundImage: `url(${Vector14})` }} className={mainBackgroundClasses}>
       <LogoFixed />
-      <CloseIcon redirect={`News`}  />
+      <CloseIcon redirect={`News`} />
       <div className='mx-auto max-w-[1600px] px-5 pt-[40px] pb-4 text-white max-lg:px-4 min-[1200px]:px-[147px]'>
         <h3 className='mb-10 text-center text-5xl'>Our News</h3>
         <div
@@ -147,7 +159,7 @@ export default function PostsList() {
                   </div>
                   <div className='mt-3 mb-2 text-blue'>{post.attributes.category.data?.attributes.name}</div>
                   <h3 className='text-xl font-bold'>{post.attributes.title}</h3>
-                  <div className='text-sm text-white text-opacity-50'>2023.01.23</div>
+                  <div className='text-sm text-white text-opacity-50'>{formatDate(post.attributes.createdAt)}</div>
                 </Link>
               </motion.div>
             ))}

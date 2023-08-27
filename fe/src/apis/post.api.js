@@ -3,7 +3,7 @@ import http from '../utils/http'
 const URL = 'posts'
 const postApi = {
   getPosts(params) {
-    return http.get(`${URL}?populate=*`, {
+    return http.get(`${URL}?populate=*&sort=createdAt:desc`, {
       params
     })
   },
