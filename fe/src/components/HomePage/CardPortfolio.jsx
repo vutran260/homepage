@@ -20,7 +20,10 @@ export const CardPortfolio = (props) => {
               <br />
               {props.technologies} <br />
               <br />
-              <div className='leading-normal' dangerouslySetInnerHTML={{ __html: props.description }} />
+              <div
+                className='text-container overflow-hidden leading-normal line-clamp-3'
+                dangerouslySetInnerHTML={{ __html: props.description }}
+              />
               {/* <ReactMarkdown className='text-container overflow-hidden line-clamp-3'>{props.description}</ReactMarkdown> */}
             </span>
           </div>
