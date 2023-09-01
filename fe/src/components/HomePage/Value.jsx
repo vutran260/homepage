@@ -1,4 +1,4 @@
-import background from "src/assets/images/Rectangle35.png";
+import background from "src/assets/images/ourValue.png";
 import "../../scss/components/value.scss";
 import { AnimationInViewToTop } from "../Animation";
 

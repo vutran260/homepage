@@ -18,15 +18,15 @@ export const SideBar = () => {
     'Contact_Us'
   ]
   const arrNameSideBar = [
-    'Home',
-    'Portfolio',
-    'News',
-    'About Us',
-    'Services',
-    'Value',
-    'Team',
-    'Feedback',
-    'Contact Us'
+    'ホーム',
+    '実績',
+    'ニュース',
+    '私たちについて',
+    'サービス',
+    '価値提供',
+    'チームについて',
+    'フィードバック',
+    'お問い合わせ'
   ]
   const handleScrollToElement = (e) => {
     const section = document.querySelector( `#${e.currentTarget.name}` );

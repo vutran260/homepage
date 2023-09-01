@@ -19,15 +19,15 @@ export const SideBarMobile = ({position, handleCloseSideBar}) => {
     'Contact Us'
   ]
   const arrItemName = [
-    'Home',
-    'Portfolio',
-    'News',
-    'About_Us',
-    'Services',
-    'Value',
-    'Team',
-    'Feedback',
-    'Contact_Us'
+    'ホーム',
+    '実績',
+    'ニュース',
+    '私たちについて',
+    'サービス',
+    '価値提供',
+    'チームについて',
+    'フィードバック',
+    'お問い合わせ'
   ]
 
   const handleScrollToElement = (e) => {

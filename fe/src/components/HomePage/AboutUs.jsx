@@ -1,8 +1,6 @@
-import ButtonGoDown from '../Button'
 import '../../scss/components/aboutUs.scss'
-import Rectangle30 from '../../assets/images/Rectangle30.png'
-import Rectangle1Mobile from '../../assets/images/Rectangle1Mobile.png'
-import Rectangle31Mb from '../../assets/images/Rectangle31Mobile.png'
+import Rectangle31Mb from '../../assets/images/skills.png'
+import Rectangle31Mb2 from '../../assets/images/skill2.png'
 import { AnimationInViewToTop } from '../Animation'
 
 export const AboutUs = () => {
@@ -11,8 +9,8 @@ export const AboutUs = () => {
       <div className='aboutUS heightSection flex flex-col bg-darkGray-900'>
         <AnimationInViewToTop className='wrap-aboutContent mb-5 flex h-full gap-7 max-[500px]:justify-end'>
           <div className='wrap-img grayscale-image h-5/6 w-full'>
-            <img src={Rectangle30} alt='' className='pc h-full w-full' />
-            <img src={Rectangle1Mobile} className='mobile h-full w-full' alt='' />
+            <img src={Rectangle31Mb} alt='' className='pc h-full w-[80%]' />
+            <img src={Rectangle31Mb} className='mobile h-full w-full' alt='' />
           </div>
           <div className='aboutUS-wrap-text flex flex-col text-white'>
             <span className='mb-3'>About us</span>
@@ -34,8 +32,8 @@ export const AboutUs = () => {
             </p>
           </div>
           <div className='wrap-img grayscale-image h-5/6 w-full'>
-            <img src={Rectangle31Mb} alt='' className='pc h-full w-full' />
-            <img src={Rectangle31Mb} className='mobile h-full w-full' alt='' />
+            <img src={Rectangle31Mb2} alt='' className='pc h-full w-[80%]' />
+            <img src={Rectangle31Mb2} className='mobile h-full w-full' alt='' />
           </div>
         </AnimationInViewToTop>
       </div>
