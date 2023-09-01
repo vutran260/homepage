@@ -50,7 +50,7 @@ export function SliderCommon({data}) {
                 <CardProfile
                   name={team.attributes.name}
                   jobDescription={team.attributes.jobDescription}
-                  avatar={team.attributes.avatar.data.attributes.url}
+                  avatar={team.attributes.avatar.data?.attributes.url}
                   experience={team.attributes.experience}
                   technologies={team.attributes.technologies}
                 />
