@@ -21,6 +21,7 @@ import { Element, scroller } from 'react-scroll'
 import { AppContext } from '../../contexts/app.context'
 import ButtonGoDown from '../../components/Button'
 import { useLocation } from 'react-router-dom'
+import CompanyInfo from '../../components/HomePage/CompanyInfo'
 
 function Section({ children, id }) {
   const { inView, ref } = useInView({
@@ -127,6 +128,11 @@ export default function HomePage() {
             <Element id='Contact_Us'>
               <Section id='Contact_Us'>
                 <Footer />
+              </Section>
+            </Element>
+            <Element id='CompanyInfo'>
+              <Section id='CompanyInfo'>
+                <CompanyInfo />
               </Section>
             </Element>
           </div>

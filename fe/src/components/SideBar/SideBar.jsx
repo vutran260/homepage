@@ -15,7 +15,8 @@ export const SideBar = () => {
     'Value',
     'Team',
     'Feedback',
-    'Contact_Us'
+    'Contact_Us',
+    'CompanyInfo',
   ]
   const arrNameSideBar = [
     'ホーム',
@@ -26,7 +27,8 @@ export const SideBar = () => {
     '価値提供',
     'チームについて',
     'フィードバック',
-    'お問い合わせ'
+    'お問い合わせ',
+    '会社概要'
   ]
   const handleScrollToElement = (e) => {
     const section = document.querySelector( `#${e.currentTarget.name}` );

@@ -103,7 +103,7 @@ export function Services() {
                         alt=''
                       />
                       <span className='fontText mb-4 font-bold text-orange opacity-40'>{service.attributes.title}</span>
-                      <p className='text-font font-normal text-white opacity-40'>{service.attributes.description}</p>
+                      <p className='text-font font-normal text-white opacity-40 leading-normal'>{service.attributes.description}</p>
                     </div>
                   </div>
                 )

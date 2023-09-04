@@ -7,18 +7,19 @@ import { AppContext } from '../../contexts/app.context'
 
 export const SideBarMobile = ({position, handleCloseSideBar}) => {
   const { menuActive } = useContext(AppContext)
-  const arrItemSideBar = [
+  const arrItemName = [
     'Home',
     'Portfolio',
     'News',
-    'About Us',
+    'About_Us',
     'Services',
     'Value',
     'Team',
     'Feedback',
-    'Contact Us'
+    'Contact_Us',
+    'CompanyInfo'
   ]
-  const arrItemName = [
+  const arrItemSideBar = [
     'ホーム',
     '実績',
     'ニュース',
@@ -27,7 +28,8 @@ export const SideBarMobile = ({position, handleCloseSideBar}) => {
     '価値提供',
     'チームについて',
     'フィードバック',
-    'お問い合わせ'
+    'お問い合わせ',
+    '会社概要'
   ]
 
   const handleScrollToElement = (e) => {

@@ -25,7 +25,7 @@ export default function Header({ HandleOpenSideBar }) {
         <div className='flex w-1/2 justify-end'>
           <div className='Contact-pc flex h-full items-center'>
             <Link to='/contact' className='text-white'>
-              CONTACT
+              お問い合わせ
             </Link>
           </div>
           <div className='menuIcon-mobile h-full items-center'>

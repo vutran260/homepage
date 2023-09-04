@@ -12,7 +12,10 @@
     flex-direction: row !important;
 
     div:first-child {
-      width: 53%;
+      // width: 53%;
+      img {
+        width: 185px;
+      }
     }
 
     div:last-child {

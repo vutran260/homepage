@@ -4,12 +4,10 @@ import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import '../../scss/components/clientFeedback.scss'
 import Rec37 from '../../assets/images/Rectangle37.png'
-import Rec39 from '../../assets/images/Rectangle39.png'
 
 
-import ButtonGoDown from "src/components/Button";
 import http from '../../utils/http'
-import { AnimationInViewToLeft, AnimationInViewToTop, AnimationOpacity } from '../Animation'
+import { AnimationInViewToTop, AnimationOpacity } from '../Animation'
 import CustomArrow from '../CustomArrow'
 
 
@@ -69,25 +67,7 @@ const ClientFeedback = () => {
             <Slider {...settings}>
               {data?.map((fb) => {
                 return (
-                  <div className='person' key={fb.id}>
-                    <img className='overlay h-full' src={Rec37} alt='' />
-                    <p className='fs-14 whitespace-pre-line'>{fb.attributes.description}</p>
-                    <div className='avatar mt-5 flex items-center gap-4'>
-                      <div className='left'>
-                        <img
-                          className='max-h-[48px] max-w-[48px] rounded-full'
-                          src={`${import.meta.env.VITE_REACT_IMAGE_BASE_URL}${
-                            fb.attributes.avatar.data?.attributes.url
-                          }`}
-                          alt=''
-                        />
-                      </div>
-                      <div className='right'>
-                        <div className='text-orange'>{fb.attributes.nameFeedback}</div>
-                        <p className='fs-14'>{fb.attributes.company}</p>
-                      </div>
-                    </div>
-                  </div>
+                  <FeedBackItem fb={fb} key={fb.id} />
                 )
               })}
             </Slider>
@@ -98,3 +78,41 @@ const ClientFeedback = () => {
 }
 
 export default ClientFeedback
+
+const FeedBackItem = ({fb}) => {
+  const [text, setText] = useState(200)
+  const [showMore, setShowMore] = useState(false)
+
+  const toggleShowMore = () => {
+    setShowMore(!showMore)
+  }
+  return (
+    <div className='person'>
+      <img className='overlay h-full' src={Rec37} alt='' />
+      {/* <p className='fs-14 whitespace-pre-line'>{fb.attributes.description}</p> */}
+      {showMore ? (
+        <p className='whitespace-pre-line'>{fb.attributes.description}</p>
+      ) : (
+        <p className='whitespace-pre-line'>
+          {fb.attributes.description.length > 100
+            ? fb.attributes.description.slice(0, 100) + '...'
+            : fb.attributes.description}
+          {fb.attributes.description.length > 100 && <button onClick={toggleShowMore}>続く</button>}
+        </p>
+      )}
+      <div className='avatar mt-5 flex items-center gap-4'>
+        <div className='left'>
+          <img
+            className='max-h-[48px] max-w-[48px] rounded-full'
+            src={`${import.meta.env.VITE_REACT_IMAGE_BASE_URL}${fb.attributes.avatar.data?.attributes.url}`}
+            alt=''
+          />
+        </div>
+        <div className='right'>
+          <div className='text-orange'>{fb.attributes.nameFeedback}</div>
+          <p className='fs-14'>{fb.attributes.company}</p>
+        </div>
+      </div>
+    </div>
+  )
+}
