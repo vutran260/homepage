@@ -79,27 +79,28 @@ const ClientFeedback = () => {
 
 export default ClientFeedback
 
-const FeedBackItem = ({fb}) => {
-  const [text, setText] = useState(200)
+const FeedBackItem = ({ fb }) => {
   const [showMore, setShowMore] = useState(false)
 
   const toggleShowMore = () => {
     setShowMore(!showMore)
   }
+
+  const getDescription = () => {
+    if (showMore) {
+      return fb.attributes.description // Hiển thị toàn bộ nội dung
+    } else {
+      return fb.attributes.description.length > 200
+        ? fb.attributes.description.slice(0, 200) + '...'
+        : fb.attributes.description // Hiển thị nội dung ngắn hoặc đầy đủ
+    }
+  }
+
   return (
     <div className='person'>
       <img className='overlay h-full' src={Rec37} alt='' />
-      {/* <p className='fs-14 whitespace-pre-line'>{fb.attributes.description}</p> */}
-      {showMore ? (
-        <p className='whitespace-pre-line'>{fb.attributes.description}</p>
-      ) : (
-        <p className='whitespace-pre-line'>
-          {fb.attributes.description.length > 100
-            ? fb.attributes.description.slice(0, 100) + '...'
-            : fb.attributes.description}
-          {fb.attributes.description.length > 100 && <button onClick={toggleShowMore}>続く</button>}
-        </p>
-      )}
+      <p className='whitespace-pre-line'>{getDescription()}</p>
+      {fb.attributes.description.length > 200 && <button onClick={toggleShowMore}>{showMore ? '縮小' : '続く'}</button>}
       <div className='avatar mt-5 flex items-center gap-4'>
         <div className='left'>
           <img
