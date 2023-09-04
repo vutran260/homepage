@@ -14,8 +14,7 @@
   "attributes": {
     "description": {
       "type": "text",
-      "required": true,
-      "maxLength": 200
+      "required": true
     },
     "nameFeedback": {
       "type": "string",
