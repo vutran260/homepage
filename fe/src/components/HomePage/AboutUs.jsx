@@ -36,7 +36,7 @@ export const AboutUs = () => {
                 <br />
                 <br />
               </p>
-              <div className='absolute leading-normal opacity-80 left-0'>
+              <div className='leading-normal opacity-80'>
                 CETとの協力は、単なるアプリ開発以上の価値をもたらします。私たちはユーザーに良好な体験を提供するだけでなく、お客様のビジネスの拡大を心から応援するパートナーです。私たちのビジョンや経験、ビジネスの成長への専門的な知識とともに、次のステップへと進むお手伝いをさせていただけませんか？
               </div>
             </div>
