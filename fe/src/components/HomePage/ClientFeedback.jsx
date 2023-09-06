@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
@@ -81,6 +81,7 @@ export default ClientFeedback
 
 const FeedBackItem = ({ fb }) => {
   const [showMore, setShowMore] = useState(false)
+  const containerRef = useRef(null)
 
   const toggleShowMore = () => {
     setShowMore(!showMore)
@@ -96,8 +97,22 @@ const FeedBackItem = ({ fb }) => {
     }
   }
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (containerRef.current && !containerRef.current.contains(event.target)) {
+        setShowMore(false)
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside)
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [])
+
   return (
-    <div className='person'>
+    <div className='person' ref={containerRef}>
       <img className='overlay h-full' src={Rec37} alt='' />
       <p className='whitespace-pre-line'>{getDescription()}</p>
       {fb.attributes.description.length > 200 && <button onClick={toggleShowMore}>{showMore ? '縮小' : '続く'}</button>}
