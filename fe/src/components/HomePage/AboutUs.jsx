@@ -2,8 +2,15 @@ import '../../scss/components/aboutUs.scss'
 import Rectangle31Mb from '../../assets/images/skills.png'
 import Rectangle31Mb2 from '../../assets/images/about-us.png'
 import { AnimationInViewToTop } from '../Animation'
+import { useState } from 'react'
 
 export const AboutUs = () => {
+  const [showMore, setShowMore] = useState(false)
+
+  const handleLoadMore = () => {
+    setShowMore(!showMore)
+  }  
+
   return (
     <>
       <div className='aboutUS heightSection flex flex-col bg-darkGray-900'>
@@ -30,15 +37,19 @@ export const AboutUs = () => {
                 <br />
                 <br />
                 私たちの提供するアプリの保守継続率が90%以上という結果は、私たちの品質とサービスへの継続的な取り組みを示しています。
-                <br />
-                <br />
-                CETとの関係は、一度のプロジェクトだけで終わるものではありません。私たちの専門知識と熱意をもってサポートし続けることで、お客様からの再度のご依頼もいただいています。これは、私たちがお客様のビジネスの成長をサポートするパートナーであることを示しています。
+                {!showMore && '...'}
                 <br />
                 <br />
               </p>
-              <div className='leading-normal opacity-80'>
-                CETとの協力は、単なるアプリ開発以上の価値をもたらします。私たちはユーザーに良好な体験を提供するだけでなく、お客様のビジネスの拡大を心から応援するパートナーです。私たちのビジョンや経験、ビジネスの成長への専門的な知識とともに、次のステップへと進むお手伝いをさせていただけませんか？
-              </div>
+              {showMore && (
+                <p className='leading-normal opacity-80'>
+                  CETとの関係は、一度のプロジェクトだけで終わるものではありません。私たちの専門知識と熱意をもってサポートし続けることで、お客様からの再度のご依頼もいただいています。これは、私たちがお客様のビジネスの成長をサポートするパートナーであることを示しています。
+                  <br />
+                  <br />
+                  CETとの協力は、単なるアプリ開発以上の価値をもたらします。私たちはユーザーに良好な体験を提供するだけでなく、お客様のビジネスの拡大を心から応援するパートナーです。私たちのビジョンや経験、ビジネスの成長への専門的な知識とともに、次のステップへと進むお手伝いをさせていただけませんか？
+                </p>
+              )}
+              <button onClick={handleLoadMore}>{!showMore ? '続く' : '縮小'}</button>
             </div>
           </div>
         </AnimationInViewToTop>

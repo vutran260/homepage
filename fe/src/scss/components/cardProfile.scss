@@ -12,9 +12,9 @@
     flex-direction: row !important;
 
     div:first-child {
-      // width: 53%;
+      width: 45%;
       img {
-        width: 185px;
+        width: 100%;
       }
     }
 
@@ -22,6 +22,7 @@
       align-items: baseline !important;
       justify-content: flex-start !important;
       padding-left: 10px;
+      width: 50%;
     }
 
     .textName {
