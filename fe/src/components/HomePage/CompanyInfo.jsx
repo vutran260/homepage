@@ -13,19 +13,20 @@ function CompanyInfo() {
     console.log(data)
   return (
     <div className='info-company'>
+      <h2 class='title textLarge my-10 text-white'>会社概要</h2>
       <div className='wrap-info'>
         {data.map((info) => {
-            return (
-              <div className='flex border-b' key={info.id}>
-                <div className='left'>{info.attributes.title}</div>
-                <div
-                  className='right'
-                  dangerouslySetInnerHTML={{
-                    __html: info.attributes.description
-                  }}
-                />
-              </div>
-            )
+          return (
+            <div className='flex border-b' key={info.id}>
+              <div className='left font-semibold'>{info.attributes.title}</div>
+              <div
+                className='right'
+                dangerouslySetInnerHTML={{
+                  __html: info.attributes.description
+                }}
+              />
+            </div>
+          )
         })}
       </div>
     </div>
