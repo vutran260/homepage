@@ -15,7 +15,7 @@ export const SideBar = () => {
     'Value',
     'Team',
     'Feedback',
-    'CompanyInfo',
+    // 'CompanyInfo',
     'Contact_Us'
   ]
   const arrNameSideBar = [
@@ -27,7 +27,7 @@ export const SideBar = () => {
     '価値提供',
     'チームについて',
     'フィードバック',
-    '会社概要',
+    // '会社概要',
     'お問い合わせ'
   ]
   const handleScrollToElement = (e) => {
