@@ -125,11 +125,11 @@ export default function HomePage() {
                 <ClientFeedback />
               </Section>
             </Element>
-            {/* <Element id='CompanyInfo'>
+            <Element id='CompanyInfo'>
               <Section id='CompanyInfo'>
                 <CompanyInfo />
               </Section>
-            </Element> */}
+            </Element>
             <Element id='Contact_Us'>
               <Section id='Contact_Us'>
                 <Footer />

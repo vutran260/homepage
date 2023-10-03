@@ -28,7 +28,7 @@ export const SideBarMobile = ({position, handleCloseSideBar}) => {
     '価値提供',
     'チームについて',
     'フィードバック',
-    // '会社概要',
+    '会社概要',
     'お問い合わせ'
   ]
 
