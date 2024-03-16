@@ -22,6 +22,7 @@ import { AppContext } from '../../contexts/app.context'
 import ButtonGoDown from '../../components/Button'
 import { useLocation } from 'react-router-dom'
 import CompanyInfo from '../../components/HomePage/CompanyInfo'
+import { Articles } from '../../components/HomePage/Articles'
 
 function Section({ children, id }) {
   const { inView, ref } = useInView({
@@ -98,6 +99,11 @@ export default function HomePage() {
             <Element id='News'>
               <Section id='News'>
                 <News />
+              </Section>
+            </Element>
+            <Element id='Articles'>
+              <Section id='Articles'>
+                <Articles />
               </Section>
             </Element>
             <Element id='About_Us'>

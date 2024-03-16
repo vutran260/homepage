@@ -12,7 +12,11 @@ export function NewCard(datum) {
   }
   return (
     <>
-      <Link to={`/posts/${obj.id}`} className='newCard-mobile flex w-full flex-col' key={obj.id}>
+      <Link
+        to={datum.isArticle ? `/articles/${obj.id}` : `/posts/${obj.id}`}
+        className='newCard-mobile flex w-full flex-col'
+        key={obj.id}
+      >
         <div className='newCard-mobile-image grayscale-image overflow-hidden rounded-md'>
           {obj.image ? (
             <img

@@ -10,6 +10,7 @@ export const SideBar = () => {
     'Home',
     'Portfolio',
     'News',
+    'Articles',
     'About_Us',
     'Services',
     'Value',
@@ -21,7 +22,8 @@ export const SideBar = () => {
   const arrNameSideBar = [
     'ホーム',
     '実績',
-    'ニュース',
+    'ブログ一覧',
+    '記事一覧',
     '私たちについて',
     'サービス',
     '価値提供',

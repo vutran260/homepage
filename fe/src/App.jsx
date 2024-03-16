@@ -10,6 +10,8 @@ import Portfolio from './pages/Portfolio'
 import PostDetail from './pages/PostDetail'
 import PostsList from './pages/PostsList/Postlists'
 import http from './utils/http'
+import ArticlesList from './pages/ArticlesList'
+import ArticleDetail from './pages/ArticleDetail'
 
 function App() {
   const { setSetting } = useContext(AppContext)
@@ -26,13 +28,15 @@ function App() {
 
   return (
     <div className='App'>
-          <Routes>
-            <Route path='/' element={<HomePage />} />
-            <Route path='/posts' element={<PostsList />} />
-            <Route path='/posts/:id' element={<PostDetail />} />
-            <Route path='/contact' element={<Contact />} />
-            <Route path='/portfolio/:id' element={<Portfolio />} />
-          </Routes>
+      <Routes>
+        <Route path='/' element={<HomePage />} />
+        <Route path='/posts' element={<PostsList />} />
+        <Route path='/articles' element={<ArticlesList />} />
+        <Route path='/posts/:id' element={<PostDetail />} />
+        <Route path='/articles/:id' element={<ArticleDetail />} />
+        <Route path='/contact' element={<Contact />} />
+        <Route path='/portfolio/:id' element={<Portfolio />} />
+      </Routes>
       <ToastContainer />
     </div>
   )
