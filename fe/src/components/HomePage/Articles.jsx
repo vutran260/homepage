@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import http from "src/utils/http.js"
+import http from 'src/utils/http.js'
 import iconRow from '../../assets/images/iconRow.png'
 import '../../scss/components/news.scss'
 import { AnimationInViewToTop } from '../Animation'
@@ -19,28 +19,30 @@ export function Articles() {
   }, [])
   return (
     <>
-      <div className='news b heightSection flex flex-col bg-darkGray-900'>
-        <div className='wrap-text flex flex-col'>
-          <AnimationInViewToTop className='ourNews flex justify-center text-white'>記事一覧</AnimationInViewToTop>
-        </div>
-        <div className='relative'>
-          <div className='wap-item grid w-full grid-cols-3 gap-12 pt-8 '>
-            {data?.map((datum) => (
-              <AnimationInViewToTop delay={0} key={datum.id}>
-                <NewCard {...datum} isArticle={true} />
-              </AnimationInViewToTop>
-            ))}
+      {data.length && (
+        <div className='news b heightSection flex flex-col bg-darkGray-900'>
+          <div className='wrap-text flex flex-col'>
+            <AnimationInViewToTop className='ourNews flex justify-center text-white'>記事一覧</AnimationInViewToTop>
           </div>
-          <div className='wrap-buttonCardNew'>
-            <div className='flex items-center'>
-              <Link to='/articles' className='mr-3'>
-                <img src={iconRow} alt='' />
-              </Link>
-              <span className='top-2 text-xs text-white opacity-40'>もっと見る</span>
+          <div className='relative'>
+            <div className='wap-item grid w-full grid-cols-3 gap-12 pt-8 '>
+              {data?.map((datum) => (
+                <AnimationInViewToTop delay={0} key={datum.id}>
+                  <NewCard {...datum} isArticle={true} />
+                </AnimationInViewToTop>
+              ))}
+            </div>
+            <div className='wrap-buttonCardNew'>
+              <div className='flex items-center'>
+                <Link to='/articles' className='mr-3'>
+                  <img src={iconRow} alt='' />
+                </Link>
+                <span className='top-2 text-xs text-white opacity-40'>もっと見る</span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      )}
     </>
   )
 }
