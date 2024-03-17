@@ -22,7 +22,7 @@ export function News() {
       <div className='news b heightSection flex flex-col bg-darkGray-900'>
         <div className='wrap-text flex flex-col'>
           <AnimationInViewToTop className='LastPost-text mb-2 flex justify-center text-white'>
-            新着ブログ
+             Last Post
           </AnimationInViewToTop>
           <AnimationInViewToTop className='ourNews flex justify-center text-white'>Our News</AnimationInViewToTop>
         </div>

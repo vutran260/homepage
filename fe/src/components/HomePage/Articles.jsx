@@ -22,6 +22,9 @@ export function Articles() {
       {data.length && (
         <div className='news b heightSection flex flex-col bg-darkGray-900'>
           <div className='wrap-text flex flex-col'>
+            <AnimationInViewToTop className='LastPost-text mb-2 flex justify-center text-white'>
+              Last Post
+            </AnimationInViewToTop>
             <AnimationInViewToTop className='ourNews flex justify-center text-white'>記事一覧</AnimationInViewToTop>
           </div>
           <div className='relative'>
