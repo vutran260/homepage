@@ -65,7 +65,7 @@ export default function HomePage() {
   useEffect(() => {
     if (state?.redirect) {
       const section = document.querySelector(`#${state?.redirect}`)
-      section.scrollIntoView({ behavior: 'auto', block: 'end' })
+      section.scrollIntoView({ behavior: 'auto', block: 'start' })
     }
   }, [])
   

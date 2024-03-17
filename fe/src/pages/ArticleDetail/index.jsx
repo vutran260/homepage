@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useSearchParams } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
 import postApi from '../../apis/post.api'
 import  './style.css'
@@ -14,6 +14,7 @@ import articleApi from '../../apis/articles.api'
 export default function ArticleDetail() {
   const [post, setPost] = useState()
   let { id } = useParams()
+  const [searchParams] = useSearchParams()
   useEffect(() => {
     async function fetchPostDetail() {
       const data = await articleApi.getArticleDetail(id)
@@ -27,7 +28,7 @@ export default function ArticleDetail() {
   return (
     <div style={{ backgroundImage: `url(${Vector14})` }} className={mainBackgroundClasses}>
       <LogoFixed />
-      <CloseIcon pathName={`/posts`} />
+      <CloseIcon pathName={searchParams.get('home') ? `/` : `/articles`} redirect={`Articles`} />
       {post && (
         <AnimationWrap>
           <div className='mx-auto max-w-[754px]'>
@@ -35,13 +36,6 @@ export default function ArticleDetail() {
             <div className='text-sm text-white text-opacity-50'>{convertDateFormat(post.createdAt)}</div>
             <div className='description mt-10 whitespace-pre-line text-white'>
               <img src={`${import.meta.env.VITE_REACT_IMAGE_BASE_URL}${post?.thumpnail?.data.attributes.url}`} alt='' />
-              {/* <ReactMarkdown
-                transformImageUri={(uri) =>
-                  uri.startsWith('http') ? uri : `${import.meta.env.VITE_REACT_IMAGE_BASE_URL}${uri}`
-                }
-              >
-                {post.description}
-              </ReactMarkdown> */}
               <div
                 className='leading-normal'
                 dangerouslySetInnerHTML={{

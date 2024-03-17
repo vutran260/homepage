@@ -12,16 +12,6 @@ import useQueryParams from '../../hooks/useQueryParams'
 import http from '../../utils/http'
 import './index.css'
 
-const AnimationWrap = ({ children }) => (
-  <motion.div
-    className='hover:scale-102 transform hover:-translate-y-1'
-    style={{ y: 100 }}
-    animate={{ y: 0 }}
-    transition={{ duration: 1 }}
-  >
-    {children}
-  </motion.div>
-)
 
 export default function ArticlesList() {
   const [data, setData] = useState([])
@@ -114,7 +104,7 @@ export default function ArticlesList() {
   return (
     <div style={{ backgroundImage: `url(${Vector14})` }} className={mainBackgroundClasses}>
       <LogoFixed />
-      <CloseIcon redirect={`News`} />
+      <CloseIcon redirect={`Articles`} />
       <div className='mx-auto max-w-[1600px] px-5 pt-[40px] pb-4 text-white max-lg:px-4 min-[1200px]:px-[147px]'>
         <h3 className='mb-10 text-center text-5xl'>記事一覧</h3>
         <div

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useSearchParams } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
 import postApi from '../../apis/post.api'
 import  './style.css'
@@ -13,6 +13,7 @@ import CloseIcon from '../../components/Icon/CloseIcon'
 export default function PostsList() {
   const [post, setPost] = useState()
   let { id } = useParams()
+  let [searchParams] = useSearchParams()
   useEffect(() => {
     async function fetchPostDetail() {
       const data = await postApi.getPostDetail(id)
@@ -26,7 +27,7 @@ export default function PostsList() {
   return (
     <div style={{ backgroundImage: `url(${Vector14})` }} className={mainBackgroundClasses}>
       <LogoFixed />
-      <CloseIcon pathName={`/posts`} />
+      <CloseIcon pathName={searchParams.get('home') ? `/` : `/posts`} redirect={`News`} />
       {post && (
         <AnimationWrap>
           <div className='mx-auto max-w-[754px]'>

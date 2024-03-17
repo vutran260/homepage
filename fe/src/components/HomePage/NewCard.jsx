@@ -13,7 +13,7 @@ export function NewCard(datum) {
   return (
     <>
       <Link
-        to={datum.isArticle ? `/articles/${obj.id}` : `/posts/${obj.id}`}
+        to={datum.isArticle ? `/articles/${obj.id}?home=true` : `/posts/${obj.id}?home=true`}
         className='newCard-mobile flex w-full flex-col'
         key={obj.id}
       >
