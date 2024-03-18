@@ -116,7 +116,7 @@ export default function PostsList() {
       <LogoFixed />
       <CloseIcon redirect={`News`} />
       <div className='mx-auto max-w-[1600px] px-5 pt-[40px] pb-4 text-white max-lg:px-4 min-[1200px]:px-[147px]'>
-        <h3 className='mb-10 text-center text-5xl'>Our News</h3>
+        <h3 className='mb-10 text-center text-5xl'>Our Blogs</h3>
         <div
           className='flex justify-center gap-10 pb-10 max-md:gap-4 max-sm:justify-start'
           style={{ overflowX: 'auto' }}

@@ -27,7 +27,7 @@ import { Articles } from '../../components/HomePage/Articles'
 function Section({ children, id }) {
   const { inView, ref } = useInView({
     /* Optional options */
-    threshold: 0.7
+    threshold: 0.5
   })
   const {setMenuActive} = useContext(AppContext)
   useEffect(() => {

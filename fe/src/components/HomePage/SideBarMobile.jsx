@@ -23,8 +23,8 @@ export const SideBarMobile = ({position, handleCloseSideBar}) => {
   const arrItemSideBar = [
     'ホーム',
     '実績',
-    'ブログ一覧',
-    '記事一覧',
+    'ブログ',
+    'ニュース',
     '私たちについて',
     'サービス',
     '価値提供',

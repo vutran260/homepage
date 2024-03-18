@@ -19,33 +19,31 @@ export function Articles() {
   }, [])
   return (
     <>
-      {data.length && (
-        <div className='news b heightSection flex flex-col bg-darkGray-900'>
-          <div className='wrap-text flex flex-col'>
-            <AnimationInViewToTop className='LastPost-text mb-2 flex justify-center text-white'>
-              Last Post
-            </AnimationInViewToTop>
-            <AnimationInViewToTop className='ourNews flex justify-center text-white'>Article</AnimationInViewToTop>
+      <div className='news b heightSection flex flex-col bg-darkGray-900'>
+        <div className='wrap-text flex flex-col'>
+          <AnimationInViewToTop className='LastPost-text mb-2 flex justify-center text-white'>
+            Last Post
+          </AnimationInViewToTop>
+          <AnimationInViewToTop className='ourNews flex justify-center text-white'>Our News</AnimationInViewToTop>
+        </div>
+        <div className='relative'>
+          <div className='wap-item grid w-full grid-cols-3 gap-12 pt-8 '>
+            {data?.map((datum) => (
+              <AnimationInViewToTop delay={0} key={datum.id}>
+                <NewCard {...datum} isArticle={true} />
+              </AnimationInViewToTop>
+            ))}
           </div>
-          <div className='relative'>
-            <div className='wap-item grid w-full grid-cols-3 gap-12 pt-8 '>
-              {data?.map((datum) => (
-                <AnimationInViewToTop delay={0} key={datum.id}>
-                  <NewCard {...datum} isArticle={true} />
-                </AnimationInViewToTop>
-              ))}
-            </div>
-            <div className='wrap-buttonCardNew'>
-              <div className='flex items-center'>
-                <Link to='/articles' className='mr-3'>
-                  <img src={iconRow} alt='' />
-                </Link>
-                <span className='top-2 text-xs text-white opacity-40'>もっと見る</span>
-              </div>
+          <div className='wrap-buttonCardNew'>
+            <div className='flex items-center'>
+              <Link to='/articles' className='mr-3'>
+                <img src={iconRow} alt='' />
+              </Link>
+              <span className='top-2 text-xs text-white opacity-40'>もっと見る</span>
             </div>
           </div>
         </div>
-      )}
+      </div>
     </>
   )
 }

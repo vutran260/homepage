@@ -22,9 +22,9 @@ export function News() {
       <div className='news b heightSection flex flex-col bg-darkGray-900'>
         <div className='wrap-text flex flex-col'>
           <AnimationInViewToTop className='LastPost-text mb-2 flex justify-center text-white'>
-             Last Post
+            Last Post
           </AnimationInViewToTop>
-          <AnimationInViewToTop className='ourNews flex justify-center text-white'>Our News</AnimationInViewToTop>
+          <AnimationInViewToTop className='ourNews flex justify-center text-white'>Our Blogs</AnimationInViewToTop>
         </div>
         <div className='relative'>
           <div className='wap-item grid w-full grid-cols-3 gap-12 pt-8 '>
