@@ -7,13 +7,17 @@ import { AppContext } from '../../contexts/app.context'
 import { AnimationInViewToTop } from '../Animation'
 
 export default function Header({ HandleOpenSideBar }) {
+  const handleScrollTop = () => {
+    const section = document.querySelector(`#Home`)
+    section?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
   const { setting } = useContext(AppContext)
   if (setting?.phone) {
     return (
       <AnimationInViewToTop className='Header fixed top-0 left-0 z-50 flex h-24 w-full justify-between bg-darkGray-900 px-8'>
         <div className='w-1/2'>
           <div className='flex h-full items-center'>
-            <Link to='/' className=''>
+            <Link to='/' onClick={handleScrollTop}>
               <img
                 src={`${import.meta.env.VITE_REACT_IMAGE_BASE_URL}${setting?.logo?.data.attributes.url}`}
                 className='h-12 w-12 max-md:h-10 max-md:w-10'
