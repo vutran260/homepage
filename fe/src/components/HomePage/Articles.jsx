@@ -25,7 +25,7 @@ export function Articles() {
             <AnimationInViewToTop className='LastPost-text mb-2 flex justify-center text-white'>
               Last Post
             </AnimationInViewToTop>
-            <AnimationInViewToTop className='ourNews flex justify-center text-white'>記事一覧</AnimationInViewToTop>
+            <AnimationInViewToTop className='ourNews flex justify-center text-white'>Article</AnimationInViewToTop>
           </div>
           <div className='relative'>
             <div className='wap-item grid w-full grid-cols-3 gap-12 pt-8 '>
