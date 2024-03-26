@@ -1,5 +1,5 @@
 // import { useInView } from 'framer-motion'
-import  React, { useContext, useEffect, useRef, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import Header from '../../components/Header'
 import { AboutUs } from '../../components/HomePage/AboutUs'
 import { Home } from '../../components/HomePage/Home'
@@ -13,7 +13,7 @@ import { SideBar } from '../../components/SideBar/SideBar'
 import { useInView } from 'react-intersection-observer'
 import '../../scss/components/homePage.scss'
 // import { Element } from 'react-scroll'
-import { SideBarMobile } from "src/components/HomePage/SideBarMobile.jsx"
+import { SideBarMobile } from 'src/components/HomePage/SideBarMobile.jsx'
 import Footer from '../../components/Footer'
 import ClientFeedback from '../../components/HomePage/ClientFeedback'
 
@@ -29,13 +29,13 @@ function Section({ children, id }) {
     /* Optional options */
     threshold: 0.3
   })
-  const {setMenuActive} = useContext(AppContext)
+  const { setMenuActive } = useContext(AppContext)
   useEffect(() => {
     if (inView) {
       setMenuActive(id)
     }
   }, [inView])
-  
+
   return (
     <section ref={ref}>
       <div
@@ -52,13 +52,12 @@ function Section({ children, id }) {
 }
 
 export default function HomePage() {
-  const [position, setPosition] = useState("-100%");
+  const [position, setPosition] = useState('-100%')
   const HandleOpenSideBar = () => {
-    setPosition("0")
-
+    setPosition('0')
   }
   const handleCloseSideBar = () => {
-    setPosition("-100%")
+    setPosition('-100%')
   }
 
   let { state } = useLocation()
@@ -68,81 +67,85 @@ export default function HomePage() {
       section.scrollIntoView({ behavior: 'auto', block: 'start' })
     }
   }, [])
-  
+
+  const { setting } = useContext(AppContext)
+
   return (
     <>
       <div className='min-h-screen bg-darkGray-900'>
         <Header HandleOpenSideBar={HandleOpenSideBar} />
         <SideBar />
         <SideBarMobile position={position} handleCloseSideBar={handleCloseSideBar} />
-        <div className='mainContainerHome mx-auto flex h-full w-full justify-between'>
-          <div className='placeSideBar bg-darkGray-900'></div>
-          <div className='mainHomeContent'>
-            <div className='ButtonGoDown'>
-              <ButtonGoDown />
+        {setting?.banner && (
+          <div className='mainContainerHome mx-auto flex h-full w-full justify-between'>
+            <div className='placeSideBar bg-darkGray-900'></div>
+            <div className='mainHomeContent'>
+              <div className='ButtonGoDown'>
+                <ButtonGoDown />
+              </div>
+              <Element id='Home'>
+                <Section id='Home'>
+                  <Home />
+                </Section>
+              </Element>
+              <Element id='Portfolio'>
+                <Section id='Portfolio'>
+                  <Portfolio />
+                </Section>
+              </Element>
+              <Element id='Portfolio1'>
+                <Section id='Portfolio1'>
+                  <SliderPortfolio />
+                </Section>
+              </Element>
+              <Element id='News'>
+                <Section id='News'>
+                  <News />
+                </Section>
+              </Element>
+              <Element id='Articles'>
+                <Section id='Articles'>
+                  <Articles />
+                </Section>
+              </Element>
+              <Element id='About_Us'>
+                <Section id='About_Us'>
+                  <AboutUs />
+                </Section>
+              </Element>
+              <Element id='Services'>
+                <Section id='Services'>
+                  <Services />
+                </Section>
+              </Element>
+              <Element id='Value'>
+                <Section id='Value'>
+                  <Value />
+                </Section>
+              </Element>
+              <Element id='Team'>
+                <Section id='Team'>
+                  <Teams />
+                </Section>
+              </Element>
+              <Element id='Feedback'>
+                <Section id='Feedback'>
+                  <ClientFeedback />
+                </Section>
+              </Element>
+              <Element id='CompanyInfo'>
+                <Section id='CompanyInfo'>
+                  <CompanyInfo />
+                </Section>
+              </Element>
+              <Element id='Contact_Us'>
+                <Section id='Contact_Us'>
+                  <Footer />
+                </Section>
+              </Element>
             </div>
-            <Element id='Home'>
-              <Section id='Home'>
-                <Home />
-              </Section>
-            </Element>
-            <Element id='Portfolio'>
-              <Section id='Portfolio'>
-                <Portfolio />
-              </Section>
-            </Element>
-            <Element id='Portfolio1'>
-              <Section id='Portfolio1'>
-                <SliderPortfolio />
-              </Section>
-            </Element>
-            <Element id='News'>
-              <Section id='News'>
-                <News />
-              </Section>
-            </Element>
-            <Element id='Articles'>
-              <Section id='Articles'>
-                <Articles />
-              </Section>
-            </Element>
-            <Element id='About_Us'>
-              <Section id='About_Us'>
-                <AboutUs />
-              </Section>
-            </Element>
-            <Element id='Services'>
-              <Section id='Services'>
-                <Services />
-              </Section>
-            </Element>
-            <Element id='Value'>
-              <Section id='Value'>
-                <Value />
-              </Section>
-            </Element>
-            <Element id='Team'>
-              <Section id='Team'>
-                <Teams />
-              </Section>
-            </Element>
-            <Element id='Feedback'>
-              <Section id='Feedback'>
-                <ClientFeedback />
-              </Section>
-            </Element>
-            <Element id='CompanyInfo'>
-              <Section id='CompanyInfo'>
-                <CompanyInfo />
-              </Section>
-            </Element>
-            <Element id='Contact_Us'>
-              <Section id='Contact_Us'>
-                <Footer />
-              </Section>
-            </Element>
           </div>
-        </div>
+        )}
       </div>
     </>
   )
