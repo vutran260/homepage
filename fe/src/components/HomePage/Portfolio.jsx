@@ -1,6 +1,5 @@
 import '../../scss/components/portfolio.scss'
 import portfolio from '../../assets/images/portfolio.png'
-import ButtonGoDown from '../Button'
 import { AnimationInViewToTop } from '../Animation'
 
 export function Portfolio() {

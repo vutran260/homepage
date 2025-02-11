@@ -1,3 +1,4 @@
 import ButtonGoDown from './ButtonGoDown'
+import ButtonGradient from './ButtonGradient'
 
-export default ButtonGoDown
+export { ButtonGoDown, ButtonGradient }

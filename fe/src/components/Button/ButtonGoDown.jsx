@@ -1,8 +1,8 @@
-import {useContext} from 'react'
-import buttonGoDown from '../../assets/images/buttonGoDown.png'
-import { AppContext } from '../../contexts/app.context'
+import { useContext } from 'react'
+import buttonGoDown from 'src/assets/images/buttonGoDown.png'
+import { AppContext } from 'src/contexts/app.context'
 
-export default function ButtonGoDown({target}) {
+export default function ButtonGoDown({ target }) {
   const style = {
     backgroundImage: `url(${buttonGoDown})`,
     backgroundSize: 'cover',
@@ -11,18 +11,18 @@ export default function ButtonGoDown({target}) {
     height: ' 50px',
     width: '50px'
   }
-  
-  const {menuActive} = useContext(AppContext)
+
+  const { menuActive } = useContext(AppContext)
   const handleScroll = () => {
     const section = document.querySelector(`#${menuActive}`)
     // section?.scrollIntoView( { behavior: 'smooth' } );
-    let sectionNext;
-    
+    let sectionNext
+
     sectionNext = section.nextSibling
-    
+
     if (sectionNext) {
       sectionNext.scrollIntoView({ behavior: 'smooth' })
     }
   }
-  return <a onClick={handleScroll} style={style} className='cursor h-full w-full cursor-pointer block'></a>
+  return <a onClick={handleScroll} style={style} className='cursor block h-full w-full cursor-pointer'></a>
 }

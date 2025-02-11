@@ -1,0 +1,104 @@
+.mobile-sidebar {
+  display: none;
+
+  @media screen and (max-width: 1000px) {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(19, 19, 19, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #333;
+
+    .mobile-nav-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 20px;
+      height: 60px;
+
+      .mobile-logo {
+        width: 40px;
+        height: 40px;
+        object-fit: contain;
+      }
+
+      .nav-center-text {
+        color: #000000;
+        background: #ffffff;
+        padding: 10px 20px;
+        border-radius: 16px;
+        font-size: 20px;
+        font-weight: 500;
+        max-width: 60%;
+        text-align: center;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .toggle-btn {
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 24px;
+        padding: 0;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: opacity 0.3s;
+
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+    }
+
+    .drawer-overlay {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #000000;
+      z-index: 1001;
+
+      .drawer-content {
+        background: #000000;
+        position: absolute;
+        bottom: 55px;
+        left: 0;
+        right: 0;
+        padding: 10px;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        justify-content: center;
+        height: 94vh;
+
+        .drawer-item {
+          text-align: center;
+          color: #7C7C7C;
+          padding: 12px;
+          font-size: 20px;
+          border-radius: 8px;
+          transition: all 0.3s ease;
+
+          &.active {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.1);
+          }
+
+          &:hover {
+            background: rgba(255, 255, 255, 0.05);
+          }
+        }
+      }
+    }
+  }
+}

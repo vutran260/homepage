@@ -1,11 +1,12 @@
-import { useContext } from 'react'
-import '../../scss/components/sideBar.scss'
-import { AppContext } from '../../contexts/app.context'
-import './styles.scss'
-import { AnimationInViewToLeft, AnimationInViewToTop } from '../Animation'
-export const SideBar = () => {
+import React, { useContext } from 'react'
+import 'src/scss/components/sideBar.scss'
+import { AppContext } from 'src/contexts/app.context'
+import LogoNew from 'src/assets/images/LogoNew.png'
+import { AnimationFadeInUp } from 'src/components/Animation/index.jsx'
+
+export const SideBar = ({ shouldAnimate }) => {
   let { menuActive } = useContext(AppContext)
-  if(menuActive == 'Portfolio1') menuActive = 'Portfolio'
+  if (menuActive == 'Portfolio1') menuActive = 'Portfolio'
   const arrItemSideBar = [
     'Home',
     'Portfolio',
@@ -32,25 +33,43 @@ export const SideBar = () => {
     '会社概要',
     'お問い合わせ'
   ]
-  const handleScrollToElement = (e) => {
-    const section = document.querySelector( `#${e.currentTarget.name}` );
-    section.scrollIntoView( { behavior: 'smooth', block: 'start' } );
+  const handleScrollToElement = (targetName) => {
+    const section = document.querySelector(`#${targetName}`)
+    section.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
   return (
-    <div className='section-items fixed top-1/2 -translate-y-1/2 transform'>
-      <AnimationInViewToLeft>
-        {arrItemSideBar.map((item, index) => (
-          <div key={index} className='wrap-item-sideBar'>
-            <div className='border-left'></div>
-            <div className='section-item scroll-sec2 flex cursor-pointer items-center leading-none'>
-              <div className={menuActive === item ? 'active dot' : 'dot'}></div>
-              <a name={item} onClick={handleScrollToElement} className={menuActive === item ? 'active' : ''}>
-                <div className='fs-11'>{arrNameSideBar[index]}</div>
-              </a>
+    <AnimationFadeInUp className='bottom-sidebar' shouldAnimate={shouldAnimate} fixedElement={true}>
+      <div className='bottom-sidebar'>
+        <div className='nav-line-wrapper'>
+          <div className='nav-line'>
+            <div className='logo-wrapper'>
+              <img
+                src={LogoNew}
+                onClick={() => handleScrollToElement('Home')}
+                alt='Logo'
+                className='nav-logo cursor-pointer'
+                width={40}
+                height={40}
+              />
             </div>
+            <nav className='nav-menu-wrapper'>
+              <div className='nav-menu-list_wrap'>
+                <div className='nav-menu-list'>
+                  {arrItemSideBar.map((item, index) => (
+                    <a
+                      name={item}
+                      onClick={() => handleScrollToElement(item)}
+                      className={`nav-link ${menuActive === item ? 'active' : ''}`}
+                    >
+                      {arrNameSideBar[index]}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </nav>
           </div>
-        ))}
-      </AnimationInViewToLeft>
-    </div>
+        </div>
+      </div>
+    </AnimationFadeInUp>
   )
 }

@@ -1,6 +1,4 @@
-// import { useInView } from 'framer-motion'
 import React, { useContext, useEffect, useRef, useState } from 'react'
-import Header from '../../components/Header'
 import { AboutUs } from '../../components/HomePage/AboutUs'
 import { Home } from '../../components/HomePage/Home'
 import { News } from '../../components/HomePage/News'
@@ -12,17 +10,18 @@ import { Value } from '../../components/HomePage/Value'
 import { SideBar } from '../../components/SideBar/SideBar'
 import { useInView } from 'react-intersection-observer'
 import '../../scss/components/homePage.scss'
-// import { Element } from 'react-scroll'
-import { SideBarMobile } from 'src/components/HomePage/SideBarMobile.jsx'
+import { SideBarMobile } from 'src/components/SideBar/SideBarMobile.jsx'
 import Footer from '../../components/Footer'
 import ClientFeedback from '../../components/HomePage/ClientFeedback'
+import { isMobile } from 'react-device-detect'
 
-import { Element, scroller } from 'react-scroll'
+import { Element } from 'react-scroll'
 import { AppContext } from '../../contexts/app.context'
-import ButtonGoDown from '../../components/Button'
+import { ButtonGoDown } from 'src/components/Button'
 import { useLocation } from 'react-router-dom'
 import CompanyInfo from '../../components/HomePage/CompanyInfo'
 import { Articles } from '../../components/HomePage/Articles'
+import VideoIntro from 'src/components/VideoIntro/VideoIntro.jsx'
 
 function Section({ children, id }) {
   const { inView, ref } = useInView({
@@ -70,12 +69,21 @@ export default function HomePage() {
 
   const { setting } = useContext(AppContext)
 
+  const [showIntroVideo, setShowIntroVideo] = useState(true)
+  const [shouldAnimate, setShouldAnimate] = useState(false)
+
+  const handleVideoEnd = () => {
+    setShowIntroVideo(false)
+    setShouldAnimate(true)
+  }
+
   return (
     <>
+      {!isMobile && showIntroVideo && <VideoIntro onEnd={handleVideoEnd} />}
       <div className='min-h-screen bg-darkGray-900'>
-        <Header HandleOpenSideBar={HandleOpenSideBar} />
-        <SideBar />
+        {/*<Header HandleOpenSideBar={HandleOpenSideBar} />*/}
         <SideBarMobile position={position} handleCloseSideBar={handleCloseSideBar} />
+        <SideBar shouldAnimate={shouldAnimate} />
         {setting?.banner && (
           <div className='mainContainerHome mx-auto flex h-full w-full justify-between'>
             <div className='placeSideBar bg-darkGray-900'></div>
@@ -85,7 +93,7 @@ export default function HomePage() {
               </div>
               <Element id='Home'>
                 <Section id='Home'>
-                  <Home />
+                  <Home shouldAnimate={shouldAnimate || isMobile} />
                 </Section>
               </Element>
               <Element id='Portfolio'>
