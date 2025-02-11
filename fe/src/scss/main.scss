@@ -70,7 +70,7 @@ body {
 @include screen("mobile") {
   .heightSection {
     min-height: calc(100vh) !important;
-    padding-top: 70px;
+    //padding-top: 70px;
     // transform: translateY(70px);
   }
 }

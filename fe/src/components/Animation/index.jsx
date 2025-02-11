@@ -80,3 +80,33 @@ export const AnimationFullPage = ({ children, delay = 1.5, duration = 2 }) => {
     </div>
   )
 }
+
+export const AnimationFadeInUp = ({
+  children,
+  shouldAnimate,
+  className,
+  initial = { opacity: 0, y: 20 },
+  animate = { opacity: 1, y: 0 },
+  duration = 1.5,
+  dangerouslySetInnerHTML,
+  fixedElement = false
+}) => {
+  let { inView, ref } = useInView({
+    threshold: 0.5
+  })
+  if (fixedElement) {
+    inView = true
+  }
+  return (
+    <motion.div
+      ref={ref}
+      className={className}
+      initial={initial}
+      animate={shouldAnimate && inView ? animate : initial}
+      transition={{ duration: duration, ease: 'easeIn' }}
+      dangerouslySetInnerHTML={dangerouslySetInnerHTML}
+    >
+      {children}
+    </motion.div>
+  )
+}

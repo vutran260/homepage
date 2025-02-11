@@ -1,11 +1,11 @@
 @font-face {
-  font-family: 'MPLUS1p';
-  src: url('../assets/fontMPlus/MPLUS1p-Regular.ttf') format('truetype');
+  font-family: 'Instrument Sans';
+  src: url('../assets/fontInstrumentSans/InstrumentSans-Regular.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: 'MPLUS1pbold';
-  src: url('../assets/fontMPlus/MPLUS1p-ExtraBold.ttf') format('truetype');
+  font-family: 'Instrument Sans Bold';
+  src: url('../assets/fontInstrumentSans/InstrumentSans-Bold.ttf') format('truetype');
 }
 
 $font-weight-normal: 400 !default;
@@ -13,8 +13,8 @@ $font-weight-bold: 900 !default;
 
 $spacing-base: 0 !default;
 
-$font-family-base: 'M PLUS 1p', sans-serif;
-$font-family-bold: 'MPLUS1pbold', sans-serif;
+$font-family-base: 'Instrument Sans', sans-serif;
+$font-family-bold: 'Instrument Sans Bold', sans-serif;
 
 $font-size-base: 16px !default;
 $font-size-medium: 20px !default;
@@ -29,9 +29,9 @@ $gray-900: #191C22 !default;
 $orange: #ec6b33 !default;
 $blue: #36AAFA !default;
 
-$width-sideBar: 194px;
-$height-header: 6rem;
-$height-header-mobile: 70px;
+$width-sideBar: 0px;
+$height-header: 0px;
+$height-header-mobile: 0px;
 
 $res_280: "only screen and (max-width: 280px)";
 $res_240320: "only screen and (min-width: 240px) and (max-width: 320px)";

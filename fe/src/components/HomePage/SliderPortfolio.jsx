@@ -2,12 +2,10 @@ import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import '../../scss/components/SliderPortfolio.scss'
-import {CardPortfolio} from './CardPortfolio.jsx'
-import ButtonGoDown from '../Button'
+import { CardPortfolio } from './CardPortfolio.jsx'
 import { useEffect, useState } from 'react'
 import http from '../../utils/http'
 import CustomArrow from '../CustomArrow'
-
 
 export function SliderPortfolio() {
   const [data, setData] = useState([])

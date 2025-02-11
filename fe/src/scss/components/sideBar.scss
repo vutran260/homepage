@@ -1,73 +1,61 @@
 @import "../variables";
 
+.bottom-sidebar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 900;
+  padding: 15px 0;
 
-.section-items {
-  left: 30px;
+  .nav-line {
+    max-width: 1250px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1.25rem 0 0.625rem;
+    border: 1px solid #252525;
+    border-radius: 1.125rem;
+    background: rgba(19, 19, 19, 0.8);
+    pointer-events: auto;
+    grid-gap: 1.25rem;
 
-  .wrap-item-sideBar {
-    .border-left {
-      height: 26px;
-      border-left: 1px solid #535559;
-      margin: 2px 0 2px 3px;
-    }
-
-    .section-item {
-      gap: 15px;
-
-      .dot {
-        opacity: 0.4;
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        background: #fff;
-        border: 3px solid #fff;
-        border-style: double;
-        background-clip: content-box;
-      }
-
-      .fs-11 {
-        color: #ffffff;
-        text-transform: uppercase;
-        opacity: 0.4;
-        font-size: 13px;
-        transform: translateY(-1px);
-      }
-
-      &.active {
-        .fs-11 {
-          opacity: 1;
-          color: #ffffff;
-          text-transform: uppercase;
-          opacity: 0.4;
-          font-size: 13px;
-          caret-color: transparent;
-        }
-
-        .dot {
-          color: #fff;
-        }
+    .logo-wrapper {
+      .nav-logo {
+        width: 40px;
+        height: 40px;
       }
     }
-  }
 
-  .wrap-item-sideBar:first-child {
-    .border-left {
-      border-left: none;
+    .nav-menu-wrapper {
+      .nav-menu-list {
+        display: flex;
+        gap: 30px;
+
+        .nav-link {
+          color: #7C7C7C;
+          font-weight: 500;
+          padding: 20px 0;
+          border-radius: 8px;
+          cursor: pointer;
+          transition: all 0.3s ease;
+
+          &.active {
+            color: #FFFFFF;
+          }
+
+          &:hover {
+            background: rgba(0, 0, 0, 0.05);
+          }
+        }
+      }
     }
   }
 }
-
-.active {
-  .fs-11 {
-    opacity: unset !important;
-  }
-
-  color: white;
-}
-
 
 @media screen and (max-width: 1000px) {
-  .section-items {
+  .bottom-sidebar {
     display: none;
   }
 }
