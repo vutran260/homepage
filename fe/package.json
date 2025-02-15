@@ -30,7 +30,8 @@
     "react-slick": "^0.29.0",
     "react-spring": "^9.7.2",
     "react-toastify": "^9.1.1",
-    "sass": "^1.63.6"
+    "sass": "^1.63.6",
+    "strapi-plugin-import-export-entries": "^1.23.1"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^8.23.0",
