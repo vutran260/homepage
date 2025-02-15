@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react'
 import { AppContext } from 'src/contexts/app.context.jsx'
 import LogoNew from 'src/assets/images/LogoNew.png'
-import 'src/scss/components/sidebarMobileNew.scss'
+import 'src/scss/components/sidebarMobile.scss'
 import toggleSideBar from 'src/assets/images/toggleSideBar.png'
 import closeIcon from 'src/assets/images/closeIcon.png'
 

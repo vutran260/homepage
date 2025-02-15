@@ -13,8 +13,13 @@ module.exports = {
       },
       colors: {
         orange: '#ee4d2d',
+        whiteGray: {
+          100: '#FFFFFF1A',
+          600: '#FFFFFF99'
+        },
         darkGray: {
-          900: '#191C22'
+          900: '#191C22',
+          600: '#262626'
         },
         textBlueCustom: {
           900: '#36AAFA'
