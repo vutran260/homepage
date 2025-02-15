@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import { motion, useAnimation } from 'framer-motion'
 import { Fragment, useContext, useEffect } from 'react'
 import { useInView } from 'react-intersection-observer'
 import { AppContext } from '../../contexts/app.context'
@@ -89,21 +89,51 @@ export const AnimationFadeInUp = ({
   animate = { opacity: 1, y: 0 },
   duration = 1.5,
   dangerouslySetInnerHTML,
-  fixedElement = false
+  fixedElement = false,
+  index = 0,
+  onAnimationComplete,
+  delay = 0.3
 }) => {
-  let { inView, ref } = useInView({
-    threshold: 0.5
+  const controls = useAnimation()
+  let [ref, inView] = useInView({
+    threshold: 0.5,
+    triggerOnce: false // Đảm bảo trigger nhiều lần
   })
+
   if (fixedElement) {
     inView = true
   }
+
+  useEffect(() => {
+    const startAnimation = async () => {
+      if (shouldAnimate && (inView || fixedElement)) {
+        // Reset về trạng thái initial
+        await controls.set(initial)
+        // Start animation với delay dựa trên index
+        await controls.start({
+          ...animate,
+          transition: {
+            duration: duration,
+            ease: 'easeOut',
+            delay: index * delay
+          }
+        })
+        onAnimationComplete?.()
+      } else {
+        // Reset về trạng thái initial khi outView
+        await controls.start(initial)
+      }
+    }
+
+    startAnimation()
+  }, [inView, shouldAnimate, controls, index])
+
   return (
     <motion.div
       ref={ref}
       className={className}
       initial={initial}
-      animate={shouldAnimate && inView ? animate : initial}
-      transition={{ duration: duration, ease: 'easeIn' }}
+      animate={controls}
       dangerouslySetInnerHTML={dangerouslySetInnerHTML}
     >
       {children}

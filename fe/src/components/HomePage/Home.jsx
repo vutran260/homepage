@@ -27,14 +27,15 @@ export function Home({ shouldAnimate }) {
             <AnimationFadeInUp
               shouldAnimate={shouldAnimate}
               className='textHome flex flex-col text-white max-md:text-4xl'
+              index={0}
             >
               <span
                 className='font-bold max-md:text-3xl'
                 dangerouslySetInnerHTML={{ __html: setting.title_banner }}
               ></span>
             </AnimationFadeInUp>
-            <AnimationFadeInUp shouldAnimate={shouldAnimate} duration={4} className='mt-10 flex justify-center'>
-              <ButtonGradient>CETを知る</ButtonGradient>
+            <AnimationFadeInUp shouldAnimate={shouldAnimate} index={1} className='mt-10 flex justify-center'>
+              <ButtonGradient className='h-[80px] w-[231px] px-[40px] py-[10px]'>CETを知る</ButtonGradient>
             </AnimationFadeInUp>
             <video
               autoPlay={false}

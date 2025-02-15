@@ -1,27 +1,118 @@
-import '../../scss/components/portfolio.scss'
-import portfolio from '../../assets/images/portfolio.png'
-import { AnimationInViewToTop } from '../Animation'
+import 'src/scss/components/portfolio.scss'
+import portfolioAdminScreen from 'src/assets/images/portfolioAdminScreen.png'
+import projectLogo from 'src/assets/images/projectLogo.png'
+import projectMapScreen from 'src/assets/images/projectMapScreen.png'
+import technical1 from 'src/assets/images/technical1.png'
+import technical2 from 'src/assets/images/technical2.png'
+import technical3 from 'src/assets/images/technical3.png'
+import technical4 from 'src/assets/images/technical4.png'
+import technical5 from 'src/assets/images/technical5.png'
+import technical6 from 'src/assets/images/technical6.png'
+import { ButtonGradient, ButtonNormal } from 'src/components/Button/index.js'
+import FlexibleGradient from 'src/components/Gradient/FlexibleGradient.jsx'
+import CardGradient from 'src/components/Gradient/CardGradient.jsx'
+import NextIcon from 'src/components/Icon/NextIcon/index.jsx'
+import PrevIcon from 'src/components/Icon/PrevIcon/index.jsx'
+import { AnimationFadeInUp } from 'src/components/Animation/index.jsx'
 
 export function Portfolio() {
+  const technicalSkills = [
+    {
+      name: 'tech 1',
+      image: technical1
+    },
+    {
+      name: 'tech 2',
+      image: technical2
+    },
+    {
+      name: 'tech 3',
+      image: technical3
+    },
+    {
+      name: 'tech 4',
+      image: technical4
+    },
+    {
+      name: 'tech 5',
+      image: technical5
+    },
+    {
+      name: 'tech 6',
+      image: technical6
+    }
+  ]
+
   return (
-    <>
-      <div className='portfolio heightSection bg-darkGray-900'>
-        <div className='flex flex-col justify-center pt-4'>
-          <div className='portfolio-text flex flex-col text-white'>
-            <AnimationInViewToTop className={`text-center`}>
-              <span>What We’ve Done</span>
-            </AnimationInViewToTop>
-            <AnimationInViewToTop className={`text-center`}>
-              <span className='text'>Portfolio</span>
-            </AnimationInViewToTop>
+    <div className='min-h-screen bg-black px-4 pt-10 md:px-6 lg:px-8'>
+      {/* Main container - change flex to column on mobile */}
+      <div className='mb-2 flex flex-col gap-4 md:flex-row md:justify-end'>
+        {/* Section 1 */}
+        <div className='order-1 w-full md:w-auto'>
+          <div className='section1 rounded-lg p-4'>
+            <AnimationFadeInUp shouldAnimate={true} index={0}>
+              <FlexibleGradient text='配車アプリ' className='mb-5 text-3xl' />
+            </AnimationFadeInUp>
+            <AnimationFadeInUp shouldAnimate={true} index={0}>
+              <img src={projectLogo} width={200} height={70} className='mb-5' alt='' />
+            </AnimationFadeInUp>
+            <AnimationFadeInUp shouldAnimate={true} index={1}>
+              <p className='mb-5 text-5xl text-white'>運転代行アプリ</p>
+            </AnimationFadeInUp>
+            <AnimationFadeInUp shouldAnimate={true} index={2}>
+              <p className='mb-5 text-xl text-whiteGray-600'>期間：5ヶ月（要件定義～納品）</p>
+            </AnimationFadeInUp>
+            <AnimationFadeInUp shouldAnimate={true} index={3}>
+              <p className='mb-2 text-xl text-whiteGray-600'>テクノロジー</p>
+            </AnimationFadeInUp>
+            <AnimationFadeInUp shouldAnimate={true} index={3}>
+              <div className='mb-10 flex flex-wrap gap-2'>
+                {technicalSkills.map((item, index) => (
+                  <div
+                    key={index}
+                    className='border-1 inline-block items-center justify-center rounded-[10px] border border-solid border-whiteGray-100 p-2'
+                  >
+                    <img src={item.image} alt={item.name} />
+                  </div>
+                ))}
+              </div>
+            </AnimationFadeInUp>
+            <AnimationFadeInUp shouldAnimate={true} index={6}>
+              <ButtonGradient className='h-[80px] w-full px-[40px] py-[10px] md:w-[320px]'>
+                プロジェクト情報
+              </ButtonGradient>
+            </AnimationFadeInUp>
           </div>
-          <AnimationInViewToTop>
-            <div className='wrap-img grayscale-image'>
-              <img src={portfolio} alt='' />
-            </div>
-          </AnimationInViewToTop>
         </div>
+
+        {/* Section 2 */}
+        <AnimationFadeInUp className='section2 order-2 w-full md:w-auto' shouldAnimate={true} index={4}>
+          <CardGradient className='h-[600px] w-full rounded-lg border border-solid border-darkGray-600 px-4 pt-6 text-center md:w-[455px] md:px-6'>
+            <p className='mb-6 text-2xl text-white'>STEP① 出発地を指定</p>
+            <div>
+              <img src={projectMapScreen} className='h-full w-full object-contain' alt='' />
+            </div>
+          </CardGradient>
+        </AnimationFadeInUp>
+
+        {/* Section 3 */}
+        <AnimationFadeInUp className='section3 order-3 w-full md:w-auto' shouldAnimate={true} index={5}>
+          <CardGradient className='h-[600px] w-full rounded-lg border border-solid border-darkGray-600 px-4 pt-6 text-center md:w-[500px] md:px-8'>
+            <p className='mb-6 text-xl text-white'>お迎え希望の位置をマップ上で指定。「ここに呼ぶ」</p>
+            <img src={portfolioAdminScreen} className='h-full w-full object-contain' alt='' />
+          </CardGradient>
+        </AnimationFadeInUp>
       </div>
-    </>
+
+      {/* Navigation buttons */}
+      <AnimationFadeInUp shouldAnimate={true} index={7} className='mt-7 flex justify-center gap-2'>
+        <ButtonNormal className='h-[40px] w-[40px]'>
+          <PrevIcon />
+        </ButtonNormal>
+        <ButtonGradient className='h-[40px] w-[40px]'>
+          <NextIcon />
+        </ButtonGradient>
+      </AnimationFadeInUp>
+    </div>
   )
 }
