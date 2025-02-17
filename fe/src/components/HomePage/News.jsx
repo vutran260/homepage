@@ -66,7 +66,7 @@ export function News() {
 
   return (
     <div className='flex min-h-screen items-center justify-center bg-black'>
-      <div className='w-full max-w-7xl px-4 pb-24 text-center md:mb-20'>
+      <div className='w-full max-w-7xl px-4 pb-32 text-center md:mb-20 md:pb-12'>
         <AnimationFadeInUp shouldAnimate={true} index={0} delay={0.5} className='flex justify-center'>
           <FlexibleGradient text='最終投稿' className='mb-5 text-3xl' />
         </AnimationFadeInUp>
