@@ -1,3 +1,5 @@
+@import "../variables";
+
 .mobile-sidebar {
   display: none;
 
@@ -60,7 +62,6 @@
     }
 
     .drawer-overlay {
-      position: fixed;
       left: 0;
       right: 0;
       bottom: 0;
@@ -70,16 +71,14 @@
       .drawer-content {
         background: #000000;
         position: absolute;
-        bottom: 55px;
+        bottom: 60px;
         left: 0;
         right: 0;
-        padding: 10px;
         overflow-y: auto;
         display: flex;
         flex-direction: column;
-        gap: 12px;
         justify-content: center;
-        height: 94vh;
+        height: calc(100vh - $height-sidebar-mobile);
 
         .drawer-item {
           text-align: center;

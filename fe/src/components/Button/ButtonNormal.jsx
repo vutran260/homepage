@@ -1,10 +1,20 @@
 import React from 'react'
 import { ButtonBase } from './ButtonBase'
-import styles from 'src/scss/components/buttonGradient.module.scss'
+import styles from 'src/scss/components/buttonNormal.module.scss'
 
-const ButtonNormal = ({ children, onClick, className = '', ...props }) => {
+const ButtonNormal = ({ children, onClick, className = '', width, height, radius, ...props }) => {
+  const buttonStyle = {
+    width: typeof width === 'number' ? `${width}px` : width,
+    height: typeof height === 'number' ? `${height}px` : height,
+    '--radius': typeof radius === 'number' ? `${radius}px` : radius
+  }
   return (
-    <ButtonBase onClick={onClick} className={`${className} border border-solid border-whiteGray-100`} {...props}>
+    <ButtonBase
+      onClick={onClick}
+      className={`${styles.normalButton} ${className} border border-solid border-whiteGray-100`}
+      style={buttonStyle}
+      {...props}
+    >
       <span className={styles.buttonText}>{children}</span>
     </ButtonBase>
   )

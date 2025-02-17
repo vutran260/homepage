@@ -1,15 +1,21 @@
-import { useEffect, useState } from "react"
-import { Link } from 'react-router-dom'
-import http from "src/utils/http.js"
-import iconRow from '../../assets/images/iconRow.png'
+import React, { useEffect, useRef, useState } from 'react'
+import http from 'src/utils/http.js'
 import '../../scss/components/news.scss'
-import { AnimationInViewToTop } from '../Animation'
 import { NewCard } from './NewCard'
+import Slider from 'react-slick'
+import NextIconV2 from 'src/components/Icon/NextIconV2'
+import PrevIconV2 from 'src/components/Icon/PrevIconV2'
+import { ButtonGradient, ButtonNormal } from 'src/components/Button/index.js'
+import PrevIcon from 'src/components/Icon/PrevIcon/index.jsx'
+import NextIcon from 'src/components/Icon/NextIcon/index.jsx'
+import FlexibleGradient from 'src/components/Gradient/FlexibleGradient.jsx'
+import { AnimationFadeInUp } from 'src/components/Animation/index.jsx'
 
 export function News() {
+  const sliderRef = useRef(null)
   const [data, setData] = useState([])
   const fetchNews = async () => {
-    const res = await http.get(`posts?populate=*&pagination[page]=1&pagination[pageSize]=3&sort=createdAt:desc`)
+    const res = await http.get(`posts?populate=*&pagination[page]=1&pagination[pageSize]=6&sort=createdAt:desc`)
 
     setData(res.data.data)
   }
@@ -17,33 +23,84 @@ export function News() {
   useEffect(() => {
     fetchNews()
   }, [])
+
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    centerMode: true,
+    centerPadding: '0',
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          prevArrow: false,
+          nextArrow: false,
+          centerPadding: '30px'
+        }
+      },
+      {
+        breakpoint: 640,
+        settings: {
+          slidesToShow: 1,
+          prevArrow: false,
+          nextArrow: false,
+          centerPadding: '30px'
+        }
+      }
+    ],
+    prevArrow: <PreviousArrow />,
+    nextArrow: <NextArrow />
+  }
+
+  const handleNext = () => {
+    sliderRef.current.slickNext()
+  }
+
+  const handlePrev = () => {
+    sliderRef.current.slickPrev()
+  }
+
   return (
-    <>
-      <div className='news b heightSection flex flex-col bg-darkGray-900'>
-        <div className='wrap-text flex flex-col'>
-          <AnimationInViewToTop className='LastPost-text mb-2 flex justify-center text-white'>
-            Last Post
-          </AnimationInViewToTop>
-          <AnimationInViewToTop className='ourNews flex justify-center text-white'>Our Blogs</AnimationInViewToTop>
-        </div>
-        <div className='relative'>
-          <div className='wap-item grid w-full grid-cols-3 gap-12 pt-8 '>
-            {data.map((datum) => (
-              <AnimationInViewToTop delay={0} key={datum.id}>
-                <NewCard {...datum} />
-              </AnimationInViewToTop>
+    <div className='flex min-h-screen items-center justify-center bg-black'>
+      <div className='w-full max-w-7xl px-4 pb-24 text-center md:mb-20'>
+        <AnimationFadeInUp shouldAnimate={true} index={0} delay={0.5} className='flex justify-center'>
+          <FlexibleGradient text='最終投稿' className='mb-5 text-3xl' />
+        </AnimationFadeInUp>
+        <AnimationFadeInUp shouldAnimate={true} index={1} delay={0.5} className='flex justify-center'>
+          <h2 className='text-3xl text-white md:text-6xl'>私たちのブログ</h2>
+        </AnimationFadeInUp>
+        <AnimationFadeInUp shouldAnimate={true} index={2} delay={0.5}>
+          <Slider ref={sliderRef} {...settings} className='mt-5'>
+            {data.map((item) => (
+              <NewCard key={item.id} {...item}></NewCard>
             ))}
+          </Slider>
+          <div className='mt-4 flex justify-center gap-2 pb-2 lg:hidden'>
+            <ButtonNormal width={60} height={60} radius={30} onClick={handlePrev}>
+              <PrevIcon />
+            </ButtonNormal>
+            <ButtonGradient width={60} height={60} radius={30} onClick={handleNext}>
+              <NextIcon />
+            </ButtonGradient>
           </div>
-          <div className='wrap-buttonCardNew'>
-            <div className='flex items-center'>
-              <Link to='/posts' className='mr-3'>
-                <img src={iconRow} alt='' />
-              </Link>
-              <span className='top-2 text-xs text-white opacity-40'>もっと見る</span>
-            </div>
-          </div>
-        </div>
+        </AnimationFadeInUp>
       </div>
-    </>
+    </div>
   )
 }
+
+const PreviousArrow = (props) => (
+  <button {...props} className='slick-arrow slick-prev left-[-20px]' aria-label='Previous'>
+    <PrevIconV2 />
+  </button>
+)
+
+const NextArrow = (props) => (
+  <button {...props} className='slick-arrow slick-next right-[-20px]' aria-label='Next'>
+    <NextIconV2 />
+  </button>
+)
