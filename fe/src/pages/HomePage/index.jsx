@@ -69,8 +69,8 @@ export default function HomePage() {
 
   const { setting } = useContext(AppContext)
 
-  const [showIntroVideo, setShowIntroVideo] = useState(false)
-  const [shouldAnimate, setShouldAnimate] = useState(true)
+  const [showIntroVideo, setShowIntroVideo] = useState(true)
+  const [shouldAnimate, setShouldAnimate] = useState(false)
 
   const handleVideoEnd = () => {
     setShowIntroVideo(false)
@@ -101,11 +101,11 @@ export default function HomePage() {
                   <Portfolio />
                 </Section>
               </Element>
-              <Element id='Portfolio1'>
-                <Section id='Portfolio1'>
-                  <SliderPortfolio />
-                </Section>
-              </Element>
+              {/*<Element id='Portfolio1'>*/}
+              {/*  <Section id='Portfolio1'>*/}
+              {/*    <SliderPortfolio />*/}
+              {/*  </Section>*/}
+              {/*</Element>*/}
               <Element id='News'>
                 <Section id='News'>
                   <News />

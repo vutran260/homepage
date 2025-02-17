@@ -109,13 +109,13 @@ export function Portfolio() {
       {/* Navigation buttons */}
       <AnimationFadeInUp
         shouldAnimate={true}
-        index={isMobile ? 3 : 7}
+        index={isMobile ? 2 : 7}
         className='flex justify-center gap-2 pb-2 md:mt-7 md:pb-0'
       >
-        <ButtonNormal className='h-[40px] w-[40px]'>
+        <ButtonNormal width={40} height={40}>
           <PrevIcon />
         </ButtonNormal>
-        <ButtonGradient className='h-[40px] w-[40px]'>
+        <ButtonGradient width={40} height={40}>
           <NextIcon />
         </ButtonGradient>
       </AnimationFadeInUp>

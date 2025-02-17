@@ -10,8 +10,8 @@
   .newCard-mobile>div {
     height: 288px;
     img {
-        border-radius: 10px;
-      }
+      border-radius: 10px;
+    }
   }
   .wrap-text {
     span {
@@ -27,11 +27,6 @@
     }
   }
 
-  .wap-item {
-    padding-right: 100px;
-
-  }
-
   .button-custom {
     left: 30px;
     display: flex;
@@ -39,6 +34,11 @@
     align-items: center;
     justify-content: space-between;
   }
+}
+
+.slick-slide > div {
+  height: 100%;
+  padding: 0 10px;
 }
 
 @include screen(991) {
@@ -54,10 +54,33 @@
     }
   }
 }
+
 @media screen and (max-width: 900px) {
   .news {
     .newCard-mobile>div {
       height: 150px;
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .slick-slide {
+    height: inherit !important;
+    transition: all 0.3s ease-in-out;
+    transform: scale(0.9);
+    padding: 0;
+
+    &.slick-center {
+      transform: scale(1);
+      z-index: 1;
+
+      .card-wrapper {
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      }
+    }
+
+    &:not(.slick-center) {
+      opacity: 0.8;
     }
   }
 }

@@ -17,40 +17,40 @@ export function Home({ shouldAnimate }) {
   }, [shouldAnimate])
 
   return (
-    <>
-      <div className='homeComponent heightSection w-full'>
-        <div className='h-full'>
-          <div className='relative h-full'>
-            <div className='flex justify-center pt-10'>
-              <img src={LogoNew} alt='Logo' className='nav-logo' width={60} height={60} />
-            </div>
-            <AnimationFadeInUp
-              shouldAnimate={shouldAnimate}
-              className='textHome flex flex-col text-white max-md:text-4xl'
-              index={0}
-            >
-              <span
-                className='font-bold max-md:text-3xl'
-                dangerouslySetInnerHTML={{ __html: setting.title_banner }}
-              ></span>
-            </AnimationFadeInUp>
-            <AnimationFadeInUp shouldAnimate={shouldAnimate} index={1} className='mt-10 flex justify-center'>
-              <ButtonGradient className='h-[80px] w-[231px] px-[40px] py-[10px]'>CETを知る</ButtonGradient>
-            </AnimationFadeInUp>
-            <video
-              autoPlay={false}
-              ref={videoRef}
-              loop
-              muted
-              className='video-background'
-              onPlaying={() => console.log('playing video')}
-            >
-              <source src={bgHomeVideo} type='video/mp4' />
-              Your browser does not support the video tag.
-            </video>
-          </div>
+    <div className='homeComponent heightSection relative w-full'>
+      <div className='absolute top-10 left-0 right-0 z-20 flex justify-center'>
+        <img src={LogoNew} alt='Logo' className='nav-logo' width={60} height={60} />
+      </div>
+
+      <div className='absolute inset-0 flex flex-col items-center justify-center'>
+        <div className='z-10 flex flex-col items-center'>
+          <AnimationFadeInUp
+            shouldAnimate={shouldAnimate}
+            className='textHome mb-10 flex flex-col items-center text-white max-md:text-4xl'
+            index={0}
+          >
+            <span
+              className='text-center font-bold max-md:text-3xl'
+              dangerouslySetInnerHTML={{ __html: setting.title_banner }}
+            ></span>
+          </AnimationFadeInUp>
+
+          <AnimationFadeInUp shouldAnimate={shouldAnimate} index={1} className='w-full md:w-auto mt-10'>
+            <ButtonGradient className='h-[80px] w-full px-[40px] py-[10px] md:w-[231px]'>CETを知る</ButtonGradient>
+          </AnimationFadeInUp>
         </div>
       </div>
-    </>
+
+      <video
+        autoPlay={false}
+        ref={videoRef}
+        loop
+        muted
+        className='video-background absolute inset-0 h-full w-full object-cover'
+      >
+        <source src={bgHomeVideo} type='video/mp4' />
+        Your browser does not support the video tag.
+      </video>
+    </div>
   )
 }
