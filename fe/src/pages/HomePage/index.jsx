@@ -1,10 +1,9 @@
-import React, { useContext, useEffect, useRef, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { AboutUs } from '../../components/HomePage/AboutUs'
 import { Home } from '../../components/HomePage/Home'
 import { News } from '../../components/HomePage/News'
 import { Portfolio } from '../../components/HomePage/Portfolio'
 import { Services } from '../../components/HomePage/Services'
-import { SliderPortfolio } from '../../components/HomePage/SliderPortfolio.jsx'
 import { Teams } from '../../components/HomePage/Teams'
 import { Value } from '../../components/HomePage/Value'
 import { SideBar } from '../../components/SideBar/SideBar'
@@ -22,6 +21,7 @@ import { useLocation } from 'react-router-dom'
 import CompanyInfo from '../../components/HomePage/CompanyInfo'
 import { Articles } from '../../components/HomePage/Articles'
 import VideoIntro from 'src/components/VideoIntro/VideoIntro.jsx'
+import { Blogs } from 'src/components/HomePage/Blogs.jsx'
 
 function Section({ children, id }) {
   const { inView, ref } = useInView({
@@ -106,13 +106,13 @@ export default function HomePage() {
               {/*    <SliderPortfolio />*/}
               {/*  </Section>*/}
               {/*</Element>*/}
-              <Element id='News'>
-                <Section id='News'>
-                  <News />
+              <Element id='Blogs'>
+                <Section id='Blogs'>
+                  <Blogs />
                 </Section>
               </Element>
-              <Element id='Articles'>
-                <Section id='Articles'>
+              <Element id='News'>
+                <Section id='News'>
                   <Articles />
                 </Section>
               </Element>

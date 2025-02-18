@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
-import '../../scss/components/newCard.scss'
-import Rectangle from '../../assets/images/Rectangle26.png'
+import 'src/scss/components/newCard.scss'
+import Rectangle from 'src/assets/images/Rectangle26.png'
 
-export function NewCard(datum) {
+export function BlogCard(datum) {
   const obj = {
     id: datum?.id,
     title: datum?.attributes?.title,

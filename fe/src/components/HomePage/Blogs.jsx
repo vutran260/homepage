@@ -12,7 +12,7 @@ import FlexibleGradient from 'src/components/Gradient/FlexibleGradient.jsx'
 import { AnimationFadeInUp } from 'src/components/Animation/index.jsx'
 import bgArticle from 'src/assets/images/bgArticle.png'
 
-export function News() {
+export function Blogs() {
   const sliderRef = useRef(null)
   const [data, setData] = useState([])
   const fetchNews = async () => {

@@ -10,8 +10,8 @@ export const SideBar = ({ shouldAnimate }) => {
   const arrItemSideBar = [
     'Home',
     'Portfolio',
+    'Blogs',
     'News',
-    'Articles',
     'About_Us',
     'Services',
     'Value',
