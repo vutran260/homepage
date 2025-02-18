@@ -60,6 +60,7 @@ export const SideBar = ({ shouldAnimate }) => {
                       name={item}
                       onClick={() => handleScrollToElement(item)}
                       className={`nav-link ${menuActive === item ? 'active' : ''}`}
+                      key={index}
                     >
                       {arrNameSideBar[index]}
                     </a>

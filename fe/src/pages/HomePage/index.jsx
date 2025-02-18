@@ -96,11 +96,11 @@ export default function HomePage() {
                   <Home shouldAnimate={shouldAnimate || isMobile} />
                 </Section>
               </Element>
-              <Element id='Portfolio'>
-                <Section id='Portfolio'>
-                  <Portfolio />
-                </Section>
-              </Element>
+              {/*<Element id='Portfolio'>*/}
+              {/*  <Section id='Portfolio'>*/}
+              {/*    <Portfolio />*/}
+              {/*  </Section>*/}
+              {/*</Element>*/}
               {/*<Element id='Portfolio1'>*/}
               {/*  <Section id='Portfolio1'>*/}
               {/*    <SliderPortfolio />*/}

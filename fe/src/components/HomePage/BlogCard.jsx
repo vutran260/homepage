@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import 'src/scss/components/newCard.scss'
+import 'src/scss/components/blogCard.scss'
 import Rectangle from 'src/assets/images/Rectangle26.png'
 
 export function BlogCard(datum) {

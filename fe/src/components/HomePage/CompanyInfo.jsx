@@ -1,19 +1,19 @@
-import { useEffect, useState } from 'react';
-import 'src/scss/components/InfoCompany.scss';
-import infoCompanyApi from '../../apis/infoCompany.api';
+import { useEffect, useState } from 'react'
+import 'src/scss/components/InfoCompany.scss'
+import infoCompanyApi from '../../apis/infoCompany.api'
 function CompanyInfo() {
-    const [data, setData] = useState([])
-    const getInfoCompany = async () => {
-        const result = await infoCompanyApi.getInfoCompany()
-        setData(result.data.data)
-    } 
-    useEffect(() => {
-        getInfoCompany()
-    }, [])
-    console.log(data)
+  const [data, setData] = useState([])
+  const getInfoCompany = async () => {
+    const result = await infoCompanyApi.getInfoCompany()
+    setData(result.data.data)
+  }
+  useEffect(() => {
+    getInfoCompany()
+  }, [])
+  console.log(data)
   return (
     <div className='info-company'>
-      <h2 class='title textLarge my-10 text-white'>会社概要</h2>
+      <h2 className='title textLarge my-10 text-white'>会社概要</h2>
       <div className='wrap-info'>
         {data.map((info) => {
           return (

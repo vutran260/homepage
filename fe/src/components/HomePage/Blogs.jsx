@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import http from 'src/utils/http.js'
-import '../../scss/components/news.scss'
-import { NewCard } from './NewCard'
+import '../../scss/components/blogs.scss'
+import { BlogCard } from './BlogCard.jsx'
 import Slider from 'react-slick'
 import NextIconV2 from 'src/components/Icon/NextIconV2'
 import PrevIconV2 from 'src/components/Icon/PrevIconV2'
@@ -68,7 +68,7 @@ export function Blogs() {
   return (
     <div className='flex min-h-screen items-center justify-center bg-black'>
       <div
-        className='w-full max-w-7xl bg-cover bg-center bg-no-repeat px-4 pb-32 text-center'
+        className='w-full max-w-full bg-cover bg-center bg-no-repeat px-4 pb-32 text-center'
         style={{ backgroundImage: `url(${bgArticle})` }}
       >
         <AnimationFadeInUp shouldAnimate={true} index={0} delay={0.5} className='flex justify-center'>
@@ -78,9 +78,9 @@ export function Blogs() {
           <h2 className='text-4xl font-bold text-white md:text-6xl'>私たちのブログ</h2>
         </AnimationFadeInUp>
         <AnimationFadeInUp shouldAnimate={true} index={2} delay={0.5}>
-          <Slider ref={sliderRef} {...settings} className='mt-5'>
+          <Slider ref={sliderRef} {...settings} className='mt-5 overflow-hidden'>
             {data.map((item) => (
-              <NewCard key={item.id} {...item}></NewCard>
+              <BlogCard key={item.id} {...item} />
             ))}
           </Slider>
           <div className='mt-4 flex justify-center gap-2 pb-2 lg:hidden'>
@@ -98,13 +98,13 @@ export function Blogs() {
 }
 
 const PreviousArrow = (props) => (
-  <button {...props} className='slick-arrow slick-prev left-[-20px]' aria-label='Previous'>
+  <button className='slick-arrow slick-prev left-[-20px]' aria-label='Previous'>
     <PrevIconV2 />
   </button>
 )
 
 const NextArrow = (props) => (
-  <button {...props} className='slick-arrow slick-next right-[-20px]' aria-label='Next'>
+  <button className='slick-arrow slick-next right-[-20px]' aria-label='Next'>
     <NextIconV2 />
   </button>
 )
