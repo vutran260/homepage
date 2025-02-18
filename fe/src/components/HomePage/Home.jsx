@@ -5,6 +5,7 @@ import { AppContext } from '../../contexts/app.context'
 import { ButtonGradient } from 'src/components/Button'
 import { AnimationFadeInUp } from 'src/components/Animation/index.jsx'
 import LogoNew from 'src/assets/images/LogoNew.png'
+import bgHomeMobile from 'src/assets/images/bgHomeMobile.png'
 
 export function Home({ shouldAnimate }) {
   const { setting } = useContext(AppContext)
@@ -17,7 +18,10 @@ export function Home({ shouldAnimate }) {
   }, [shouldAnimate])
 
   return (
-    <div className='homeComponent heightSection relative w-full'>
+    <div
+      className='homeComponent heightSection relative w-full bg-cover bg-center bg-no-repeat md:bg-none'
+      style={{ backgroundImage: `url(${bgHomeMobile})` }}
+    >
       <div className='absolute top-10 left-0 right-0 z-20 flex justify-center'>
         <img src={LogoNew} alt='Logo' className='nav-logo' width={60} height={60} />
       </div>
@@ -35,7 +39,7 @@ export function Home({ shouldAnimate }) {
             ></span>
           </AnimationFadeInUp>
 
-          <AnimationFadeInUp shouldAnimate={shouldAnimate} index={1} className='w-full md:w-auto mt-10'>
+          <AnimationFadeInUp shouldAnimate={shouldAnimate} index={1} className='mt-10 w-full md:w-auto'>
             <ButtonGradient className='h-[80px] w-full px-[40px] py-[10px] md:w-[231px]'>CETを知る</ButtonGradient>
           </AnimationFadeInUp>
         </div>

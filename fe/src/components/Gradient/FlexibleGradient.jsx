@@ -5,8 +5,7 @@ const TextGradient = ({ text = 'Hello World', className }) => {
     background: 'linear-gradient(90deg, #1E87D3 0%, #C75F48 100%)',
     WebkitBackgroundClip: 'text',
     WebkitTextFillColor: 'transparent',
-    backgroundClip: 'text',
-    width: 'fit-content'
+    backgroundClip: 'text'
   }
 
   return (

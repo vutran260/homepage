@@ -12,8 +12,8 @@ export const SideBarMobile = () => {
   const arrItemSideBar = [
     'Home',
     'Portfolio',
+    'Blogs',
     'News',
-    'Articles',
     'About_Us',
     'Services',
     'Value',
@@ -60,7 +60,7 @@ export const SideBarMobile = () => {
     <div className='mobile-sidebar'>
       <div className='mobile-nav-bar'>
         <img src={LogoNew} alt='Logo' className='mobile-logo' onClick={() => handleScrollToElement('Home')} />
-        <span className='nav-center-text' onClick={handleToggleDrawer}>
+        <span className='nav-center-text cursor-pointer' onClick={handleToggleDrawer}>
           {centerText}
         </span>
         <button className='toggle-btn' onClick={handleToggleDrawer} aria-label='Toggle menu'>
