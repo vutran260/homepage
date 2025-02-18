@@ -1,11 +1,11 @@
 @font-face {
   font-family: 'Instrument Sans';
-  src: url('../assets/fontInstrumentSans/InstrumentSans-Regular.ttf') format('truetype');
+  src: url('src/assets/fonts/InstrumentSans-Regular.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'Instrument Sans Bold';
-  src: url('../assets/fontInstrumentSans/InstrumentSans-Bold.ttf') format('truetype');
+  src: url('src/assets/fonts/InstrumentSans-Bold.ttf') format('truetype');
 }
 
 $font-weight-normal: 400 !default;

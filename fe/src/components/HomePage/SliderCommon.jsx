@@ -45,7 +45,7 @@ export function SliderCommon({data}) {
       <div className='slider-common h-full'>
         {data?.length && (
           <Slider {...settings}>
-            {data.map((team) => {
+            {data.map((team, index) => {
               return (
                 <CardProfile
                   name={team.attributes.name}
@@ -53,6 +53,7 @@ export function SliderCommon({data}) {
                   avatar={team.attributes.avatar.data?.attributes.url}
                   experience={team.attributes.experience}
                   technologies={team.attributes.technologies}
+                  key={index}
                 />
               )
             })}
