@@ -24,6 +24,9 @@ module.exports = {
           600: '#262626',
           700: '#262526'
         },
+        black: {
+          800: '#131313CC'
+        },
         textBlueCustom: {
           900: '#36AAFA'
         },

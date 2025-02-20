@@ -48,7 +48,7 @@ export function Portfolio() {
 
   return (
     <div
-      className='min-h-screen bg-black bg-center bg-no-repeat pt-10 md:bg-cover'
+      className='heightSection bg-black bg-center bg-no-repeat pt-10 md:bg-cover'
       style={{ backgroundImage: `url(${bgPortfolio})` }}
     >
       {isMobile && <NavigationButtons isMobile={true} />}

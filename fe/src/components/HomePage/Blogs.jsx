@@ -66,18 +66,18 @@ export function Blogs() {
   }
 
   return (
-    <div className='flex min-h-screen items-center justify-center bg-black'>
+    <div className='heightSection bg-black flex items-center justify-center'>
       <div
         className='w-full max-w-full bg-cover bg-center bg-no-repeat px-4 pb-32 text-center'
         style={{ backgroundImage: `url(${bgArticle})` }}
       >
-        <AnimationFadeInUp shouldAnimate={true} index={0} delay={0.5} className='flex justify-center'>
+        <AnimationFadeInUp shouldAnimate={true} index={0} className='flex justify-center'>
           <FlexibleGradient text='最終投稿' className='mb-5 text-3xl md:mt-16' />
         </AnimationFadeInUp>
-        <AnimationFadeInUp shouldAnimate={true} index={1} delay={0.5} className='flex justify-center'>
+        <AnimationFadeInUp shouldAnimate={true} index={1} className='flex justify-center'>
           <h2 className='text-4xl font-bold text-white md:text-6xl'>私たちのブログ</h2>
         </AnimationFadeInUp>
-        <AnimationFadeInUp shouldAnimate={true} index={2} delay={0.5}>
+        <AnimationFadeInUp shouldAnimate={true} index={2}>
           <Slider ref={sliderRef} {...settings} className='mt-5 overflow-hidden'>
             {data.map((item) => (
               <BlogCard key={item.id} {...item} />

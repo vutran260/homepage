@@ -25,11 +25,11 @@ export function Articles() {
   }, [])
   return (
     <div
-      className='min-h-screen bg-black bg-cover bg-center bg-no-repeat p-8 text-white'
+      className='heightSection bg-black bg-cover bg-center bg-no-repeat p-8 text-white'
       style={{ backgroundImage: `url(${bgNews})` }}
     >
       {/* Header */}
-      <AnimationFadeInUp shouldAnimate={true} index={0} delay={0.5}>
+      <AnimationFadeInUp shouldAnimate={true} index={0}>
         <header className='mb-8 flex flex-col items-center justify-between md:mb-4 md:flex-row'>
           <h1 className='w-full text-center text-5xl font-bold md:w-auto md:text-4xl'>最新ニュース</h1>
           <ButtonGradient className='mt-8 w-full md:mt-0 md:w-[160px]' height={50} radius={16} fontSize={20}>
@@ -44,7 +44,7 @@ export function Articles() {
         <AnimationFadeInUp
           shouldAnimate={true}
           index={1}
-          delay={0.5}
+
           className='flex cursor-pointer flex-col rounded-2xl bg-cover bg-center bg-no-repeat p-4'
           style={{ backgroundImage: `url(${bgNewCard})` }}
         >
@@ -64,7 +64,7 @@ export function Articles() {
         <AnimationFadeInUp
           shouldAnimate={true}
           index={2}
-          delay={0.5}
+
           className='col-span-2 flex cursor-pointer items-center justify-center rounded-2xl bg-cover bg-center bg-no-repeat px-4 pt-4 pb-8 md:justify-start md:pb-4 md:pt-0'
           style={{ backgroundImage: `url(${bgFeatureImage})` }}
         >
@@ -76,7 +76,7 @@ export function Articles() {
         </AnimationFadeInUp>
       </div>
 
-      <AnimationFadeInUp shouldAnimate={true} index={3} delay={0.5}>
+      <AnimationFadeInUp shouldAnimate={true} index={3}>
         <div className='mt-4 grid grid-cols-1 gap-2 md:mt-2 md:grid-cols-3 md:gap-6'>
           {/* News Cards */}
           <NewCard imageSrc={newImage1} date='1st January 2025' title='SNSアプリのリリース' />
