@@ -1,15 +1,10 @@
-import React, { useMemo } from 'react'
+import React from 'react'
 
 const TextGradient = ({ text = 'Hello World', className }) => {
-  const style = {
-    background: 'linear-gradient(90deg, #1E87D3 0%, #C75F48 100%)',
-    WebkitBackgroundClip: 'text',
-    WebkitTextFillColor: 'transparent',
-    backgroundClip: 'text'
-  }
-
   return (
-    <div style={style} className={className}>
+    <div
+      className={`inline-block bg-gradient-to-r from-[#1E87D3] to-[#C75F48] bg-clip-text text-transparent ${className}`}
+    >
       {text}
     </div>
   )
