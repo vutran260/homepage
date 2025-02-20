@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { AboutUs } from '../../components/HomePage/AboutUs'
 import { Home } from '../../components/HomePage/Home'
-import { News } from '../../components/HomePage/News'
 import { Portfolio } from '../../components/HomePage/Portfolio'
 import { Services } from '../../components/HomePage/Services'
 import { Teams } from '../../components/HomePage/Teams'

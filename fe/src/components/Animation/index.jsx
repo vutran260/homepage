@@ -92,7 +92,8 @@ export const AnimationFadeInUp = ({
   fixedElement = false,
   index = 0,
   onAnimationComplete,
-  delay = 0.3
+  delay = 0.3,
+  ...rest
 }) => {
   const controls = useAnimation()
   let [ref, inView] = useInView({
@@ -135,6 +136,7 @@ export const AnimationFadeInUp = ({
       initial={initial}
       animate={controls}
       dangerouslySetInnerHTML={dangerouslySetInnerHTML}
+      {...rest}
     >
       {children}
     </motion.div>
