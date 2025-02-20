@@ -15,12 +15,14 @@ module.exports = {
         orange: '#ee4d2d',
         whiteGray: {
           100: '#FFFFFF1A',
+          200: '#FFFFFF80',
           500: '#FFFFFFB2',
           600: '#FFFFFF99'
         },
         darkGray: {
           900: '#191C22',
-          600: '#262626'
+          600: '#262626',
+          700: '#262526'
         },
         textBlueCustom: {
           900: '#36AAFA'
