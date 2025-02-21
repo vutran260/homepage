@@ -64,23 +64,25 @@
 }
 
 @media screen and (min-width: 1024px) {
-  .slick-slide {
-    height: inherit !important;
-    transition: all 0.3s ease-in-out;
-    transform: scale(0.9);
-    padding: 0;
+  .block-slide {
+    .slick-slide {
+      height: inherit !important;
+      transition: all 0.3s ease-in-out;
+      transform: scale(0.9);
+      padding: 0;
 
-    &.slick-center {
-      transform: scale(1);
-      z-index: 1;
+      &.slick-center {
+        transform: scale(1);
+        z-index: 1;
 
-      .card-wrapper {
-        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        .card-wrapper {
+          box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
       }
-    }
 
-    &:not(.slick-center) {
-      opacity: 0.8;
+      &:not(.slick-center) {
+        opacity: 0.8;
+      }
     }
   }
 }

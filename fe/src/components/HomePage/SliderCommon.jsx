@@ -3,26 +3,27 @@ import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import '../../scss/components/sliderCommon.scss'
 import persion from '../../assets/images/persion.png'
-import {CardProfile} from "src/components/HomePage/CardProfile.jsx";
-import React, {useEffect, useRef, useState} from "react";
+import { CardProfile } from 'src/components/HomePage/CardProfile.jsx'
+import React, { useEffect, useRef, useState } from 'react'
 import { AnimationInViewToTop } from '../Animation'
 import CustomArrow from '../CustomArrow'
+import PrevIconV2 from 'src/components/Icon/PrevIconV2/index.jsx'
+import NextIconV2 from 'src/components/Icon/NextIconV2/index.jsx'
+import { ButtonGradient, ButtonNormal } from 'src/components/Button/index.js'
+import PrevIcon from 'src/components/Icon/PrevIcon/index.jsx'
+import NextIcon from 'src/components/Icon/NextIcon/index.jsx'
 
+export function SliderCommon({ data }) {
+  const sliderRef = useRef(null)
 
-export function SliderCommon({data}) {
   const settings = {
-    customPaging: function (i) {
-      return <span className='dot w-full'></span>
-    },
-    dots: true,
-    nextArrow: <CustomArrow transform='rotate(-90deg)' />,
-    prevArrow: <CustomArrow transform='rotate(90deg)' />,
-    dotsClass: 'slick-slide-common',
-    slidesToShow: 3,
+    nextArrow: <PreviousArrow />,
+    prevArrow: <NextArrow />,
+    slidesToShow: 4,
     slidesToScroll: 1,
     swipeToSlide: true,
     infinity: false,
-
+    centerMode: true,
     responsive: [
       {
         breakpoint: 1024,
@@ -33,18 +34,28 @@ export function SliderCommon({data}) {
       {
         breakpoint: 576,
         settings: {
-          verticalSwiping: true,
-          // swipeToSlide: true,
-          vertical: true
+          slidesToShow: 1,
+          swipeToSlide: true,
+          centerPadding: '30px'
         }
       }
     ]
   }
+
+  const handleNext = () => {
+    sliderRef.current.slickNext()
+  }
+
+  const handlePrev = () => {
+    sliderRef.current.slickPrev()
+  }
+
   return (
     <>
       <div className='slider-common h-full'>
         {data?.length && (
-          <Slider {...settings}>
+          // <>
+          <Slider ref={sliderRef} {...settings}>
             {data.map((team, index) => {
               return (
                 <CardProfile
@@ -58,8 +69,21 @@ export function SliderCommon({data}) {
               )
             })}
           </Slider>
+          // </>
         )}
       </div>
     </>
   )
 }
+
+const PreviousArrow = (props) => (
+  <button {...props} className='slick-arrow slick-prev left-[-0px] z-[999]' aria-label='Previous'>
+    <PrevIconV2 />
+  </button>
+)
+
+const NextArrow = (props) => (
+  <button {...props} className='slick-arrow slick-next right-[-0px] z-[999]' aria-label='Next'>
+    <NextIconV2 />
+  </button>
+)

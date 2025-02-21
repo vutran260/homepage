@@ -66,7 +66,7 @@ export function News() {
   }
 
   return (
-    <div className='flex min-h-screen items-center justify-center bg-black'>
+    <div className='bg-black flex min-h-screen items-center justify-center'>
       <div
         className='w-full max-w-7xl bg-cover bg-center bg-no-repeat px-4 pb-32 text-center'
         style={{ backgroundImage: `url(${bgArticle})` }}

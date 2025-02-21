@@ -1,17 +1,21 @@
-import React, {useEffect, useRef, useState} from 'react'
-import graphicDesign1 from '../../assets/images/graphic-design1.png'
-import "../../scss/components/services.scss"
+import React, { useEffect, useRef, useState } from 'react'
+import serviceUIUX from 'src/assets/images/serviceUIUX.png'
+import bgServiceUIUX from 'src/assets/images/bgServiceUIUX.png'
+import bgService from 'src/assets/images/bgService.png'
+import '../../scss/components/services.scss'
 import Slider from 'react-slick'
 
-import http from '../../utils/http';
-import { AnimationInViewToTop } from '../Animation';
-import CustomArrow from '../CustomArrow';
+import http from '../../utils/http'
+import FlexibleGradient from 'src/components/Gradient/FlexibleGradient.jsx'
+import { ButtonGradient } from 'src/components/Button/index.js'
+import PrevIconV2 from 'src/components/Icon/PrevIconV2/index.jsx'
+import NextIconV2 from 'src/components/Icon/NextIconV2/index.jsx'
 
 export function Services() {
-  const myRef = useRef(null);
+  const myRef = useRef(null)
   const preventDefault = (e) => {
-    e.preventDefault();
-    return false;
+    e.preventDefault()
+    return false
   }
 
   const [data, setData] = useState([])
@@ -24,7 +28,6 @@ export function Services() {
     fetchPortfolios()
   }, [])
 
-
   // useEffect(() => {
   //     const element = myRef.current
   //     element.addEventListener('touchmove', preventDefault, {passive: false})
@@ -36,18 +39,13 @@ export function Services() {
   //   }
   //   , []);
   const settings = {
-    customPaging: function (i) {
-      return <span className='dot w-full'></span>
-    },
-    dots: true,
-    nextArrow: <CustomArrow transform='rotate(-90deg)' />,
-    prevArrow: <CustomArrow transform='rotate(90deg)' />,
+    prevArrow: <PreviousArrow />,
+    nextArrow: <NextArrow />,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: 2,
     slidesToScroll: 1,
     swipeToSlide: true,
-    // infinite: true,
-    // dotsClass: 'slick-slide-feedback',
+    infinite: true,
     responsive: [
       {
         breakpoint: 1024,
@@ -62,48 +60,63 @@ export function Services() {
           slidesToScroll: 1,
           initialSlide: 1,
           centerMode: true,
-          centerPadding: '65px'
+          centerPadding: '30px'
         }
       }
     ]
   }
 
   return (
-    <div className='wrap-services heightSection relative'>
-      <div className='wrapTitle pb-8 pl-2 text-center'>
+    <div
+      className='wrap-services heightSection bg-black relative bg-center bg-no-repeat md:bg-cover'
+      style={{ backgroundImage: `url(${bgService})` }}
+    >
+      <div className='wrapTitle pt-8 pb-4 pl-2 text-center'>
         <div className='wap-textLan-space w-full'>
-          <AnimationInViewToTop>
-            <span className='mb-3 flex flex-col text-white'>What we do</span>
-          </AnimationInViewToTop>
-          <AnimationInViewToTop>
-            <span className='textLarge text-white'>Our services</span>
-          </AnimationInViewToTop>
+          <div>
+            <FlexibleGradient text='私たちの仕事' className='text-3xl' />
+          </div>
+          <div className='mt-2'>
+            <span className='text-4xl text-white md:text-6xl'>当社のサービス</span>
+          </div>
         </div>
-        <AnimationInViewToTop className='textIpad mx-auto mt-[10px] w-[70%] text-center'>
-          <p className='text-white'>
+        <div className='mx-auto mt-4 w-[80%] text-center text-2xl md:w-[50%]'>
+          <p className='text-whiteGray-600'>
             クリエイティブ × プランニング ×
             エンジニアリング企画戦略・デザイン・開発・保守まで、ITに関するあらゆる課題に対応
           </p>
-        </AnimationInViewToTop>
+        </div>
       </div>
-      <AnimationInViewToTop className='flex'>
-        <div className='wrap-sliderServices w-full' ref={myRef}>
+      <div className='flex'>
+        <div className='wrap-sliderServices w-full px-16' ref={myRef}>
           {data.length && (
             <Slider {...settings}>
               {data?.map((service, i) => {
                 return (
-                  <div key={service.id} className='relative h-fit ease-linear'>
-                    <div className='backgroundLinear w-full'></div>
-                    <div className='mb-8 flex flex-col'>
-                      <img
-                        className='icon mb-5 h-9 w-9 opacity-40'
-                        src={`${import.meta.env.VITE_REACT_IMAGE_BASE_URL}${
-                          service.attributes.icon?.data?.attributes.url
-                        }`}
-                        alt=''
-                      />
-                      <span className='fontText mb-4 font-bold text-orange opacity-40'>{service.attributes.title}</span>
-                      <p className='text-font font-normal text-white opacity-40 leading-normal'>{service.attributes.description}</p>
+                  <div key={service.id}>
+                    <div
+                      className='h-[500px] rounded-2xl border border-solid border-darkGray-600 bg-cover bg-center bg-no-repeat p-4 md:p-8'
+                      style={{ backgroundImage: `url(${bgServiceUIUX})` }}
+                    >
+                      <div className='relative h-full'>
+                        <div className='mb-8 flex flex-col'>
+                          <span className='mb-2 text-3xl font-bold text-white md:mb-4'>{service.attributes.title}</span>
+                          <p className='z-10 text-base font-normal text-white opacity-60 md:text-xl md:leading-[34px]'>
+                            {service.attributes.description}
+                          </p>
+                          <ButtonGradient
+                            className='z-10 mt-2 w-full md:mt-10 md:w-[160px]'
+                            height={50}
+                            radius={16}
+                            fontSize={20}
+                          >
+                            続きを読む
+                          </ButtonGradient>
+                          <div className='absolute bottom-0 right-0 z-0 w-full md:w-1/2'>
+                            <img src={serviceUIUX} alt='serviceUIUX' className='h-auto w-full' />
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 )
@@ -111,7 +124,19 @@ export function Services() {
             </Slider>
           )}
         </div>
-      </AnimationInViewToTop>
+      </div>
     </div>
   )
 }
+
+const PreviousArrow = (props) => (
+  <button {...props} className='slick-arrow slick-prev left-[-15px] z-10' aria-label='Previous'>
+    <PrevIconV2 />
+  </button>
+)
+
+const NextArrow = (props) => (
+  <button {...props} className='slick-arrow slick-next right-[-10px] z-10' aria-label='Next'>
+    <NextIconV2 />
+  </button>
+)

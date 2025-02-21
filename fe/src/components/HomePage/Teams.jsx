@@ -1,8 +1,10 @@
-import "src/scss/components/teams.scss"
-import {SliderCommon} from "src/components/HomePage/SliderCommon";
-import {useEffect, useState} from "react";
-import http from "../../utils/http";
-import { AnimationInViewToTop } from "../Animation";
+import 'src/scss/components/teams.scss'
+import { SliderCommon } from 'src/components/HomePage/SliderCommon'
+import React, { useEffect, useState } from 'react'
+import http from 'src/utils/http'
+import { AnimationInViewToTop } from '../Animation'
+import FlexibleGradient from 'src/components/Gradient/FlexibleGradient.jsx'
+import bgTeams from 'src/assets/images/bgTeams.png'
 
 export const Teams = () => {
   const [data, setData] = useState([])
@@ -16,15 +18,20 @@ export const Teams = () => {
   }, [])
 
   return (
-    <div className='wrap-teams heightSection flex w-full flex-col pt-6'>
+    <div
+      className='heightSection flex w-full flex-col bg-cover bg-center bg-no-repeat pt-6'
+      style={{ backgroundImage: `url(${bgTeams})` }}
+    >
       <div className='flex justify-center pb-4'>
-        <div className='flex flex-col justify-center'>
-          <AnimationInViewToTop>
-            <span className='text-OurStaff mb-2 flex justify-center text-white'>Our staff</span>
-          </AnimationInViewToTop>
-          <AnimationInViewToTop>
-            <span className='textLarge flex justify-center text-white'>Teams</span>
-          </AnimationInViewToTop>
+        <div className='flex flex-col justify-center text-center'>
+          <div className='wap-textLan-space w-full'>
+            <div>
+              <FlexibleGradient text='スタッフ' className='text-3xl' />
+            </div>
+            <div className='mt-2'>
+              <span className='text-4xl text-white md:text-6xl'>チーム</span>
+            </div>
+          </div>
         </div>
       </div>
       <AnimationInViewToTop className='wrap-slider-common'>

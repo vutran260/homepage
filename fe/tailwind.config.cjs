@@ -27,7 +27,8 @@ module.exports = {
         black: {
           800: '#131313CC'
         },
-        textBlueCustom: {
+        blueCustom: {
+          100: '#1E69FF',
           900: '#36AAFA'
         },
         mainBackground: '#191C22',
