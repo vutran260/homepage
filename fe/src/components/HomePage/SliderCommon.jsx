@@ -28,7 +28,9 @@ export function SliderCommon({ data }) {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 2
+          slidesToShow: 2,
+          prevArrow: false,
+          nextArrow: false
         }
       },
       {
@@ -36,7 +38,9 @@ export function SliderCommon({ data }) {
         settings: {
           slidesToShow: 1,
           swipeToSlide: true,
-          centerPadding: '30px'
+          centerPadding: '30px',
+          prevArrow: false,
+          nextArrow: false
         }
       }
     ]
@@ -71,6 +75,14 @@ export function SliderCommon({ data }) {
           </Slider>
           // </>
         )}
+        <div className='mt-4 flex justify-center gap-2 pb-2 lg:hidden'>
+          <ButtonNormal width={60} height={60} radius={30} onClick={handlePrev}>
+            <PrevIcon />
+          </ButtonNormal>
+          <ButtonGradient width={60} height={60} radius={30} onClick={handleNext}>
+            <NextIcon />
+          </ButtonGradient>
+        </div>
       </div>
     </>
   )
