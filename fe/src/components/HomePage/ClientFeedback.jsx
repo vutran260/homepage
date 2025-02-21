@@ -5,11 +5,10 @@ import 'slick-carousel/slick/slick-theme.css'
 import '../../scss/components/clientFeedback.scss'
 import Rec37 from '../../assets/images/Rectangle37.png'
 
-
 import http from '../../utils/http'
 import { AnimationInViewToTop, AnimationOpacity } from '../Animation'
 import CustomArrow from '../CustomArrow'
-
+import FlexibleGradient from 'src/components/Gradient/FlexibleGradient.jsx'
 
 const ClientFeedback = () => {
   const [data, setData] = useState([])
@@ -23,7 +22,21 @@ const ClientFeedback = () => {
   }, [])
   const settings = {
     customPaging: function (i) {
-      return <span className='dot'></span>
+      let currentIndex
+      if (i + 1 === data.length) {
+        currentIndex = 0
+      } else {
+        currentIndex = i + 1
+      }
+      const activeItem = data[currentIndex]
+      return (
+        <div className='!h-[42px] !w-[42px] '>
+          <img
+            src={`${import.meta.env.VITE_REACT_IMAGE_BASE_URL}${activeItem?.attributes?.avatar?.data?.attributes?.url}`}
+            className='h-full w-full rounded-3xl'
+          />
+        </div>
+      )
     },
     dots: true,
     nextArrow: <CustomArrow transform='rotate(-90deg)' />,
@@ -37,7 +50,7 @@ const ClientFeedback = () => {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 2
         }
       },
       {
@@ -47,32 +60,34 @@ const ClientFeedback = () => {
           slidesToScroll: 1,
           initialSlide: 1,
           centerMode: true,
-          centerPadding: '65px',
+          centerPadding: '65px'
         }
       }
     ]
   }
   return (
-    <div className='section-nine section-ten section wrap-clientFeedback heightSection relative flex flex-col'>
-      <div className='wrap-textFeedback pb-20'>
-        <AnimationInViewToTop>
-          <div className='text-Feedback flex justify-center text-white'>Feedback</div>
-        </AnimationInViewToTop>
-        <AnimationInViewToTop>
-          <h2 className='title textLarge flex justify-center text-white'>Client Voices</h2>
-        </AnimationInViewToTop>
+    <div className='section-ten section wrap-clientFeedback heightSection relative flex flex-col'>
+      <div className='flex justify-center pb-10'>
+        <div className='flex flex-col justify-center text-center'>
+          <div className='wap-textLan-space w-full'>
+            <div>
+              <FlexibleGradient text='フィードバック' className='text-3xl' />
+            </div>
+            <div className='mt-2'>
+              <span className='text-4xl text-white md:text-6xl'>クライアントの声</span>
+            </div>
+          </div>
+        </div>
       </div>
-        <AnimationOpacity className='wrap-person text-white'>
-          {data.length && (
-            <Slider {...settings}>
-              {data?.map((fb) => {
-                return (
-                  <FeedBackItem fb={fb} key={fb.id} />
-                )
-              })}
-            </Slider>
-          )}
-        </AnimationOpacity>
+      <AnimationOpacity className='wrap-person text-white'>
+        {data.length && (
+          <Slider {...settings}>
+            {data?.map((fb) => {
+              return <FeedBackItem fb={fb} key={fb.id} />
+            })}
+          </Slider>
+        )}
+      </AnimationOpacity>
     </div>
   )
 }

@@ -16,7 +16,7 @@ export function Blogs() {
   const sliderRef = useRef(null)
   const [data, setData] = useState([])
   const fetchNews = async () => {
-    const res = await http.get(`posts?populate=*&pagination[page]=1&pagination[pageSize]=6&sort=createdAt:desc`)
+    const res = await http.get(`posts?populate=*&pagination[page]=1&pagination[pageSize]=10&sort=createdAt:desc`)
 
     setData(res.data.data)
   }
@@ -33,6 +33,7 @@ export function Blogs() {
     slidesToScroll: 1,
     centerMode: true,
     centerPadding: '0',
+    swipeToSlide: true,
     responsive: [
       {
         breakpoint: 1024,
@@ -66,11 +67,11 @@ export function Blogs() {
   }
 
   return (
-    <div className='heightSection bg-black flex items-center justify-center'>
-      <div
-        className='w-full max-w-full bg-cover bg-center bg-no-repeat px-4 pb-32 text-center'
-        style={{ backgroundImage: `url(${bgArticle})` }}
-      >
+    <div
+      className='heightSection bg-black flex items-center justify-center bg-cover bg-center bg-no-repeat'
+      style={{ backgroundImage: `url(${bgArticle})` }}
+    >
+      <div className='w-full max-w-full  px-4 pb-32 text-center'>
         <AnimationFadeInUp shouldAnimate={true} index={0} className='flex justify-center'>
           <FlexibleGradient text='最終投稿' className='mb-5 text-3xl md:mt-16' />
         </AnimationFadeInUp>
@@ -78,7 +79,7 @@ export function Blogs() {
           <h2 className='text-4xl font-bold text-white md:text-6xl'>私たちのブログ</h2>
         </AnimationFadeInUp>
         <AnimationFadeInUp shouldAnimate={true} index={2}>
-          <Slider ref={sliderRef} {...settings} className='mt-5 overflow-hidden'>
+          <Slider ref={sliderRef} {...settings} className='block-slide mt-5 overflow-hidden'>
             {data.map((item) => (
               <BlogCard key={item.id} {...item} />
             ))}
@@ -98,13 +99,13 @@ export function Blogs() {
 }
 
 const PreviousArrow = (props) => (
-  <button className='slick-arrow slick-prev left-[-20px]' aria-label='Previous'>
+  <button className='slick-arrow slick-prev left-[-20px]' aria-label='Previous' {...props}>
     <PrevIconV2 />
   </button>
 )
 
 const NextArrow = (props) => (
-  <button className='slick-arrow slick-next right-[-20px]' aria-label='Next'>
+  <button className='slick-arrow slick-next right-[-20px]' aria-label='Next' {...props}>
     <NextIconV2 />
   </button>
 )

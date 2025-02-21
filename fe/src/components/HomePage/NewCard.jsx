@@ -22,7 +22,7 @@ export function NewCard({ date, title, imageSrc }) {
           </div>
 
           {/* Content Section */}
-          <div className='relative space-y-3 rounded-b-3xl bg-black p-6'>
+          <div className='bg-black relative space-y-3 rounded-b-3xl p-6'>
             <p className='text-sm text-whiteGray-200'>{date}</p>
             <h3 className='text-lg font-medium text-white line-clamp-2'>{title}</h3>
           </div>

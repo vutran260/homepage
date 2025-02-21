@@ -20,31 +20,18 @@
     padding-top: 6rem;
 
     li {
-      opacity: 0.4;
-      width: 0.875rem;
-      height: 0.875rem;
+      opacity: 0.6;
       border-radius: 50%;
       background: #fff;
-      border: 3px solid #fff;
       border-style: double;
       background-clip: content-box;
       margin: 0 0.5rem;
       cursor: pointer;
-
-      .dot {
-        width: 100%;
-        height: 100%;
-        display: block;
-      }
     }
 
     li.slick-active {
+      border: 0.5px solid #1E69FF;
       opacity: 1;
-      color: $orange;
-      background: $orange;
-      border: 3px solid $orange;
-      border-style: double;
-      background-clip: content-box;
     }
   }
 }

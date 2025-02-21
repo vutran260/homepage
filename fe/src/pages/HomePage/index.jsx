@@ -68,8 +68,8 @@ export default function HomePage() {
 
   const { setting } = useContext(AppContext)
 
-  const [showIntroVideo, setShowIntroVideo] = useState(false)
-  const [shouldAnimate, setShouldAnimate] = useState(true)
+  const [showIntroVideo, setShowIntroVideo] = useState(true)
+  const [shouldAnimate, setShouldAnimate] = useState(false)
 
   const handleVideoEnd = () => {
     setShowIntroVideo(false)

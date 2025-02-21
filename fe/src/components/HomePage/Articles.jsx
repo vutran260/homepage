@@ -44,7 +44,6 @@ export function Articles() {
         <AnimationFadeInUp
           shouldAnimate={true}
           index={1}
-
           className='flex cursor-pointer flex-col rounded-2xl bg-cover bg-center bg-no-repeat p-4'
           style={{ backgroundImage: `url(${bgNewCard})` }}
         >
@@ -64,7 +63,6 @@ export function Articles() {
         <AnimationFadeInUp
           shouldAnimate={true}
           index={2}
-
           className='col-span-2 flex cursor-pointer items-center justify-center rounded-2xl bg-cover bg-center bg-no-repeat px-4 pt-4 pb-8 md:justify-start md:pb-4 md:pt-0'
           style={{ backgroundImage: `url(${bgFeatureImage})` }}
         >
