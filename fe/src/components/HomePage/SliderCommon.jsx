@@ -59,7 +59,7 @@ export function SliderCommon({ data }) {
       <div className='slider-common h-full'>
         {data?.length && (
           // <>
-          <Slider ref={sliderRef} {...settings}>
+          <Slider ref={sliderRef} {...settings} className='overflow-hidden'>
             {data.map((team, index) => {
               return (
                 <CardProfile
