@@ -41,7 +41,7 @@ const ClientFeedback = () => {
     dots: true,
     nextArrow: <CustomArrow transform='rotate(-90deg)' />,
     prevArrow: <CustomArrow transform='rotate(90deg)' />,
-    dotsClass: 'slick-slide-feedback',
+    // dotsClass: 'slick-slide-feedback',
     infinite: true,
     speed: 500,
     slidesToShow: 3,
