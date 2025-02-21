@@ -7,12 +7,14 @@ import Slider from 'react-slick'
 
 import http from '../../utils/http'
 import FlexibleGradient from 'src/components/Gradient/FlexibleGradient.jsx'
-import { ButtonGradient } from 'src/components/Button/index.js'
+import { ButtonGradient, ButtonNormal } from 'src/components/Button/index.js'
 import PrevIconV2 from 'src/components/Icon/PrevIconV2/index.jsx'
 import NextIconV2 from 'src/components/Icon/NextIconV2/index.jsx'
+import PrevIcon from 'src/components/Icon/PrevIcon/index.jsx'
+import NextIcon from 'src/components/Icon/NextIcon/index.jsx'
 
 export function Services() {
-  const myRef = useRef(null)
+  const sliderRef = useRef(null)
   const preventDefault = (e) => {
     e.preventDefault()
     return false
@@ -50,7 +52,9 @@ export function Services() {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 2
+          slidesToShow: 2,
+          prevArrow: false,
+          nextArrow: false
         }
       },
       {
@@ -60,10 +64,20 @@ export function Services() {
           slidesToScroll: 1,
           initialSlide: 1,
           centerMode: true,
-          centerPadding: '30px'
+          centerPadding: '30px',
+          prevArrow: false,
+          nextArrow: false
         }
       }
     ]
+  }
+
+  const handleNext = () => {
+    sliderRef.current.slickNext()
+  }
+
+  const handlePrev = () => {
+    sliderRef.current.slickPrev()
   }
 
   return (
@@ -88,9 +102,9 @@ export function Services() {
         </div>
       </div>
       <div className='flex'>
-        <div className='wrap-sliderServices w-full px-16' ref={myRef}>
+        <div className='wrap-sliderServices w-full px-4 md:px-16'>
           {data.length && (
-            <Slider {...settings}>
+            <Slider ref={sliderRef} {...settings} className='overflow-hidden'>
               {data?.map((service, i) => {
                 return (
                   <div key={service.id}>
@@ -123,6 +137,14 @@ export function Services() {
               })}
             </Slider>
           )}
+          <div className='mt-4 flex justify-center gap-2 pb-2 lg:hidden'>
+            <ButtonNormal width={60} height={60} radius={30} onClick={handlePrev}>
+              <PrevIcon />
+            </ButtonNormal>
+            <ButtonGradient width={60} height={60} radius={30} onClick={handleNext}>
+              <NextIcon />
+            </ButtonGradient>
+          </div>
         </div>
       </div>
     </div>
@@ -130,13 +152,13 @@ export function Services() {
 }
 
 const PreviousArrow = (props) => (
-  <button {...props} className='slick-arrow slick-prev left-[-15px] z-10' aria-label='Previous'>
+  <button {...props} className='slick-arrow slick-prev left-[0px] z-10 md:left-[-15px]' aria-label='Previous'>
     <PrevIconV2 />
   </button>
 )
 
 const NextArrow = (props) => (
-  <button {...props} className='slick-arrow slick-next right-[-10px] z-10' aria-label='Next'>
+  <button {...props} className='slick-arrow slick-next right-[0px] z-10 md:right-[-10px]' aria-label='Next'>
     <NextIconV2 />
   </button>
 )
