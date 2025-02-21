@@ -81,7 +81,7 @@ const ClientFeedback = () => {
       </div>
       <AnimationOpacity className='wrap-person text-white'>
         {data.length && (
-          <Slider {...settings}>
+          <Slider {...settings} className='overflow-hidden'>
             {data?.map((fb) => {
               return <FeedBackItem fb={fb} key={fb.id} />
             })}

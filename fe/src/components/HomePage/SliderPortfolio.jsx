@@ -35,7 +35,7 @@ export function SliderPortfolio() {
   return (
     <>
       <div className='slider-home heightSection relative md:pt-9'>
-        <Slider {...settings}>
+        <Slider {...settings} className='overflow-hidden'>
           {data?.map((portfolio) => {
             return (
               <CardPortfolio

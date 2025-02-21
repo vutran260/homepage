@@ -37,7 +37,7 @@ const CardPortfolio = (props) => {
     <>
       <div className='slider-item flex items-start justify-items-center max-[768px]:flex-wrap'>
         <div className='w-[45%] max-md:w-full'>
-          <Slider {...settings} className='slider-common'>
+          <Slider {...settings} className='slider-common overflow-hidden'>
             {props.thumpnail.map(function (img) {
               return (
                 <img
