@@ -23,6 +23,7 @@ export function Articles() {
   useEffect(() => {
     fetchNews()
   }, [])
+
   return (
     <div
       className='heightSection bg-black bg-cover bg-center bg-no-repeat p-8 text-white'
@@ -39,7 +40,6 @@ export function Articles() {
       </AnimationFadeInUp>
 
       <div className='grid grid-cols-1 gap-y-6 md:grid-cols-3 md:gap-6'>
-        {/**/}
         {/* Featured News Card - Takes 1 column */}
         <AnimationFadeInUp
           shouldAnimate={true}
@@ -75,7 +75,7 @@ export function Articles() {
       </div>
 
       <AnimationFadeInUp shouldAnimate={true} index={3}>
-        <div className='mt-4 grid grid-cols-1 gap-2 md:mt-2 md:grid-cols-3 md:gap-6'>
+        <div className='mt-4 grid grid-cols-1 gap-2 md:mt-6 md:grid-cols-3 md:gap-6'>
           {/* News Cards */}
           <NewCard imageSrc={newImage1} date='1st January 2025' title='SNSアプリのリリース' />
           <NewCard imageSrc={newImage2} date='1st January 2025' title='今話題のAIチャットアプリ' />
