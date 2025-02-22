@@ -12,6 +12,7 @@ import NextIconV2 from 'src/components/Icon/NextIconV2/index.jsx'
 import { ButtonGradient, ButtonNormal } from 'src/components/Button/index.js'
 import PrevIcon from 'src/components/Icon/PrevIcon/index.jsx'
 import NextIcon from 'src/components/Icon/NextIcon/index.jsx'
+import bgClientFb from 'src/assets/images/bgClientFb.png'
 
 const ClientFeedback = () => {
   const [data, setData] = useState([])
@@ -78,7 +79,10 @@ const ClientFeedback = () => {
   }
 
   return (
-    <div className='wrap-clientFeedback heightSection relative flex flex-col pt-6'>
+    <div
+      className='wrap-clientFeedback heightSection relative bg-cover bg-center bg-no-repeat pt-6 md:bg-cover'
+      style={{ backgroundImage: `url(${bgClientFb})` }}
+    >
       <div className='flex justify-center pb-4 md:pb-10'>
         <div className='flex flex-col justify-center text-center'>
           <div className='wap-textLan-space w-full'>
