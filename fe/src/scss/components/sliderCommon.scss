@@ -1,14 +1,39 @@
 @import "../variables.scss";
-
 .slider-common {
-  .text {
-    color: aliceblue;
+  @media screen and (min-width: 1024px) {
+    .slick-list {
+      overflow: visible;
+      margin: 0 -35px;
+    }
+
+    .slick-track {
+      display: flex;
+      align-items: center;
+    }
+
+    .slick-slide {
+      padding: 0 25px;
+    }
+
+    .slick-prev {
+      left: 10px !important;
+      top: 29%;
+      z-index: 999;
+    }
+
+    .slick-next {
+      right: 10px !important;
+      top: 29%;
+      z-index: 999;
+    }
   }
 
-  .slick-prev, .slick-next {
-    top: 29%;
+  .slick-slider {
+    overflow: hidden;
+    @media screen and (max-width: 768px) {
+      overflow: hidden;
+    }
   }
-
 
   .slick-slide-common {
     display: flex !important;
@@ -46,29 +71,13 @@
 
   }
 }
-//
-//@include screen("mobile") {
-//  .slider-common {
-//    .slick-slide {
-//      padding: 13px 10px !important;
-//    }
-//
-//    .slick-slide-common {
-//      padding-top: 1rem !important;
-//    }
-//
-//    .slick-next {
-//      right: 0;
-//      display: none !important;
-//    }
-//
-//    .slick-prev {
-//      display: none !important;
-//      left: 50%;
-//      // transform: translateX(-50%);
-//      transform: rotate(90deg);
-//      top: 0;
-//    }
-//  }
-//
-//}
+
+
+@include screen("mobile") {
+  .slider-common {
+    .slick-slide {
+      padding: 0 15px;
+      height: 490px;
+    }
+  }
+}

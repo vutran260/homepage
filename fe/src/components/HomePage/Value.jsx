@@ -9,7 +9,7 @@ export function Value() {
   return (
     <div className='heightSection relative'>
       <div
-        className='aboutUS heightSection relative flex flex-col bg-cover bg-center bg-no-repeat'
+        className='aboutUS heightSection relative flex flex-col bg-black-800 bg-none md:bg-cover md:bg-center md:bg-no-repeat'
         style={{ backgroundImage: `url(${bgAboutUs})` }}
       >
         <div className='px-4 py-4 md:px-28 md:py-10'>
