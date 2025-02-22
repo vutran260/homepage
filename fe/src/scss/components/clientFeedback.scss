@@ -2,60 +2,58 @@
 
 .wrap-clientFeedback {
   width: 100%;
-  padding-right: 100px;
-
-  .slick-slide {
-    padding: 0 2rem;
-  }
+  .wrap-sliderClientFb {
+    .slick-slide {
+      padding: 0 20px;
+    }
 
     .slick-prev {
-      left: 0;
-      z-index: 1000;
+      left: -20px;
+      z-index: 999;
     }
 
-  .slick-slide-feedback {
-    display: flex !important;
-    justify-content: center;
-    width: 100%;
-    padding-top: 6rem;
-
-    li {
-      opacity: 0.6;
-      border-radius: 50%;
-      background: #fff;
-      border-style: double;
-      background-clip: content-box;
-      margin: 0 0.5rem;
-      cursor: pointer;
+    .slick-next {
+      right: -20px;
+      z-index: 999;
     }
 
-    li.slick-active {
-      border: 0.5px solid #1E69FF;
-      opacity: 1;
+    .slick-slider {
+      overflow: visible !important;
+    }
+
+    .slick-slide-feedback {
+      display: flex !important;
+      justify-content: center;
+      width: 100%;
+      padding-top: 2rem;
+      overflow: hidden;
+
+      li {
+        opacity: 0.6;
+        border-radius: 50%;
+        background: #fff;
+        border-style: double;
+        background-clip: content-box;
+        margin: 0 0.5rem;
+        cursor: pointer;
+      }
+
+      li.slick-active {
+        border: 0.5px solid #1E69FF;
+        opacity: 1;
+      }
+    }
+
+    .slick-slide:not(.slick-current) {
+      opacity: 0.2;
+      transform: scale(0.9);
     }
   }
 }
 
-.section-ten .overlay {
-  position: absolute;
-  width: 100%;
-}
-
-div.section-ten .slick-current + .slick-slide .overlay {
-  display: none;
-}
-
-.section-ten .person {
-  position: relative;
-}
 
 @include screen("mobile") {
   .wrap-clientFeedback {
-    .slick-current {
-      .overlay {
-        display: none !important;
-      }
-    }
     .slick-arrow.slick-next {
       right: 10px;
       top: 90%;
@@ -66,56 +64,5 @@ div.section-ten .slick-current + .slick-slide .overlay {
       top: 90%;
       z-index: 100;
     }
-
-    .slick-slide {
-      padding: 0 30px !important;
-    }
-
-    .slick-active {
-      padding: 0 !important;
-
-      .person {
-        opacity: 1 !important;
-      }
-    }
-
-    .person {
-      opacity: 0.2 !important;
-      font-weight: 400 !important;
-    }
-
-    .text-Feedback {
-      line-height: 24px
-    }
-
-    .textLarge {
-      font-size: 30px !important;
-      line-height: 40px !important;
-    }
-
-    .wrap-textFeedback {
-      padding-bottom: 50px !important;
-    }
-  }
-  div.section-ten .slick-slide .overlay {
-    display: none;
-    opacity: 0.4 !important;
   }
 }
-
-@media screen and (max-width: 768px) {
-  #Feedback {
-    .slick-slider {
-      position: unset;
-    }
-    .slick-slide-feedback {
-      position: absolute;
-      bottom: 32px;
-    }
-
-    .wrap-clientFeedback {
-      padding-right: 0;
-    }
-  }
-}
-

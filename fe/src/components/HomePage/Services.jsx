@@ -68,7 +68,7 @@ export function Services() {
 
   return (
     <div
-      className='wrap-services heightSection bg-black relative bg-center bg-no-repeat md:bg-cover'
+      className='wrap-services heightSection relative bg-black bg-center bg-no-repeat md:bg-cover'
       style={{ backgroundImage: `url(${bgService})` }}
     >
       <div className='wrapTitle pt-8 pb-4 pl-2 text-center'>
@@ -127,7 +127,7 @@ export function Services() {
                         </ButtonGradient>
 
                         {/* Image container */}
-                        <div className='absolute bottom-0 right-0 z-0 w-full md:w-1/2'>
+                        <div className='absolute bottom-0 right-0 z-0 w-full opacity-20 md:w-1/2 md:opacity-100'>
                           <img src={serviceUIUX} alt='serviceUIUX' className='h-auto w-full' />
                         </div>
                       </div>
