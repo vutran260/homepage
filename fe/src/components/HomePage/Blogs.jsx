@@ -68,7 +68,7 @@ export function Blogs() {
 
   return (
     <div
-      className='heightSection bg-black flex items-center justify-center bg-cover bg-center bg-no-repeat'
+      className='heightSection wrap-blogs bg-black flex items-center justify-center bg-cover bg-center bg-no-repeat'
       style={{ backgroundImage: `url(${bgArticle})` }}
     >
       <div className='w-full max-w-full  px-4 pb-32 text-center'>
@@ -79,7 +79,7 @@ export function Blogs() {
           <h2 className='text-4xl font-bold text-white md:text-6xl'>私たちのブログ</h2>
         </AnimationFadeInUp>
         <AnimationFadeInUp shouldAnimate={true} index={2}>
-          <Slider ref={sliderRef} {...settings} className='block-slide mt-5 overflow-hidden'>
+          <Slider ref={sliderRef} {...settings} className='wrap-sliderBlogs mt-5 overflow-hidden'>
             {data.map((item) => (
               <BlogCard key={item.id} {...item} />
             ))}
@@ -99,13 +99,13 @@ export function Blogs() {
 }
 
 const PreviousArrow = (props) => (
-  <button className='slick-arrow slick-prev left-[-20px]' aria-label='Previous' {...props}>
+  <button {...props} className='slick-arrow slick-prev' aria-label='Previous'>
     <PrevIconV2 />
   </button>
 )
 
 const NextArrow = (props) => (
-  <button className='slick-arrow slick-next right-[-20px]' aria-label='Next' {...props}>
+  <button {...props} className='slick-arrow slick-next' aria-label='Next'>
     <NextIconV2 />
   </button>
 )

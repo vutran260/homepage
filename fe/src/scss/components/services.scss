@@ -1,5 +1,45 @@
 @import "../variables";
 
+.wrap-services {
+  @media screen and (min-width: 1024px) {
+    .wrap-sliderServices {
+      .slick-list {
+        margin: 0;
+      }
+
+      .slick-track {
+        display: flex;
+        align-items: center;
+      }
+
+      .slick-slide {
+        padding: 0 25px;
+      }
+
+      .slick-prev {
+        left: -20px;
+        z-index: 999;
+      }
+
+      .slick-next {
+        right: -20px;
+        z-index: 999;
+      }
+
+      .slick-slider {
+        overflow: visible !important;
+      }
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .wrap-sliderServices {
+      .slick-slide {
+        padding: 0 10px;
+      }
+    }
+  }
+}
+
 //.wrap-services {
 //  padding: 0 100px;
 //  width: 100%;

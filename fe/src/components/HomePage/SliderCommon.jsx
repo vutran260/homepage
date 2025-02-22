@@ -2,11 +2,8 @@ import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import '../../scss/components/sliderCommon.scss'
-import persion from '../../assets/images/persion.png'
 import { CardProfile } from 'src/components/HomePage/CardProfile.jsx'
-import React, { useEffect, useRef, useState } from 'react'
-import { AnimationInViewToTop } from '../Animation'
-import CustomArrow from '../CustomArrow'
+import React, { useRef } from 'react'
 import PrevIconV2 from 'src/components/Icon/PrevIconV2/index.jsx'
 import NextIconV2 from 'src/components/Icon/NextIconV2/index.jsx'
 import { ButtonGradient, ButtonNormal } from 'src/components/Button/index.js'
@@ -24,6 +21,7 @@ export function SliderCommon({ data }) {
     swipeToSlide: true,
     infinity: false,
     centerMode: true,
+    centerPadding: '60px',
     responsive: [
       {
         breakpoint: 1024,
@@ -58,8 +56,7 @@ export function SliderCommon({ data }) {
     <>
       <div className='slider-common h-full'>
         {data?.length && (
-          // <>
-          <Slider ref={sliderRef} {...settings} className='overflow-hidden'>
+          <Slider ref={sliderRef} {...settings}>
             {data.map((team, index) => {
               return (
                 <CardProfile
@@ -73,7 +70,6 @@ export function SliderCommon({ data }) {
               )
             })}
           </Slider>
-          // </>
         )}
         <div className='mt-4 flex justify-center gap-2 pb-2 lg:hidden'>
           <ButtonNormal width={60} height={60} radius={30} onClick={handlePrev}>
@@ -89,13 +85,13 @@ export function SliderCommon({ data }) {
 }
 
 const PreviousArrow = (props) => (
-  <button {...props} className='slick-arrow slick-prev left-[-0px] z-[999]' aria-label='Previous'>
+  <button {...props} className='slick-arrow slick-prev' aria-label='Previous'>
     <PrevIconV2 />
   </button>
 )
 
 const NextArrow = (props) => (
-  <button {...props} className='slick-arrow slick-next right-[-0px] z-[999]' aria-label='Next'>
+  <button {...props} className='slick-arrow slick-next' aria-label='Next'>
     <NextIconV2 />
   </button>
 )
