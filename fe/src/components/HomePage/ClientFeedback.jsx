@@ -80,7 +80,7 @@ const ClientFeedback = () => {
 
   return (
     <div
-      className='wrap-clientFeedback heightSection relative bg-cover bg-center bg-no-repeat pt-6 md:bg-cover'
+      className='wrap-clientFeedback heightSection relative bg-cover bg-center bg-no-repeat pt-6'
       style={{ backgroundImage: `url(${bgClientFb})` }}
     >
       <div className='flex justify-center pb-4 md:pb-10'>
