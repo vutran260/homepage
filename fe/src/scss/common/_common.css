@@ -3,20 +3,33 @@
 }
 
 .center {
-  @apply flex items-center justify-center;
+  @apply flex items-center justify-center text-center;
+}
+
+.between {
+  @apply flex items-center justify-between text-center;
 }
 
 .bg-dark-1 {
-  background: url('../../assets/images/bgDark1.png');
-  @apply bg-cover bg-center bg-no-repeat;
+  @apply bg-black bg-cover bg-center bg-no-repeat;
 }
 
 .bg-light-1 {
-  background: url('../../assets/images/bgLight1.png');
-  @apply bg-cover bg-center bg-no-repeat;
+  @apply bg-black bg-cover bg-center bg-no-repeat;
 }
 
 .bg-light-2 {
-  background: url('../../assets/images/bgLight2.png');
-  @apply bg-cover bg-center bg-no-repeat;
+  @apply bg-black bg-cover bg-center bg-no-repeat;
+}
+
+@screen md {
+  .bg-dark-1 {
+    background-image: url('../../assets/images/bgDark1.png');
+  }
+  .bg-light-1 {
+    background: url('../../assets/images/bgLight1.png');
+  }
+  .bg-light-2 {
+    background: url('../../assets/images/bgLight2.png');
+  }
 }

@@ -66,30 +66,34 @@ export function Blogs() {
   }
 
   return (
-    <div className='page-container wrap-blogs bg-light-1 center'>
-      <div className='w-full max-w-full px-4 pb-32'>
-        <AnimationFadeInUp shouldAnimate={true} index={0} className='flex justify-center'>
-          <FlexibleGradient text='最終投稿' className='mb-5 text-3xl' />
-        </AnimationFadeInUp>
-        <AnimationFadeInUp shouldAnimate={true} index={1} className='flex justify-center'>
-          <h2 className='text-4xl font-bold text-white md:text-6xl'>私たちのブログ</h2>
-        </AnimationFadeInUp>
-        <AnimationFadeInUp shouldAnimate={true} index={2}>
-          <Slider ref={sliderRef} {...settings} className='wrap-sliderBlogs mt-5 overflow-hidden'>
-            {data.map((item) => (
-              <BlogCard key={item.id} {...item} />
-            ))}
-          </Slider>
-          <div className='mt-4 flex justify-center gap-2 pb-2 lg:hidden'>
-            <ButtonNormal width={60} height={60} radius={30} onClick={handlePrev}>
-              <PrevIcon />
-            </ButtonNormal>
-            <ButtonGradient width={60} height={60} radius={30} onClick={handleNext}>
-              <NextIcon />
-            </ButtonGradient>
-          </div>
-        </AnimationFadeInUp>
+    <div className='page-container wrap-blogs bg-light-1'>
+      <div className='center pb-4'>
+        <div className='wap-textLan-space w-full'>
+          <AnimationFadeInUp shouldAnimate={true} index={0}>
+            <FlexibleGradient text='最終投稿' className='mb-5 text-3xl' />
+          </AnimationFadeInUp>
+          <AnimationFadeInUp shouldAnimate={true} index={1} className='flex justify-center'>
+            <h2 className='text-4xl md:text-6xl'>私たちのブログ</h2>
+          </AnimationFadeInUp>
+        </div>
       </div>
+      <AnimationFadeInUp shouldAnimate={true} index={2}>
+        <Slider ref={sliderRef} {...settings} className='wrap-sliderBlogs overflow-hidden md:mt-5'>
+          {data.map((item) => (
+            <BlogCard key={item.id} {...item} />
+          ))}
+        </Slider>
+      </AnimationFadeInUp>
+      <AnimationFadeInUp shouldAnimate={true} index={3}>
+        <div className='mt-4 flex justify-center gap-2 pb-2 lg:hidden'>
+          <ButtonNormal width={60} height={60} radius={30} onClick={handlePrev}>
+            <PrevIcon />
+          </ButtonNormal>
+          <ButtonGradient width={60} height={60} radius={30} onClick={handleNext}>
+            <NextIcon />
+          </ButtonGradient>
+        </div>
+      </AnimationFadeInUp>
     </div>
   )
 }

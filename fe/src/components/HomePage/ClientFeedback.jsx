@@ -2,10 +2,10 @@ import React, { useEffect, useRef, useState } from 'react'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
-import '../../scss/components/clientFeedback.scss'
+import 'src/scss/components/clientFeedback.scss'
 
-import http from '../../utils/http'
-import { AnimationOpacity } from '../Animation'
+import http from 'src/utils/http'
+import { AnimationFadeInUp, AnimationOpacity } from '../Animation'
 import FlexibleGradient from 'src/components/Gradient/FlexibleGradient.jsx'
 import { ButtonGradient, ButtonNormal } from 'src/components/Button/index.js'
 import PrevIcon from 'src/components/Icon/PrevIcon/index.jsx'
@@ -79,35 +79,33 @@ const ClientFeedback = () => {
 
   return (
     <div className='wrap-clientFeedback page-container bg-light-2'>
-      <div className='flex justify-center pb-4 md:pb-10'>
-        <div className='flex flex-col justify-center text-center'>
-          <div className='wap-textLan-space w-full'>
-            <div>
-              <FlexibleGradient text='フィードバック' className='text-3xl' />
-            </div>
-            <div className='mt-2'>
-              <span className='text-4xl text-white md:text-6xl'>クライアントの声</span>
-            </div>
-          </div>
+      <div className='center pb-4 md:pb-10'>
+        <div>
+          <AnimationFadeInUp shouldAnimate={true} index={0}>
+            <FlexibleGradient text='フィードバック' className='text-3xl' />
+          </AnimationFadeInUp>
+          <AnimationFadeInUp shouldAnimate={true} index={1}>
+            <h2 className='mt-2 text-4xl md:text-6xl'>クライアントの声</h2>
+          </AnimationFadeInUp>
         </div>
       </div>
-      <AnimationOpacity className='wrap-sliderClientFb wrap-person text-white md:px-10'>
+      <AnimationFadeInUp shouldAnimate={true} index={2} className='wrap-sliderClientFb wrap-person md:px-10'>
         {data.length && (
-          <Slider ref={sliderRef} {...settings} className=' overflow-hidden'>
+          <Slider ref={sliderRef} {...settings} className='overflow-hidden'>
             {data?.map((fb) => {
               return <FeedBackItem fb={fb} key={fb.id} />
             })}
           </Slider>
         )}
-        <div className='mt-5 flex justify-center gap-2 pb-2 lg:hidden'>
-          <ButtonNormal width={60} height={60} radius={30} onClick={handlePrev}>
-            <PrevIcon />
-          </ButtonNormal>
-          <ButtonGradient width={60} height={60} radius={30} onClick={handleNext}>
-            <NextIcon />
-          </ButtonGradient>
-        </div>
-      </AnimationOpacity>
+      </AnimationFadeInUp>
+      <AnimationFadeInUp shouldAnimate={true} index={3} className='mt-5 flex justify-center gap-2 pb-2 lg:hidden'>
+        <ButtonNormal width={60} height={60} radius={30} onClick={handlePrev}>
+          <PrevIcon />
+        </ButtonNormal>
+        <ButtonGradient width={60} height={60} radius={30} onClick={handleNext}>
+          <NextIcon />
+        </ButtonGradient>
+      </AnimationFadeInUp>
     </div>
   )
 }
@@ -117,16 +115,13 @@ export default ClientFeedback
 const FeedBackItem = ({ fb }) => {
   return (
     <div className='person relative h-[400px] rounded-3xl border border-solid border-[#181818] bg-[#060606] p-4'>
-      {/* Content container with scroll */}
       <div
         className='h-[calc(100%-60px)] overflow-y-auto'
         style={{ WebkitOverflowScrolling: 'touch', scrollbarWidth: 'thin', scrollbarColor: '#333333 #060606' }}
       >
         <p className='relative whitespace-pre-line text-lg md:text-xl'>{fb.attributes.description}</p>
       </div>
-
-      {/* Avatar section (unchanged) */}
-      <div className='avatar absolute bottom-5 mt-5 flex items-center gap-4'>
+      <div className='avatar absolute bottom-2 flex items-center gap-4'>
         <div className='left'>
           <img
             className='max-h-[48px] max-w-[48px] rounded-full'

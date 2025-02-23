@@ -1,12 +1,13 @@
-import bgAboutUs2 from 'src/assets/images/bgAboutUs2.png'
+import ourValue from 'src/assets/jsons/ourValue.json'
 import FlexibleGradient from 'src/components/Gradient/FlexibleGradient.jsx'
 import { AnimationFadeInUp } from 'src/components/Animation/index.jsx'
+import LottieAnimation from 'src/components/LottieAnimation/index.jsx'
 
 export const AboutUs = () => {
   return (
     <>
       <div className='page-container bg-dark-1'>
-        <div className='flex flex-wrap items-center'>
+        <div className='flex'>
           <div className='z-10 w-full'>
             <AnimationFadeInUp shouldAnimate={true} index={0} className='text-center md:text-left'>
               <FlexibleGradient text='私たちについて' className='text-xl md:text-3xl' />
@@ -41,7 +42,7 @@ export const AboutUs = () => {
             index={3}
             className='absolute bottom-[60px] right-0 z-0 w-full md:w-1/2'
           >
-            <img src={bgAboutUs2} alt='Isometric technology illustration' className='h-auto w-full' />
+            <LottieAnimation animationData={ourValue} className='h-auto w-full' />
           </AnimationFadeInUp>
         </div>
       </div>
