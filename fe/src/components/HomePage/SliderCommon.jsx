@@ -9,6 +9,7 @@ import PrevIcon from 'src/components/Icon/PrevIcon/index.jsx'
 import NextIcon from 'src/components/Icon/NextIcon/index.jsx'
 import PreviousArrow from 'src/components/CustomArrow/PreviousArrow.jsx'
 import NextArrow from 'src/components/CustomArrow/NextArrow.jsx'
+import { AnimationFadeInUp } from 'src/components/Animation/index.jsx'
 
 export function SliderCommon({ data }) {
   const sliderRef = useRef(null)
@@ -55,30 +56,32 @@ export function SliderCommon({ data }) {
   return (
     <>
       <div className='slider-common h-full'>
-        {data?.length && (
-          <Slider ref={sliderRef} {...settings}>
-            {data.map((team, index) => {
-              return (
-                <CardProfile
-                  name={team.attributes.name}
-                  jobDescription={team.attributes.jobDescription}
-                  avatar={team.attributes.avatar.data?.attributes.url}
-                  experience={team.attributes.experience}
-                  technologies={team.attributes.technologies}
-                  key={index}
-                />
-              )
-            })}
-          </Slider>
-        )}
-        <div className='flex justify-center gap-2 pb-2 lg:hidden'>
+        <AnimationFadeInUp shouldAnimate={true} index={2}>
+          {data?.length && (
+            <Slider ref={sliderRef} {...settings}>
+              {data.map((team, index) => {
+                return (
+                  <CardProfile
+                    name={team.attributes.name}
+                    jobDescription={team.attributes.jobDescription}
+                    avatar={team.attributes.avatar.data?.attributes.url}
+                    experience={team.attributes.experience}
+                    technologies={team.attributes.technologies}
+                    key={index}
+                  />
+                )
+              })}
+            </Slider>
+          )}
+        </AnimationFadeInUp>
+        <AnimationFadeInUp shouldAnimate={true} index={3} className='flex justify-center gap-2 pb-2 lg:hidden'>
           <ButtonNormal width={60} height={60} radius={30} onClick={handlePrev}>
             <PrevIcon />
           </ButtonNormal>
           <ButtonGradient width={60} height={60} radius={30} onClick={handleNext}>
             <NextIcon />
           </ButtonGradient>
-        </div>
+        </AnimationFadeInUp>
       </div>
     </>
   )

@@ -27,14 +27,13 @@ export function Articles() {
     <div className='page-container bg-light-2'>
       {/* Header */}
       <AnimationFadeInUp shouldAnimate={true} index={0}>
-        <header className='mb-8 flex flex-col items-center justify-between md:mb-4 md:flex-row'>
-          <h1 className='w-full text-center text-5xl font-bold md:w-auto md:text-4xl'>最新ニュース</h1>
+        <header className='between mb-8 flex-col md:mb-4 md:flex-row'>
+          <h1 className='text-5xl md:text-4xl'>最新ニュース</h1>
           <ButtonGradient className='mt-8 w-full md:mt-0 md:w-[160px]' height={50} radius={16} fontSize={20}>
             もっと見る
           </ButtonGradient>
         </header>
       </AnimationFadeInUp>
-
       <div className='grid grid-cols-1 gap-y-6 md:grid-cols-3 md:gap-6'>
         {/* Featured News Card - Takes 1 column */}
         <AnimationFadeInUp

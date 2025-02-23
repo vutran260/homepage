@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import 'src/scss/components/InfoCompany.scss'
 import infoCompanyApi from 'src/apis/infoCompany.api'
 import bgCompanyCert from 'src/assets/images/bgCompanyCert.png'
+import { AnimationFadeInUp } from 'src/components/Animation/index.jsx'
 
 function CompanyInfo() {
   const [data, setData] = useState([])
@@ -34,14 +35,15 @@ function CompanyInfo() {
     //   </div>
     // </div>
     <div className='page-container bg-light-2'>
-      <div className='mx-auto max-w-6xl'>
+      <div className='mx-auto'>
         {/* Title */}
-        <h1 className='mb-6 text-center text-4xl font-bold'>会社概要</h1>
-
+        <AnimationFadeInUp shouldAnimate={true} index={0}>
+          <h1 className='mb-6 text-center text-4xl font-bold'>会社概要</h1>
+        </AnimationFadeInUp>
         {/* Content Grid */}
-        <div className='grid gap-8 md:grid-cols-2'>
+        <div className='grid gap-6 md:grid-cols-2'>
           {/* Left Card - Company Details */}
-          <div className='rounded-3xl bg-gradient-blue p-8 shadow-lg'>
+          <AnimationFadeInUp shouldAnimate={true} index={1} className='rounded-3xl bg-gradient-blue p-8'>
             <table className='w-full'>
               <tbody className='space-y-5'>
                 <TableRow label='社名' value='株式会社CET' />
@@ -72,12 +74,12 @@ function CompanyInfo() {
                 />
               </tbody>
             </table>
-          </div>
+          </AnimationFadeInUp>
 
           {/* Right Card - Partners & Certification */}
           <div className='flex flex-col gap-5'>
             {/* Partners Section */}
-            <div className='rounded-3xl bg-gradient-purple p-8 shadow-lg'>
+            <AnimationFadeInUp shouldAnimate={true} index={2} className='rounded-3xl bg-gradient-purple p-8 shadow-lg'>
               <table className='w-full'>
                 <tbody className='space-y-4'>
                   <TableRow
@@ -105,12 +107,16 @@ function CompanyInfo() {
                   />
                 </tbody>
               </table>
-            </div>
+            </AnimationFadeInUp>
 
             {/* Certification Section */}
-            <div className='flex justify-center rounded-3xl bg-gradient-pink p-6'>
+            <AnimationFadeInUp
+              shouldAnimate={true}
+              index={3}
+              className='flex justify-center rounded-3xl bg-gradient-pink p-6'
+            >
               <img src={bgCompanyCert} alt='ISO 27001:2013 認証取得' className='max-h-48' />
-            </div>
+            </AnimationFadeInUp>
           </div>
         </div>
       </div>

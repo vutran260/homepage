@@ -1,6 +1,8 @@
 import React, { useContext } from 'react'
 import { AppContext } from 'src/contexts/app.context'
 import FlexibleGradient from 'src/components/Gradient/FlexibleGradient.jsx'
+import { AnimationFadeInUp } from 'src/components/Animation/index.jsx'
+import { ButtonGradient } from 'src/components/Button/index.js'
 
 function Footer() {
   const { setting } = useContext(AppContext)
@@ -68,55 +70,55 @@ function Footer() {
     //   </div>
     // </div>
     <div className='page-container bg-light-2'>
-      <div className='flex justify-center pb-4'>
-        <div className='flex flex-col justify-center text-center'>
-          <div className='wap-textLan-space w-full'>
-            <div>
-              <FlexibleGradient text='お気軽にお問い合わせください' className='text-3xl' />
-            </div>
-            <div className='mt-2'>
-              <span className='text-4xl text-white md:text-6xl'>お問い合わせ</span>
-            </div>
-          </div>
+      <div className='center pb-4'>
+        <div>
+          <AnimationFadeInUp shouldAnimate={true} index={0}>
+            <FlexibleGradient text='お気軽にお問い合わせください' className='text-3xl' />
+          </AnimationFadeInUp>
+          <AnimationFadeInUp shouldAnimate={true} index={1}>
+            <h2 className='mt-2 text-4xl text-white md:text-6xl'>お問い合わせ</h2>
+          </AnimationFadeInUp>
         </div>
       </div>
       {/* Cards Grid */}
-      <div className='grid gap-8 md:grid-cols-2 pt-10'>
+      <div className='grid gap-4 pt-4 md:grid-cols-2 md:gap-8 md:pt-10'>
         {/* Left Card */}
-        <div className='rounded-3xl bg-gradient-blue p-8'>
-          <div className='mb-8'>
-            <h2 className='text-2xl font-bold'>CET.inc</h2>
-            <p className='mt-2 text-xl'>アプリ開発ならCET</p>
+        <AnimationFadeInUp shouldAnimate={true} index={2} className='rounded-3xl bg-gradient-blue p-6 md:p-8'>
+          <div className='flex flex-col sm:flex-row md:items-center md:justify-between'>
+            <div className='mb-4 sm:mb-0'>
+              <h2 className='text-3xl font-bold'>CET.inc</h2>
+              <p className='mt-2 text-3xl'>アプリ開発ならCET</p>
+            </div>
+            <ButtonGradient className='w-full sm:w-[140px] md:w-[160px]' height={50} radius={16} fontSize={18}>
+              お問い合わせ
+            </ButtonGradient>
           </div>
-
-          <button className='border-blue-400 text-blue-400 hover:bg-blue-400 rounded-full border px-8 py-2 transition hover:text-white'>
-            お問い合わせ
-          </button>
-
-          <div className='mt-12 text-sm text-gray-400'>
+          <div className='mt-6 text-base md:mt-12'>
             <p>© 2022 Request for application development is CET Co., Ltd.</p>
             <p>All Rights Reserved</p>
           </div>
-        </div>
+        </AnimationFadeInUp>
 
         {/* Right Card */}
-        <div className='via-55% rounded-3xl bg-gradient-blue p-8'>
-          <div className='grid gap-8'>
-            {/* Contact Info */}
+        <AnimationFadeInUp shouldAnimate={true} index={3} className='rounded-3xl bg-gradient-blue p-6 md:p-8'>
+          <div className='grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8'>
             <div>
-              <h3 className='mb-4 text-xl'>連絡先</h3>
-              <p className='text-lg'>03-5322-2953</p>
-              <p className='text-blue-400'>info@cet-app.com</p>
+              <h3 className='mb-4 text-3xl font-bold'>連絡先</h3>
+              <div className='space-y-2'>
+                <p className='text-base'>03-5322-2953</p>
+                <p className='text-base'>info@cet-app.com</p>
+              </div>
             </div>
-
-            {/* Address */}
             <div>
-              <h3 className='mb-4 text-xl'>住所</h3>
-              <p>〒163-0532</p>
-              <p>東京都新宿区西新宿1丁目26-2 新宿野村ビル 32階</p>
+              <h3 className='mb-4 text-3xl font-bold'>住所</h3>
+              <div className='space-y-2'>
+                <p className='text-base'>〒163-0532</p>
+                <p className='text-base'>東京都新宿区西新宿1丁目26-2</p>
+                <p className='text-base'>新宿野村ビル32階</p>
+              </div>
             </div>
           </div>
-        </div>
+        </AnimationFadeInUp>
       </div>
     </div>
   )

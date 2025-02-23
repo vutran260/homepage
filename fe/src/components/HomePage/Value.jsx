@@ -1,6 +1,7 @@
 import 'src/scss/components/value.scss'
 import { AnimationFadeInUp } from '../Animation'
-import bgAboutUs2 from 'src/assets/images/bgAboutUs2.png'
+import ourValue from 'src/assets/jsons/ourValue.json'
+import LottieAnimation from 'src/components/LottieAnimation/index.jsx'
 
 export function Value() {
   return (
@@ -37,7 +38,7 @@ export function Value() {
           index={3}
           className='absolute bottom-[60px] right-0 z-0 w-full md:w-1/2'
         >
-          <img src={bgAboutUs2} alt='Isometric technology illustration' className='h-auto w-full' />
+          <LottieAnimation animationData={ourValue} className='h-auto w-full' />
         </AnimationFadeInUp>
       </div>
       {/*<AnimationInViewToTop className='grayscale-image w-4/5'>*/}
