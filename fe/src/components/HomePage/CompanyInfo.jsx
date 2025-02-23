@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import 'src/scss/components/InfoCompany.scss'
 import infoCompanyApi from 'src/apis/infoCompany.api'
-import bgCompanyInfo from 'src/assets/images/bgCompanyInfo.png'
 import bgCompanyCert from 'src/assets/images/bgCompanyCert.png'
 
 function CompanyInfo() {
@@ -34,10 +33,7 @@ function CompanyInfo() {
     //     })}
     //   </div>
     // </div>
-    <div
-      className='heightSection bg-cover bg-center bg-no-repeat px-4 pt-6 text-white'
-      style={{ backgroundImage: `url(${bgCompanyInfo})` }}
-    >
+    <div className='page-container bg-light-2'>
       <div className='mx-auto max-w-6xl'>
         {/* Title */}
         <h1 className='mb-6 text-center text-4xl font-bold'>会社概要</h1>
@@ -45,12 +41,7 @@ function CompanyInfo() {
         {/* Content Grid */}
         <div className='grid gap-8 md:grid-cols-2'>
           {/* Left Card - Company Details */}
-          <div
-            className='rounded-3xl p-8 shadow-lg'
-            style={{
-              background: 'linear-gradient(218.73deg, #000008 56.27%, #003699 100%)'
-            }}
-          >
+          <div className='rounded-3xl bg-gradient-blue p-8 shadow-lg'>
             <table className='w-full'>
               <tbody className='space-y-5'>
                 <TableRow label='社名' value='株式会社CET' />
@@ -86,12 +77,7 @@ function CompanyInfo() {
           {/* Right Card - Partners & Certification */}
           <div className='flex flex-col gap-5'>
             {/* Partners Section */}
-            <div
-              className='rounded-3xl p-8 shadow-lg'
-              style={{
-                background: 'linear-gradient(218.91deg, #000008 64.72%, #5C24B6 100%)'
-              }}
-            >
+            <div className='rounded-3xl bg-gradient-purple p-8 shadow-lg'>
               <table className='w-full'>
                 <tbody className='space-y-4'>
                   <TableRow
@@ -122,12 +108,7 @@ function CompanyInfo() {
             </div>
 
             {/* Certification Section */}
-            <div
-              className='flex justify-center rounded-3xl p-6 shadow-lg'
-              style={{
-                background: 'linear-gradient(226.72deg, #000008 34.26%, #B4299A 100%)'
-              }}
-            >
+            <div className='flex justify-center rounded-3xl bg-gradient-pink p-6'>
               <img src={bgCompanyCert} alt='ISO 27001:2013 認証取得' className='max-h-48' />
             </div>
           </div>

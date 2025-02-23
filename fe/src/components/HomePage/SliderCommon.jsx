@@ -4,11 +4,11 @@ import 'slick-carousel/slick/slick-theme.css'
 import '../../scss/components/sliderCommon.scss'
 import { CardProfile } from 'src/components/HomePage/CardProfile.jsx'
 import React, { useRef } from 'react'
-import PrevIconV2 from 'src/components/Icon/PrevIconV2/index.jsx'
-import NextIconV2 from 'src/components/Icon/NextIconV2/index.jsx'
 import { ButtonGradient, ButtonNormal } from 'src/components/Button/index.js'
 import PrevIcon from 'src/components/Icon/PrevIcon/index.jsx'
 import NextIcon from 'src/components/Icon/NextIcon/index.jsx'
+import PreviousArrow from 'src/components/CustomArrow/PreviousArrow.jsx'
+import NextArrow from 'src/components/CustomArrow/NextArrow.jsx'
 
 export function SliderCommon({ data }) {
   const sliderRef = useRef(null)
@@ -71,7 +71,7 @@ export function SliderCommon({ data }) {
             })}
           </Slider>
         )}
-        <div className='mt-4 flex justify-center gap-2 pb-2 lg:hidden'>
+        <div className='flex justify-center gap-2 pb-2 lg:hidden'>
           <ButtonNormal width={60} height={60} radius={30} onClick={handlePrev}>
             <PrevIcon />
           </ButtonNormal>
@@ -83,15 +83,3 @@ export function SliderCommon({ data }) {
     </>
   )
 }
-
-const PreviousArrow = (props) => (
-  <button {...props} className='slick-arrow slick-prev' aria-label='Previous'>
-    <PrevIconV2 />
-  </button>
-)
-
-const NextArrow = (props) => (
-  <button {...props} className='slick-arrow slick-next' aria-label='Next'>
-    <NextIconV2 />
-  </button>
-)
