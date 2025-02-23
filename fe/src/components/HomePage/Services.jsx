@@ -1,17 +1,16 @@
 import React, { useEffect, useRef, useState } from 'react'
 import serviceUIUX from 'src/assets/images/serviceUIUX.png'
 import bgServiceUIUX from 'src/assets/images/bgServiceUIUX.png'
-import bgService from 'src/assets/images/bgService.png'
 import 'src/scss/components/services.scss'
 import Slider from 'react-slick'
 
 import http from 'src/utils/http'
 import FlexibleGradient from 'src/components/Gradient/FlexibleGradient.jsx'
 import { ButtonGradient, ButtonNormal } from 'src/components/Button/index.js'
-import PrevIconV2 from 'src/components/Icon/PrevIconV2/index.jsx'
-import NextIconV2 from 'src/components/Icon/NextIconV2/index.jsx'
 import PrevIcon from 'src/components/Icon/PrevIcon/index.jsx'
 import NextIcon from 'src/components/Icon/NextIcon/index.jsx'
+import PreviousArrow from 'src/components/CustomArrow/PreviousArrow.jsx'
+import NextArrow from 'src/components/CustomArrow/NextArrow.jsx'
 
 export function Services() {
   const sliderRef = useRef(null)
@@ -67,11 +66,8 @@ export function Services() {
   }
 
   return (
-    <div
-      className='wrap-services heightSection relative bg-black bg-center bg-no-repeat md:bg-cover'
-      style={{ backgroundImage: `url(${bgService})` }}
-    >
-      <div className='wrapTitle pt-8 pb-4 pl-2 text-center'>
+    <div className='wrap-services page-container bg-dark-1'>
+      <div className='wrapTitle pb-4 text-center'>
         <div className='wap-textLan-space w-full'>
           <div>
             <FlexibleGradient text='私たちの仕事' className='text-3xl' />
@@ -88,7 +84,7 @@ export function Services() {
         </div>
       </div>
       <div className='flex'>
-        <div className='wrap-sliderServices w-full px-4 md:px-16'>
+        <div className='wrap-sliderServices w-full'>
           {data.length && (
             <Slider ref={sliderRef} {...settings} className='overflow-hidden'>
               {data?.map((service, i) => {
@@ -150,15 +146,3 @@ export function Services() {
     </div>
   )
 }
-
-const PreviousArrow = (props) => (
-  <button {...props} className='slick-arrow slick-prev' aria-label='Previous'>
-    <PrevIconV2 />
-  </button>
-)
-
-const NextArrow = (props) => (
-  <button {...props} className='slick-arrow slick-next' aria-label='Next'>
-    <NextIconV2 />
-  </button>
-)

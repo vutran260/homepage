@@ -15,7 +15,6 @@ import NextIcon from 'src/components/Icon/NextIcon/index.jsx'
 import PrevIcon from 'src/components/Icon/PrevIcon/index.jsx'
 import { AnimationFadeInUp } from 'src/components/Animation/index.jsx'
 import { useMediaQuery } from 'react-responsive'
-import bgPortfolio from 'src/assets/images/bgPortfolio.png'
 
 export function Portfolio() {
   const isMobile = useMediaQuery({ maxWidth: 767 })
@@ -47,10 +46,7 @@ export function Portfolio() {
   ]
 
   return (
-    <div
-      className='heightSection bg-black bg-center bg-no-repeat pt-10 md:bg-cover'
-      style={{ backgroundImage: `url(${bgPortfolio})` }}
-    >
+    <div className='page-container bg-dark-1 pr-0'>
       {isMobile && <NavigationButtons isMobile={true} />}
       <div className='mb-2 flex flex-col gap-4 md:flex-row md:justify-end'>
         <div className='order-1 w-full md:w-auto'>

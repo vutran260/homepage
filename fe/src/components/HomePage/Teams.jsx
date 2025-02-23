@@ -4,7 +4,6 @@ import React, { useEffect, useState } from 'react'
 import http from 'src/utils/http'
 import { AnimationInViewToTop } from '../Animation'
 import FlexibleGradient from 'src/components/Gradient/FlexibleGradient.jsx'
-import bgTeams from 'src/assets/images/bgTeams.png'
 
 export const Teams = () => {
   const [data, setData] = useState([])
@@ -18,10 +17,7 @@ export const Teams = () => {
   }, [])
 
   return (
-    <div
-      className='heightSection flex w-full flex-col bg-cover bg-center bg-no-repeat pt-6'
-      style={{ backgroundImage: `url(${bgTeams})` }}
-    >
+    <div className='page-container bg-light-2'>
       <div className='flex justify-center pb-4'>
         <div className='flex flex-col justify-center text-center'>
           <div className='wap-textLan-space w-full'>

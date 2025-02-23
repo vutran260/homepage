@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import http from 'src/utils/http.js'
 import 'src/scss/components/news.scss'
-import bgNews from 'src/assets/images/bgNews.png'
 import bgFeatureImage from 'src/assets/images/bgFeatureImage.png'
 import bgNewCard from 'src/assets/images/bgNewCard.png'
 import LogoNew from 'src/assets/images/LogoNew.png'
@@ -25,10 +24,7 @@ export function Articles() {
   }, [])
 
   return (
-    <div
-      className='heightSection bg-black bg-cover bg-center bg-no-repeat p-8 text-white'
-      style={{ backgroundImage: `url(${bgNews})` }}
-    >
+    <div className='page-container bg-light-2'>
       {/* Header */}
       <AnimationFadeInUp shouldAnimate={true} index={0}>
         <header className='mb-8 flex flex-col items-center justify-between md:mb-4 md:flex-row'>

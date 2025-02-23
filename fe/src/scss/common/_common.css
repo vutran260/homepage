@@ -1,0 +1,22 @@
+.page-container {
+  @apply heightSection px-4 py-10 text-white md:px-16;
+}
+
+.center {
+  @apply flex items-center justify-center;
+}
+
+.bg-dark-1 {
+  background: url('../../assets/images/bgDark1.png');
+  @apply bg-cover bg-center bg-no-repeat;
+}
+
+.bg-light-1 {
+  background: url('../../assets/images/bgLight1.png');
+  @apply bg-cover bg-center bg-no-repeat;
+}
+
+.bg-light-2 {
+  background: url('../../assets/images/bgLight2.png');
+  @apply bg-cover bg-center bg-no-repeat;
+}
