@@ -1,5 +1,5 @@
 .page-container {
-  @apply heightSection px-4 py-10 text-white md:px-16;
+  @apply heightSection px-4 py-10 text-white md:px-16 flex flex-col justify-center;
 }
 
 .center {
