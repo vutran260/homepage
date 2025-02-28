@@ -6,7 +6,7 @@
   left: 0;
   right: 0;
   z-index: 900;
-  padding: 15px 0;
+  padding: 10px 0;
 
   .nav-line {
     max-width: 1250px;
@@ -14,7 +14,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0 1.25rem 0 0.625rem;
+    padding: 20px 0;
     border: 1px solid #252525;
     border-radius: 1.125rem;
     background: rgba(19, 19, 19, 0.8);
@@ -36,7 +36,6 @@
         .nav-link {
           color: #7C7C7C;
           font-weight: 500;
-          padding: 20px 0;
           border-radius: 8px;
           cursor: pointer;
           transition: all 0.3s ease;
