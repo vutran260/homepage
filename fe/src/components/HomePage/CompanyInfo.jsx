@@ -38,7 +38,7 @@ function CompanyInfo() {
       <div className='mx-auto'>
         {/* Title */}
         <AnimationFadeInUp shouldAnimate={true} index={0}>
-          <h1 className='mb-6 text-center text-4xl font-bold'>会社概要</h1>
+          <h1 className='text-center text-4xl font-bold mb-8'>会社概要</h1>
         </AnimationFadeInUp>
         {/* Content Grid */}
         <div className='grid gap-6 md:grid-cols-2'>

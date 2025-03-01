@@ -3,13 +3,11 @@ import http from 'src/utils/http.js'
 import '../../scss/components/blogs.scss'
 import { BlogCard } from './BlogCard.jsx'
 import Slider from 'react-slick'
-import { ButtonGradient, ButtonNormal } from 'src/components/Button/index.js'
-import PrevIcon from 'src/components/Icon/PrevIcon/index.jsx'
-import NextIcon from 'src/components/Icon/NextIcon/index.jsx'
 import FlexibleGradient from 'src/components/Gradient/FlexibleGradient.jsx'
 import { AnimationFadeInUp } from 'src/components/Animation/index.jsx'
 import PreviousArrow from 'src/components/CustomArrow/PreviousArrow.jsx'
 import NextArrow from 'src/components/CustomArrow/NextArrow.jsx'
+import NavigationButtons from 'src/components/NavigationButtons/index.jsx'
 
 export function Blogs() {
   const sliderRef = useRef(null)
@@ -67,18 +65,18 @@ export function Blogs() {
 
   return (
     <div className='page-container wrap-blogs bg-light-1'>
-      <div className='center pb-4'>
+      <div className='center'>
         <div className='wap-textLan-space w-full'>
           <AnimationFadeInUp shouldAnimate={true} index={0}>
             <FlexibleGradient text='最終投稿' className='mb-5 text-3xl' />
           </AnimationFadeInUp>
           <AnimationFadeInUp shouldAnimate={true} index={1} className='flex justify-center'>
-            <h2 className='text-4xl md:text-6xl'>私たちのブログ</h2>
+            <h2 className='page-title'>私たちのブログ</h2>
           </AnimationFadeInUp>
         </div>
       </div>
       <AnimationFadeInUp shouldAnimate={true} index={2}>
-        <Slider ref={sliderRef} {...settings} className='wrap-sliderBlogs overflow-hidden md:mt-5'>
+        <Slider ref={sliderRef} {...settings} className='wrap-sliderBlogs overflow-hidden'>
           {data.map((item) => (
             <BlogCard key={item.id} {...item} />
           ))}
@@ -86,12 +84,7 @@ export function Blogs() {
       </AnimationFadeInUp>
       <AnimationFadeInUp shouldAnimate={true} index={3}>
         <div className='mt-4 flex justify-center gap-2 pb-2 lg:hidden'>
-          <ButtonNormal width={60} height={60} radius={30} onClick={handlePrev}>
-            <PrevIcon />
-          </ButtonNormal>
-          <ButtonGradient width={60} height={60} radius={30} onClick={handleNext}>
-            <NextIcon />
-          </ButtonGradient>
+          <NavigationButtons />
         </div>
       </AnimationFadeInUp>
     </div>

@@ -2,6 +2,10 @@
   @apply heightSection px-4 py-10 text-white md:px-16 flex flex-col justify-center;
 }
 
+.page-title {
+  @apply text-4xl md:text-6xl font-bold;
+}
+
 .center {
   @apply flex items-center justify-center text-center;
 }
@@ -24,12 +28,15 @@
 
 @screen md {
   .bg-dark-1 {
-    background-image: url('../../assets/images/bgDark1.png');
+    background: url('../../assets/images/bgDark1.png') center no-repeat;
+    background-size: cover;
   }
   .bg-light-1 {
-    background: url('../../assets/images/bgLight1.png');
+    background: url('../../assets/images/bgLight1.png') center no-repeat;
+    background-size: cover;
   }
   .bg-light-2 {
-    background: url('../../assets/images/bgLight2.png');
+    background: url('../../assets/images/bgLight2.png') center no-repeat;
+    background-size: cover;
   }
 }

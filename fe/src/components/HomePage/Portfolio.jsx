@@ -15,6 +15,9 @@ import NextIcon from 'src/components/Icon/NextIcon/index.jsx'
 import PrevIcon from 'src/components/Icon/PrevIcon/index.jsx'
 import { AnimationFadeInUp } from 'src/components/Animation/index.jsx'
 import { useMediaQuery } from 'react-responsive'
+import { useState } from 'react'
+import styles from 'src/scss/components/buttonNormal.module.scss'
+import NavigationButtons from "src/components/NavigationButtons/index.jsx";
 
 export function Portfolio() {
   const isMobile = useMediaQuery({ maxWidth: 767 })
@@ -108,24 +111,15 @@ export function Portfolio() {
           </CardGradient>
         </AnimationFadeInUp>
       </div>
-      {!isMobile && <NavigationButtons isMobile={false} />}
+      {!isMobile && (
+        <AnimationFadeInUp
+          shouldAnimate={true}
+          index={isMobile ? 0 : 7}
+          className='flex justify-center gap-2 pb-2 md:mt-2 md:pb-0'
+        >
+          <NavigationButtons />
+        </AnimationFadeInUp>
+      )}
     </div>
-  )
-}
-
-const NavigationButtons = ({ isMobile }) => {
-  return (
-    <AnimationFadeInUp
-      shouldAnimate={true}
-      index={isMobile ? 0 : 7}
-      className='flex justify-center gap-2 pb-2 md:mt-2 md:pb-0'
-    >
-      <ButtonNormal width={40} height={40}>
-        <PrevIcon />
-      </ButtonNormal>
-      <ButtonGradient width={40} height={40}>
-        <NextIcon />
-      </ButtonGradient>
-    </AnimationFadeInUp>
   )
 }

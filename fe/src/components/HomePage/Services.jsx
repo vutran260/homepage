@@ -68,13 +68,13 @@ export function Services() {
 
   return (
     <div className='wrap-services page-container bg-dark-1'>
-      <div className='pb-4 text-center'>
+      <div className='pb-4  text-center md:pb-8'>
         <div>
           <AnimationFadeInUp shouldAnimate={true} index={0}>
             <FlexibleGradient text='私たちの仕事' className='text-3xl' />
           </AnimationFadeInUp>
           <AnimationFadeInUp shouldAnimate={true} index={1}>
-            <h2 className='mt-2 text-4xl md:text-6xl'>当社のサービス</h2>
+            <h2 className='page-title mt-2'>当社のサービス</h2>
           </AnimationFadeInUp>
         </div>
         <AnimationFadeInUp shouldAnimate={true} index={2} className='mx-auto mt-4 w-[80%] md:w-[50%]'>
