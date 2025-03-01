@@ -70,7 +70,7 @@ function Footer() {
     //   </div>
     // </div>
     <div className='page-container bg-light-2'>
-      <div className='center pb-4'>
+      <div className='center pb-4 md:pb-8'>
         <div>
           <AnimationFadeInUp shouldAnimate={true} index={0}>
             <FlexibleGradient text='お気軽にお問い合わせください' className='text-3xl' />

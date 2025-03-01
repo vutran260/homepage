@@ -28,7 +28,7 @@ export function Articles() {
       {/* Header */}
       <AnimationFadeInUp shouldAnimate={true} index={0}>
         <header className='between mb-8 flex-col md:mb-4 md:flex-row'>
-          <h1 className='text-5xl md:text-4xl'>最新ニュース</h1>
+          <h1 className='text-5xl md:text-4xl font-bold'>最新ニュース</h1>
           <ButtonGradient className='mt-8 w-full md:mt-0 md:w-[160px]' height={50} radius={16} fontSize={20}>
             もっと見る
           </ButtonGradient>

@@ -37,11 +37,7 @@ export const AboutUs = () => {
               </div>
             </AnimationFadeInUp>
           </div>
-          <AnimationFadeInUp
-            shouldAnimate={true}
-            index={3}
-            className='absolute bottom-[60px] right-0 z-0 w-full md:w-1/2'
-          >
+          <AnimationFadeInUp shouldAnimate={true} index={3} className='absolute right-0 bottom-0 z-0 w-full md:w-1/2'>
             <LottieAnimation animationData={ourValue} className='h-auto w-full' />
           </AnimationFadeInUp>
         </div>

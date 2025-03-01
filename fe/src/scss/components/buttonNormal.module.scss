@@ -1,6 +1,47 @@
 .normalButton {
   border-radius: var(--radius, 24px);
+  background-color: transparent;
+  color: #8f8f8f;
+  border: 1px solid #4a4a4a !important;
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: #ffffff !important;
+    color: #ffffff;
+  }
+
+  &:active, &.active {
+    color: #ffffff;
+    border: none !important;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: var(--radius, 24px);
+      background: linear-gradient(102.02deg, #1e87d3 3.78%, #6751b5 53.06%, #c75f48 96.77%);
+      padding: 1.5px;
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+    }
+  }
+
+  &:hover .iconWrapper svg path,
+  &.active .iconWrapper svg path {
+    fill: #FFFFFF;
+  }
+}
+
+.iconWrapper svg path {
+  transition: fill 0.3s ease;
+  fill: rgba(255, 255, 255, 0.5);
 }
 
 .buttonText {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

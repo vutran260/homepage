@@ -18,13 +18,13 @@ export const Teams = () => {
 
   return (
     <div className='page-container bg-light-2'>
-      <div className='center pb-4'>
+      <div className='center pb-4 md:pb-8'>
         <div>
           <AnimationFadeInUp shouldAnimate={true} index={0}>
             <FlexibleGradient text='スタッフ' className='text-3xl' />
           </AnimationFadeInUp>
           <AnimationFadeInUp shouldAnimate={true} index={1}>
-            <h2 className='mt-2 text-4xl md:text-6xl'>チーム</h2>
+            <h2 className='page-title mt-2'>チーム</h2>
           </AnimationFadeInUp>
         </div>
       </div>

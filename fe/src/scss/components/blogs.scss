@@ -26,11 +26,11 @@
       .slick-slide {
         height: inherit !important;
         transition: all 0.3s ease-in-out;
-        transform: scale(0.9);
+        transform: scale(0.8);
         padding: 0;
 
         &.slick-center {
-          transform: scale(1);
+          transform: scale(0.9);
           z-index: 1;
 
           .card-wrapper {

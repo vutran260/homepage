@@ -85,7 +85,7 @@ const ClientFeedback = () => {
             <FlexibleGradient text='フィードバック' className='text-3xl' />
           </AnimationFadeInUp>
           <AnimationFadeInUp shouldAnimate={true} index={1}>
-            <h2 className='mt-2 text-4xl md:text-6xl'>クライアントの声</h2>
+            <h2 className='page-title mt-2'>クライアントの声</h2>
           </AnimationFadeInUp>
         </div>
       </div>
@@ -114,7 +114,7 @@ export default ClientFeedback
 
 const FeedBackItem = ({ fb }) => {
   return (
-    <div className='person relative h-[400px] rounded-3xl border border-solid border-[#181818] bg-[#060606] p-4'>
+    <div className='person relative h-[400px] rounded-3xl border border-solid border-[#181818] bg-[#060606] p-6'>
       <div
         className='h-[calc(100%-60px)] overflow-y-auto'
         style={{ WebkitOverflowScrolling: 'touch', scrollbarWidth: 'thin', scrollbarColor: '#333333 #060606' }}
@@ -124,7 +124,7 @@ const FeedBackItem = ({ fb }) => {
       <div className='avatar absolute bottom-2 flex items-center gap-4'>
         <div className='left'>
           <img
-            className='max-h-[48px] max-w-[48px] rounded-full'
+            className='h-[42px] w-[42px] rounded-full'
             src={`${import.meta.env.VITE_REACT_IMAGE_BASE_URL}${fb.attributes.avatar.data?.attributes.url}`}
             alt=''
           />
