@@ -37,7 +37,7 @@ function Section({ children, id }) {
   return (
     <section ref={ref}>
       <div
-        className="bg-black"
+        className='bg-black'
         style={{
           // transform: inView ? 'none' : 'translateY(200px)',
           // opacity: inView ? 1 : 0,

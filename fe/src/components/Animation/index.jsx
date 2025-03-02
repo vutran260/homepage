@@ -1,7 +1,6 @@
 import { motion, useAnimation } from 'framer-motion'
-import { Fragment, useCallback, useContext, useEffect, useMemo } from 'react'
+import { useCallback, useEffect, useMemo } from 'react'
 import { useInView } from 'react-intersection-observer'
-import { AppContext } from '../../contexts/app.context'
 import { useMediaQuery } from 'react-responsive'
 
 export const AnimationWrap = ({ children }) => (
@@ -94,16 +93,13 @@ export const AnimationFadeInUp = ({
   index = 0,
   onAnimationComplete,
   delay = 0.3,
-  mobileBreakpoint = 768, // Mobile breakpoint in pixels
+  mobileBreakpoint = 768,
   ...rest
 }) => {
   // Use memo to avoid recreating these objects on every render
   const initialState = useMemo(() => initial, [])
   const animateState = useMemo(() => animate, [])
-
   const controls = useAnimation()
-
-  // Sử dụng hook từ thư viện react-responsive
   const isMobile = useMediaQuery({ maxWidth: mobileBreakpoint })
 
   // Skip animation completely if on mobile
@@ -186,6 +182,110 @@ export const AnimationFadeInUp = ({
       animate={controls}
       dangerouslySetInnerHTML={dangerouslySetInnerHTML}
       {...rest}
+    >
+      {children}
+    </motion.div>
+  )
+}
+
+/**
+ * HoverScaleMotion - Wrapper component that scales on hover
+ */
+export const HoverScaleMotion = ({ children, scale = 1.05, duration = 0.2, className = '', ...props }) => {
+  return (
+    <motion.div className={className} whileHover={{ scale }} transition={{ duration }} {...props}>
+      {children}
+    </motion.div>
+  )
+}
+
+/**
+ * HoverFloatMotion - Wrapper component that floats up on hover
+ * @param {ReactNode} children - Child components to render
+ */
+export const HoverFloatMotion = ({ children, y = -5, duration = 0.3, className = '', ...props }) => {
+  return (
+    <motion.div className={className} whileHover={{ y }} transition={{ duration }} {...props}>
+      {children}
+    </motion.div>
+  )
+}
+
+/**
+ * InteractiveMotion - Wrapper component with hover and tap animations
+ * Useful for interactive elements like buttons
+ */
+export const InteractiveMotion = ({
+  children,
+  hoverScale = 1.02,
+  tapScale = 0.98,
+  duration = 0.2,
+  className = '',
+  ...props
+}) => {
+  return (
+    <motion.div
+      className={className}
+      whileHover={{ scale: hoverScale }}
+      whileTap={{ scale: tapScale }}
+      transition={{ duration }}
+      {...props}
+    >
+      {children}
+    </motion.div>
+  )
+}
+
+/**
+ * ItemMotion - Item component for staggered animations
+ * Used within ContainerMotion for orchestrated animations
+ */
+export const ItemMotion = ({
+  children,
+  className = '',
+  variants = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+  },
+  ...props
+}) => {
+  return (
+    <motion.div className={className} variants={variants} {...props}>
+      {children}
+    </motion.div>
+  )
+}
+
+/**
+ * ContainerMotion - Container component for staggered children animations
+ * Orchestrates the animation of child components
+ */
+export const ContainerMotion = ({
+  children,
+  className = '',
+  staggerDelay = 0.1,
+  variants = null,
+  initial = 'hidden',
+  animate = 'show',
+  ...props
+}) => {
+  const defaultVariants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: staggerDelay
+      }
+    }
+  }
+
+  return (
+    <motion.div
+      className={className}
+      variants={variants || defaultVariants}
+      initial={initial}
+      animate={animate}
+      {...props}
     >
       {children}
     </motion.div>
