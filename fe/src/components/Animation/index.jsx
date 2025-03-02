@@ -1,7 +1,8 @@
 import { motion, useAnimation } from 'framer-motion'
-import { Fragment, useContext, useEffect } from 'react'
+import { Fragment, useCallback, useContext, useEffect, useMemo } from 'react'
 import { useInView } from 'react-intersection-observer'
 import { AppContext } from '../../contexts/app.context'
+import { useMediaQuery } from 'react-responsive'
 
 export const AnimationWrap = ({ children }) => (
   <motion.div style={{ y: 100 }} animate={{ y: 0 }} transition={{ duration: 1 }}>
@@ -83,7 +84,7 @@ export const AnimationFullPage = ({ children, delay = 1.5, duration = 2 }) => {
 
 export const AnimationFadeInUp = ({
   children,
-  shouldAnimate,
+  shouldAnimate = true,
   className,
   initial = { opacity: 0, y: 20 },
   animate = { opacity: 1, y: 0 },
@@ -93,47 +94,95 @@ export const AnimationFadeInUp = ({
   index = 0,
   onAnimationComplete,
   delay = 0.3,
+  mobileBreakpoint = 768, // Mobile breakpoint in pixels
   ...rest
 }) => {
+  // Use memo to avoid recreating these objects on every render
+  const initialState = useMemo(() => initial, [])
+  const animateState = useMemo(() => animate, [])
+
   const controls = useAnimation()
-  let [ref, inView] = useInView({
-    threshold: 0.5,
-    triggerOnce: false // Đảm bảo trigger nhiều lần
-  })
 
-  if (fixedElement) {
-    inView = true
-  }
+  // Sử dụng hook từ thư viện react-responsive
+  const isMobile = useMediaQuery({ maxWidth: mobileBreakpoint })
 
-  useEffect(() => {
-    const startAnimation = async () => {
-      if (shouldAnimate && (inView || fixedElement)) {
-        // Reset về trạng thái initial
-        await controls.set(initial)
-        // Start animation với delay dựa trên index
-        await controls.start({
-          ...animate,
-          transition: {
-            duration: duration,
-            ease: 'easeOut',
-            delay: index * delay
-          }
-        })
-        onAnimationComplete?.()
-      } else {
-        // Reset về trạng thái initial khi outView
-        await controls.start(initial)
-      }
+  // Skip animation completely if on mobile
+  const shouldUseAnimation = shouldAnimate && !isMobile
+
+  // Optimize InView by only tracking when necessary
+  const inViewOptions = useMemo(
+    () => ({
+      threshold: 0.1, // Lower threshold for better performance
+      triggerOnce: false,
+      // Disable tracking when not needed
+      skip: fixedElement || !shouldUseAnimation
+    }),
+    [fixedElement, shouldUseAnimation]
+  )
+
+  const [ref, inView] = useInView(inViewOptions)
+
+  // Memoize the animation function to prevent recreation on every render
+  const startAnimation = useCallback(async () => {
+    // If animation is disabled or on mobile, just set to final state
+    if (!shouldUseAnimation) {
+      await controls.set(animateState)
+      onAnimationComplete?.()
+      return
     }
 
-    startAnimation()
-  }, [inView, shouldAnimate, controls, index])
+    if (inView || fixedElement) {
+      // Reset to initial state
+      await controls.set(initialState)
 
+      // Start animation with delay based on index
+      await controls.start({
+        ...animateState,
+        transition: {
+          duration,
+          ease: 'easeOut',
+          delay: index * delay
+        }
+      })
+
+      onAnimationComplete?.()
+    } else {
+      // Reset to initial state when out of view
+      await controls.set(initialState)
+    }
+  }, [
+    controls,
+    inView,
+    fixedElement,
+    initialState,
+    animateState,
+    duration,
+    index,
+    delay,
+    onAnimationComplete,
+    shouldUseAnimation
+  ])
+
+  // Run animation effect with proper dependencies
+  useEffect(() => {
+    startAnimation()
+  }, [startAnimation])
+
+  // For mobile or when animations are disabled, render without motion
+  if (!shouldUseAnimation) {
+    return (
+      <div className={className} dangerouslySetInnerHTML={dangerouslySetInnerHTML} {...rest}>
+        {children}
+      </div>
+    )
+  }
+
+  // For desktop with animations enabled
   return (
     <motion.div
       ref={ref}
       className={className}
-      initial={initial}
+      initial={initialState}
       animate={controls}
       dangerouslySetInnerHTML={dangerouslySetInnerHTML}
       {...rest}

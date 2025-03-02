@@ -3,10 +3,10 @@ import 'src/scss/components/newCard.scss'
 export function NewCard({ date, title, imageSrc }) {
   return (
     <div className='group w-full cursor-pointer'>
-      <div className='from-blue-500 rounded-3xl bg-gradient-to-r via-purple-500 to-red-500 p-1'>
+      <div className='from-blue-500 rounded-3xl border-[0.76px] border-solid border-darkGray-600 bg-gradient-to-r via-purple-500 to-red-500'>
         <div className='h-full rounded-3xl'>
           {/* Image Section with Gradient Overlay */}
-          <div className='relative h-[200px] overflow-hidden rounded-t-2xl'>
+          <div className='relative h-[200px] overflow-hidden rounded-t-3xl'>
             <img
               src={imageSrc}
               alt={title}
@@ -22,7 +22,7 @@ export function NewCard({ date, title, imageSrc }) {
           </div>
 
           {/* Content Section */}
-          <div className='bg-black relative space-y-3 rounded-b-3xl p-6'>
+          <div className='relative space-y-3 rounded-b-3xl bg-black p-6'>
             <p className='text-sm text-whiteGray-200'>{date}</p>
             <h3 className='text-lg font-medium text-white line-clamp-2'>{title}</h3>
           </div>

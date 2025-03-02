@@ -5,13 +5,11 @@ import 'slick-carousel/slick/slick-theme.css'
 import 'src/scss/components/clientFeedback.scss'
 
 import http from 'src/utils/http'
-import { AnimationFadeInUp, AnimationOpacity } from '../Animation'
+import { AnimationFadeInUp } from '../Animation'
 import FlexibleGradient from 'src/components/Gradient/FlexibleGradient.jsx'
-import { ButtonGradient, ButtonNormal } from 'src/components/Button/index.js'
-import PrevIcon from 'src/components/Icon/PrevIcon/index.jsx'
-import NextIcon from 'src/components/Icon/NextIcon/index.jsx'
 import PreviousArrow from 'src/components/CustomArrow/PreviousArrow.jsx'
 import NextArrow from 'src/components/CustomArrow/NextArrow.jsx'
+import NavigationButtons from 'src/components/NavigationButtons/index.jsx'
 
 const ClientFeedback = () => {
   const [data, setData] = useState([])
@@ -61,7 +59,7 @@ const ClientFeedback = () => {
           slidesToScroll: 1,
           initialSlide: 1,
           centerMode: true,
-          centerPadding: '20px',
+          centerPadding: '10px',
           prevArrow: false,
           nextArrow: false
         }
@@ -79,7 +77,7 @@ const ClientFeedback = () => {
 
   return (
     <div className='wrap-clientFeedback page-container bg-light-2'>
-      <div className='center pb-4 md:pb-10'>
+      <div className='center pb-4 md:pb-5'>
         <div>
           <AnimationFadeInUp shouldAnimate={true} index={0}>
             <FlexibleGradient text='フィードバック' className='text-3xl' />
@@ -99,12 +97,7 @@ const ClientFeedback = () => {
         )}
       </AnimationFadeInUp>
       <AnimationFadeInUp shouldAnimate={true} index={3} className='mt-5 flex justify-center gap-2 pb-2 lg:hidden'>
-        <ButtonNormal width={60} height={60} radius={30} onClick={handlePrev}>
-          <PrevIcon />
-        </ButtonNormal>
-        <ButtonGradient width={60} height={60} radius={30} onClick={handleNext}>
-          <NextIcon />
-        </ButtonGradient>
+        <NavigationButtons onNext={handleNext} onPrev={handlePrev} />
       </AnimationFadeInUp>
     </div>
   )
@@ -121,7 +114,7 @@ const FeedBackItem = ({ fb }) => {
       >
         <p className='relative whitespace-pre-line text-lg md:text-xl'>{fb.attributes.description}</p>
       </div>
-      <div className='avatar absolute bottom-2 flex items-center gap-4'>
+      <div className='avatar absolute bottom-2 flex items-center gap-4 pr-[20px] md:pr-0'>
         <div className='left'>
           <img
             className='h-[42px] w-[42px] rounded-full'

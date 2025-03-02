@@ -1,5 +1,5 @@
 .page-container {
-  @apply heightSection px-4 py-10 text-white md:px-16 flex flex-col justify-center;
+  @apply heightSection px-4 py-[30px] text-white md:px-16 flex flex-col md:justify-center;
 }
 
 .page-title {
@@ -24,6 +24,10 @@
 
 .bg-light-2 {
   @apply bg-black bg-cover bg-center bg-no-repeat;
+}
+
+.border-card {
+  @apply border border-solid border-[#181818];
 }
 
 @screen md {

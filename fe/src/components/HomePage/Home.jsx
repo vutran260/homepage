@@ -6,8 +6,9 @@ import { ButtonGradient } from 'src/components/Button'
 import { AnimationFadeInUp } from 'src/components/Animation/index.jsx'
 import LogoNew from 'src/assets/images/LogoNew.png'
 import bgHomeMobile from 'src/assets/images/bgHomeMobile.png'
+import { isMobile } from 'react-device-detect'
 
-export function Home({ shouldAnimate }) {
+export function Home({ shouldAnimate, isMobile }) {
   const { setting } = useContext(AppContext)
   const videoRef = useRef(null)
 
@@ -25,8 +26,7 @@ export function Home({ shouldAnimate }) {
       <div className='absolute top-10 left-0 right-0 z-20 flex justify-center'>
         <img src={LogoNew} alt='Logo' className='nav-logo' width={60} height={60} />
       </div>
-
-      <div className='absolute inset-0 flex flex-col items-center justify-center'>
+      <div className='absolute inset-0 flex flex-col justify-center px-2 md:items-center md:px-0'>
         <div className='z-10 flex flex-col items-center'>
           <AnimationFadeInUp
             shouldAnimate={shouldAnimate}
@@ -44,17 +44,18 @@ export function Home({ shouldAnimate }) {
           </AnimationFadeInUp>
         </div>
       </div>
-
-      <video
-        autoPlay={false}
-        ref={videoRef}
-        loop
-        muted
-        className='video-background absolute inset-0 h-full w-full object-cover'
-      >
-        <source src={bgHomeVideo} type='video/mp4' />
-        Your browser does not support the video tag.
-      </video>
+      {!isMobile && (
+        <video
+          autoPlay={false}
+          ref={videoRef}
+          loop
+          muted
+          className='video-background absolute inset-0 h-full w-full object-cover'
+        >
+          <source src={bgHomeVideo} type='video/mp4' />
+          Your browser does not support the video tag.
+        </video>
+      )}
     </div>
   )
 }

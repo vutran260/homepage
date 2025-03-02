@@ -38,12 +38,12 @@ function CompanyInfo() {
       <div className='mx-auto'>
         {/* Title */}
         <AnimationFadeInUp shouldAnimate={true} index={0}>
-          <h1 className='text-center text-4xl font-bold mb-8'>会社概要</h1>
+          <h1 className='mb-8 text-center text-4xl font-bold'>会社概要</h1>
         </AnimationFadeInUp>
         {/* Content Grid */}
         <div className='grid gap-6 md:grid-cols-2'>
           {/* Left Card - Company Details */}
-          <AnimationFadeInUp shouldAnimate={true} index={1} className='rounded-3xl bg-gradient-blue p-8'>
+          <AnimationFadeInUp shouldAnimate={true} index={1} className='border-card rounded-3xl bg-gradient-blue p-8'>
             <table className='w-full'>
               <tbody className='space-y-5'>
                 <TableRow label='社名' value='株式会社CET' />
@@ -79,7 +79,11 @@ function CompanyInfo() {
           {/* Right Card - Partners & Certification */}
           <div className='flex flex-col gap-5'>
             {/* Partners Section */}
-            <AnimationFadeInUp shouldAnimate={true} index={2} className='rounded-3xl bg-gradient-purple p-8 shadow-lg'>
+            <AnimationFadeInUp
+              shouldAnimate={true}
+              index={2}
+              className='border-card rounded-3xl bg-gradient-purple p-8 shadow-lg'
+            >
               <table className='w-full'>
                 <tbody className='space-y-4'>
                   <TableRow
@@ -113,7 +117,7 @@ function CompanyInfo() {
             <AnimationFadeInUp
               shouldAnimate={true}
               index={3}
-              className='flex justify-center rounded-3xl bg-gradient-pink p-6'
+              className='border-card flex justify-center rounded-3xl bg-gradient-pink p-6'
             >
               <img src={bgCompanyCert} alt='ISO 27001:2013 認証取得' className='max-h-48' />
             </AnimationFadeInUp>

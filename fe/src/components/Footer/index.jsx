@@ -81,9 +81,13 @@ function Footer() {
         </div>
       </div>
       {/* Cards Grid */}
-      <div className='grid gap-4 pt-4 md:grid-cols-2 md:gap-8 md:pt-10'>
+      <div className='grid gap-4 pt-4 !pb-20 md:grid-cols-2 md:gap-8 md:pt-10 md:pb-0'>
         {/* Left Card */}
-        <AnimationFadeInUp shouldAnimate={true} index={2} className='rounded-3xl bg-gradient-blue p-6 md:p-8'>
+        <AnimationFadeInUp
+          shouldAnimate={true}
+          index={2}
+          className='border-card rounded-3xl bg-gradient-blue p-6 md:p-8'
+        >
           <div className='flex flex-col sm:flex-row md:items-center md:justify-between'>
             <div className='mb-4 sm:mb-0'>
               <h2 className='text-3xl font-bold'>CET.inc</h2>
@@ -100,7 +104,11 @@ function Footer() {
         </AnimationFadeInUp>
 
         {/* Right Card */}
-        <AnimationFadeInUp shouldAnimate={true} index={3} className='rounded-3xl bg-gradient-blue p-6 md:p-8'>
+        <AnimationFadeInUp
+          shouldAnimate={true}
+          index={3}
+          className='border-card rounded-3xl bg-gradient-blue p-6 md:p-8'
+        >
           <div className='grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8'>
             <div>
               <h3 className='mb-4 text-3xl font-bold'>連絡先</h3>

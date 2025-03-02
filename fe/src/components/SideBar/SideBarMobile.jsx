@@ -58,20 +58,6 @@ export const SideBarMobile = () => {
 
   return (
     <div className='mobile-sidebar'>
-      <div className='mobile-nav-bar'>
-        <img src={LogoNew} alt='Logo' className='mobile-logo' onClick={() => handleScrollToElement('Home')} />
-        <span className='nav-center-text cursor-pointer' onClick={handleToggleDrawer}>
-          {centerText}
-        </span>
-        <button className='toggle-btn' onClick={handleToggleDrawer} aria-label='Toggle menu'>
-          {isDrawerOpen ? (
-            <img src={closeIcon} width={16} height={16} alt='' />
-          ) : (
-            <img src={toggleSideBar} width={20} height={20} alt='' />
-          )}
-        </button>
-      </div>
-
       {isDrawerOpen && (
         <div className='drawer-overlay' onClick={() => setIsDrawerOpen(false)}>
           <div className='drawer-content' onClick={(e) => e.stopPropagation()}>
@@ -91,6 +77,19 @@ export const SideBarMobile = () => {
           </div>
         </div>
       )}
+      <div className='mobile-nav-bar'>
+        <img src={LogoNew} alt='Logo' className='mobile-logo' onClick={() => handleScrollToElement('Home')}/>
+        <span className='nav-center-text cursor-pointer' onClick={handleToggleDrawer}>
+          {centerText}
+        </span>
+        <button className='toggle-btn' onClick={handleToggleDrawer} aria-label='Toggle menu'>
+          {isDrawerOpen ? (
+            <img src={closeIcon} width={16} height={16} alt=''/>
+          ) : (
+            <img src={toggleSideBar} width={20} height={20} alt=''/>
+          )}
+        </button>
+      </div>
     </div>
   )
 }

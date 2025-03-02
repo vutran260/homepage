@@ -17,7 +17,7 @@ import { AnimationFadeInUp } from 'src/components/Animation/index.jsx'
 import { useMediaQuery } from 'react-responsive'
 import { useState } from 'react'
 import styles from 'src/scss/components/buttonNormal.module.scss'
-import NavigationButtons from "src/components/NavigationButtons/index.jsx";
+import NavigationButtons from 'src/components/NavigationButtons/index.jsx'
 
 export function Portfolio() {
   const isMobile = useMediaQuery({ maxWidth: 767 })
@@ -50,7 +50,11 @@ export function Portfolio() {
 
   return (
     <div className='page-container bg-dark-1 !pr-0'>
-      {isMobile && <NavigationButtons isMobile={true} />}
+      {isMobile && (
+        <div className='flex items-center justify-center gap-2'>
+          <NavigationButtons isMobile={true} />
+        </div>
+      )}
       <div className='mb-2 flex flex-col gap-4 md:flex-row md:justify-between'>
         <div className='order-1 w-full md:w-auto'>
           <div className='section1 rounded-lg p-4 text-center md:text-left'>
@@ -65,7 +69,7 @@ export function Portfolio() {
               <img src={projectLogo} width={200} height={70} className='mb-5' alt='' />
             </AnimationFadeInUp>
             <AnimationFadeInUp shouldAnimate={true} index={isMobile ? 0 : 1}>
-              <p className='mb-5 text-5xl text-white'>運転代行アプリ</p>
+              <p className='mb-5 text-4xl text-white md:text-5xl'>運転代行アプリ</p>
             </AnimationFadeInUp>
             <AnimationFadeInUp shouldAnimate={true} index={isMobile ? 0 : 2}>
               <p className='mb-5 text-xl text-whiteGray-600'>期間：5ヶ月（要件定義～納品）</p>

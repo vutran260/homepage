@@ -66,7 +66,7 @@ export function Blogs() {
   return (
     <div className='page-container wrap-blogs bg-light-1'>
       <div className='center'>
-        <div className='wap-textLan-space w-full'>
+        <div className='wap-textLan-space mb-2 w-full md:mb-0'>
           <AnimationFadeInUp shouldAnimate={true} index={0}>
             <FlexibleGradient text='最終投稿' className='mb-5 text-3xl' />
           </AnimationFadeInUp>
@@ -84,7 +84,7 @@ export function Blogs() {
       </AnimationFadeInUp>
       <AnimationFadeInUp shouldAnimate={true} index={3}>
         <div className='mt-4 flex justify-center gap-2 pb-2 lg:hidden'>
-          <NavigationButtons />
+          <NavigationButtons onNext={handleNext} onPrev={handlePrev} />
         </div>
       </AnimationFadeInUp>
     </div>
