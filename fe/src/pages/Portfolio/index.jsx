@@ -143,11 +143,10 @@ function Portfolio() {
     fetchPortfolio()
   }, [])
 
-  
   return (
     <>
       <div className='slider-home slider-portfolio relative'>
-        <CloseIcon redirect={`Portfolio1`} />
+        <CloseIcon redirect={`Portfolio`} />
         {/* <Slider {...settings} className='slider-common'>
           {data.map(function (portfolio, index) {
             return ( */}
