@@ -12,6 +12,7 @@ import PreviousArrow from 'src/components/CustomArrow/PreviousArrow.jsx'
 import NextArrow from 'src/components/CustomArrow/NextArrow.jsx'
 import { AnimationFadeInUp } from 'src/components/Animation/index.jsx'
 import LottieAnimation from 'src/components/LottieAnimation/index.jsx'
+import NavigationButtons from 'src/components/NavigationButtons/index.jsx'
 
 export function Services() {
   const sliderRef = useRef(null)
@@ -77,7 +78,7 @@ export function Services() {
             <h2 className='page-title mt-2'>当社のサービス</h2>
           </AnimationFadeInUp>
         </div>
-        <AnimationFadeInUp shouldAnimate={true} index={2} className='mx-auto mt-4 w-[80%] md:w-[50%]'>
+        <AnimationFadeInUp shouldAnimate={true} index={2} className='mx-auto mt-4 w-[90%] md:w-[60%]'>
           <p className='text-whiteGray-600 md:text-2xl'>
             クリエイティブ × プランニング ×
             エンジニアリング企画戦略・デザイン・開発・保守まで、ITに関するあらゆる課題に対応
@@ -133,12 +134,7 @@ export function Services() {
       </AnimationFadeInUp>
       <AnimationFadeInUp shouldAnimate={true} index={4}>
         <div className='mt-4 flex justify-center gap-2 pb-2 lg:hidden'>
-          <ButtonNormal width={60} height={60} radius={30} onClick={handlePrev}>
-            <PrevIcon />
-          </ButtonNormal>
-          <ButtonGradient width={60} height={60} radius={30} onClick={handleNext}>
-            <NextIcon />
-          </ButtonGradient>
+          <NavigationButtons onNext={handleNext} onPrev={handlePrev} />
         </div>
       </AnimationFadeInUp>
     </div>

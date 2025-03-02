@@ -10,16 +10,21 @@
     left: 0;
     right: 0;
     z-index: 1000;
-    background: rgba(19, 19, 19, 0.95);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid #333;
 
     .mobile-nav-bar {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 12px 20px;
-      height: 60px;
+      width: 96%;
+      margin: 0 auto 5px;
+      border-radius: 20px;
+      border: 1px solid #252525;
+      height: 76px;
+      background: rgba(19, 19, 19, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #333;
+      z-index: 999;
 
       .mobile-logo {
         width: 40px;
@@ -66,12 +71,13 @@
       right: 0;
       bottom: 0;
       background: #000000;
-      z-index: 1001;
-
+      width: 100%;
+      position: absolute;
+      z-index: 0;
+      padding-bottom: 20px;
       .drawer-content {
         background: #000000;
-        position: absolute;
-        bottom: 60px;
+        bottom: 0;
         left: 0;
         right: 0;
         overflow-y: auto;
@@ -79,7 +85,6 @@
         flex-direction: column;
         justify-content: center;
         height: calc(100vh - $height-sidebar-mobile);
-
         .drawer-item {
           text-align: center;
           color: #7C7C7C;
