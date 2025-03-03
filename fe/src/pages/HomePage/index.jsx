@@ -1,24 +1,24 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { AboutUs } from '../../components/HomePage/AboutUs'
-import { Home } from '../../components/HomePage/Home'
-import { Portfolio } from '../../components/HomePage/Portfolio'
-import { Services } from '../../components/HomePage/Services'
-import { Teams } from '../../components/HomePage/Teams'
-import { Value } from '../../components/HomePage/Value'
-import { SideBar } from '../../components/SideBar/SideBar'
+import { AboutUs } from 'src/components/HomePage/AboutUs'
+import { Home } from 'src/components/HomePage/Home'
+import { Portfolio } from 'src/components/HomePage/Portfolio'
+import { Services } from 'src/components/HomePage/Services'
+import { Teams } from 'src/components/HomePage/Teams'
+import { Value } from 'src/components/HomePage/Value'
+import { SideBar } from 'src/components/SideBar/SideBar'
 import { useInView } from 'react-intersection-observer'
-import '../../scss/components/homePage.scss'
+import 'src/scss/components/homePage.scss'
 import { SideBarMobile } from 'src/components/SideBar/SideBarMobile.jsx'
-import Footer from '../../components/Footer'
-import ClientFeedback from '../../components/HomePage/ClientFeedback'
+import Footer from 'src/components/Footer'
+import ClientFeedback from 'src/components/HomePage/ClientFeedback'
 import { isMobile } from 'react-device-detect'
 
 import { Element } from 'react-scroll'
-import { AppContext } from '../../contexts/app.context'
+import { AppContext } from 'src/contexts/app.context'
 import { ButtonGoDown } from 'src/components/Button'
 import { useLocation } from 'react-router-dom'
-import CompanyInfo from '../../components/HomePage/CompanyInfo'
-import { Articles } from '../../components/HomePage/Articles'
+import CompanyInfo from 'src/components/HomePage/CompanyInfo'
+import { Articles } from 'src/components/HomePage/Articles'
 import VideoIntro from 'src/components/VideoIntro/VideoIntro.jsx'
 import { Blogs } from 'src/components/HomePage/Blogs.jsx'
 
@@ -70,11 +70,20 @@ export default function HomePage() {
   }, [])
 
   const { setting } = useContext(AppContext)
+  const VIDEO_SEEN_KEY = 'introVideoSeen'
 
-  const [showIntroVideo, setShowIntroVideo] = useState(true)
-  const [shouldAnimate, setShouldAnimate] = useState(false)
+  const [showIntroVideo, setShowIntroVideo] = useState(() => {
+    const hasSeenVideo = sessionStorage.getItem(VIDEO_SEEN_KEY) === 'true'
+    return !hasSeenVideo && !isMobile
+  })
+
+  const [shouldAnimate, setShouldAnimate] = useState(() => {
+    const hasSeenVideo = sessionStorage.getItem(VIDEO_SEEN_KEY) === 'true'
+    return hasSeenVideo || isMobile
+  })
 
   const handleVideoEnd = () => {
+    sessionStorage.setItem(VIDEO_SEEN_KEY, 'true')
     setShowIntroVideo(false)
     setShouldAnimate(true)
   }
