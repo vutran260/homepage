@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react'
 import http from 'src/utils/http'
 import { useParams } from 'react-router-dom'
 import ProjectBasicInfo from 'src/components/Portfolio/ProjectBasicInfo.jsx'
+import { AnimationWrap } from 'src/components/Animation/index.jsx'
 
 const CardPortfolio = (props) => {
   return (
@@ -39,20 +40,22 @@ function Portfolio() {
   return (
     <div className='page-detail-container bg-dark-1'>
       <CloseIcon redirect={`Portfolio`} />
-      <div className='text-center'>
-        <ProjectBasicInfo shouldAnimate={false} portfolio={data} centerTech={true} hideButton={true} />
-      </div>
       {data && (
-        <CardPortfolio
-          key={data.id}
-          title={data.attributes.title}
-          release_time={data.attributes.release_time}
-          media={data.attributes.media}
-          technologies={data.attributes.technologies}
-          website={data.attributes.website}
-          description={data.attributes.description}
-          thumpnail={data.attributes.image.data}
-        />
+        <AnimationWrap>
+          <div className='text-center'>
+            <ProjectBasicInfo shouldAnimate={false} portfolio={data} centerTech={true} hideButton={true} />
+          </div>
+          <CardPortfolio
+            key={data.id}
+            title={data.attributes.title}
+            release_time={data.attributes.release_time}
+            media={data.attributes.media}
+            technologies={data.attributes.technologies}
+            website={data.attributes.website}
+            description={data.attributes.description}
+            thumpnail={data.attributes.image.data}
+          />
+        </AnimationWrap>
       )}
     </div>
   )

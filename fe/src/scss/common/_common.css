@@ -1,13 +1,9 @@
 .page-container {
-  @apply heightSection px-4 py-[30px] text-white md:px-16 flex flex-col md:justify-center;
+  @apply heightSection px-4 pt-[30px] text-white md:px-16 flex flex-col md:justify-center;
 }
 
 .page-detail-container {
-  @apply page-container !transform-none;
-}
-
-.page-detail-container {
-  @apply heightSection px-4 py-[30px] md:px-16;
+  @apply heightSectionDetail px-4 pt-[30px] text-white md:px-16 flex flex-col md:justify-center;
 }
 
 .page-title {

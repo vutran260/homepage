@@ -51,6 +51,12 @@ body {
   margin: 0 auto;
 }
 
+.heightSectionDetail {
+  min-height: calc(100vh) !important;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
 .homeComponent.heightSection {
   max-width: 100%;
 }

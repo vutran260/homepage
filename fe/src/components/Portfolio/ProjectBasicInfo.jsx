@@ -72,13 +72,11 @@ const ProjectBasicInfo = ({ portfolio, shouldAnimate = true, centerTech = null, 
 
       {!hideButton && (
         <AnimationFadeInUp delay={0.1} shouldAnimate={shouldAnimate} index={6}>
-          <InteractiveMotion>
-            <Link to={`/portfolio/${id}`} className=''>
-              <ButtonGradient className='h-[80px] w-full px-[40px] py-[10px] md:w-[320px]'>
-                プロジェクト情報
-              </ButtonGradient>
-            </Link>
-          </InteractiveMotion>
+          <Link to={`/portfolio/${id}`} className=''>
+            <ButtonGradient className='h-[80px] w-full px-[40px] py-[10px] md:w-[320px]'>
+              プロジェクト情報
+            </ButtonGradient>
+          </Link>
         </AnimationFadeInUp>
       )}
     </>
