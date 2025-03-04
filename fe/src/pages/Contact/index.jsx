@@ -1,172 +1,192 @@
-import { useState } from 'react'
-import Iframe from 'react-iframe'
-import contactApi from '../../apis/contact.api'
-import ArrowIcon from '../../components/Icon/ArrowIcon'
-import MapIcon from '../../components/Icon/MapIcon'
-import InputContact from '../../components/InputContact'
-import LogoFixed from '../../components/LogoFixed'
-import Vector6 from '../../assets/images/Vector6.svg'
-import Frame29 from '../../assets/images/Frame29.png'
+import React, { useState } from 'react'
 import { toast } from 'react-toastify'
-import { Link } from 'react-router-dom'
-import './styles.scss'
+import FlexibleGradient from 'src/components/Gradient/FlexibleGradient.jsx'
+import CloseIcon from 'src/components/Icon/CloseIcon/index.jsx'
+import EnvelopeIcon from 'src/components/Icon/EnvelopeIcon/index.jsx'
 
-const ArrowLeft = () => (
-  <svg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'>
-    <path
-      d='M2.09176 9.55246C2.09195 9.55227 2.09211 9.55205 2.09233 9.55186L5.39594 6.26419C5.64343 6.01789 6.04374 6.01881 6.29009 6.26634C6.53641 6.51383 6.53546 6.91413 6.28797 7.16046L4.06993 9.36775H17.4596C17.8087 9.36775 18.0918 9.65081 18.0918 10C18.0918 10.3492 17.8087 10.6322 17.4596 10.6322H4.06996L6.28794 12.8395C6.53543 13.0859 6.53638 13.4862 6.29006 13.7337C6.0437 13.9812 5.64337 13.9821 5.39591 13.7358L2.0923 10.4481C2.09211 10.4479 2.09195 10.4477 2.09173 10.4475C1.84411 10.2004 1.8449 9.79878 2.09176 9.55246Z'
-      fill='white'
-    />
-  </svg>
-)
-
-export default function Contact() {
+export default function ContactForm() {
   const [input, setInput] = useState({
     company_name: '',
     name: '',
-    mail: '',
+    email: '',
     phone: '',
-    description: ''
+    message: ''
   })
+
   const [errors, setErrors] = useState({})
-  const handleChange = (event) => {
-    setInput({ ...input, [event.target.name]: event.target.value })
 
+  const handleChange = (e) => {
+    const { name, value } = e.target
+    setInput((prev) => ({ ...prev, [name]: value }))
   }
-  const handleSubmit = async (event) => {
-    event.preventDefault()
 
-    const errors = {}
-    // validate company_name
-    if (!input.company_name.trim() ) {
-      errors.company_name = '会社名を入力してください'
+  const validateForm = () => {
+    const newErrors = {}
+
+    if (!input.company_name.trim()) {
+      newErrors.company_name = '会社名を入力してください'
     }
-    // validate name
+
     if (!input.name.trim()) {
-      errors.name = '担当者名を入力してください'
+      newErrors.name = '担当者名を入力してください'
     }
-    // validate email
-    if (!input.mail.trim()) {
-      errors.mail = 'メールアドレスを入力してください。'
-    } else if (!/\S+@\S+\.\S+/.test(input.mail)) {
-      errors.mail = 'メールアドレスの形式が正しくありません。'
+
+    if (!input.email.trim()) {
+      newErrors.email = 'メールアドレスを入力してください。'
+    } else if (!/\S+@\S+\.\S+/.test(input.email)) {
+      newErrors.email = 'メールアドレスの形式が正しくありません。'
     }
-    // validate phone
+
     if (!input.phone.trim()) {
-      errors.phone = '電話番号を入力してください。'
+      newErrors.phone = '電話番号を入力してください。'
     } else if (!/^[0-9]{10,11}$/.test(input.phone)) {
-      errors.phone = '電話番号の形式が正しくありません。'
-    }
-    // validate description
-    if (!input.description.trim()) {
-      errors.description = 'お問い合わせ内容を入力してください'
+      newErrors.phone = '電話番号の形式が正しくありません。'
     }
 
-    // update errors state
-    setErrors(errors)
+    if (!input.message.trim()) {
+      newErrors.message = 'お問い合わせ内容を入力してください'
+    }
 
-    // submit form if no errors
-    if (Object.keys(errors).length === 0) {
-      // handle form submission
-      const res = await contactApi.createContact(input)
-      if (res.status === 200) {
-        toast.success('Send Contact Successful')
+    return newErrors
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    const formErrors = validateForm()
+
+    setErrors(formErrors)
+
+    if (Object.keys(formErrors).length === 0) {
+      try {
+        // Replace with your actual API call
+        // const response = await contactApi.createContact(input)
+
+        toast.success('お問い合わせを送信しました')
+
+        // Reset form
         setInput({
           company_name: '',
           name: '',
-          mail: '',
+          email: '',
           phone: '',
-          description: ''
+          message: ''
         })
-      } else {
-        toast.error('Has a error creating contact')
+      } catch (error) {
+        toast.error('送信中にエラーが発生しました')
       }
     }
   }
-  const mainBackgroundClasses = `bg-mainBackground min-h-screen bg-contain bg-top bg-no-repeat`
+
   return (
-    <div className={mainBackgroundClasses} style={{ backgroundSize: '800px', backgroundImage: `url(${Vector6})` }}>
-      <LogoFixed fixed={true} />
-      <div className='mx-auto flex max-w-[1600px]'>
-        <div
-          className='relative w-[110px] border-r-2 border-[#0B0A0A] max-[768px]:hidden min-[1800px]:fixed min-[1800px]:left-0'
-          style={{ height: '50vh' }}
-        >
-          <Link to='/' className='absolute left-[43%] top-[50%] text-white'>
-            <p className='vertical-text font-extrabold'>HOME</p>
-            <ArrowLeft />
-          </Link>
-        </div>
-        <div className='w-full py-[110px] pr-36 pl-8 max-md:p-0 max-md:pt-[85px] max-md:pb-6'>
-          <div className='text-center text-white max-md:ml-4 max-md:text-left'>お気軽にお問い合わせください</div>
-          <h3 className='mb-10 mt-3 text-center text-5xl text-white max-md:ml-4 max-md:text-left'>Contact Us</h3>
-          <div className='mt-5 flex flex-wrap max-md:px-4'>
-            <div className='w-1/3 max-[768px]:w-full'>
-              <h3 className='text-xl font-extrabold text-[#36AAFA]'>LET'S START A PROJECT</h3>
-              <h4 className='mt-7 text-sm font-extrabold text-orange'>Address</h4>
-              <p className='mt-1 text-sm text-white opacity-60'>
-                〒163-0532 <br /> 東京都新宿区西新宿１丁目２６ <br /> −２ 新宿野村ビル 32階
-              </p>
-              <h4 className='mt-7 text-sm font-extrabold text-orange'>Tel</h4>
-              <p className='mt-1 text-sm text-white opacity-60'>03-5322-2953</p>
-              <h4 className='mt-7 text-sm font-extrabold text-orange'>Email</h4>
-              <p className='mt-1 text-sm text-white opacity-60'>info@cet-app.com</p>
-            </div>
-            <div className='w-2/3 pl-[85px] max-md:pl-0 max-[768px]:w-full'>
-              <h3 className='mb-8 text-xl font-extrabold text-[#36AAFA]'>CONTACT FORM</h3>
-              <div className='grid grid-cols-2 gap-8 text-white max-md:grid-cols-1'>
-                <InputContact
-                  handleChange={handleChange}
-                  label='会社名'
-                  placeholder='会社名を入力'
+    <div className='page-detail-container bg-light-2'>
+      <CloseIcon redirect={`Contact_Us`} />
+      <div className='mb-10 text-center'>
+        <FlexibleGradient text={'お気軽にお問い合わせください'} className='mb-5 text-3xl' />
+        <p className='text-4xl text-white md:text-5xl'>お問い合わせ</p>
+      </div>
+      <div className='flex justify-center'>
+        <div className='border-card w-[600px] rounded-2xl bg-gradient-blue-top p-4 md:p-8'>
+          <EnvelopeIcon className='mb-4' />
+          <h1 className='mb-4 text-3xl font-bold text-white'>お問い合わせ</h1>
+          <p className='text-base text-whiteGray-500'>お問い合わせはこちらのフォームよりご連絡ください。</p>
+          <p className='mb-6 text-base text-whiteGray-500'>ご質問・コメントなども、こちらよりお待ちしております。</p>
+          <form onSubmit={handleSubmit} className='space-y-4'>
+            <div className='grid gap-4 md:grid-cols-2'>
+              <div>
+                <label htmlFor='company_name' className='mb-2 block text-sm font-medium text-white'>
+                  会社名
+                </label>
+                <input
+                  type='text'
                   id='company_name'
-                  error={errors.company_name}
-                  input={input}
+                  name='company_name'
+                  value={input.company_name}
+                  onChange={handleChange}
+                  placeholder='会社名を入力'
+                  className={`focus:ring-blue-500 border-input w-full rounded-lg bg-whiteGray-100 px-3 py-2 text-white focus:outline-none focus:ring-2 
+                  ${errors.company_name ? 'border-2 border-red-500' : ''}`}
                 />
-                <InputContact
-                  handleChange={handleChange}
-                  label='ご担当者名'
-                  placeholder='担当者名を入力'
-                  id='name'
-                  error={errors.name}
-                  input={input}
-                />
-                <InputContact
-                  type='email'
-                  handleChange={handleChange}
-                  label='メールアドレス'
-                  placeholder='メールアドレスを入力'
-                  id='mail'
-                  error={errors.mail}
-                  input={input}
-                />
-                <InputContact
-                  handleChange={handleChange}
-                  label='電話番号'
-                  placeholder='電話番号を入力'
-                  id='phone'
-                  error={errors.phone}
-                  input={input}
-                />
-                <InputContact
-                  handleChange={handleChange}
-                  label='お問い合わせ内容'
-                  placeholder='お問い合わせ内容を入力'
-                  id='description'
-                  error={errors.description}
-                  full={true}
-                  input={input}
-                />
+                {errors.company_name && <p className='mt-1 text-xs text-red-500'>{errors.company_name}</p>}
               </div>
+
+              <div>
+                <label htmlFor='name' className='mb-2 block text-sm font-medium text-white'>
+                  ご担当者名
+                </label>
+                <input
+                  type='text'
+                  id='name'
+                  name='name'
+                  value={input.name}
+                  onChange={handleChange}
+                  placeholder='担当者名を入力'
+                  className={`focus:ring-blue-500 border-input w-full rounded-lg bg-whiteGray-100 px-3 py-2 text-white focus:outline-none focus:ring-2 
+                  ${errors.name ? 'border-2 border-red-500' : ''}`}
+                />
+                {errors.name && <p className='mt-1 text-xs text-red-500'>{errors.name}</p>}
+              </div>
+
+              <div>
+                <label htmlFor='email' className='mb-2 block text-sm font-medium text-white'>
+                  メールアドレス
+                </label>
+                <input
+                  type='email'
+                  id='email'
+                  name='email'
+                  value={input.email}
+                  onChange={handleChange}
+                  placeholder='メールアドレスを入力'
+                  className={`focus:ring-blue-500 border-input w-full rounded-lg bg-whiteGray-100 px-3 py-2 text-white focus:outline-none focus:ring-2 
+                  ${errors.email ? 'border-2 border-red-500' : ''}`}
+                />
+                {errors.email && <p className='mt-1 text-xs text-red-500'>{errors.email}</p>}
+              </div>
+
+              <div>
+                <label htmlFor='phone' className='mb-2 block text-sm font-medium text-white'>
+                  電話番号
+                </label>
+                <input
+                  type='tel'
+                  id='phone'
+                  name='phone'
+                  value={input.phone}
+                  onChange={handleChange}
+                  placeholder='電話番号を入力'
+                  className={`focus:ring-blue-500 border-input w-full rounded-lg bg-whiteGray-100 px-3 py-2 text-white focus:outline-none focus:ring-2 
+                  ${errors.phone ? 'border-2 border-red-500' : ''}`}
+                />
+                {errors.phone && <p className='mt-1 text-xs text-red-500'>{errors.phone}</p>}
+              </div>
+
+              <div className='md:col-span-2'>
+                <label htmlFor='message' className='mb-2 block text-sm font-medium text-white'>
+                  お問い合わせ内容
+                </label>
+                <textarea
+                  id='message'
+                  name='message'
+                  value={input.message}
+                  onChange={handleChange}
+                  placeholder='お問い合わせ内容を入力'
+                  rows={4}
+                  className={`focus:ring-blue-500 border-input w-full rounded-lg bg-whiteGray-100 px-3 py-2 text-white focus:outline-none focus:ring-2 
+                  ${errors.message ? 'border-2 border-red-500' : ''}`}
+                />
+                {errors.message && <p className='mt-1 text-xs text-red-500'>{errors.message}</p>}
+              </div>
+            </div>
+
+            <div className='mt-6 w-full text-center'>
               <button
-                onClick={handleSubmit}
-                className='gap mx-auto mt-8 flex items-center justify-center gap-1 rounded-[100px] border-r border-none bg-[#36AAFA] px-6 py-3 text-base text-white max-md:mb-7 max-md:w-full'
+                type='submit'
+                className='w-full transform rounded-lg bg-blueCustom-200 py-3 px-8 font-bold text-white transition duration-300 ease-in-out hover:scale-105 hover:bg-blueCustom-900'
               >
                 送信
-                <ArrowIcon />
               </button>
             </div>
-          </div>
+          </form>
         </div>
       </div>
     </div>

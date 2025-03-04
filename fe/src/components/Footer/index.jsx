@@ -3,6 +3,7 @@ import { AppContext } from 'src/contexts/app.context'
 import FlexibleGradient from 'src/components/Gradient/FlexibleGradient.jsx'
 import { AnimationFadeInUp } from 'src/components/Animation/index.jsx'
 import { ButtonGradient } from 'src/components/Button/index.js'
+import { Link } from 'react-router-dom'
 
 function Footer() {
   const { setting } = useContext(AppContext)
@@ -93,9 +94,11 @@ function Footer() {
               <h2 className='text-3xl font-bold'>CET.inc</h2>
               <p className='mt-2 text-3xl'>アプリ開発ならCET</p>
             </div>
-            <ButtonGradient className='w-full sm:w-[140px] md:w-[160px]' height={50} radius={16} fontSize={18}>
-              お問い合わせ
-            </ButtonGradient>
+            <Link to='/contact'>
+              <ButtonGradient className='w-full sm:w-[140px] md:w-[160px]' height={50} radius={16} fontSize={18}>
+                お問い合わせ
+              </ButtonGradient>
+            </Link>
           </div>
           <div className='mt-6 text-base md:mt-12'>
             <p>© 2022 Request for application development is CET Co., Ltd.</p>

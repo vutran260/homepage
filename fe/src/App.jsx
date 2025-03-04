@@ -27,7 +27,7 @@ function App() {
   }, [])
 
   return (
-    <div className='App'>
+    <div className='App bg-black'>
       <Routes>
         <Route path='/' element={<HomePage />} />
         <Route path='/posts' element={<PostsList />} />
