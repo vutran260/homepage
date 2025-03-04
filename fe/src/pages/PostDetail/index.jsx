@@ -22,19 +22,16 @@ export default function PostsList() {
     fetchPostDetail()
   }, [])
 
-  const mainBackgroundClasses = `bg-mainBackground bg-[url("/images/Vector14.svg")] bg-contain bg-left-top bg-no-repeat pb-[80px] min-h-screen post-detail max-sm:px-5`
-
   return (
-    <div style={{ backgroundImage: `url(${Vector14})` }} className={mainBackgroundClasses}>
-      <LogoFixed />
-      <CloseIcon pathName={searchParams.get('home') ? `/` : `/posts`} redirect={`News`} />
+    <div className='page-detail-container bg-dark-1'>
+      <CloseIcon pathName={searchParams.get('home') ? `/` : `/posts`} redirect={`Blogs`} />
       {post && (
         <AnimationWrap>
           <div className='mx-auto max-w-[754px]'>
             <h3 className='mb-10 text-left text-5xl text-white'>{post.title}</h3>
             <div className='text-sm text-white text-opacity-50'>{convertDateFormat(post.createdAt)}</div>
             <div className='description mt-10 whitespace-pre-line text-white'>
-              <img src={`${import.meta.env.VITE_REACT_IMAGE_BASE_URL}${post?.thumpnail?.data.attributes.url}`} alt='' />
+              <img src={`${import.meta.env.VITE_REACT_IMAGE_BASE_URL}${post?.thumpnail?.data.attributes.url}`} alt=''/>
               {/* <ReactMarkdown
                 transformImageUri={(uri) =>
                   uri.startsWith('http') ? uri : `${import.meta.env.VITE_REACT_IMAGE_BASE_URL}${uri}`

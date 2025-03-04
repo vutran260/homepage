@@ -2,6 +2,14 @@
   @apply heightSection px-4 py-[30px] text-white md:px-16 flex flex-col md:justify-center;
 }
 
+.page-detail-container {
+  @apply page-container !transform-none;
+}
+
+.page-detail-container {
+  @apply heightSection px-4 py-[30px] md:px-16;
+}
+
 .page-title {
   @apply text-4xl md:text-6xl font-bold;
 }
@@ -28,6 +36,10 @@
 
 .border-card {
   @apply border border-solid border-[#181818];
+}
+
+.border-input {
+  @apply border-[0.5px] border-solid border-[#FFFFFF1A];
 }
 
 @screen md {

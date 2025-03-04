@@ -37,7 +37,7 @@ function Portfolio() {
   }, [])
 
   return (
-    <div className='page-container bg-dark-1'>
+    <div className='page-detail-container bg-dark-1'>
       <CloseIcon redirect={`Portfolio`} />
       <div className='text-center'>
         <ProjectBasicInfo shouldAnimate={false} portfolio={data} centerTech={true} hideButton={true} />
