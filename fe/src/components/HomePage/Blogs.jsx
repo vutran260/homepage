@@ -4,7 +4,7 @@ import '../../scss/components/blogs.scss'
 import { BlogCard } from './BlogCard.jsx'
 import Slider from 'react-slick'
 import FlexibleGradient from 'src/components/Gradient/FlexibleGradient.jsx'
-import { AnimationFadeInUp } from 'src/components/Animation/index.jsx'
+import {AnimationFadeInUp, HoverFloatMotion} from 'src/components/Animation/index.jsx'
 import PreviousArrow from 'src/components/CustomArrow/PreviousArrow.jsx'
 import NextArrow from 'src/components/CustomArrow/NextArrow.jsx'
 import NavigationButtons from 'src/components/NavigationButtons/index.jsx'
@@ -78,7 +78,9 @@ export function Blogs() {
       <AnimationFadeInUp shouldAnimate={true} index={2}>
         <Slider ref={sliderRef} {...settings} className='wrap-sliderBlogs overflow-hidden'>
           {data.map((item) => (
-            <BlogCard key={item.id} {...item} />
+            <HoverFloatMotion>
+              <BlogCard key={item.id} {...item} />
+            </HoverFloatMotion>
           ))}
         </Slider>
       </AnimationFadeInUp>
