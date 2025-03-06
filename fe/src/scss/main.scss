@@ -77,8 +77,7 @@ body {
 
 @include screen("mobile") {
   .heightSection {
-    min-height: calc(100vh) !important;
-    padding-bottom: 0;
+    min-height: calc(100vh - $height-sidebar-mobile) !important;
   }
 }
 

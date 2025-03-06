@@ -1,20 +1,30 @@
 import React, { useContext, useEffect, useRef } from 'react'
 import bgHomeVideo from 'src/assets/videos/bgHome.mp4'
 import 'src/scss/components/homeComponent.scss'
-import { AppContext } from '../../contexts/app.context'
+import { AppContext } from 'src/contexts/app.context'
 import { ButtonGradient } from 'src/components/Button'
 import { AnimationFadeInUp } from 'src/components/Animation/index.jsx'
 import LogoNew from 'src/assets/images/LogoNew.png'
 import bgHomeMobile from 'src/assets/images/bgHomeMobile.png'
-import { isMobile } from 'react-device-detect'
 
 export function Home({ shouldAnimate, isMobile }) {
   const { setting } = useContext(AppContext)
   const videoRef = useRef(null)
 
   useEffect(() => {
-    if (shouldAnimate) {
-      videoRef.current.play()
+    if (shouldAnimate && videoRef.current) {
+      const isIOSSafari =
+        /iPhone|iPad|iPod/i.test(navigator.userAgent) && /WebKit/i.test(navigator.userAgent) && !window.MSStream
+
+      if (!isIOSSafari) {
+        const playPromise = videoRef.current.play()
+
+        if (playPromise !== undefined) {
+          playPromise.catch((error) => {
+            console.log('Autoplay prevented:', error)
+          })
+        }
+      }
     }
   }, [shouldAnimate])
 
@@ -30,17 +40,19 @@ export function Home({ shouldAnimate, isMobile }) {
         <div className='z-10 flex flex-col items-center'>
           <AnimationFadeInUp
             shouldAnimate={shouldAnimate}
-            className='textHome mb-10 flex flex-col items-center text-white max-md:text-4xl'
+            className='textHome mb-10 flex flex-col items-center text-white'
             index={0}
           >
             <span
-              className='text-center font-bold max-md:text-3xl'
+              className='text-center text-8xl font-bold leading-tight'
               dangerouslySetInnerHTML={{ __html: setting.title_banner }}
             ></span>
           </AnimationFadeInUp>
 
           <AnimationFadeInUp shouldAnimate={shouldAnimate} index={1} className='mt-10 w-full md:w-auto'>
-            <ButtonGradient className='h-[80px] w-full px-[40px] py-[10px] md:w-[231px]'>CETを知る</ButtonGradient>
+            <ButtonGradient className='h-[80px] w-full px-[40px] py-[10px] md:w-[231px]' radius={28}>
+              CETを知る
+            </ButtonGradient>
           </AnimationFadeInUp>
         </div>
       </div>

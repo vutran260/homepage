@@ -109,7 +109,7 @@ export const AnimationFadeInUp = ({
   const inViewOptions = useMemo(
     () => ({
       threshold: 0.1, // Lower threshold for better performance
-      triggerOnce: false,
+      triggerOnce: true,
       // Disable tracking when not needed
       skip: fixedElement || !shouldUseAnimation
     }),

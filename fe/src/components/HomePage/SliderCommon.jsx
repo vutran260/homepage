@@ -38,7 +38,7 @@ export function SliderCommon({ data }) {
         settings: {
           slidesToShow: 1,
           swipeToSlide: true,
-          centerPadding: '30px',
+          centerPadding: '20px',
           prevArrow: false,
           nextArrow: false
         }

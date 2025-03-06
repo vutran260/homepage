@@ -43,7 +43,7 @@ function CompanyInfo() {
         {/* Content Grid */}
         <div className='grid gap-6 md:grid-cols-2'>
           {/* Left Card - Company Details */}
-          <AnimationFadeInUp shouldAnimate={true} index={1} className='border-card rounded-3xl bg-gradient-blue p-8'>
+          <AnimationFadeInUp shouldAnimate={true} index={1} className='border-card rounded-3xl bg-gradient-blue p-6'>
             <table className='w-full'>
               <tbody className='space-y-5'>
                 <TableRow label='社名' value='株式会社CET' />
@@ -82,7 +82,7 @@ function CompanyInfo() {
             <AnimationFadeInUp
               shouldAnimate={true}
               index={2}
-              className='border-card rounded-3xl bg-gradient-purple p-8 shadow-lg'
+              className='border-card rounded-3xl bg-gradient-purple p-6 shadow-lg'
             >
               <table className='w-full'>
                 <tbody className='space-y-4'>

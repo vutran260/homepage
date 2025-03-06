@@ -20,18 +20,20 @@ export const CardProfile = (props) => {
           <img
             src={`${import.meta.env.VITE_REACT_IMAGE_BASE_URL}${props.avatar}`}
             alt=''
-            className='square-content h-[320px] w-full object-cover'
+            className='square-content h-[300px] w-full object-cover'
           />
         </div>
         <div className='flex flex-col justify-center'>
-          <span className='mt-4 mb-1 flex justify-start truncate text-xl text-blueCustom-100'>
+          <span className='mt-4 flex justify-start truncate text-base text-blueCustom-100 md:text-xl'>
             {props.jobDescription}
           </span>
-          <span className='textName mb-2 flex justify-start truncate text-3xl font-medium text-white'>
+          <span className='textName flex justify-start truncate text-xl font-medium text-white md:text-3xl'>
             {props.name}
           </span>
-          <span className='flex justify-start truncate text-xl text-white'>{props.experience}</span>
-          <span className='text-custom  mb-2 flex justify-start text-xl text-white'>{props.technologies}</span>
+          <span className='flex justify-start truncate text-base text-white md:text-xl'>{props.experience}</span>
+          <span className='flex justify-start text-base text-white md:text-xl'>
+            {props.technologies}
+          </span>
         </div>
       </div>
     </>
