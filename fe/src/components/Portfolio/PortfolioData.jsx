@@ -20,7 +20,7 @@ const PortfolioData = ({ portfolio }) => {
   }
 
   return (
-    <ContainerMotion className='flex flex-col md:flex-row md:justify-between'>
+    <ContainerMotion className='flex flex-col items-center md:flex-row md:justify-between'>
       <div className='w-[368px]'>
         <div className='p-4 text-center md:text-left'>
           <ProjectBasicInfo portfolio={portfolio} />
