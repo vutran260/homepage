@@ -2,8 +2,8 @@ import React, { useState, useContext } from 'react'
 import { AppContext } from 'src/contexts/app.context.jsx'
 import LogoNew from 'src/assets/images/LogoNew.png'
 import 'src/scss/components/sidebarMobile.scss'
-import toggleSideBar from 'src/assets/images/toggleSideBar.png'
 import closeIcon from 'src/assets/images/closeIcon.png'
+import ToggleSideBarIcon from 'src/components/Icon/ToggleSideBarIcon/index.jsx'
 
 export const SideBarMobile = () => {
   const { menuActive, setMenuActive } = useContext(AppContext)
@@ -78,16 +78,12 @@ export const SideBarMobile = () => {
         </div>
       )}
       <div className='mobile-nav-bar'>
-        <img src={LogoNew} alt='Logo' className='mobile-logo' onClick={() => handleScrollToElement('Home')}/>
+        <img src={LogoNew} alt='Logo' className='mobile-logo' onClick={() => handleScrollToElement('Home')} />
         <span className='nav-center-text cursor-pointer' onClick={handleToggleDrawer}>
           {centerText}
         </span>
         <button className='toggle-btn' onClick={handleToggleDrawer} aria-label='Toggle menu'>
-          {isDrawerOpen ? (
-            <img src={closeIcon} width={16} height={16} alt=''/>
-          ) : (
-            <img src={toggleSideBar} width={20} height={20} alt=''/>
-          )}
+          {isDrawerOpen ? <img src={closeIcon} width={20} height={20} alt='' /> : <ToggleSideBarIcon />}
         </button>
       </div>
     </div>

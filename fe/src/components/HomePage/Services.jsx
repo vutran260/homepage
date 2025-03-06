@@ -5,9 +5,7 @@ import Slider from 'react-slick'
 
 import http from 'src/utils/http'
 import FlexibleGradient from 'src/components/Gradient/FlexibleGradient.jsx'
-import { ButtonGradient, ButtonNormal } from 'src/components/Button/index.js'
-import PrevIcon from 'src/components/Icon/PrevIcon/index.jsx'
-import NextIcon from 'src/components/Icon/NextIcon/index.jsx'
+import { ButtonGradient } from 'src/components/Button/index.js'
 import PreviousArrow from 'src/components/CustomArrow/PreviousArrow.jsx'
 import NextArrow from 'src/components/CustomArrow/NextArrow.jsx'
 import { AnimationFadeInUp } from 'src/components/Animation/index.jsx'
@@ -51,7 +49,7 @@ export function Services() {
           slidesToScroll: 1,
           initialSlide: 1,
           centerMode: true,
-          centerPadding: '30px',
+          centerPadding: '20px',
           prevArrow: false,
           nextArrow: false
         }
@@ -68,18 +66,18 @@ export function Services() {
   }
 
   return (
-    <div className='wrap-services page-container bg-dark-1'>
-      <div className='pb-4  text-center md:pb-8'>
+    <div className='wrap-services page-container bg-dark-1 pt-[20px]'>
+      <div className='pb-2 text-center md:pb-8'>
         <div>
           <AnimationFadeInUp shouldAnimate={true} index={0}>
             <FlexibleGradient text='私たちの仕事' className='text-3xl' />
           </AnimationFadeInUp>
           <AnimationFadeInUp shouldAnimate={true} index={1}>
-            <h2 className='page-title mt-2'>当社のサービス</h2>
+            <h2 className='page-title'>当社のサービス</h2>
           </AnimationFadeInUp>
         </div>
-        <AnimationFadeInUp shouldAnimate={true} index={2} className='mx-auto mt-4 w-[90%] md:w-[60%]'>
-          <p className='text-whiteGray-600 md:text-2xl'>
+        <AnimationFadeInUp shouldAnimate={true} index={2} className='mx-auto mt-2 w-full md:w-[80%]'>
+          <p className='text-sm text-whiteGray-600 md:text-2xl'>
             クリエイティブ × プランニング ×
             エンジニアリング企画戦略・デザイン・開発・保守まで、ITに関するあらゆる課題に対応
           </p>
@@ -91,17 +89,17 @@ export function Services() {
             {data?.map((service, i) => {
               return (
                 <div key={service.id}>
-                  <div className='h-[400px] rounded-2xl border border-solid border-darkGray-600 bg-gradient-green p-4 md:h-[500px] md:p-8'>
+                  <div className='h-[350px] rounded-2xl border border-solid border-darkGray-600 bg-gradient-green p-4 md:p-8'>
                     <div className='relative flex h-full flex-col'>
                       {/* Content container with adjusted padding for mobile button */}
                       <div className='flex flex-col pb-16 md:pb-0'>
-                        <span className='mb-2 text-3xl font-bold text-white md:mb-4'>{service.attributes.title}</span>
-                        <p className='z-10 text-base font-normal text-white opacity-60 line-clamp-[10] md:text-xl md:leading-[34px] md:line-clamp-none'>
+                        <span className='mb-2 text-xl font-bold text-white md:mb-4'>{service.attributes.title}</span>
+                        <p className='z-10 text-sm font-normal text-white opacity-60 line-clamp-[10] md:text-xl md:leading-[34px] md:line-clamp-none lg:text-lg'>
                           {service.attributes.description}
                         </p>
                         {/* Button for desktop view */}
                         <ButtonGradient
-                          className='z-10 mt-2 hidden w-full md:mt-10 md:flex md:w-[160px]'
+                          className='z-10 mt-2 hidden w-full md:flex md:w-[160px]'
                           height={50}
                           radius={16}
                           fontSize={20}
@@ -133,7 +131,7 @@ export function Services() {
         )}
       </AnimationFadeInUp>
       <AnimationFadeInUp shouldAnimate={true} index={4}>
-        <div className='mt-4 flex justify-center gap-2 pb-2 lg:hidden'>
+        <div className='mt-2 flex justify-center gap-2 pb-2 lg:hidden'>
           <NavigationButtons onNext={handleNext} onPrev={handlePrev} />
         </div>
       </AnimationFadeInUp>

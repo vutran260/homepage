@@ -74,7 +74,6 @@
       width: 100%;
       position: absolute;
       z-index: 0;
-      padding-bottom: 20px;
       .drawer-content {
         background: #000000;
         bottom: 0;
@@ -84,7 +83,7 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        height: calc(100vh - $height-sidebar-mobile);
+        height: calc(100vh);
         .drawer-item {
           text-align: center;
           color: #7C7C7C;

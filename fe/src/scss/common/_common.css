@@ -1,5 +1,5 @@
 .page-container {
-  @apply heightSection px-4 pt-[30px] text-white md:px-16 flex flex-col md:justify-center;
+  @apply heightSection px-4 pt-[30px] text-white md:px-16 flex flex-col justify-center;
 }
 
 .page-detail-container {

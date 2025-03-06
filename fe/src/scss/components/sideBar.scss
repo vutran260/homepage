@@ -58,3 +58,19 @@
     display: none;
   }
 }
+
+@media screen and (max-width: 1180px) {
+  .bottom-sidebar {
+    .nav-line {
+      .nav-menu-wrapper {
+        .nav-menu-list {
+          gap: 20px;
+
+          .nav-link {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+}

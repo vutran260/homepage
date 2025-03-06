@@ -28,7 +28,7 @@ export function BlogCard(datum) {
       >
         <div className='card-content relative h-full rounded-[20px]'>
           {/* Image container with overlay */}
-          <div className='relative h-[450px] md:h-[563px]'>
+          <div className='relative aspect-[3/4] w-full'>
             {obj.image ? (
               <img
                 src={`${import.meta.env.VITE_REACT_IMAGE_BASE_URL}${obj.image}`}

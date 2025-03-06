@@ -107,12 +107,12 @@ export default ClientFeedback
 
 const FeedBackItem = ({ fb }) => {
   return (
-    <div className='person relative h-[400px] rounded-3xl border border-solid border-[#181818] bg-[#060606] p-6'>
+    <div className='person relative h-[350px] rounded-3xl border border-solid border-[#181818] bg-[#060606] p-6'>
       <div
         className='h-[calc(100%-60px)] overflow-y-auto'
         style={{ WebkitOverflowScrolling: 'touch', scrollbarWidth: 'thin', scrollbarColor: '#333333 #060606' }}
       >
-        <p className='relative whitespace-pre-line text-lg md:text-xl'>{fb.attributes.description}</p>
+        <p className='relative whitespace-pre-line text-sm md:text-xl'>{fb.attributes.description}</p>
       </div>
       <div className='avatar absolute bottom-2 flex items-center gap-4 pr-[20px] md:pr-0'>
         <div className='left'>

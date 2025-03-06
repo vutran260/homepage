@@ -55,7 +55,7 @@ const ProjectBasicInfo = ({ portfolio, shouldAnimate = true, centerTech = null, 
         <p className='mb-2 text-xl text-whiteGray-600'>テクノロジー</p>
       </AnimationFadeInUp>
 
-      <AnimationFadeInUp delay={0.1} shouldAnimate={shouldAnimate} index={3} className={`flex`}>
+      <AnimationFadeInUp delay={0.1} shouldAnimate={shouldAnimate} index={3} className={`flex justify-center`}>
         <motion.div
           className={`mb-10 grid w-[218px] grid-cols-3 gap-2 md:flex md:w-full md:flex-wrap  ${techAlignment}`}
         >
