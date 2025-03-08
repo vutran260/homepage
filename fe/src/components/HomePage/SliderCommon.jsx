@@ -57,7 +57,7 @@ export function SliderCommon({ data }) {
   return (
     <>
       <div className='slider-common h-full'>
-        <AnimationFadeInUp shouldAnimate={true} index={2}>
+        <AnimationFadeInUp shouldAnimate={true} index={1}>
           {data?.length && (
             <Slider ref={sliderRef} {...settings}>
               {data.map((team, index) => {

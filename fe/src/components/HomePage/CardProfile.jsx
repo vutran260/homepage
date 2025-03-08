@@ -30,10 +30,8 @@ export const CardProfile = (props) => {
           <span className='textName flex justify-start truncate text-xl font-medium text-white md:text-3xl'>
             {props.name}
           </span>
-          <span className='flex justify-start truncate text-base text-white md:text-xl'>{props.experience}</span>
-          <span className='flex justify-start text-base text-white md:text-xl'>
-            {props.technologies}
-          </span>
+          <span className='flex justify-start truncate text-base text-whiteGray-500 md:text-xl'>{props.experience}</span>
+          <span className='flex justify-start text-base text-whiteGray-500 md:text-xl'>{props.technologies}</span>
         </div>
       </div>
     </>

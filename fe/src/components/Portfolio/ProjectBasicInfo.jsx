@@ -1,9 +1,10 @@
-import { AnimationFadeInUp, HoverScaleMotion, InteractiveMotion } from 'src/components/Animation/index.jsx'
+import { AnimationFadeInUp, HoverScaleMotion } from 'src/components/Animation/index.jsx'
 import FlexibleGradient from 'src/components/Gradient/FlexibleGradient.jsx'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ButtonGradient } from 'src/components/Button/index.js'
 import React from 'react'
+import projectLogo from 'src/assets/images/projectLogo.png'
 import technical1 from 'src/assets/images/technical1.png'
 import technical2 from 'src/assets/images/technical2.png'
 import technical3 from 'src/assets/images/technical3.png'
@@ -11,7 +12,13 @@ import technical4 from 'src/assets/images/technical4.png'
 import technical5 from 'src/assets/images/technical5.png'
 import technical6 from 'src/assets/images/technical6.png'
 
-const ProjectBasicInfo = ({ portfolio, shouldAnimate = true, centerTech = null, hideButton = false }) => {
+const ProjectBasicInfo = ({
+  portfolio,
+  shouldAnimate = true,
+  centerTech = null,
+  hideButton = false,
+  topLogo = false
+}) => {
   if (!portfolio) return null
 
   const {
@@ -39,30 +46,39 @@ const ProjectBasicInfo = ({ portfolio, shouldAnimate = true, centerTech = null, 
 
   return (
     <>
+      {topLogo && (
+        <AnimationFadeInUp shouldAnimate={shouldAnimate} index={1} className='flex justify-center md:!justify-start'>
+          <img src={projectLogo} width={200} height={70} className='mb-5' alt='' />
+        </AnimationFadeInUp>
+      )}
       <AnimationFadeInUp delay={0.1} shouldAnimate={shouldAnimate} index={0}>
-        <FlexibleGradient text={domain || 'アプリ制作'} className='mb-5 text-3xl' />
+        <FlexibleGradient text={domain || 'アプリ制作'} className='mb-5 text-3xl md:mb-10' />
       </AnimationFadeInUp>
-
-      <AnimationFadeInUp delay={0.1} shouldAnimate={shouldAnimate} index={1}>
-        <p className='mb-5 text-4xl text-white md:text-5xl'>{title}</p>
-      </AnimationFadeInUp>
-
+      {!topLogo && (
+        <AnimationFadeInUp shouldAnimate={shouldAnimate} index={1} className='flex justify-center md:!justify-start'>
+          <img src={projectLogo} width={200} height={70} className='mb-5' alt='' />
+        </AnimationFadeInUp>
+      )}
       <AnimationFadeInUp delay={0.1} shouldAnimate={shouldAnimate} index={2}>
-        <p className='mb-5 text-xl text-whiteGray-600'>{release_time}</p>
+        <p className='mb-10 text-4xl font-bold tracking-widest text-white md:mb-16 md:text-4xl'>{title}</p>
       </AnimationFadeInUp>
 
       <AnimationFadeInUp delay={0.1} shouldAnimate={shouldAnimate} index={3}>
-        <p className='mb-2 text-xl text-whiteGray-600'>テクノロジー</p>
+        <p className='mb-5 text-lg text-whiteGray-600 md:mb-10 2xl:text-xl'>{release_time}</p>
       </AnimationFadeInUp>
 
-      <AnimationFadeInUp delay={0.1} shouldAnimate={shouldAnimate} index={3} className={`flex justify-center`}>
+      <AnimationFadeInUp delay={0.1} shouldAnimate={shouldAnimate} index={4}>
+        <p className='mb-2 text-lg text-whiteGray-600 2xl:text-xl'>テクノロジー</p>
+      </AnimationFadeInUp>
+
+      <AnimationFadeInUp delay={0.1} shouldAnimate={shouldAnimate} index={4} className={`flex justify-center`}>
         <motion.div
           className={`mb-10 grid w-[218px] grid-cols-3 gap-2 md:flex md:w-full md:flex-wrap  ${techAlignment}`}
         >
           {technicalSkills.map((item, index) => (
             <HoverScaleMotion
               key={index}
-              className='inline-block w-[66px] items-center justify-center rounded-[10px] border border-solid border-whiteGray-100 p-2'
+              className='inline-block w-[45px] items-center justify-center rounded-[10px] border border-solid border-whiteGray-100 p-2'
             >
               <img src={item.image} alt={item.name} />
             </HoverScaleMotion>

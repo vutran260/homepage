@@ -33,7 +33,7 @@ export function BlogCard(datum) {
               <img
                 src={`${import.meta.env.VITE_REACT_IMAGE_BASE_URL}${obj.image}`}
                 alt=''
-                className='h-full w-full  object-cover duration-300'
+                className='h-full w-full object-cover duration-300'
                 style={{
                   borderRadius: '24px'
                 }}
@@ -62,9 +62,9 @@ export function BlogCard(datum) {
 
           {/* Content */}
           <div className='absolute bottom-0 left-0 right-0 space-y-3 p-6 text-center'>
-            <p className='text-lg font-medium text-white drop-shadow-lg line-clamp-1'>{obj.title}</p>
+            <p className='text-lg font-medium tracking-wider text-white drop-shadow-lg line-clamp-1'>{obj.title}</p>
             <div
-              className='text-sm line-clamp-2  [&>*]:!text-whiteGray-500 [&_span]:!text-whiteGray-500 [&_p]:!text-whiteGray-500'
+              className='text-sm tracking-wider  line-clamp-2 [&>*]:!text-whiteGray-500 [&_span]:!text-whiteGray-500 [&_p]:!text-whiteGray-500'
               dangerouslySetInnerHTML={{ __html: obj.description }}
             />
           </div>

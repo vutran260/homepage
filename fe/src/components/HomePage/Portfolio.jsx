@@ -75,7 +75,7 @@ export function Portfolio() {
   }
 
   return (
-    <div className='page-container bg-dark-1 mx-auto max-w-[1500px] px-4 !pr-0 md:px-8'>
+    <div className='page-container bg-dark-1 mx-auto !pr-0 md:px-8'>
       {isMobile && (
         <div className='flex items-center justify-center gap-2'>
           <NavigationButtons onPrev={prevSlide} onNext={nextSlide} disabled={isAnimating} />
