@@ -2,6 +2,7 @@ import { AnimationFadeInUp, ContainerMotion, HoverFloatMotion } from 'src/compon
 import ProjectBasicInfo from 'src/components/Portfolio/ProjectBasicInfo.jsx'
 import CardGradient from 'src/components/Gradient/CardGradient.jsx'
 import React from 'react'
+import NavigationButtons from "src/components/NavigationButtons/index.jsx";
 
 const PortfolioData = ({ portfolio }) => {
   if (!portfolio) return null
