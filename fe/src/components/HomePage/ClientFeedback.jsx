@@ -1,28 +1,17 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useRef } from 'react'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import 'src/scss/components/clientFeedback.scss'
 
-import http from 'src/utils/http'
 import { AnimationFadeInUp } from '../Animation'
 import FlexibleGradient from 'src/components/Gradient/FlexibleGradient.jsx'
 import PreviousArrow from 'src/components/CustomArrow/PreviousArrow.jsx'
 import NextArrow from 'src/components/CustomArrow/NextArrow.jsx'
 import NavigationButtons from 'src/components/NavigationButtons/index.jsx'
 
-const ClientFeedback = () => {
-  const [data, setData] = useState([])
+const ClientFeedback = ({ data }) => {
   const sliderRef = useRef(null)
-  const fetchPortfolios = async () => {
-    const res = await http.get(`feedbacks?populate=*`)
-    setData(res.data.data)
-  }
-
-  useEffect(() => {
-    fetchPortfolios()
-  }, [])
-
   const settings = {
     customPaging: function (i) {
       const activeItem = data[i]

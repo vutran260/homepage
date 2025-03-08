@@ -1,5 +1,3 @@
-import { useEffect, useState } from 'react'
-import http from 'src/utils/http.js'
 import 'src/scss/components/news.scss'
 import bgFeatureImage from 'src/assets/images/bgFeatureImage.png'
 import bgNewCard from 'src/assets/images/bgNewCard.png'
@@ -11,18 +9,7 @@ import { AnimationFadeInUp } from '../Animation'
 import { NewCard } from './NewCard'
 import { ButtonGradient } from 'src/components/Button/index.js'
 
-export function Articles() {
-  const [data, setData] = useState([])
-  const fetchNews = async () => {
-    const res = await http.get(`articles?populate=*&pagination[page]=1&pagination[pageSize]=3&sort=createdAt:desc`)
-
-    setData(res.data.data)
-  }
-
-  useEffect(() => {
-    fetchNews()
-  }, [])
-
+export function Articles({ data }) {
   return (
     <div className='page-container bg-light-2'>
       {/* Header */}

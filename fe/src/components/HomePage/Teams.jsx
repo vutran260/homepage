@@ -1,21 +1,10 @@
 import 'src/scss/components/teams.scss'
 import { SliderCommon } from 'src/components/HomePage/SliderCommon'
-import React, { useEffect, useState } from 'react'
-import http from 'src/utils/http'
+import React from 'react'
 import { AnimationFadeInUp } from '../Animation'
 import FlexibleGradient from 'src/components/Gradient/FlexibleGradient.jsx'
 
-export const Teams = () => {
-  const [data, setData] = useState([])
-  const fetchPortfolios = async () => {
-    const res = await http.get(`teams?populate=*`)
-    setData(res.data.data)
-  }
-
-  useEffect(() => {
-    fetchPortfolios()
-  }, [])
-
+export const Teams = ({ data }) => {
   return (
     <div className='page-container bg-light-2'>
       <div className='center pb-4 md:pb-8'>
