@@ -37,7 +37,6 @@ export const SideBar = ({ shouldAnimate }) => {
   const handleScrollToElement = (targetName) => {
     const section = document.querySelector(`#${targetName}`)
     section.scrollIntoView({ behavior: 'smooth', block: 'start' })
-    setMenuActive(targetName)
   }
 
   return (

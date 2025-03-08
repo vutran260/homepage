@@ -1,16 +1,36 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState, useRef } from 'react'
 import { useInView } from 'react-intersection-observer'
 import { AppContext } from 'src/contexts/app.context.jsx'
 
 export const Section = ({ children, id, loadData, bgLoadingClass = 'bg-black' }) => {
   const { inView, ref } = useInView({
     /* Optional options */
-    threshold: 0.3
+    threshold: 0.1
   })
   const [data, setData] = useState(null)
   const [loading, setLoading] = useState(!!loadData)
+  const timerRef = useRef(null)
 
   const { setMenuActive } = useContext(AppContext)
+
+  useEffect(() => {
+    if (inView) {
+      if (timerRef.current) {
+        clearTimeout(timerRef.current)
+      }
+
+      timerRef.current = setTimeout(() => {
+        setMenuActive(id)
+      }, 300)
+    }
+
+    // Cleanup function to clear the timer when component unmounts or inView changes
+    return () => {
+      if (timerRef.current) {
+        clearTimeout(timerRef.current)
+      }
+    }
+  }, [inView, id, setMenuActive])
 
   useEffect(() => {
     if (inView && loadData && !data) {
@@ -37,7 +57,7 @@ export const Section = ({ children, id, loadData, bgLoadingClass = 'bg-black' })
   )
 
   return (
-    <section ref={ref} id={id} className='h-full'>
+    <section ref={ref} id={id} className='section-container h-full'>
       <div
         className='h-full bg-black'
         style={{

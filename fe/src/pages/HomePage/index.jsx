@@ -106,7 +106,7 @@ export default function HomePage() {
                 <ClientFeedback />
               </Section>
             </Element>
-            <Element id='CompanyInfo' style={{ transform: `scale(${scale * 0.9})` }}>
+            <Element id='CompanyInfo' style={{ transform: `scale(${scale})` }}>
               <Section id='CompanyInfo' loadData={fetchCompanyInfo} bgLoadingClass='bg-light-2'>
                 <CompanyInfo />
               </Section>
