@@ -1,6 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react'
-import http from 'src/utils/http.js'
-import '../../scss/components/blogs.scss'
+import React, { useRef } from 'react'
+import 'src/scss/components/blogs.scss'
 import { BlogCard } from './BlogCard.jsx'
 import Slider from 'react-slick'
 import FlexibleGradient from 'src/components/Gradient/FlexibleGradient.jsx'
@@ -9,18 +8,8 @@ import PreviousArrow from 'src/components/CustomArrow/PreviousArrow.jsx'
 import NextArrow from 'src/components/CustomArrow/NextArrow.jsx'
 import NavigationButtons from 'src/components/NavigationButtons/index.jsx'
 
-export function Blogs() {
+export function Blogs({ data }) {
   const sliderRef = useRef(null)
-  const [data, setData] = useState([])
-  const fetchNews = async () => {
-    const res = await http.get(`posts?populate=*&pagination[page]=1&pagination[pageSize]=10&sort=createdAt:desc`)
-
-    setData(res.data.data)
-  }
-
-  useEffect(() => {
-    fetchNews()
-  }, [])
 
   const settings = {
     dots: false,

@@ -1,30 +1,20 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { AnimationFadeInUp } from 'src/components/Animation/index.jsx'
 import { useMediaQuery } from 'react-responsive'
 import NavigationButtons from 'src/components/NavigationButtons/index.jsx'
-import http from 'src/utils/http.js'
 import PortfolioData from 'src/components/Portfolio/PortfolioData.jsx'
 
-export function Portfolio() {
-  const [data, setData] = useState([])
+export function Portfolio({ data = [] }) {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [direction, setDirection] = useState(0) // -1 for left, 1 for right, 0 for initial
-  const [isAnimating, setIsAnimating] = useState(false) // Thêm state kiểm soát animation
+  const [isAnimating, setIsAnimating] = useState(false)
   const isMobile = useMediaQuery({ maxWidth: 767 })
 
-  const fetchPortfolios = async () => {
-    const res = await http.get(`portfolios?populate=*`)
-    setData(res.data.data)
-  }
-
-  useEffect(() => {
-    fetchPortfolios()
-  }, [])
+  const hasData = Array.isArray(data) && data.length > 0
 
   const nextSlide = () => {
-    // Prevent slide change if animation is in progress
-    if (isAnimating || data.length <= 1) return
+    if (isAnimating || !hasData || data.length <= 1) return
 
     setIsAnimating(true)
     setDirection(1)
@@ -32,8 +22,7 @@ export function Portfolio() {
   }
 
   const prevSlide = () => {
-    // Prevent slide change if animation is in progress
-    if (isAnimating || data.length <= 1) return
+    if (isAnimating || !hasData || data.length <= 1) return
 
     setIsAnimating(true)
     setDirection(-1)
@@ -41,15 +30,13 @@ export function Portfolio() {
   }
 
   const goToSlide = (index) => {
-    // Prevent slide change if animation is in progress or it's the current slide
-    if (isAnimating || index === currentIndex || data.length <= 1) return
+    if (isAnimating || index === currentIndex || !hasData || data.length <= 1) return
 
     setIsAnimating(true)
     setDirection(index > currentIndex ? 1 : -1)
     setCurrentIndex(index)
   }
 
-  // Add callback function for animation completion event
   const handleAnimationComplete = () => {
     setIsAnimating(false)
   }
@@ -78,11 +65,11 @@ export function Portfolio() {
     <div className='page-container bg-dark-1 mx-auto !pr-0 md:px-8'>
       {isMobile && (
         <div className='flex items-center justify-center gap-2'>
-          <NavigationButtons onPrev={prevSlide} onNext={nextSlide} disabled={isAnimating} />
+          <NavigationButtons onPrev={prevSlide} onNext={nextSlide} disabled={isAnimating || !hasData} />
         </div>
       )}
 
-      {data.length > 0 && (
+      {hasData ? (
         <div className='relative overflow-hidden'>
           <AnimatePresence custom={direction} initial={false} mode='wait' onExitComplete={handleAnimationComplete}>
             <motion.div
@@ -99,7 +86,10 @@ export function Portfolio() {
             </motion.div>
           </AnimatePresence>
         </div>
+      ) : (
+        <p>No portfolio data available</p>
       )}
+
       {!isMobile && (
         <AnimationFadeInUp
           delay={0.1}
@@ -107,7 +97,7 @@ export function Portfolio() {
           index={isMobile ? 0 : 7}
           className='flex justify-center gap-2 pb-2 md:mt-2 md:pb-0'
         >
-          <NavigationButtons onPrev={prevSlide} onNext={nextSlide} disabled={isAnimating} />
+          <NavigationButtons onPrev={prevSlide} onNext={nextSlide} disabled={isAnimating || !hasData} />
         </AnimationFadeInUp>
       )}
     </div>

@@ -1,4 +1,3 @@
-import FlexibleGradient from 'src/components/Gradient/FlexibleGradient.jsx'
 import { AnimationFadeInUp } from 'src/components/Animation/index.jsx'
 
 export const AboutUs = () => {

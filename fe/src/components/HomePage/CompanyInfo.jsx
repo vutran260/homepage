@@ -1,21 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import 'src/scss/components/InfoCompany.scss'
-import infoCompanyApi from 'src/apis/infoCompany.api'
 import bgCompanyCert from 'src/assets/images/bgCompanyCert.png'
 import { AnimationFadeInUp } from 'src/components/Animation/index.jsx'
 import FlexibleGradient from 'src/components/Gradient/FlexibleGradient.jsx'
 
-function CompanyInfo() {
-  const [data, setData] = useState([])
-  const getInfoCompany = async () => {
-    const result = await infoCompanyApi.getInfoCompany()
-    setData(result.data.data)
-  }
-
-  useEffect(() => {
-    getInfoCompany()
-  }, [])
-
+function CompanyInfo({ data }) {
   return (
     // <div className='info-company'>
     //   <h2 className='title textLarge my-10 text-white'>会社概要</h2>

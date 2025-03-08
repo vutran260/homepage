@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext } from 'react'
 import { AboutUs } from 'src/components/HomePage/AboutUs'
 import { Home } from 'src/components/HomePage/Home'
 import { Portfolio } from 'src/components/HomePage/Portfolio'
@@ -6,7 +6,6 @@ import { Services } from 'src/components/HomePage/Services'
 import { Teams } from 'src/components/HomePage/Teams'
 import { Value } from 'src/components/HomePage/Value'
 import { SideBar } from 'src/components/SideBar/SideBar'
-import { useInView } from 'react-intersection-observer'
 import 'src/scss/components/homePage.scss'
 import { SideBarMobile } from 'src/components/SideBar/SideBarMobile.jsx'
 import Footer from 'src/components/Footer'
@@ -15,103 +14,46 @@ import { isMobile } from 'react-device-detect'
 
 import { Element } from 'react-scroll'
 import { AppContext } from 'src/contexts/app.context'
-import { ButtonGoDown } from 'src/components/Button'
-import { useLocation } from 'react-router-dom'
 import CompanyInfo from 'src/components/HomePage/CompanyInfo'
 import { Articles } from 'src/components/HomePage/Articles'
 import VideoIntro from 'src/components/VideoIntro/VideoIntro.jsx'
 import { Blogs } from 'src/components/HomePage/Blogs.jsx'
-
-function Section({ children, id }) {
-  const { inView, ref } = useInView({
-    /* Optional options */
-    threshold: 0.3
-  })
-  const { setMenuActive } = useContext(AppContext)
-  useEffect(() => {
-    if (inView) {
-      setMenuActive(id)
-    }
-  }, [inView])
-
-  return (
-    <section ref={ref}>
-      <div
-        className='bg-black'
-        style={{
-          // transform: inView ? 'none' : 'translateY(200px)',
-          // opacity: inView ? 1 : 0,
-          transition: 'all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s'
-        }}
-      >
-        {children}
-      </div>
-    </section>
-  )
-}
+import useResponsiveScale from 'src/hooks/useResponsiveScale.jsx'
+import useIntroVideo from 'src/components/VideoIntro/useIntroVideo.jsx'
+import useScrollToSection from 'src/hooks/useScrollToSection.jsx'
+import { Section } from 'src/components/HomeSection/HomeSection.jsx'
+import http from 'src/utils/http.js'
+import infoCompanyApi from 'src/apis/infoCompany.api.js'
 
 export default function HomePage() {
-  let { state } = useLocation()
-  useEffect(() => {
-    if (state?.redirect) {
-      const section = document.querySelector(`#${state?.redirect}`)
-      if (section) {
-        section.scrollIntoView({ behavior: 'auto', block: 'start' })
-      }
-    }
-  }, [])
-
   const { setting } = useContext(AppContext)
-  const VIDEO_SEEN_KEY = 'introVideoSeen'
+  const { showIntroVideo, shouldAnimate, handleVideoEnd } = useIntroVideo()
+  useScrollToSection()
+  const scale = useResponsiveScale()
 
-  const [showIntroVideo, setShowIntroVideo] = useState(() => {
-    const hasSeenVideo = sessionStorage.getItem(VIDEO_SEEN_KEY) === 'true'
-    return !hasSeenVideo && !isMobile
-  })
-
-  const [shouldAnimate, setShouldAnimate] = useState(() => {
-    const hasSeenVideo = sessionStorage.getItem(VIDEO_SEEN_KEY) === 'true'
-    return hasSeenVideo || isMobile
-  })
-
-  const handleVideoEnd = () => {
-    sessionStorage.setItem(VIDEO_SEEN_KEY, 'true')
-    setShowIntroVideo(false)
-    setShouldAnimate(true)
+  const fetchPortfolios = async () => {
+    return http.get(`portfolios?populate=*`)
   }
 
-  const [scale, setScale] = useState(1)
+  const fetchBlogs = async () => {
+    return await http.get(`posts?populate=*&pagination[page]=1&pagination[pageSize]=10&sort=createdAt:desc`)
+  }
 
-  useEffect(() => {
-    function handleResize() {
-      const targetWidth = 1500
-      const targetHeight = 768
+  const fetchNews = async () => {
+    return await http.get(`articles?populate=*&pagination[page]=1&pagination[pageSize]=3&sort=createdAt:desc`)
+  }
 
-      const isMobile = window.innerWidth <= 768
+  const fetchTeams = async () => {
+    return await http.get(`teams?populate=*`)
+  }
 
-      if (isMobile) {
-        setScale(1)
-      } else {
-        if (window.innerHeight < targetHeight) {
-          const scaleWidth = window.innerWidth / targetWidth
-          const scaleHeight = window.innerHeight / targetHeight
-          let newScale = Math.min(scaleWidth, scaleHeight)
+  const fetchFeedbacks = async () => {
+    return await http.get(`feedbacks?populate=*`)
+  }
 
-          const minScale = 0.6
-          newScale = Math.max(Math.min(newScale, 1.0), minScale)
-
-          setScale(newScale * 0.95)
-        } else {
-          setScale(1)
-        }
-      }
-    }
-
-    window.addEventListener('resize', handleResize)
-    handleResize()
-
-    return () => window.removeEventListener('resize', handleResize)
-  }, [])
+  const fetchCompanyInfo = async () => {
+    return await infoCompanyApi.getInfoCompany()
+  }
 
   return (
     <>
@@ -119,76 +61,65 @@ export default function HomePage() {
       <div className='min-h-screen'>
         <SideBarMobile />
         <SideBar shouldAnimate={shouldAnimate} />
-        {setting?.banner && (
-          <div className='mainContainerHome mx-auto flex h-full w-full justify-between'>
-            <div className='placeSideBar'></div>
-            <div className='mainHomeContent'>
-              <div className='ButtonGoDown'>
-                <ButtonGoDown />
-              </div>
-              <Element id='Home'>
-                <Section id='Home'>
-                  <Home shouldAnimate={shouldAnimate || isMobile} />
-                </Section>
-              </Element>
-              <Element id='Portfolio' style={{ transform: `scale(${scale})` }}>
-                <Section id='Portfolio'>
-                  <Portfolio />
-                </Section>
-              </Element>
-              {/*<Element id='Portfolio1'>*/}
-              {/*  <Section id='Portfolio1'>*/}
-              {/*    <SliderPortfolio />*/}
-              {/*  </Section>*/}
-              {/*</Element>*/}
-              <Element id='Blogs' style={{ transform: `scale(${scale})` }}>
-                <Section id='Blogs'>
-                  <Blogs />
-                </Section>
-              </Element>
-              <Element id='News' style={{ transform: `scale(${scale})` }}>
-                <Section id='News'>
-                  <Articles />
-                </Section>
-              </Element>
-              <Element id='About_Us' style={{ transform: `scale(${scale})` }}>
-                <Section id='About_Us'>
-                  <AboutUs />
-                </Section>
-              </Element>
-              <Element id='Services' style={{ transform: `scale(${scale})` }}>
-                <Section id='Services'>
-                  <Services />
-                </Section>
-              </Element>
-              <Element id='Value' style={{ transform: `scale(${scale})` }}>
-                <Section id='Value'>
-                  <Value />
-                </Section>
-              </Element>
-              <Element id='Team' style={{ transform: `scale(${scale})` }}>
-                <Section id='Team'>
-                  <Teams />
-                </Section>
-              </Element>
-              <Element id='Feedback' style={{ transform: `scale(${scale})` }}>
-                <Section id='Feedback'>
-                  <ClientFeedback />
-                </Section>
-              </Element>
-              <Element id='CompanyInfo' style={{ transform: `scale(${scale * 0.9})` }}>
-                <Section id='CompanyInfo'>
-                  <CompanyInfo />
-                </Section>
-              </Element>
-              <Element id='Contact_Us' style={{ transform: `scale(${scale})` }}>
-                <Section id='Contact_Us'>
-                  <Footer />
-                </Section>
-              </Element>
-            </div>
+        <div className='flex'>
+          <div className='mainHomeContent'>
+            <Element id='Home'>
+              <Section id='Home'>
+                <Home shouldAnimate={shouldAnimate || isMobile} />
+              </Section>
+            </Element>
+            <Element id='Portfolio' style={{ transform: `scale(${scale})` }}>
+              <Section id='Portfolio' loadData={fetchPortfolios} bgLoadingClass='bg-dark-1'>
+                <Portfolio />
+              </Section>
+            </Element>
+            <Element id='Blogs' style={{ transform: `scale(${scale})` }}>
+              <Section id='Blogs' loadData={fetchBlogs} bgLoadingClass='bg-light-1'>
+                <Blogs />
+              </Section>
+            </Element>
+            <Element id='News' style={{ transform: `scale(${scale})` }}>
+              <Section id='News' loadData={fetchNews} bgLoadingClass='bg-light-2'>
+                <Articles />
+              </Section>
+            </Element>
+            <Element id='About_Us' style={{ transform: `scale(${scale})` }}>
+              <Section id='About_Us' bgLoadingClass='bg-aboutUs'>
+                <AboutUs />
+              </Section>
+            </Element>
+            <Element id='Services' style={{ transform: `scale(${scale})` }}>
+              <Section id='Services' bgLoadingClass='bg-dark-1'>
+                <Services />
+              </Section>
+            </Element>
+            <Element id='Value' style={{ transform: `scale(${scale})` }}>
+              <Section id='Value' bgLoadingClass='bg-aboutUs'>
+                <Value />
+              </Section>
+            </Element>
+            <Element id='Team' style={{ transform: `scale(${scale})` }}>
+              <Section id='Team' loadData={fetchTeams} bgLoadingClass=' bg-light-2'>
+                <Teams />
+              </Section>
+            </Element>
+            <Element id='Feedback' style={{ transform: `scale(${scale})` }}>
+              <Section id='Feedback' loadData={fetchFeedbacks} bgLoadingClass='bg-light-2'>
+                <ClientFeedback />
+              </Section>
+            </Element>
+            <Element id='CompanyInfo' style={{ transform: `scale(${scale * 0.9})` }}>
+              <Section id='CompanyInfo' loadData={fetchCompanyInfo} bgLoadingClass='bg-light-2'>
+                <CompanyInfo />
+              </Section>
+            </Element>
+            <Element id='Contact_Us' style={{ transform: `scale(${scale})` }}>
+              <Section id='Contact_Us' bgLoadingClass='bg-light-2'>
+                <Footer />
+              </Section>
+            </Element>
           </div>
-        )}
+        </div>
       </div>
     </>
   )

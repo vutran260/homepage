@@ -3,8 +3,8 @@ import { createContext, useState } from 'react'
 const initialAppContext = {
   setting: {},
   setSeting: () => null,
-  menuActive: 1,
-  setMenuActive: () => null,
+  menuActive: 'Home',
+  setMenuActive: () => null
 }
 
 export const AppContext = createContext(initialAppContext)

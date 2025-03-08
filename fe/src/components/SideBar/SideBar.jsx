@@ -5,7 +5,7 @@ import LogoNew from 'src/assets/images/LogoNew.png'
 import { AnimationFadeInUp } from 'src/components/Animation/index.jsx'
 
 export const SideBar = ({ shouldAnimate }) => {
-  let { menuActive } = useContext(AppContext)
+  let { menuActive, setMenuActive } = useContext(AppContext)
   if (menuActive == 'Portfolio1') menuActive = 'Portfolio'
   const arrItemSideBar = [
     'Home',
@@ -33,10 +33,13 @@ export const SideBar = ({ shouldAnimate }) => {
     '会社概要',
     'お問い合わせ'
   ]
+
   const handleScrollToElement = (targetName) => {
     const section = document.querySelector(`#${targetName}`)
     section.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    setMenuActive(targetName)
   }
+
   return (
     <AnimationFadeInUp className='bottom-sidebar' shouldAnimate={shouldAnimate} fixedElement={true}>
       <div className='bottom-sidebar'>
