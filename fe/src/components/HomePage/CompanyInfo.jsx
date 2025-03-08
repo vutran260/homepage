@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import 'src/scss/components/InfoCompany.scss'
 import infoCompanyApi from 'src/apis/infoCompany.api'
 import bgCompanyCert from 'src/assets/images/bgCompanyCert.png'
 import { AnimationFadeInUp } from 'src/components/Animation/index.jsx'
+import FlexibleGradient from 'src/components/Gradient/FlexibleGradient.jsx'
 
 function CompanyInfo() {
   const [data, setData] = useState([])
@@ -37,8 +38,8 @@ function CompanyInfo() {
     <div className='page-container bg-light-2'>
       <div className='mx-auto'>
         {/* Title */}
-        <AnimationFadeInUp shouldAnimate={true} index={0}>
-          <h1 className='mb-8 text-center text-4xl font-bold'>会社概要</h1>
+        <AnimationFadeInUp shouldAnimate={true} index={0} className='flex items-center justify-center'>
+          <FlexibleGradient text='会社概要' className='mb-8 text-center text-4xl font-bold' />
         </AnimationFadeInUp>
         {/* Content Grid */}
         <div className='grid gap-6 md:grid-cols-2'>

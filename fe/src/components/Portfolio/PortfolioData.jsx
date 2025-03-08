@@ -32,7 +32,11 @@ const PortfolioData = ({ portfolio }) => {
         <AnimationFadeInUp delay={0.1} shouldAnimate={true} index={4}>
           <HoverFloatMotion>
             <CardGradient className='h-[600px] w-full rounded-lg border border-solid border-darkGray-600 px-4 pt-6 text-center md:w-[455px] md:px-6'>
-              <p className='mb-6 text-2xl text-white'>STEP① 出発地を指定</p>
+              <div className='mb-5'>
+                <p className='text-lg text-white'>STEP</p>
+                <p className='mb-2 font-second text-2xl tracking-widest text-white'>01</p>
+                <p className='text-lg tracking-wider text-white'>出発地を指定</p>
+              </div>
               <div>
                 <img src={getImageUrl(image, 0)} className='h-full w-full object-contain' alt={title} />
               </div>
@@ -46,7 +50,11 @@ const PortfolioData = ({ portfolio }) => {
         <AnimationFadeInUp delay={0.1} shouldAnimate={true} index={5}>
           <HoverFloatMotion>
             <CardGradient className='h-[600px] w-full rounded-lg border border-solid border-darkGray-600 px-4 pt-6 text-center md:w-[500px] md:pl-8 md:pr-0'>
-              <p className='mb-6 text-xl text-white'>お迎え希望の位置をマップ上で指定。「ここに呼ぶ」</p>
+              <div className='mb-5'>
+                <p className='text-lg text-white'>STEP</p>
+                <p className='mb-2 font-second text-2xl tracking-widest text-white'>02</p>
+                <p className='text-lg tracking-wider text-white'>お迎え希望の位置をマップ上で指定。「ここに呼ぶ」</p>
+              </div>
               <img src={getImageUrl(image, 1)} className='h-full w-full' alt={title} />
             </CardGradient>
           </HoverFloatMotion>

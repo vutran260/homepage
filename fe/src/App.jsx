@@ -17,7 +17,6 @@ function App() {
   const { setSetting } = useContext(AppContext)
   const [loading, setLoading] = useState(true)
 
-
   useEffect(() => {
     const fetchData = async () => {
       const res = await http.get('setting?populate=*')

@@ -8,13 +8,39 @@
   src: url('src/assets/fonts/InstrumentSans-Bold.ttf') format('truetype');
 }
 
+@font-face {
+  font-family: 'Poppins';
+  src: url('src/assets/fonts/Poppins-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Poppins Bold';
+  src: url('src/assets/fonts/Poppins-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Noto Sans JP';
+  src: url('src/assets/fonts/NotoSansJP-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Noto Sans JP Bold';
+  src: url('src/assets/fonts/NotoSansJP-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Noto Sans JP Black';
+  src: url('src/assets/fonts/NotoSansJP-Black.ttf') format('truetype');
+}
+
 $font-weight-normal: 400 !default;
 $font-weight-bold: 900 !default;
 
 $spacing-base: 0 !default;
 
-$font-family-base: 'Instrument Sans', sans-serif;
-$font-family-bold: 'Instrument Sans Bold', sans-serif;
+$font-family-base: 'Noto Sans JP', sans-serif;
+$font-family-bold: 'Noto Sans JP Bold', sans-serif;
+$font-family-black: 'Noto Sans JP Black', sans-serif;
 
 $font-size-base: 16px !default;
 $font-size-medium: 20px !default;

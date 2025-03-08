@@ -21,10 +21,7 @@ export const Teams = () => {
       <div className='center pb-4 md:pb-8'>
         <div>
           <AnimationFadeInUp shouldAnimate={true} index={0}>
-            <FlexibleGradient text='スタッフ' className='text-3xl' />
-          </AnimationFadeInUp>
-          <AnimationFadeInUp shouldAnimate={true} index={1}>
-            <h2 className='page-title mt-2'>チーム</h2>
+            <FlexibleGradient text='チーム' className='text-3xl' />
           </AnimationFadeInUp>
         </div>
       </div>

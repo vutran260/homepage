@@ -2,16 +2,24 @@
   @apply heightSection px-4 pt-[30px] text-white md:px-16 flex flex-col justify-center;
 }
 
+.home-container {
+  @apply  pt-[30px] text-white flex flex-col justify-center;
+}
+
 .page-detail-container {
   @apply heightSectionDetail px-4 pt-[30px] text-white md:px-16 flex flex-col md:justify-center;
 }
 
 .page-title {
-  @apply text-4xl md:text-6xl font-bold;
+  @apply text-4xl md:text-6xl font-bold tracking-widest font-third;
 }
 
 .center {
   @apply flex items-center justify-center text-center;
+}
+
+.left {
+  @apply flex items-start justify-start text-left;
 }
 
 .between {
@@ -36,6 +44,21 @@
 
 .border-input {
   @apply border-[0.5px] border-solid border-[#FFFFFF1A];
+}
+
+.bg-home {
+  background: url('../../assets/images/bgHome.png') center no-repeat;
+  background-size: cover;
+}
+
+.bg-aboutUs {
+  background: url('../../assets/images/bgAboutUs.png') center no-repeat;
+  background-size: cover;
+}
+
+.bg-value {
+  background: url('../../assets/images/bgValue.png') center no-repeat;
+  background-size: cover;
 }
 
 @screen md {

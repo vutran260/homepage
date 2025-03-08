@@ -9,7 +9,19 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Instrument Sans', 'sans-serif']
+        sans: ['Noto Sans JP', 'sans-serif'],
+        sansBold: ['Noto Sans JP Bold', 'sans-serif'],
+        sansBlack: ['Noto Sans JP Black', 'sans-serif'],
+        second: ['Poppins', 'serif'],
+        secondBold: ['Poppins Bold', 'serif'],
+        third: ['Instrument Sans', 'serif'],
+        thirdBold: ['Instrument Sans Bold', 'serif']
+      },
+      letterSpacing: {
+        widest: '0.14em'
+      },
+      lineHeight: {
+        176: '1.76' // This sets line height to 176%
       },
       colors: {
         orange: '#ee4d2d',
@@ -17,7 +29,8 @@ module.exports = {
           100: '#FFFFFF1A',
           200: '#FFFFFF80',
           500: '#FFFFFFB2',
-          600: '#FFFFFF99'
+          600: '#FFFFFF99',
+          700: '#FFFFFFCC'
         },
         darkGray: {
           900: '#191C22',
@@ -43,7 +56,10 @@ module.exports = {
         'gradient-blue-top': 'linear-gradient(304.53deg, #000008 51.61%, #003699 98.95%)',
         'gradient-purple': 'linear-gradient(218.91deg, #000008 64.72%, #5C24B6 100%)',
         'gradient-pink': 'linear-gradient(226.72deg, #000008 34.26%, #B4299A 100%)',
-        'gradient-green': 'linear-gradient(198.74deg, #131313 63.52%, #119459 100%)'
+        'gradient-green': 'linear-gradient(198.74deg, #131313 63.52%, #119459 100%)',
+        'gradient-lightblue': 'linear-gradient(197.76deg, #131313 63.71%, #6ADAF3 100%)',
+        'gradient-lightpurple': 'linear-gradient(198.74deg, #131313 63.52%, #5C24B6 100%)',
+        'gradient-darkblue': 'linear-gradient(197.76deg, #131313 63.71%, #003699 100%)'
       }
     }
   },

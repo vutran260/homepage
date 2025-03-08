@@ -28,7 +28,7 @@ export function Articles() {
       {/* Header */}
       <AnimationFadeInUp shouldAnimate={true} index={0}>
         <header className='between mb-8 flex-col md:mb-4 md:flex-row'>
-          <h1 className='text-5xl font-bold md:text-4xl'>最新ニュース</h1>
+          <h1 className='text-5xl font-bold tracking-widest md:text-4xl'>最新ニュース</h1>
           <ButtonGradient className='mt-8 w-full md:mt-0 md:w-[160px]' height={50} radius={16} fontSize={20}>
             もっと見る
           </ButtonGradient>
@@ -44,13 +44,13 @@ export function Articles() {
         >
           <div className='mb-4 inline-flex w-fit items-center gap-2 rounded-full bg-darkGray-600 px-4 py-2 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]'>
             <div className='h-2 w-2 rounded-full bg-green-400'></div>
-            <span className='text-sm text-gray-300'>最も閲覧されたニュース</span>
+            <span className='text-sm font-bold text-gray-300'>最も閲覧されたニュース</span>
           </div>
           <p className='mb-2 text-sm text-whiteGray-200'>1st January 2025</p>
           <p className='mb-4 flex-grow text-xl line-clamp-3'>
             2022年、デートアプリ業界は引き続き躍進を放っています。年初からすでに前年比17%の成年初からすでに前年比17%の成
           </p>
-          <ButtonGradient className='w-full md:w-[160px]' height={50} radius={16} fontSize={20}>
+          <ButtonGradient className='w-full md:w-[160px]' height={50} radius={16} fontSize={16}>
             続きを読む
           </ButtonGradient>
         </AnimationFadeInUp>
@@ -63,8 +63,8 @@ export function Articles() {
         >
           <div className='flex flex-col items-center justify-start md:items-start'>
             <img src={LogoNew} width={50} height={50} alt='' />
-            <h2 className='mt-5 text-6xl font-bold'>2025</h2>
-            <p className='mt-5 text-4xl text-purple-400 md:text-5xl'>注目のニュース</p>
+            <h2 className='mt-5 font-secondBold text-6xl font-bold'>2025</h2>
+            <p className='mt-5 text-4xl font-bold tracking-widest text-purple-400 md:text-5xl'>注目のニュース</p>
           </div>
         </AnimationFadeInUp>
       </div>

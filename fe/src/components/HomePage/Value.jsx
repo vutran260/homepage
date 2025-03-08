@@ -1,65 +1,41 @@
 import 'src/scss/components/value.scss'
 import { AnimationFadeInUp } from '../Animation'
-import ourValue from 'src/assets/jsons/ourValue.json'
-import LottieAnimation from 'src/components/LottieAnimation/index.jsx'
+import FlexibleGradient from 'src/components/Gradient/FlexibleGradient.jsx'
+import React from 'react'
 
 export function Value() {
   return (
-    <div className='page-container bg-dark-1'>
-      <div className='flex flex-wrap items-center'>
-        <div className='z-10 w-full'>
+    <div className='page-container bg-aboutUs'>
+      <div className='flex justify-between'>
+        <div className='text-center md:text-left'>
+          <AnimationFadeInUp shouldAnimate={true} index={0}>
+            <FlexibleGradient text='私たちの価値' className='mb-5 items-center text-3xl md:text-left' />
+          </AnimationFadeInUp>
           <AnimationFadeInUp shouldAnimate={true} index={1} className='text-center md:text-left'>
-            <h2 className='mt-2 mb-6 text-4xl font-bold text-white md:mb-6 md:text-6xl'>私たちの価値</h2>
+            <h2 className='pb-2 text-xl tracking-widest md:text-3xl'>最先端のIT技術を駆使し、</h2>
+            <h2 className='pb-4 text-xl tracking-widest md:text-3xl'>トレンドに合わせたアプリ開発</h2>
           </AnimationFadeInUp>
           <AnimationFadeInUp shouldAnimate={true} index={2}>
-            <div className='w-full rounded-2xl border border-solid border-darkGray-600 bg-black-800 p-4 text-whiteGray-600 md:w-[800px] md:p-8'>
-              <p className='mb-4 text-base md:mb-8 md:text-xl'>
-                私たちは最先端のIT技術を駆使し、トレンドに合わせたアプリ開発に特化しております。
-                豊富な実績から、ライブ配信アプリ開発には特に強みを持っており、
-                多方面からアプローチ可能な企画提案や、よく使われている機能などを速やかに実装可能です。
-                開発だけではなく、保守に関してもフレキシブルに対応をしております。
+            <div className='w-full !font-normal tracking-widest text-whiteGray-700 md:w-[500px]'>
+              <p className='mb-2 text-base md:leading-[30px]'>
+                豊富な実績から<span className='font-sansBlack text-white'>ライブ配信アプリ開発</span>
+                には特に強みを持っており、多方面からアプローチ可能な企画提案や、よく使われている機能などを速やかに実装可能です。開発だけではなく、
+                <span className='font-sansBlack text-white'>保守に関してもフレキシブルに対応</span>をしております。
               </p>
-              <p className='mb-4 text-base md:mb-8 md:text-xl'>
-                <b className='text-base text-blueCustom-100 md:text-xl'>
-                  "ユーザーに長く愛されるアプリにしたい" "アプリ開発を知り尽くしたプロフェッショナルと一緒につくりたい"
-                  "新しい技術で開発したい"
-                </b>{' '}
-                そんな法人様・個人様に要件定義から運用保守までお応えすることが可能です。
+              <p className='mb-2 text-base md:leading-[30px]'>
+                「ユーザーに長く愛されるアプリにしたい」「アプリ開発を知り尽くしたプロフェッショナルと一緒に作りたい」「新しい技術で開発したい」
               </p>
-              <p className='mb-4 text-base md:mb-8 md:text-xl'>
-                また、近年流行しているアプリの特性を一早く理解し、テストとして似たような
-                アプリを制作するよう心掛けておりますので、 その実績上、質の高い提案が出来る自負があります。
+              <p className='mb-2 text-base md:leading-[30px]'>
+                そんな法人様・個人様に、要件定義から運用保守までお応えすることが可能です。
+              </p>
+              <p className='mb-2 text-base md:leading-[30px]'>
+                また、近年流行しているアプリの特性を一早く理解し、テストとして似たようなアプリを制作するよう心掛けておりますので、その実績上、
+                <span className='font-sansBlack text-white'>質の高い提案が出来る自負があります。</span>
               </p>
             </div>
           </AnimationFadeInUp>
         </div>
-        <AnimationFadeInUp shouldAnimate={true} index={3} className='absolute right-0 bottom-0 z-0 w-full md:w-1/2'>
-          <LottieAnimation animationData={ourValue} className='h-auto w-full' />
-        </AnimationFadeInUp>
       </div>
-      {/*<AnimationInViewToTop className='grayscale-image w-4/5'>*/}
-      {/*  <img src={background} alt='' />*/}
-      {/*</AnimationInViewToTop>*/}
-      {/*<div className='wrap-text absolute flex flex-col rounded-md bg-darkGray-900'>*/}
-      {/*  <AnimationInViewToTop className='textLarge mb-4 text-white'>Our Value</AnimationInViewToTop>*/}
-      {/*  <AnimationInViewToTop className='font-extralight leading-normal text-white'>*/}
-      {/*    私たちは最先端のIT技術を駆使し、トレンドに合わせたアプリ開発に特化しております。*/}
-      {/*    豊富な実績から、ライブ配信アプリ開発には特に強みを持っており、*/}
-      {/*    多方面からアプローチ可能な企画提案や、よく使われている機能などを速やかに実装可能です。*/}
-      {/*    開発だけではなく、保守に関してもフレキシブルに対応をしております。*/}
-      {/*    <br />*/}
-      {/*    <br />*/}
-      {/*    <b className='font-extrabold text-sky-500'>*/}
-      {/*      "ユーザーに長く愛されるアプリにしたい" "アプリ開発を知り尽くしたプロフェッショナルと一緒につくりたい"*/}
-      {/*      "新しい技術で開発したい"*/}
-      {/*    </b>{' '}*/}
-      {/*    そんな法人様・個人様に要件定義から運用保守までお応えすることが可能です。*/}
-      {/*    <br />*/}
-      {/*    <br />*/}
-      {/*    また、近年流行しているアプリの特性を一早く理解し、テストとして似たような*/}
-      {/*    アプリを制作するよう心掛けておりますので、 その実績上、質の高い提案が出来る自負があります。*/}
-      {/*  </AnimationInViewToTop>*/}
-      {/*</div>*/}
     </div>
   )
 }

@@ -43,7 +43,13 @@ function Portfolio() {
       {data && (
         <AnimationWrap>
           <div className='text-center'>
-            <ProjectBasicInfo shouldAnimate={false} portfolio={data} centerTech={true} hideButton={true} />
+            <ProjectBasicInfo
+              shouldAnimate={false}
+              portfolio={data}
+              centerTech={true}
+              hideButton={true}
+              topLogo={true}
+            />
           </div>
           <CardPortfolio
             key={data.id}

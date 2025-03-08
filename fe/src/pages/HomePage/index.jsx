@@ -51,14 +51,6 @@ function Section({ children, id }) {
 }
 
 export default function HomePage() {
-  const [position, setPosition] = useState('-100%')
-  const HandleOpenSideBar = () => {
-    setPosition('0')
-  }
-  const handleCloseSideBar = () => {
-    setPosition('-100%')
-  }
-
   let { state } = useLocation()
   useEffect(() => {
     if (state?.redirect) {
@@ -125,8 +117,7 @@ export default function HomePage() {
     <>
       {!isMobile && showIntroVideo && <VideoIntro onEnd={handleVideoEnd} />}
       <div className='min-h-screen'>
-        {/*<Header HandleOpenSideBar={HandleOpenSideBar} />*/}
-        <SideBarMobile position={position} handleCloseSideBar={handleCloseSideBar} />
+        <SideBarMobile />
         <SideBar shouldAnimate={shouldAnimate} />
         {setting?.banner && (
           <div className='mainContainerHome mx-auto flex h-full w-full justify-between'>
