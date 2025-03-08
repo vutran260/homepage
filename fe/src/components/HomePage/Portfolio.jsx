@@ -29,14 +29,6 @@ export function Portfolio({ data = [] }) {
     setCurrentIndex((prevIndex) => (prevIndex === 0 ? data.length - 1 : prevIndex - 1))
   }
 
-  const goToSlide = (index) => {
-    if (isAnimating || index === currentIndex || !hasData || data.length <= 1) return
-
-    setIsAnimating(true)
-    setDirection(index > currentIndex ? 1 : -1)
-    setCurrentIndex(index)
-  }
-
   const handleAnimationComplete = () => {
     setIsAnimating(false)
   }
