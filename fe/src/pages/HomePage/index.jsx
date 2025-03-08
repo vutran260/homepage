@@ -63,7 +63,7 @@ export default function HomePage() {
           <div className='mainHomeContent'>
             <Element id='Home'>
               <Section id='Home' bgLoadingClass='bg-home'>
-                <Home shouldAnimate={shouldAnimate || isMobile} />
+                <Home shouldAnimate={shouldAnimate || isMobile} isMobile={isMobile} />
               </Section>
             </Element>
             <Element id='Portfolio' style={{ transform: `scale(${scale})` }}>
