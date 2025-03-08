@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { AboutUs } from 'src/components/HomePage/AboutUs'
 import { Home } from 'src/components/HomePage/Home'
 import { Portfolio } from 'src/components/HomePage/Portfolio'
@@ -13,7 +13,6 @@ import ClientFeedback from 'src/components/HomePage/ClientFeedback'
 import { isMobile } from 'react-device-detect'
 
 import { Element } from 'react-scroll'
-import { AppContext } from 'src/contexts/app.context'
 import CompanyInfo from 'src/components/HomePage/CompanyInfo'
 import { Articles } from 'src/components/HomePage/Articles'
 import VideoIntro from 'src/components/VideoIntro/VideoIntro.jsx'
@@ -26,7 +25,6 @@ import http from 'src/utils/http.js'
 import infoCompanyApi from 'src/apis/infoCompany.api.js'
 
 export default function HomePage() {
-  const { setting } = useContext(AppContext)
   const { showIntroVideo, shouldAnimate, handleVideoEnd } = useIntroVideo()
   useScrollToSection()
   const scale = useResponsiveScale()
@@ -64,7 +62,7 @@ export default function HomePage() {
         <div className='flex'>
           <div className='mainHomeContent'>
             <Element id='Home'>
-              <Section id='Home'>
+              <Section id='Home' bgLoadingClass='bg-home'>
                 <Home shouldAnimate={shouldAnimate || isMobile} />
               </Section>
             </Element>
