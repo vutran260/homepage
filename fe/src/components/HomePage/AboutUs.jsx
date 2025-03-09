@@ -1,9 +1,12 @@
 import { AnimationFadeInUp } from 'src/components/Animation/index.jsx'
+import LottieAnimation from 'src/components/LottieAnimation/index.jsx'
+import ourValue from 'src/assets/jsons/ourValue.json'
+import React from 'react'
 
 export const AboutUs = () => {
   return (
     <>
-      <div className='page-container bg-aboutUs'>
+      <div className='page-container bg-dark-1'>
         <div className='flex'>
           <div className='z-10 w-full'>
             <AnimationFadeInUp shouldAnimate={true} index={1} className='text-center md:text-left'>
@@ -11,7 +14,7 @@ export const AboutUs = () => {
             </AnimationFadeInUp>
 
             <AnimationFadeInUp shouldAnimate={true} index={2}>
-              <div className='w-full !font-normal tracking-widest text-whiteGray-700 md:w-[700px]'>
+              <div className='w-full rounded-2xl border border-solid border-darkGray-600 bg-black-800 p-4 !font-normal tracking-widest text-whiteGray-700 md:w-[800px] md:p-8'>
                 <p className='text-base'>CETのアプリ開発は、単なるエンジニアリングの先端を行くものではありません。</p>
                 <p className='mb-4 text-base md:mb-8'>
                   私たちのアプローチは、プロジェクトの初動からデザインプロセスを深く組み込み、
@@ -34,6 +37,13 @@ export const AboutUs = () => {
                   私たちの提供するアプリの保守継続率が90%以上という結果は、私たちの品質とサービスへの継続的な取り組みを示しています。...
                 </p>
               </div>
+            </AnimationFadeInUp>
+            <AnimationFadeInUp
+              shouldAnimate={true}
+              index={3}
+              className='absolute right-0 bottom-0 z-[-1] w-full md:w-1/2'
+            >
+              <LottieAnimation animationData={ourValue} className='h-auto w-full' />
             </AnimationFadeInUp>
           </div>
         </div>
