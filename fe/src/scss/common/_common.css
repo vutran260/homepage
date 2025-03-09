@@ -46,21 +46,6 @@
   @apply border-[0.5px] border-solid border-[#FFFFFF1A];
 }
 
-.bg-home {
-  background: url('../../assets/images/bgHome.png') center no-repeat;
-  background-size: cover;
-}
-
-.bg-aboutUs {
-  background: url('../../assets/images/bgAboutUs.png') center no-repeat;
-  background-size: cover;
-}
-
-.bg-value {
-  background: url('../../assets/images/bgValue.png') center no-repeat;
-  background-size: cover;
-}
-
 @screen md {
   .bg-dark-1 {
     background: url('../../assets/images/bgDark1.png') center no-repeat;

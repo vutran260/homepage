@@ -26,8 +26,8 @@ export function Home({ shouldAnimate, isMobile }) {
 
   return (
     <div
-      className='home-container bg-cover bg-center bg-no-repeat md:bg-none'
-      style={{ backgroundImage: `url(${bgHomeMobile})` }}
+      className='home-container relative bg-cover bg-center bg-no-repeat'
+      style={{ backgroundImage: `${isMobile ? `url(${bgHomeMobile})` : 'none'}` }}
     >
       <div className='z-10 h-screen pt-4'>
         <div className='flex flex-row justify-center'>
@@ -60,7 +60,7 @@ export function Home({ shouldAnimate, isMobile }) {
           ref={videoRef}
           loop
           muted
-          className='video-background absolute inset-0 h-full w-full object-cover'
+          className='video-background absolute inset-0 h-screen w-full object-cover'
         >
           <source src={bgHomeVideo} type='video/mp4' />
           Your browser does not support the video tag.

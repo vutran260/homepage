@@ -62,7 +62,7 @@ export default function HomePage() {
         <div className='flex'>
           <div className='mainHomeContent'>
             <Element id='Home'>
-              <Section id='Home' bgLoadingClass='bg-home'>
+              <Section id='Home' bgLoadingClass='bg-black'>
                 <Home shouldAnimate={shouldAnimate || isMobile} isMobile={isMobile} />
               </Section>
             </Element>
@@ -82,7 +82,7 @@ export default function HomePage() {
               </Section>
             </Element>
             <Element id='About_Us' style={{ transform: `scale(${scale})` }}>
-              <Section id='About_Us' bgLoadingClass='bg-aboutUs'>
+              <Section id='About_Us' bgLoadingClass='bg-dark-1'>
                 <AboutUs />
               </Section>
             </Element>
@@ -92,7 +92,7 @@ export default function HomePage() {
               </Section>
             </Element>
             <Element id='Value' style={{ transform: `scale(${scale})` }}>
-              <Section id='Value' bgLoadingClass='bg-aboutUs'>
+              <Section id='Value' bgLoadingClass='bg-dark-1'>
                 <Value />
               </Section>
             </Element>
